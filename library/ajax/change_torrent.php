@@ -57,9 +57,9 @@ elseif (!IS_AM)
 $title = $url = '';
 switch ($type)
 {
-	case 'set_gold';
-	case 'set_silver';
-	case 'unset_silver_gold';
+	case 'set_gold':
+	case 'set_silver':
+	case 'unset_silver_gold':
 		if ($type == 'set_silver')
 		{
 			$tor_type = TOR_TYPE_SILVER;
@@ -77,23 +77,23 @@ switch ($type)
 		$url = make_url(TOPIC_URL . $torrent['topic_id']);
 	break;
 
-	case 'reg';
+	case 'reg':
 		tracker_register($attach_id);
 		$url = (TOPIC_URL . $torrent['topic_id']);
 	break;
 
-	case 'unreg';
+	case 'unreg':
 		tracker_unregister($attach_id);
 		$url = (TOPIC_URL . $torrent['topic_id']);
 	break;
 
-	case 'del_torrent';
+	case 'del_torrent':
 		if (empty($this->request['confirmed'])) $this->prompt_for_confirm($lang['DEL_TORRENT']);
 		delete_torrent($attach_id);
 		$url = make_url(TOPIC_URL . $torrent['topic_id']);
 	break;
 
-	case 'del_torrent_move_topic';
+	case 'del_torrent_move_topic':
 		if (empty($this->request['confirmed'])) $this->prompt_for_confirm($lang['DEL_MOVE_TORRENT']);
 		delete_torrent($attach_id);
 		$url = make_url("modcp.php?t={$torrent['topic_id']}&mode=move&sid={$userdata['session_id']}");
