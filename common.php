@@ -301,12 +301,7 @@ function str_compact ($str)
 
 function make_rand_str ($len = 10)
 {
-	$str = '';
-	while (strlen($str) < $len)
-	{
-		$str .= str_shuffle(preg_replace('#[^0-9a-zA-Z]#', '', crypt(uniqid(mt_rand(), true))));
-	}
-	return substr($str, 0, $len);
+	return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', (int)$len)), 0, $len);
 }
 
 // bencode: based on OpenTracker
