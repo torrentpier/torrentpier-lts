@@ -238,7 +238,7 @@ class user_common
 
 			if (DB()->fetch_row($sql))
 			{
-				header('Location: https://torrentpier.me/banned/');
+				header('Location: https://torrentpier.com/banned/');
 			}
 		}
 
