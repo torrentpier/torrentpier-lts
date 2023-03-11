@@ -32,7 +32,7 @@ function tz_select ($default, $select_name = 'timezone')
 
 	if (!isset($default))
 	{
-		$default == $sys_timezone;
+		$default = $sys_timezone;
 	}
 	$tz_select = '<select name="' . $select_name . '">';
 
