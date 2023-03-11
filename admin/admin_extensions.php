@@ -228,7 +228,7 @@ if ($mode == 'extensions')
 
 	if ($num_extension_row > 0)
 	{
-		$extension_row = sort_multi_array($extension_row, 'group_name', 'ASC');
+		$extension_row = sort_multi_array($extension_row, 'extension', 'ASC');
 
 		for ($i = 0; $i < $num_extension_row; $i++)
 		{
