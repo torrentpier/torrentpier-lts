@@ -67,6 +67,7 @@ define('BOT_UID',   -746);
  */
 // Core DB class
 require(CORE_DIR . 'dbs.php');
+require(CORE_DIR . 'mysql.php');
 $DBS = new DBS($bb_cfg);
 
 function DB ($db_alias = 'db1')
