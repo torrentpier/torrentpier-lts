@@ -269,7 +269,7 @@ else
 {
 	// Generate frameset
 	$template->assign_vars(array(
-		'CONTENT_ENCODING'   => $bb_cfg['lang'][$userdata['user_lang']]['encoding'],
+		'CONTENT_ENCODING'   => isset($bb_cfg['lang'][$userdata['user_lang']]['encoding']) ? $bb_cfg['lang'][$userdata['user_lang']]['encoding'] : 'utf-8',
 		'TPL_ADMIN_FRAMESET' => true,
 	));
 	send_no_cache_headers();
