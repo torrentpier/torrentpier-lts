@@ -49,7 +49,7 @@ if (!defined('WORD_LIST_OBTAINED'))
 
 switch($this->request['type'])
 {
-	case 'delete';
+	case 'delete':
 		if ($post['post_id'] != $post['topic_first_post_id'] && $is_auth['auth_delete'] && ($is_auth['auth_mod'] || ($userdata['user_id'] == $post['poster_id'] && $post['topic_last_post_id'] == $post['post_id'] && $post['post_time'] + 3600*3 > TIMENOW)))
 		{
 			if (empty($this->request['confirmed']))
@@ -70,7 +70,7 @@ switch($this->request['type'])
 		}
 	break;
 
-	case 'reply';
+	case 'reply':
 		if (bf($userdata['user_opt'], 'user_opt', 'dis_post'))
 		{
 			$this->ajax_die(strip_tags($lang['RULES_REPLY_CANNOT']));
