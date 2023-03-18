@@ -56,3 +56,10 @@ INSERT INTO `bb_cron` VALUES ('', '1', 'Accrual seedbonus', 'tr_seed_bonus.php',
 
 // 2.1.5 (LTS 2023.03)
 UPDATE `bb_config` SET `config_value` = 'http://whatismyipaddress.com/ip/' WHERE `config_name` = 'whois_info';
+ALTER TABLE `bb_cron` CHANGE `last_run` `last_run` DATETIME NOT NULL DEFAULT '1900-01-01 00:00:00';
+ALTER TABLE `bb_cron` CHANGE `next_run` `next_run` DATETIME NOT NULL DEFAULT '1900-01-01 00:00:00';
+ALTER TABLE `bb_users` CHANGE `user_birthday` `user_birthday` DATE NOT NULL DEFAULT '1900-01-01';
+ALTER TABLE `bb_posts` CHANGE `mc_comment` `mc_comment` TEXT NOT NULL DEFAULT '';
+ALTER TABLE `bb_users` CHANGE `user_sig` `user_sig` TEXT NOT NULL DEFAULT '';
+ALTER TABLE `bb_groups` CHANGE `group_signature` `group_signature` TEXT NOT NULL DEFAULT '';
+ALTER TABLE `bb_groups` CHANGE `group_description` `group_description` TEXT NOT NULL DEFAULT '';
