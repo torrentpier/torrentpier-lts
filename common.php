@@ -193,7 +193,7 @@ function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $repla
 	if ($max_size && @filesize($file) >= $max_size)
 	{
 		$old_name = $file; $ext = '';
-		if (preg_match('#^(.+)(\.[^\\/]+)$#', $file, $matches))
+		if (preg_match('#^(.+)(\.[^\\\/]+)$#', $file, $matches))
 		{
 			$old_name = $matches[1]; $ext = $matches[2];
 		}
