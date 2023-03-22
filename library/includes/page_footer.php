@@ -6,9 +6,11 @@ global $bb_cfg, $userdata, $template, $DBS, $lang;
 
 if (!empty($template))
 {
+    $birthday_tp = ((string)date('d.m') === '04.04') ? '&nbsp;&#127881;&#127856;&#128154;' : null;
+
 	$template->assign_vars(array(
 		'SIMPLE_FOOTER'    => !empty($gen_simple_header),
-		'POWERED'          => base64_decode($lang['POWERED']),
+		'POWERED'          => (base64_decode($lang['POWERED']) . $birthday_tp),
 		'SHOW_ADMIN_LINK'  => (IS_ADMIN && !defined('IN_ADMIN')),
 		'ADMIN_LINK_HREF'  => "admin/index.php",
 	));
