@@ -1093,6 +1093,7 @@ $lang['TOR_STATUS_NAME'] = array(
 	TOR_CHECKING      => 'перевіряється',
 	TOR_TMP           => 'тимчасова',
 	TOR_PREMOD        => 'премодерація',
+    TOR_REPLENISH     => 'поповнювана',
 );
 $lang['TOR_STATUS_FAILED'] = 'Такого статусу не існує!';
 $lang['TORRENT_FAILED'] = 'Роздача не знайдено!';

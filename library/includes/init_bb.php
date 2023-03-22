@@ -193,6 +193,7 @@ define('TOR_DOUBTFUL',      8);   // сомнительно
 define('TOR_CHECKING',      9);   // проверяется
 define('TOR_TMP',           10);  // временная
 define('TOR_PREMOD',        11);  // премодерация
+define('TOR_REPLENISH',     12);  // пополняемая
 
 $bb_cfg['tor_icons'] = array(
 	TOR_NOT_APPROVED  => '<span class="tor-icon tor-not-approved">*</span>',
@@ -207,6 +208,7 @@ $bb_cfg['tor_icons'] = array(
 	TOR_CHECKING      => '<span class="tor-icon tor-checking">%</span>',
 	TOR_TMP           => '<span class="tor-icon tor-dup">T</span>',
 	TOR_PREMOD        => '<span class="tor-icon tor-dup">&#8719;</span>',
+    TOR_REPLENISH     => '<span class="tor-icon tor-dup">R</span>',
 );
 
 // Запрет на скачивание
