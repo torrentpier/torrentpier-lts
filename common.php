@@ -19,6 +19,9 @@ header('X-Frame-Options: SAMEORIGIN');
 // Get initial config
 require(BB_ROOT . 'library/config.php');
 
+// Load Symfony Polyfill
+require(BB_ROOT . 'library/includes/polyfills/autoload.php');
+
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
 require(BB_ROOT . 'library/Zend/Loader/StandardAutoloader.php');
