@@ -219,7 +219,6 @@ function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $repla
         fclose($fp);
     }
 
-
     return $bytes_written;
 }
 
