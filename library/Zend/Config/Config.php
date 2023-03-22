@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -29,13 +29,6 @@ class Config implements Countable, Iterator, ArrayAccess
      * @var bool
      */
     protected $allowModifications;
-
-    /**
-     * Number of elements in configuration data.
-     *
-     * @var int
-     */
-    protected $count;
 
     /**
      * Data within the configuration.
@@ -71,8 +64,6 @@ class Config implements Countable, Iterator, ArrayAccess
             } else {
                 $this->data[$key] = $value;
             }
-
-            $this->count++;
         }
     }
 
@@ -126,8 +117,6 @@ class Config implements Countable, Iterator, ArrayAccess
             } else {
                 $this->data[$name] = $value;
             }
-
-            $this->count++;
         } else {
             throw new Exception\RuntimeException('Config is read only');
         }
@@ -200,7 +189,6 @@ class Config implements Countable, Iterator, ArrayAccess
             throw new Exception\InvalidArgumentException('Config is read only');
         } elseif (isset($this->data[$name])) {
             unset($this->data[$name]);
-            $this->count--;
             $this->skipNextIteration = true;
         }
     }
@@ -213,7 +201,7 @@ class Config implements Countable, Iterator, ArrayAccess
      */
     public function count()
     {
-        return $this->count;
+        return count($this->data);
     }
 
     /**
@@ -360,8 +348,6 @@ class Config implements Countable, Iterator, ArrayAccess
                 } else {
                     $this->data[$key] = $value;
                 }
-
-                $this->count++;
             }
         }
 
