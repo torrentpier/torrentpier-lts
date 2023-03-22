@@ -15,6 +15,7 @@ if (!defined('BB_ROOT')) define('BB_ROOT', './');
 if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 
 header('X-Frame-Options: SAMEORIGIN');
+header('X-Powered-By: TorrentPier LTS');
 
 // Get initial config
 require(BB_ROOT . 'library/config.php');
