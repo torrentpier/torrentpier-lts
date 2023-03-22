@@ -532,7 +532,7 @@ $bb_cfg['allow_change'] = array(
 	'dateformat' => true,
 );
 
-define('GZIP_OUTPUT_ALLOWED', (extension_loaded('zlib') && !ini_get('zlib.output_compression')));
+define('GZIP_OUTPUT_ALLOWED', extension_loaded('zlib') && !ini_get('zlib.output_compression'));
 
 $banned_user_agents = array(
 // Download Master
