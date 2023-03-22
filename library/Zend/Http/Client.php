@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -25,7 +25,7 @@ class Client implements Stdlib\DispatchableInterface
      * @const string Supported HTTP Authentication methods
      */
     const AUTH_BASIC  = 'basic';
-    const AUTH_DIGEST = 'digest';  // not implemented yet
+    const AUTH_DIGEST = 'digest';
 
     /**
      * @const string POST data encoding methods
@@ -54,7 +54,7 @@ class Client implements Stdlib\DispatchableInterface
     protected $request;
 
     /**
-     * @var Client/Adapter
+     * @var Client\Adapter\AdapterInterface
      */
     protected $adapter;
 
@@ -233,6 +233,7 @@ class Client implements Stdlib\DispatchableInterface
     {
         if (empty($this->request)) {
             $this->request = new Request();
+            $this->request->setAllowCustomMethods(false);
         }
         return $this->request;
     }
@@ -261,7 +262,6 @@ class Client implements Stdlib\DispatchableInterface
         }
         return $this->response;
     }
-
 
     /**
      * Get the last request (as a string)
@@ -412,13 +412,16 @@ class Client implements Stdlib\DispatchableInterface
      */
     public function setEncType($encType, $boundary = null)
     {
-        if (!empty($encType)) {
-            if (!empty($boundary)) {
-                $this->encType = $encType . "; boundary={$boundary}";
-            } else {
-                $this->encType = $encType;
-            }
+        if (null === $encType || empty($encType)) {
+            $this->encType = null;
+            return $this;
         }
+
+        if (! empty($boundary)) {
+            $encType .= sprintf('; boundary=%s', $boundary);
+        }
+
+        $this->encType = $encType;
         return $this;
     }
 
@@ -716,18 +719,18 @@ class Client implements Stdlib\DispatchableInterface
      */
     public function setAuth($user, $password, $type = self::AUTH_BASIC)
     {
-        if (!defined('self::AUTH_' . strtoupper($type))) {
+        if (!defined('static::AUTH_' . strtoupper($type))) {
             throw new Exception\InvalidArgumentException("Invalid or not supported authentication type: '$type'");
         }
+
         if (empty($user)) {
             throw new Exception\InvalidArgumentException("The username cannot be empty");
         }
 
-        $this->auth = array (
+        $this->auth = array(
             'user'     => $user,
             'password' => $password,
             'type'     => $type
-
         );
 
         return $this;
@@ -824,7 +827,6 @@ class Client implements Stdlib\DispatchableInterface
         }
 
         $this->redirectCounter = 0;
-        $response = null;
 
         $adapter = $this->getAdapter();
 
@@ -863,6 +865,9 @@ class Client implements Stdlib\DispatchableInterface
 
             // method
             $method = $this->getRequest()->getMethod();
+
+            // this is so the correct Encoding Type is set
+            $this->setMethod($method);
 
             // body
             $body = $this->prepareBody();
@@ -938,7 +943,6 @@ class Client implements Stdlib\DispatchableInterface
                     $this->resetParameters(false, false);
                     $this->setMethod(Request::METHOD_GET);
                 }
-
 
                 // If we got a well formed absolute URI
                 if (($scheme = substr($location, 0, 6)) &&
@@ -1139,7 +1143,12 @@ class Client implements Stdlib\DispatchableInterface
                     }
                     break;
                 case self::AUTH_DIGEST :
-                    throw new Exception\RuntimeException("The digest authentication is not implemented yet");
+                    if (!$this->adapter instanceof Client\Adapter\Curl) {
+                        throw new Exception\RuntimeException("The digest authentication is only available for curl adapters (Zend\\Http\\Client\\Adapter\\Curl)");
+                    }
+
+                    $this->adapter->setCurlOption(CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+                    $this->adapter->setCurlOption(CURLOPT_USERPWD, $this->auth['user'] . ':' . $this->auth['password']);
             }
         }
 
@@ -1369,8 +1378,13 @@ class Client implements Stdlib\DispatchableInterface
             }
         }
         // HTTP connection
-        $this->lastRawRequest = $this->adapter->write($method,
-            $uri, $this->config['httpversion'], $headers, $body);
+        $this->lastRawRequest = $this->adapter->write(
+            $method,
+            $uri,
+            $this->config['httpversion'],
+            $headers,
+            $body
+        );
 
         return $this->adapter->read();
     }
@@ -1388,8 +1402,6 @@ class Client implements Stdlib\DispatchableInterface
      */
     public static function encodeAuthHeader($user, $password, $type = self::AUTH_BASIC)
     {
-        $authHeader = null;
-
         switch ($type) {
             case self::AUTH_BASIC:
                 // In basic authentication, the user name cannot contain ":"
@@ -1397,8 +1409,7 @@ class Client implements Stdlib\DispatchableInterface
                     throw new Client\Exception\InvalidArgumentException("The user name cannot contain ':' in 'Basic' HTTP authentication");
                 }
 
-                $authHeader = 'Basic ' . base64_encode($user . ':' . $password);
-                break;
+                return 'Basic ' . base64_encode($user . ':' . $password);
 
             //case self::AUTH_DIGEST:
                 /**
@@ -1410,6 +1421,7 @@ class Client implements Stdlib\DispatchableInterface
                 throw new Client\Exception\InvalidArgumentException("Not a supported HTTP authentication type: '$type'");
 
         }
-        return $authHeader;
+
+        return;
     }
 }

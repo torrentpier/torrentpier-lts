@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -14,6 +14,7 @@ use Zend\Mail;
 use Zend\Mail\Address\AddressInterface;
 use Zend\Mail\Exception;
 use Zend\Mail\Header\HeaderInterface;
+use Zend\Mail\Transport\Exception\RuntimeException;
 
 /**
  * Class for sending email via the PHP internal mail() function
@@ -184,7 +185,7 @@ class Sendmail implements TransportInterface
     {
         $headers = $message->getHeaders();
         if (!$headers->has('subject')) {
-            return null;
+            return;
         }
         $header = $headers->get('subject');
         return $header->getFieldValue(HeaderInterface::FORMAT_ENCODED);
@@ -226,6 +227,16 @@ class Sendmail implements TransportInterface
         $headers = clone $message->getHeaders();
         $headers->removeHeader('To');
         $headers->removeHeader('Subject');
+
+        // Sanitize the From header
+        $from = $headers->get('From');
+        if ($from) {
+            foreach ($from->getAddressList() as $address) {
+                if (preg_match('/\\\"/', $address->getEmail())) {
+                    throw new RuntimeException('Potential code injection in From header');
+                }
+            }
+        }
         return $headers->toString();
     }
 
@@ -241,7 +252,7 @@ class Sendmail implements TransportInterface
     protected function prepareParameters(Mail\Message $message)
     {
         if ($this->isWindowsOs()) {
-            return null;
+            return;
         }
 
         $parameters = (string) $this->parameters;

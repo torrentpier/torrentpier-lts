@@ -52,7 +52,7 @@ class Simple implements RouteInterface
      * @param  array                                    $aliases
      * @param  null|array|Traversable|FilterChain       $filters
      * @param  null|array|Traversable|ValidatorChain    $validators
-     * @throws InvalidArgumentException
+     * @throws Exception\InvalidArgumentException
      */
     public function __construct(
         $routeOrRouteMatcher,
@@ -79,7 +79,7 @@ class Simple implements RouteInterface
      *
      * @see    \Zend\Mvc\Router\RouteInterface::factory()
      * @param  array|Traversable $options
-     * @throws InvalidArgumentException
+     * @throws Exception\InvalidArgumentException
      * @return self
      */
     public static function factory($options = array())
@@ -112,7 +112,6 @@ class Simple implements RouteInterface
             $options['filters'] = null;
         }
 
-
         return new static(
             $options['route'],
             $options['constraints'],
@@ -134,7 +133,7 @@ class Simple implements RouteInterface
     public function match(Request $request, $pathOffset = null)
     {
         if (!$request instanceof ConsoleRequest) {
-            return null;
+            return;
         }
 
         $params  = $request->getParams()->toArray();
@@ -143,7 +142,7 @@ class Simple implements RouteInterface
         if (null !== $matches) {
             return new RouteMatch($matches);
         }
-        return null;
+        return;
     }
 
     /**

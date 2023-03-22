@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -71,7 +71,7 @@ abstract class AbstractRowGateway implements ArrayAccess, Countable, RowGatewayI
             throw new Exception\RuntimeException('This row object does not have a valid table set.');
         }
 
-        if ($this->primaryKeyColumn == null) {
+        if ($this->primaryKeyColumn === null) {
             throw new Exception\RuntimeException('This row object does not have a primary key column set.');
         } elseif (is_string($this->primaryKeyColumn)) {
             $this->primaryKeyColumn = (array) $this->primaryKeyColumn;
