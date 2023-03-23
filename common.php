@@ -190,7 +190,7 @@ function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $repla
 {
 	$bytes_written = false;
 
-	if ($max_size && file_exists($file) && !is_dir($file) && @filesize($file) >= $max_size)
+	if ($max_size && @filesize($file) >= $max_size)
 	{
 		$old_name = $file; $ext = '';
 		if (preg_match('#^(.+)(\.[^\\\/]+)$#', $file, $matches))
@@ -204,22 +204,29 @@ function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $repla
 			@rename($file, $new_name);
 		}
 	}
-    if (!file_exists($file) && $dir_created = bb_mkdir(dirname($file))) {
-        $fp = fopen($file, 'ab+');
-    }
-    if (isset($fp)) {
-        if ($lock) {
-            flock($fp, LOCK_EX);
-        }
-        if ($replace_content) {
-            ftruncate($fp, 0);
-            fseek($fp, 0, SEEK_SET);
-        }
-        $bytes_written = fwrite($fp, $str);
-        fclose($fp);
-    }
+	if (!$fp = @fopen($file, 'ab'))
+	{
+		if ($dir_created = bb_mkdir(dirname($file)))
+		{
+			$fp = @fopen($file, 'ab');
+		}
+	}
+	if ($fp)
+	{
+		if ($lock)
+		{
+			@flock($fp, LOCK_EX);
+		}
+		if ($replace_content)
+		{
+			@ftruncate($fp, 0);
+			@fseek($fp, 0, SEEK_SET);
+		}
+		$bytes_written = @fwrite($fp, $str);
+		@fclose($fp);
+	}
 
-    return $bytes_written;
+	return $bytes_written;
 }
 
 function bb_mkdir ($path, $mode = 0777)
