@@ -20,7 +20,7 @@ class cache_file extends cache_common
 	{
 		$filename = $this->dir . clean_filename($this->prefix . $name) . '.php';
 
-		$this->cur_query = "cache->set('$name')";
+		$this->cur_query = "cache->get('$name')";
 		$this->debug('start');
 
 		if (file_exists($filename))
