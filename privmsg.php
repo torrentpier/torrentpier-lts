@@ -894,9 +894,7 @@ else if ( $submit || $refresh || $mode != '' )
 	{
 		if ( !empty($_POST['username']) )
 		{
-			$to_username = clean_username($_POST['username']);
-			$to_username_sql = DB()->escape($to_username);
-			$to_userdata = get_userdata ($to_username_sql);
+            $to_userdata = get_userdata($_POST['username']);
 
 			if (!$to_userdata || $to_userdata['user_id'] == GUEST_UID)
 			{
