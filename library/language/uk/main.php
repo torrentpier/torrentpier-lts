@@ -54,6 +54,7 @@ $lang['SELECT_ACTION'] = 'Виберіть дію';
 
 $lang['NEXT_PAGE'] = 'Наступ.';
 $lang['PREVIOUS_PAGE'] = 'Попер.';
+$lang['SHORT_PAGE'] = 'стор.';
 $lang['GOTO_PAGE'] = 'Сторінки';
 $lang['GOTO_SHORT'] = 'Стор.';
 $lang['JOINED'] = 'Зареєстрований';
