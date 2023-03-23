@@ -35,7 +35,7 @@ function tracker_exit ()
 
 function silent_exit ()
 {
-    ob_end_clean();
+	while (@ob_end_clean());
 
 	tracker_exit();
 }
