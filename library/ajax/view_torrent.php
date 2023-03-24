@@ -133,7 +133,7 @@ class torrent
 							$cur_files_ary[] = $this->build_file_item($name, $length);
 						}
 					}
-                    asort($cur_files_ary);
+					@natsort($cur_files_ary);
 				}
 				else
 				{
