@@ -10,7 +10,7 @@ function update_forum_feed ($forum_id, $forum_data)
     global $bb_cfg, $lang;
 	$file_path = $bb_cfg['atom']['path'] .'/f/'. $forum_id .'.atom';
 	$select_tor_sql = $join_tor_sql = '';
-	if ($forum_id == 0) $forum_data['forum_name'] = $lang['ATOM_GLOBAL_FEED'];
+	if ($forum_id == 0) $forum_data['forum_name'] = isset($lang['ATOM_GLOBAL_FEED']) ? $lang['ATOM_GLOBAL_FEED'] : $bb_cfg['server_name'];
 	if ($forum_id > 0 && $forum_data['allow_reg_tracker'])
 	{
 		$select_tor_sql = ', tor.size AS tor_size, tor.tor_status';
