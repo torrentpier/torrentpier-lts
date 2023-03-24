@@ -17,6 +17,17 @@ if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS');
 
+function is_https()
+{
+    $is_secure = false;
+    if (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') {
+        $is_secure = true;
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+        $is_secure = true;
+    }
+    return $is_secure;
+}
+
 // Get initial config
 require(BB_ROOT . 'library/config.php');
 
