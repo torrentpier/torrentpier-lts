@@ -70,7 +70,6 @@ $bb_cfg['js_ver'] = $bb_cfg['css_ver'] = 1;
 // Primary domain name
 $domain_name = 'torrentpier.com'; // enter here your primary domain name of your site
 $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? $_SERVER['SERVER_NAME'] : $domain_name;
-$domain_ssl  = false;
 
 // Version info
 $bb_cfg['tp_version'] = '2.1.5-2023.03';
@@ -330,7 +329,7 @@ $page_cfg['show_sidebar2'] = array(
 
 // Cookie
 $bb_cfg['cookie_domain'] = in_array($domain_name, array(getenv('SERVER_ADDR'), 'localhost')) ? '' : ".$domain_name";
-$bb_cfg['cookie_secure'] = $domain_ssl ? true : (!empty($_SERVER['HTTPS']) ? true : false);
+$bb_cfg['cookie_secure'] = is_https();
 $bb_cfg['cookie_prefix'] = 'bb_'; // 'bb_'
 
 // Sessions
