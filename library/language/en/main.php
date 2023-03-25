@@ -294,7 +294,7 @@ $lang['SELECT_POSTS_PER_PAGE'] = 'posts per page';
 // Posting/Replying (Not private messaging!)
 $lang['TOPIC_REVIEW'] = 'Topic review';
 
-$lang['NO_POST_MODE'] = 'No post mode selected'; // If posting.php is called without a mode (newtopic/reply/delete/etc., shouldn't be shown normaly)
+$lang['NO_POST_MODE'] = 'No post mode selected'; // If posting.php is called without a mode (newtopic/reply/delete/etc., shouldn't be shown normally)
 
 $lang['POST_A_NEW_TOPIC'] = 'Post new topic';
 $lang['POST_A_REPLY'] = 'Post new reply';
@@ -463,7 +463,7 @@ $lang['SEND_A_NEW_MESSAGE'] = 'Send a new private message';
 $lang['SEND_A_REPLY'] = 'Reply to a private message';
 $lang['EDIT_MESSAGE'] = 'Edit private message';
 
-$lang['NOTIFICATION_SUBJECT'] = 'New Private Message has been recieved!';
+$lang['NOTIFICATION_SUBJECT'] = 'New Private Message has been received!';
 
 $lang['FIND_USERNAME'] = 'Find a username';
 $lang['SELECT_USERNAME'] = 'Select a Username';
@@ -551,7 +551,7 @@ $lang['BIRTHDAY_TO_HIGH'] = 'Sorry, this site, does not accept user older than %
 $lang['BIRTHDAY_TO_LOW'] = 'Sorry, this site, does not accept user younger than %d years old';
 $lang['BIRTHDAY_TODAY'] = 'Users with a birthday today: ';
 $lang['BIRTHDAY_WEEK'] = 'Users with a birthday within the next %d days: %s';
-$lang['NOBIRTHDAY_WEEK'] = 'No users are having a birthday in the upcoming %d days'; // %d is substitude with the number of days
+$lang['NOBIRTHDAY_WEEK'] = 'No users are having a birthday in the upcoming %d days'; // %d is substitute with the number of days
 $lang['NOBIRTHDAY_TODAY'] = 'No users have a birthday today';
 $lang['BIRTHDAY_ENABLE'] = 'Enable birthday';
 $lang['BIRTHDAY_MAX_AGE'] = 'Max age';
