@@ -35,6 +35,11 @@ function is_https()
     return $is_secure;
 }
 
+function is_ajax()
+{
+    return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+}
+
 // Get initial config
 require(BB_ROOT . 'library/config.php');
 
