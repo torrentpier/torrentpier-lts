@@ -89,6 +89,11 @@ define('TOR_TYPE_SILVER',     2);
 define('GUEST_UID', -1);
 define('BOT_UID',   -746);
 
+function sqlite3_escape_string ($str)
+{
+    return SQLite3::escapeString($str);
+}
+
 /**
  * Database
  */
