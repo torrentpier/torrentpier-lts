@@ -42,10 +42,10 @@ class cache_sqlite extends cache_common
 		$this->db->shard($name);
 		$cached_items = array();
 		$this->prefix_len = strlen($this->prefix);
-		$this->prefix_sql = SQLite3::escapeString($this->prefix);
+		$this->prefix_sql = sqlite3_escape_string($this->prefix);
 
 		$name_ary = $name_sql = (array) $name;
-		array_deep($name_sql, 'SQLite3::escapeString');
+		array_deep($name_sql, 'sqlite3_escape_string');
 
 		// get available items
 		$rowset = $this->db->fetch_rowset("
@@ -85,9 +85,9 @@ class cache_sqlite extends cache_common
 	function set ($name, $value, $ttl = 604800)
 	{
 		$this->db->shard($this->prefix . $name);
-		$name_sql  = SQLite3::escapeString($this->prefix . $name);
+		$name_sql  = sqlite3_escape_string($this->prefix . $name);
 		$expire    = TIMENOW + $ttl;
-		$value_sql = SQLite3::escapeString(serialize($value));
+		$value_sql = sqlite3_escape_string(serialize($value));
 
 		$result = $this->db->query("REPLACE INTO ". $this->cfg['table_name'] ." (cache_name, cache_expire_time, cache_value) VALUES ('$name_sql', $expire, '$value_sql')");
 		return (bool) $result;
@@ -98,7 +98,7 @@ class cache_sqlite extends cache_common
 		if ($name)
 		{
 			$this->db->shard($this->prefix . $name);
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". SQLite3::escapeString($this->prefix . $name) ."'");
+			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". sqlite3_escape_string($this->prefix . $name) ."'");
 		}
 		else
 		{
@@ -276,7 +276,7 @@ class sqlite_common extends cache_common
 		if ($name)
 		{
 			$this->db->shard($this->prefix . $name);
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". SQLite3::escapeString($this->prefix . $name) ."'");
+			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". sqlite3_escape_string($this->prefix . $name) ."'");
 		}
 		else
 		{
