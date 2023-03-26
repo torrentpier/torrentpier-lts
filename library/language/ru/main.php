@@ -294,7 +294,7 @@ $lang['SELECT_POSTS_PER_PAGE'] = 'сообщ. на страницу';
 // Posting/Replying (Not private messaging!)
 $lang['TOPIC_REVIEW'] = 'Обзор темы';
 
-$lang['NO_POST_MODE'] = 'Не указан режим сообщения'; // If posting.php is called without a mode (newtopic/reply/delete/etc., shouldn't be shown normaly)
+$lang['NO_POST_MODE'] = 'Не указан режим сообщения'; // If posting.php is called without a mode (newtopic/reply/delete/etc., shouldn't be shown normally)
 
 $lang['POST_A_NEW_TOPIC'] = 'Начать новую тему';
 $lang['POST_A_REPLY'] = 'Ответить';
