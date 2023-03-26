@@ -241,7 +241,7 @@ else
 
 	$template->assign_vars(array(
 		'TPL_EDIT_FORUM_AUTH' => true,
-		'FORUM_NAME'          => htmlCHR($forum_name),
+        'FORUM_NAME'          => '<a target="_blank" href="' . BB_ROOT . FORUM_URL . $forum_id . '">' . htmlCHR($forum_name) . '</a>',
 		'U_SWITCH_MODE'       => $u_switch_mode,
 		'S_FORUMAUTH_ACTION'  => 'admin_forumauth.php',
 		'S_COLUMN_SPAN'       => $s_column_span,
