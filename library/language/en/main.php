@@ -824,7 +824,7 @@ $lang['AUTH_ADMINISTRATORS'] = '<b>administrators</b>';
 $lang['NOT_MODERATOR'] = 'You are not a moderator of this forum.';
 $lang['NOT_AUTHORISED'] = 'Not Authorised';
 
-$lang['YOU_BEEN_BANNED'] = 'You have been banned from this forum.<br />Please contact the webmaster or board administrator for more information.';
+$lang['YOU_BEEN_BANNED'] = 'You have been banned from this forum. Please contact the board administrator for more information.';
 
 // Viewonline
 $lang['ONLINE_EXPLAIN'] = 'users active over the past five minutes';
@@ -1525,7 +1525,7 @@ $lang['DL_UL_SPEED'] = 'UL speed';
 $lang['DL_DL_SPEED'] = 'DL speed';
 $lang['DL_PORT'] = 'Port';
 $lang['DL_FORMULA'] = 'Formula: Uploaded/TorrentSize';
-$lang['DL_ULR'] = 'ULR';
+$lang['DL_ULR'] = 'URL';
 $lang['DL_STOPPED'] = 'stopped';
 $lang['DL_UPD'] = 'upd: ';
 $lang['DL_INFO'] = 'shows data <i><b>only for the current session</b></i>';
@@ -1560,7 +1560,7 @@ $lang['PROFILE_EDIT_RETURN'] = 'Return to editing';
 $lang['PROFILE_RETURN'] = 'Go to the profile';
 
 $lang['WARNING'] = 'Warning';
-$lang['INDEXER'] = "Reindex search";
+$lang['INDEXER'] = 'Reindex search';
 
 $lang['FORUM_STYLE'] = 'Forum style';
 
@@ -1697,7 +1697,7 @@ $lang['AUTH_ANNOUNCE'] = $lang['ANNOUNCE'] = 'Announce';
 $lang['AUTH_VOTE'] = $lang['VOTE'] = 'Vote';
 $lang['AUTH_POLLCREATE'] = $lang['POLLCREATE'] = 'Poll create';
 $lang['AUTH_ATTACHMENTS'] = $lang['AUTH_ATTACH'] = 'Post Files';
-$lang['AUTH_DOWNLOAD'] = $lang['AUTH_DOWNLOAD'] = 'Download Files';
+$lang['AUTH_DOWNLOAD'] = 'Download Files';
 
 $lang['SIMPLE_PERMISSION'] = 'Simple Permissions';
 
@@ -1718,7 +1718,7 @@ $lang['CLICK_RETURN_FORUMAUTH'] = 'Click %sHere%s to return to Forum Permissions
 
 // Banning
 $lang['BAN_CONTROL'] = 'Ban Control';
-$lang['BAN_EXPLAIN'] = 'Here you can control the banning of users. You can achieve this by banning either or both of a specific user or an individual or range of IP addresses or hostnames. These methods prevent a user from even reaching the index page of your board. To prevent a user from registering under a different username you can also specify a banned email address. Please note that banning an email address alone will not prevent that user from being able to log on or post to your board. You should use one of the first two methods to achieve this.';
+$lang['BAN_EXPLAIN'] = 'Here you can control the banning of users. You can achieve this by banning either or both of a specific user or an individual or range of IP addresses. These methods prevent a user from even reaching the index page of your board. To prevent a user from registering under a different username you can also specify a banned email address. Please note that banning an email address alone will not prevent that user from being able to log on or post to your board. You should use one of the first two methods to achieve this.';
 $lang['BAN_EXPLAIN_WARN'] = 'Please note that entering a range of IP addresses results in all the addresses between the start and end being added to the banlist. Attempts will be made to minimise the number of addresses added to the database by introducing wildcards automatically where appropriate. If you really must enter a range, try to keep it small or better yet state specific addresses.';
 
 $lang['SELECT_IP'] = 'Select an IP address';
@@ -1727,9 +1727,9 @@ $lang['SELECT_EMAIL'] = 'Select an Email address';
 $lang['BAN_USERNAME'] = 'Ban one or more specific users';
 $lang['BAN_USERNAME_EXPLAIN'] = 'You can ban multiple users in one go using the appropriate combination of mouse and keyboard for your computer and browser';
 
-$lang['BAN_IP'] = 'Ban one or more IP addresses or hostnames';
-$lang['IP_HOSTNAME'] = 'IP addresses or hostnames';
-$lang['BAN_IP_EXPLAIN'] = 'To specify several different IP addresses or hostnames separate them with commas. To specify a range of IP addresses, separate the start and end with a hyphen (-); to specify a wildcard, use an asterisk (*).';
+$lang['BAN_IP'] = 'Ban one or more IP addresses';
+$lang['IP_HOSTNAME'] = 'IP addresses';
+$lang['BAN_IP_EXPLAIN'] = 'To specify several different IP addresses separate them with commas.';
 
 $lang['BAN_EMAIL'] = 'Ban one or more email addresses';
 $lang['BAN_EMAIL_EXPLAIN'] = 'To specify more than one email address, separate them with commas. To specify a wildcard username, use * like *@hotmail.com';
@@ -2555,7 +2555,7 @@ $lang['ACTS_LOG_FORUM'] = 'Forum';
 $lang['ACTS_LOG_ACTION'] = 'Action';
 $lang['ACTS_LOG_USER'] = 'User';
 $lang['ACTS_LOG_LOGS_FROM'] = 'Logs from ';
-$lang['ACTS_LOG_FIRST'] = 'first ';
+$lang['ACTS_LOG_FIRST'] = 'beginning with';
 $lang['ACTS_LOG_DAYS_BACK'] = 'days back';
 $lang['ACTS_LOG_TOPIC_MATCH'] = 'Topic title match';
 $lang['ACTS_LOG_SORT_BY'] = 'Sort by';
@@ -2641,7 +2641,7 @@ $lang['SEARCH_USERS_ADVANCED'] = 'Advanced User Search';
 $lang['SEARCH_USERS_EXPLAIN'] = 'This Module allows you to perform advanced searches for users on a wide range of criteria. Please read the descriptions under each field to understand each search option completely.';
 $lang['SEARCH_USERNAME_EXPLAIN'] = 'Here you can perform a case insensitive search for usernames. If you would like to match part of the username, use * (an asterix) as a wildcard.';
 $lang['SEARCH_EMAIL_EXPLAIN'] = 'Enter an expression to match a user\'s email address. This is case insensitive. If you want to do a partial match, use * (an asterix) as a wildcard.';
-$lang['SEARCH_IP_EXPLAIN'] = 'Search for users by a specific IP address (xxx.xxx.xxx.xxx), wildcard (xxx.xxx.xxx.*) or range (xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy). Note: the last quad .255 is considered the range of all the IPs in that quad. If you enter 10.0.0.255, it is just like entering 10.0.0.* (No IP is assigned .255 for that matter, it is reserved). Where you may encounter this is in ranges, 10.0.0.5-10.0.0.255 is the same as "10.0.0.*" . You should really enter 10.0.0.5-10.0.0.254 .';
+$lang['SEARCH_IP_EXPLAIN'] = 'Search for users by a specific IP address (xxx.xxx.xxx.xxx).';
 $lang['SEARCH_USERS_JOINED'] = 'Users that joined';
 $lang['SEARCH_USERS_LASTVISITED'] = 'Users whom have visited';
 $lang['IN_THE_LAST'] = 'in the last';
@@ -2728,7 +2728,7 @@ $lang['SITEMAP_BING_1'] = 'Register your site at <a href="https://www.bing.com/w
 $lang['SITEMAP_BING_2'] = 'Add sitemap of site you registered in its settings.';
 $lang['SITEMAP_ADD_TITLE'] = 'Additional pages for sitemap';
 $lang['SITEMAP_ADD_PAGE'] = 'Additional pages';
-$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site (for example, <b>http://torrentpier.com/memberlist.php</b>) which should be included in your sitemap file that you are creating.';
+$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site which should be included in your sitemap file that you creating.';
 $lang['SITEMAP_ADD_EXP_2'] = 'Each reference must begin with http(s):// and a new line!';
 
 $lang['FORUM_MAP'] = 'Forums\' map';
