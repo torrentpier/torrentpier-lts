@@ -537,9 +537,9 @@ $lang['ALWAYS_NOTIFY_EXPLAIN'] = 'Sends an e-mail when someone replies to a topi
 $lang['BOARD_LANG'] = 'Board language';
 $lang['GENDER'] = 'Gender';
 $lang['GENDER_SELECT'] = array(
-	0 => 'Unknown',
-	1 => 'Male',
-	2 => 'Female'
+    0 => 'Unknown',
+    1 => 'Male',
+    2 => 'Female'
 );
 $lang['MODULE_OFF'] = 'Module is disabled!';
 
@@ -562,7 +562,7 @@ $lang['YEARS'] = 'Years';
 $lang['NO_THEMES'] = 'No Themes In database';
 $lang['TIMEZONE'] = 'Timezone';
 $lang['DATE_FORMAT_PROFILE'] = 'Date format';
-$lang['DATE_FORMAT_EXPLAIN'] = 'The syntax used is identical to the PHP <a href=\'http://www.php.net/date\' target=\'_other\'>date()</a> function.';
+$lang['DATE_FORMAT_EXPLAIN'] = 'The syntax used is identical to the PHP <a href=\'https://www.php.net/manual/en/function.date.php\' target=\'_other\'>date()</a> function.';
 $lang['SIGNATURE'] = 'Signature';
 $lang['SIGNATURE_EXPLAIN'] = 'This is a block of text that can be added to posts you make. There is a %d character limit';
 $lang['SIGNATURE_DISABLE'] = 'Signed off for violation of forum rules';
@@ -824,7 +824,7 @@ $lang['AUTH_ADMINISTRATORS'] = '<b>administrators</b>';
 $lang['NOT_MODERATOR'] = 'You are not a moderator of this forum.';
 $lang['NOT_AUTHORISED'] = 'Not Authorised';
 
-$lang['YOU_BEEN_BANNED'] = 'You have been banned from this forum.<br />Please contact the webmaster or board administrator for more information.';
+$lang['YOU_BEEN_BANNED'] = 'You have been banned from this forum. Please contact the board administrator for more information.';
 
 // Viewonline
 $lang['ONLINE_EXPLAIN'] = 'users active over the past five minutes';
@@ -1082,19 +1082,19 @@ $lang['TOR_STATUS_SELECT_ACTION'] = 'Select status';
 $lang['TOR_STATUS_NOT_SELECT'] = 'You have not selected status.';
 $lang['TOR_STATUS_SELECT_ALL'] = 'All statuses';
 $lang['TOR_STATUS_NAME'] = array(
-	TOR_NOT_APPROVED  => 'not checked',
-	TOR_CLOSED        => 'closed',
-	TOR_APPROVED      => 'checked',
-	TOR_NEED_EDIT     => 'not formalized until',
-	TOR_NO_DESC       => 'not formalized',
-	TOR_DUP           => 'repeat',
-	TOR_CLOSED_CPHOLD => 'closed right',
-	TOR_CONSUMED      => 'absorbed',
-	TOR_DOUBTFUL      => 'doubtful',
-	TOR_CHECKING      => 'verified',
-	TOR_TMP           => 'temporary',
-	TOR_PREMOD        => 'pre-moderation',
-    TOR_REPLENISH     => 'replenish',
+    TOR_NOT_APPROVED => 'not checked',
+    TOR_CLOSED => 'closed',
+    TOR_APPROVED => 'checked',
+    TOR_NEED_EDIT => 'not formalized until',
+    TOR_NO_DESC => 'not formalized',
+    TOR_DUP => 'repeat',
+    TOR_CLOSED_CPHOLD => 'closed right',
+    TOR_CONSUMED => 'absorbed',
+    TOR_DOUBTFUL => 'doubtful',
+    TOR_CHECKING => 'verified',
+    TOR_TMP => 'temporary',
+    TOR_PREMOD => 'pre-moderation',
+    TOR_REPLENISH => 'replenish',
 );
 $lang['TOR_STATUS_FAILED'] = 'Such status does not exist!';
 $lang['TORRENT_FAILED'] = 'Distribution was not found!';
@@ -1347,19 +1347,19 @@ $lang['DECLENSION']['REPLIES'] = array('reply', 'replies');
 $lang['DECLENSION']['TIMES'] = array('time', 'times');
 
 $lang['DELTA_TIME']['INTERVALS'] = array(
-	'seconds' => array('second', 'seconds'),
-	'minutes' => array('minute', 'minutes'),
-	'hours'   => array('hour',   'hours'),
-	'mday'    => array('day',    'days'),
-	'mon'     => array('month',  'months'),
-	'year'    => array('year',   'years'),
+    'seconds' => array('second', 'seconds'),
+    'minutes' => array('minute', 'minutes'),
+    'hours' => array('hour', 'hours'),
+    'mday' => array('day', 'days'),
+    'mon' => array('month', 'months'),
+    'year' => array('year', 'years'),
 );
 $lang['DELTA_TIME']['FORMAT'] = '%1$s %2$s'; // 5(%1) minutes(%2)
 
-$lang['AUTH_TYPES'][AUTH_ALL]   = $lang['AUTH_ANONYMOUS_USERS'];
-$lang['AUTH_TYPES'][AUTH_REG]   = $lang['AUTH_REGISTERED_USERS'];
-$lang['AUTH_TYPES'][AUTH_ACL]   = $lang['AUTH_USERS_GRANTED_ACCESS'];
-$lang['AUTH_TYPES'][AUTH_MOD]   = $lang['AUTH_MODERATORS'];
+$lang['AUTH_TYPES'][AUTH_ALL] = $lang['AUTH_ANONYMOUS_USERS'];
+$lang['AUTH_TYPES'][AUTH_REG] = $lang['AUTH_REGISTERED_USERS'];
+$lang['AUTH_TYPES'][AUTH_ACL] = $lang['AUTH_USERS_GRANTED_ACCESS'];
+$lang['AUTH_TYPES'][AUTH_MOD] = $lang['AUTH_MODERATORS'];
 $lang['AUTH_TYPES'][AUTH_ADMIN] = $lang['AUTH_ADMINISTRATORS'];
 
 $lang['NEW_USER_REG_DISABLED'] = 'Sorry, registration is disabled at this time';
@@ -1459,7 +1459,7 @@ $lang['EMAILER_DISABLED'] = 'Sorry, this feature is temporarily not working';
 $lang['TERMS_ON'] = 'I agree with these terms and conditions';
 $lang['TERMS_OFF'] = 'I do not agree to these terms';
 $lang['JAVASCRIPT_ON_REGISTER'] = 'To register, heads necessary to enable JavaScript';
-$lang['REGISTERED_IN_TIME'] = "At the moment registration is closed<br /><br />You can register from 01:00 to 17:00 MSK (now ". date('H:i') ." MSK)<br /><br />We apologize for this inconvenience";
+$lang['REGISTERED_IN_TIME'] = "At the moment registration is closed<br /><br />You can register from 01:00 to 17:00 MSK (now " . date('H:i') . " MSK)<br /><br />We apologize for this inconvenience";
 $lang['AUTOCOMPLETE'] = 'Password generate';
 $lang['YOUR_NEW_PASSWORD'] = 'Your are new password:';
 $lang['REGENERATE'] = 'Regenerate';
@@ -1500,9 +1500,9 @@ $lang['ITALIC'] = 'Italic text: [i]text[/i] (Ctrl+I)';
 $lang['UNDERLINE'] = 'Underline text: [u]text[/u] (Ctrl+U)';
 $lang['STRIKEOUT'] = 'Strikeout text: [s]text[/s] (Ctrl+S)';
 $lang['QUOTE_TITLE'] = 'Quote text: [quote]text[/quote] (Ctrl+Q)';
-$lang['IMG_TITLE'] = 'Insert image: [img]http://image_url[/img] (Ctrl+R)';
+$lang['IMG_TITLE'] = 'Insert image: [img]https://image_url[/img] (Ctrl+R)';
 $lang['URL'] = 'Url';
-$lang['URL_TITLE'] = 'Insert URL: [url]http://url[/url] or [url=http://url]URL text[/url] (Ctrl+W)';
+$lang['URL_TITLE'] = 'Insert URL: [url]https://url[/url] or [url=https://url]URL text[/url] (Ctrl+W)';
 $lang['CODE_TITLE'] = 'Code display: [code]code[/code] (Ctrl+K)';
 $lang['LIST'] = 'List';
 $lang['LIST_TITLE'] = 'List: [list]text[/list] (Ctrl+l)';
@@ -1525,7 +1525,7 @@ $lang['DL_UL_SPEED'] = 'UL speed';
 $lang['DL_DL_SPEED'] = 'DL speed';
 $lang['DL_PORT'] = 'Port';
 $lang['DL_FORMULA'] = 'Formula: Uploaded/TorrentSize';
-$lang['DL_ULR'] = 'ULR';
+$lang['DL_ULR'] = 'URL';
 $lang['DL_STOPPED'] = 'stopped';
 $lang['DL_UPD'] = 'upd: ';
 $lang['DL_INFO'] = 'shows data <i><b>only for the current session</b></i>';
@@ -1560,7 +1560,7 @@ $lang['PROFILE_EDIT_RETURN'] = 'Return to editing';
 $lang['PROFILE_RETURN'] = 'Go to the profile';
 
 $lang['WARNING'] = 'Warning';
-$lang['INDEXER'] = "Reindex search";
+$lang['INDEXER'] = 'Reindex search';
 
 $lang['FORUM_STYLE'] = 'Forum style';
 
@@ -1594,7 +1594,7 @@ $lang['ACTIONS_LOG'] = 'Report on action';
 
 //Welcome page
 $lang['IDX_BROWSER_NSP_FRAME'] = 'Sorry, your browser doesn\'t seem to support frames';
-$lang['IDX_CLEAR_CACHE'] ='Clear Cache:';
+$lang['IDX_CLEAR_CACHE'] = 'Clear Cache:';
 $lang['IDX_CLEAR_DATASTORE'] = 'Datastore';
 $lang['IDX_CLEAR_TEMPLATES'] = 'Templates';
 $lang['IDX_CLEAR_NEWNEWS'] = 'Net news';
@@ -1626,7 +1626,7 @@ $lang['USERS_PER_DAY'] = 'Users per day';
 $lang['BOARD_STARTED'] = 'Board started';
 $lang['AVATAR_DIR_SIZE'] = 'Avatar directory size';
 $lang['DATABASE_SIZE'] = 'Database size';
-$lang['GZIP_COMPRESSION'] ='Gzip compression';
+$lang['GZIP_COMPRESSION'] = 'Gzip compression';
 $lang['NOT_AVAILABLE'] = 'Not available';
 
 // Clear Cache
@@ -1697,7 +1697,7 @@ $lang['AUTH_ANNOUNCE'] = $lang['ANNOUNCE'] = 'Announce';
 $lang['AUTH_VOTE'] = $lang['VOTE'] = 'Vote';
 $lang['AUTH_POLLCREATE'] = $lang['POLLCREATE'] = 'Poll create';
 $lang['AUTH_ATTACHMENTS'] = $lang['AUTH_ATTACH'] = 'Post Files';
-$lang['AUTH_DOWNLOAD'] = $lang['AUTH_DOWNLOAD'] = 'Download Files';
+$lang['AUTH_DOWNLOAD'] = 'Download Files';
 
 $lang['SIMPLE_PERMISSION'] = 'Simple Permissions';
 
@@ -1718,7 +1718,7 @@ $lang['CLICK_RETURN_FORUMAUTH'] = 'Click %sHere%s to return to Forum Permissions
 
 // Banning
 $lang['BAN_CONTROL'] = 'Ban Control';
-$lang['BAN_EXPLAIN'] = 'Here you can control the banning of users. You can achieve this by banning either or both of a specific user or an individual or range of IP addresses or hostnames. These methods prevent a user from even reaching the index page of your board. To prevent a user from registering under a different username you can also specify a banned email address. Please note that banning an email address alone will not prevent that user from being able to log on or post to your board. You should use one of the first two methods to achieve this.';
+$lang['BAN_EXPLAIN'] = 'Here you can control the banning of users. You can achieve this by banning either or both of a specific user or an individual or range of IP addresses. These methods prevent a user from even reaching the index page of your board. To prevent a user from registering under a different username you can also specify a banned email address. Please note that banning an email address alone will not prevent that user from being able to log on or post to your board. You should use one of the first two methods to achieve this.';
 $lang['BAN_EXPLAIN_WARN'] = 'Please note that entering a range of IP addresses results in all the addresses between the start and end being added to the banlist. Attempts will be made to minimise the number of addresses added to the database by introducing wildcards automatically where appropriate. If you really must enter a range, try to keep it small or better yet state specific addresses.';
 
 $lang['SELECT_IP'] = 'Select an IP address';
@@ -1727,9 +1727,9 @@ $lang['SELECT_EMAIL'] = 'Select an Email address';
 $lang['BAN_USERNAME'] = 'Ban one or more specific users';
 $lang['BAN_USERNAME_EXPLAIN'] = 'You can ban multiple users in one go using the appropriate combination of mouse and keyboard for your computer and browser';
 
-$lang['BAN_IP'] = 'Ban one or more IP addresses or hostnames';
-$lang['IP_HOSTNAME'] = 'IP addresses or hostnames';
-$lang['BAN_IP_EXPLAIN'] = 'To specify several different IP addresses or hostnames separate them with commas. To specify a range of IP addresses, separate the start and end with a hyphen (-); to specify a wildcard, use an asterisk (*).';
+$lang['BAN_IP'] = 'Ban one or more IP addresses';
+$lang['IP_HOSTNAME'] = 'IP addresses';
+$lang['BAN_IP_EXPLAIN'] = 'To specify several different IP addresses separate them with commas.';
 
 $lang['BAN_EMAIL'] = 'Ban one or more email addresses';
 $lang['BAN_EMAIL_EXPLAIN'] = 'To specify more than one email address, separate them with commas. To specify a wildcard username, use * like *@hotmail.com';
@@ -2054,7 +2054,7 @@ $lang['TRACKER_STATS'] = 'Statistics on the tracker';
 $lang['WHOIS_INFO'] = 'Information about IP address';
 $lang['SHOW_MOD_HOME_PAGE'] = 'Show on moderators the index.php';
 $lang['PREMOD_HELP'] = '<h4><span class="tor-icon tor-dup">&#8719;</span> Pre-moderation</h4> <h6>If you do not have distributions to the status of v, #, or T in this section, including subsections, the distribution will automatically receive this status</h6>';
-$lang['TOR_COMMENT'] = '<h4>Commentary on the status of distribution</h4> <h6>Comment successfully allows you to specify releasers mistakes. When nedooformlennyh statuses releasers available form of the response of the correction release</h6>';
+$lang['TOR_COMMENT'] = '<h4>Comment on the status of a distribution</h4> <h6>The comment allows you to point out the errors made to the releaser. If the statuses are incomplete, a release response form is available to the release manager to correct the release</h6>';
 $lang['SEED_BONUS_ADD'] = '<h4>Adding seed bonus </h4> <h6> Number of distributions are handed out by the user and the size of bonuses for them (charging times an hour) </h6>';
 $lang['SEED_BONUS_RELEASE'] = 'to N-number of releases';
 $lang['SEED_BONUS_POINTS'] = 'bonuses in an hour';
@@ -2082,7 +2082,7 @@ $lang['ATTACH_NUMBER_SETTINGS'] = 'Attachment Number Settings';
 $lang['ATTACH_OPTIONS_SETTINGS'] = 'Attachment Options';
 
 $lang['UPLOAD_DIRECTORY'] = 'Upload Directory';
-$lang['UPLOAD_DIRECTORY_EXPLAIN'] = 'Enter the relative path from your TorrentPier II installation to the Attachments upload directory. For example, enter \'files\' if your TorrentPier II Installation is located at http://www.yourdomain.com/torrentpier and the Attachment Upload Directory is located at http://www.yourdomain.com/torrentpier/files.';
+$lang['UPLOAD_DIRECTORY_EXPLAIN'] = 'Enter the relative path from your TorrentPier II installation to the Attachments upload directory. For example, enter \'files\' if your TorrentPier II Installation is located at https://www.yourdomain.com/torrentpier and the Attachment Upload Directory is located at https://www.yourdomain.com/torrentpier/files.';
 $lang['ATTACH_IMG_PATH'] = 'Attachment Posting Icon';
 $lang['ATTACH_IMG_PATH_EXPLAIN'] = 'This Image is displayed next to Attachment Links in individual Postings. Leave this field empty if you don\'t want an icon to be displayed. This Setting will be overwritten by the Settings in Extension Groups Management.';
 $lang['ATTACH_TOPIC_ICON'] = 'Attachment Topic Icon';
@@ -2404,12 +2404,12 @@ $lang['CRON_EDIT_HEAD_EDIT'] = 'Edit job';
 $lang['CRON_EDIT_HEAD_ADD'] = 'Add job';
 $lang['CRON_SCRIPT_EXPL'] = 'name of the script from "includes/cron/jobs/"';
 $lang['SCHEDULE'] = array(
-	'select'   => '&raquo; Select start',
-	'hourly'   => 'hourly',
-	'daily'    => 'daily',
-	'weekly'   => 'weekly',
-	'monthly'  => 'monthly',
-	'interval' => 'interval'
+    'select' => '&raquo; Select start',
+    'hourly' => 'hourly',
+    'daily' => 'daily',
+    'weekly' => 'weekly',
+    'monthly' => 'monthly',
+    'interval' => 'interval'
 );
 $lang['NOSELECT'] = 'No select';
 $lang['RUN_DAY'] = 'Run day';
@@ -2430,8 +2430,8 @@ $lang['BOARD_DISABLE_EXPL'] = 'disable board when this job is run';
 $lang['RUN_COUNTER'] = 'Run counter';
 
 $lang['JOB_REMOVED'] = 'The problem has been removed successfully';
-$lang['SCRIPT_DUPLICATE'] = 'Script <b>'. @$_POST['cron_script'] .'</b> already exists!';
-$lang['TITLE_DUPLICATE'] = 'Task Name <b>'. @$_POST['cron_title'] .'</b> already exists!';
+$lang['SCRIPT_DUPLICATE'] = 'Script <b>' . @$_POST['cron_script'] . '</b> already exists!';
+$lang['TITLE_DUPLICATE'] = 'Task Name <b>' . @$_POST['cron_title'] . '</b> already exists!';
 $lang['CLICK_RETURN_JOBS_ADDED'] = '%sReturn to the addition problem%s';
 $lang['CLICK_RETURN_JOBS'] = '%sBack to the Task Scheduler%s';
 
@@ -2538,24 +2538,24 @@ $lang['CALLSEED_MSG_SPAM'] = 'Request has already been once successfully sent (P
 $lang['CALLSEED_HAVE_SEED'] = 'Topic does not require help (<b>Seeders:</b> %d)';
 
 $lang['LOG_ACTION']['LOG_TYPE'] = array(
-	'mod_topic_delete' => 'Topic:<br /> <b>deleted</b>',
-	'mod_topic_move'   => 'Topic:<br /> <b>moved</b>',
-	'mod_topic_lock'   => 'Topic:<br /> <b>closed</b>',
-	'mod_topic_unlock' => 'Topic:<br /> <b>opened</b>',
-	'mod_topic_split'  => 'Topic:<br /> <b>split</b>',
-	'mod_post_delete'  => 'Post:<br /> <b>deleted</b>',
-	'adm_user_delete'  => 'User:<br /> <b>deleted</b>',
-	'adm_user_ban'     => 'User:<br /> <b>ban</b>',
-	'adm_user_unban'   => 'User:<br /> <b>unban</b>',
+    'mod_topic_delete' => 'Topic:<br /> <b>deleted</b>',
+    'mod_topic_move' => 'Topic:<br /> <b>moved</b>',
+    'mod_topic_lock' => 'Topic:<br /> <b>closed</b>',
+    'mod_topic_unlock' => 'Topic:<br /> <b>opened</b>',
+    'mod_topic_split' => 'Topic:<br /> <b>split</b>',
+    'mod_post_delete' => 'Post:<br /> <b>deleted</b>',
+    'adm_user_delete' => 'User:<br /> <b>deleted</b>',
+    'adm_user_ban' => 'User:<br /> <b>ban</b>',
+    'adm_user_unban' => 'User:<br /> <b>unban</b>',
 );
 
-$lang['ACTS_LOG_ALL_ACTIONS']  = 'All actions';
+$lang['ACTS_LOG_ALL_ACTIONS'] = 'All actions';
 $lang['ACTS_LOG_SEARCH_OPTIONS'] = 'Actions Log: Search options';
 $lang['ACTS_LOG_FORUM'] = 'Forum';
 $lang['ACTS_LOG_ACTION'] = 'Action';
 $lang['ACTS_LOG_USER'] = 'User';
 $lang['ACTS_LOG_LOGS_FROM'] = 'Logs from ';
-$lang['ACTS_LOG_FIRST'] = 'first ';
+$lang['ACTS_LOG_FIRST'] = 'beginning with';
 $lang['ACTS_LOG_DAYS_BACK'] = 'days back';
 $lang['ACTS_LOG_TOPIC_MATCH'] = 'Topic title match';
 $lang['ACTS_LOG_SORT_BY'] = 'Sort by';
@@ -2579,8 +2579,8 @@ $lang['OTHER'] = 'Other';
 $lang['TPL_EMPTY_FIELD'] = 'You must fill the field <b>%s</b>';
 $lang['TPL_EMPTY_SEL'] = 'You must select <b>%s</b>';
 $lang['TPL_NOT_NUM'] = '<b>%s</b> - Not a num';
-$lang['TPL_NOT_URL'] = '<b>%s</b> - Must be http:// URL';
-$lang['TPL_NOT_IMG_URL'] = '<b>%s</b> - Must be http:// IMG_URL';
+$lang['TPL_NOT_URL'] = '<b>%s</b> - Must be https:// URL';
+$lang['TPL_NOT_IMG_URL'] = '<b>%s</b> - Must be https:// IMG_URL';
 $lang['TPL_PUT_INTO_SUBJECT'] = 'put into the subject';
 $lang['TPL_POSTER'] = 'poster';
 $lang['TPL_REQ_FILLING'] = 'requires filling';
@@ -2594,15 +2594,15 @@ $lang['TPL_SPOILER'] = 'spoiler';
 $lang['TPL_IN_LINE'] = 'in the same line';
 $lang['TPL_HEADER_ONLY'] = 'only in a title';
 
-$lang['SEARCH_INVALID_USERNAME'] = 'Invalid username entered to Search';
-$lang['SEARCH_INVALID_EMAIL'] = 'Invalid email address entered to Search';
-$lang['SEARCH_INVALID_IP'] = 'Invalid IP address entered to Search';
-$lang['SEARCH_INVALID_GROUP'] = 'Invalid Group entered to Search';
-$lang['SEARCH_INVALID_RANK'] = 'Invalid rank entered to Search';
-$lang['SEARCH_INVALID_DATE'] = 'Invalid Date entered to Search';
-$lang['SEARCH_INVALID_POSTCOUNT'] = 'Invalid Post Count entered to Search';
+$lang['SEARCH_INVALID_USERNAME'] = 'Invalid username entered to search';
+$lang['SEARCH_INVALID_EMAIL'] = 'Invalid email address entered to search';
+$lang['SEARCH_INVALID_IP'] = 'Invalid IP-address entered to search';
+$lang['SEARCH_INVALID_GROUP'] = 'Invalid group entered to search';
+$lang['SEARCH_INVALID_RANK'] = 'Invalid rank entered to search';
+$lang['SEARCH_INVALID_DATE'] = 'Invalid date entered to search';
+$lang['SEARCH_INVALID_POSTCOUNT'] = 'Invalid post count entered to search';
 $lang['SEARCH_INVALID_USERFIELD'] = 'Invalid Userfield data entered';
-$lang['SEARCH_INVALID_LASTVISITED'] = 'Invalid data entered for Last Visited search';
+$lang['SEARCH_INVALID_LASTVISITED'] = 'Invalid date entered for last visited search';
 $lang['SEARCH_INVALID_LANGUAGE'] = 'Invalid Language Selected';
 $lang['SEARCH_INVALID_TIMEZONE'] = 'Invalid Timezone Selected';
 $lang['SEARCH_INVALID_MODERATORS'] = 'Invalid Forum Selected';
@@ -2641,7 +2641,7 @@ $lang['SEARCH_USERS_ADVANCED'] = 'Advanced User Search';
 $lang['SEARCH_USERS_EXPLAIN'] = 'This Module allows you to perform advanced searches for users on a wide range of criteria. Please read the descriptions under each field to understand each search option completely.';
 $lang['SEARCH_USERNAME_EXPLAIN'] = 'Here you can perform a case insensitive search for usernames. If you would like to match part of the username, use * (an asterix) as a wildcard.';
 $lang['SEARCH_EMAIL_EXPLAIN'] = 'Enter an expression to match a user\'s email address. This is case insensitive. If you want to do a partial match, use * (an asterix) as a wildcard.';
-$lang['SEARCH_IP_EXPLAIN'] = 'Search for users by a specific IP address (xxx.xxx.xxx.xxx), wildcard (xxx.xxx.xxx.*) or range (xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy). Note: the last quad .255 is considered the range of all the IPs in that quad. If you enter 10.0.0.255, it is just like entering 10.0.0.* (No IP is assigned .255 for that matter, it is reserved). Where you may encounter this is in ranges, 10.0.0.5-10.0.0.255 is the same as "10.0.0.*" . You should really enter 10.0.0.5-10.0.0.254 .';
+$lang['SEARCH_IP_EXPLAIN'] = 'Search for users by a specific IP address (xxx.xxx.xxx.xxx).';
 $lang['SEARCH_USERS_JOINED'] = 'Users that joined';
 $lang['SEARCH_USERS_LASTVISITED'] = 'Users whom have visited';
 $lang['IN_THE_LAST'] = 'in the last';
@@ -2654,11 +2654,11 @@ $lang['SEARCH_USERS_RANKS_EXPLAIN'] = 'View all carriers of the selected rank.';
 $lang['BANNED_USERS'] = 'Banned Users';
 $lang['DISABLED_USERS'] = 'Disabled Users';
 $lang['SEARCH_USERS_MISC_EXPLAIN'] = 'Administrators - All users with Administrator powers; Moderators - All forum moderators; Banned Users - All accounts that have been banned on these forums; Disabled Users - All users with disabled accounts (either manually disabled or never verified their email address); Users with disabled PMs - Selects users who have the Private Messages privileges removed (Done via User Management)';
-$lang['POSTCOUNT'] = 'Postcount';
+$lang['POSTCOUNT'] = 'Post count';
 $lang['EQUALS'] = 'Equals';
 $lang['GREATER_THAN'] = 'Greater than';
 $lang['LESS_THAN'] = 'Less than';
-$lang['SEARCH_USERS_POSTCOUNT_EXPLAIN'] = 'You can search for users based on the Postcount value. You can either search by a specific value, greater than or lesser than a value or between two values. To do the range search, select "Equals" then put the beginning and ending values of the range separated by a dash (-), e.g. 10-15';
+$lang['SEARCH_USERS_POSTCOUNT_EXPLAIN'] = 'You can search for users based on the post count value. You can either search by a specific value, greater than or lesser than a value or between two values. To do the range search, select "Equals" then put the beginning and ending values of the range separated by a dash (-), e.g. 10-15';
 $lang['USERFIELD'] = 'Userfield';
 $lang['SEARCH_USERS_USERFIELD_EXPLAIN'] = 'Search for users based on various profile fields. Wildcards are supported using an asterix (*).';
 $lang['SEARCH_USERS_LASTVISITED_EXPLAIN'] = 'You can search for users based on their last login date using this search option';
@@ -2666,7 +2666,7 @@ $lang['SEARCH_USERS_LANGUAGE_EXPLAIN'] = 'This will display users whom have sele
 $lang['SEARCH_USERS_TIMEZONE_EXPLAIN'] = 'Users who have selected a specific timezone in their profile';
 $lang['SEARCH_USERS_STYLE_EXPLAIN'] = 'Display users who have selected a specific style.';
 $lang['MODERATORS_OF'] = 'Moderators of';
-$lang['SEARCH_USERS_MODERATORS_EXPLAIN'] = 'Search for users with Moderating permissions to a specific forum. Moderating permissions are recognized either by User Permissions or by being in a Group with the right Group Permissions.';
+$lang['SEARCH_USERS_MODERATORS_EXPLAIN'] = 'Search for users with Moderating permissions to a specific forum. Moderating permissions are recognised either by User Permissions or by being in a Group with the right Group Permissions.';
 
 $lang['SEARCH_USERS_NEW'] = '%s yielded %d result(s). Perform <a href="%s">another search</a>.';
 $lang['BANNED'] = 'Banned';
@@ -2686,26 +2686,26 @@ $lang['MC_FAQ'] = 'Entered text will be displayed under this message';
 $lang['MC_COMMENT_PM_SUBJECT'] = "%s in your message";
 $lang['MC_COMMENT_PM_MSG'] = "Hello, [b]%s[/b]\nModerator left in your message [url=%s][b]%s[/b][/url][quote]\n%s\n[/quote]";
 $lang['MC_COMMENT'] = array(
-	0 => array(
-		'title' => '',
-		'type'  => 'Delete comment',
-	),
-	1 => array(
-		'title' => 'Comment from %s',
-		'type'  => 'Comment',
-	),
-	2 => array(
-		'title' => 'Information from %s',
-		'type'  => 'Information',
-	),
-	3 => array(
-		'title' => 'Warning from %s',
-		'type'  => 'Warning',
-	),
-	4 => array(
-		'title' => 'Violation from %s',
-		'type'  => 'Violation',
-	),
+    0 => array(
+        'title' => '',
+        'type' => 'Delete comment',
+    ),
+    1 => array(
+        'title' => 'Comment from %s',
+        'type' => 'Comment',
+    ),
+    2 => array(
+        'title' => 'Information from %s',
+        'type' => 'Information',
+    ),
+    3 => array(
+        'title' => 'Warning from %s',
+        'type' => 'Warning',
+    ),
+    4 => array(
+        'title' => 'Violation from %s',
+        'type' => 'Violation',
+    ),
 );
 
 $lang['SITEMAP'] = 'Sitemap';
@@ -2720,15 +2720,15 @@ $lang['SITEMAP_OPTIONS'] = 'Options';
 $lang['SITEMAP_CREATE'] = 'Create / update the sitemap';
 $lang['SITEMAP_NOTIFY'] = 'Notify search engines about new version of sitemap';
 $lang['SITEMAP_WHAT_NEXT'] = 'What to do next?';
-$lang['SITEMAP_GOOGLE_1'] = 'Register your site at <a href="http://www.google.com/webmasters/" target="_blank">Google Webmaster</a> using your Google account.';
+$lang['SITEMAP_GOOGLE_1'] = 'Register your site at <a href="https://www.google.com/webmasters/" target="_blank">Google Webmaster</a> using your Google account.';
 $lang['SITEMAP_GOOGLE_2'] = '<a href="https://www.google.com/webmasters/tools/sitemap-list" target="_blank">Add sitemap</a> of site you registered.';
-$lang['SITEMAP_YANDEX_1'] = 'Register your site at <a href="http://webmaster.yandex.ru/sites/" target="_blank">Yandex Webmaster</a> using your Yandex account.';
-$lang['SITEMAP_YANDEX_2'] = '<a href="http://webmaster.yandex.ru/site/map.xml" target="_blank">Add sitemap</a> of site you registered.';
+$lang['SITEMAP_YANDEX_1'] = 'Register your site at <a href="https://webmaster.yandex.ru/sites/" target="_blank">Yandex Webmaster</a> using your Yandex account.';
+$lang['SITEMAP_YANDEX_2'] = '<a href="https://webmaster.yandex.ru/site/map.xml" target="_blank">Add sitemap</a> of site you registered.';
 $lang['SITEMAP_BING_1'] = 'Register your site at <a href="https://www.bing.com/webmaster/" target="_blank">Bing Webmaster</a> using your Microsoft account.';
 $lang['SITEMAP_BING_2'] = 'Add sitemap of site you registered in its settings.';
 $lang['SITEMAP_ADD_TITLE'] = 'Additional pages for sitemap';
 $lang['SITEMAP_ADD_PAGE'] = 'Additional pages';
-$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site (for example, <b>http://torrentpier.com/memberlist.php</b>) which should be included in your sitemap file that you are creating.';
+$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site which should be included in your sitemap file that you creating.';
 $lang['SITEMAP_ADD_EXP_2'] = 'Each reference must begin with http(s):// and a new line!';
 
 $lang['FORUM_MAP'] = 'Forums\' map';
@@ -2744,18 +2744,18 @@ $lang['ATOM_GLOBAL_FEED'] = 'Global feed for all forums';
 $lang['HASH_INVALID'] = 'Hash %s is invalid';
 $lang['HASH_NOT_FOUND'] = 'Release with hash %s not found';
 
-$lang['TERMS_EMPTY_TEXT'] = '[align=center]The text of this page is edited at: [url=http://%s/admin/admin_terms.php]admin/admin_terms.php[/url]. This line can see only administrators.[/align]';
+$lang['TERMS_EMPTY_TEXT'] = '[align=center]The text of this page is edited at: [url=https://%s/admin/admin_terms.php]admin/admin_terms.php[/url]. This line can see only administrators.[/align]';
 $lang['TERMS_EXPLAIN'] = 'On this page, you can specify the text of the basic rules of the resource is displayed to users.';
 
 $lang['TR_STATS'] = array(
-	0 => 'inactive users in 30 days',
-	1 => 'inactive users for 90 days',
-	2 => 'medium size distributions on the tracker (many megabytes)',
-	3 => 'how many total hands on the tracker',
-	4 => 'how many live hands (there is at least 1 led)',
-	5 => 'how many hands where that seeding more than 5 seeds',
-	6 => 'how many of us uploaders (those who filled at least 1 hand)',
-	7 => 'how many uploaders over the last 30 days',
+    0 => 'inactive users in 30 days',
+    1 => 'inactive users for 90 days',
+    2 => 'medium size distributions on the tracker (many megabytes)',
+    3 => 'how many total hands on the tracker',
+    4 => 'how many live hands (there is at least 1 led)',
+    5 => 'how many hands where that seeding more than 5 seeds',
+    6 => 'how many of us uploaders (those who filled at least 1 hand)',
+    7 => 'how many uploaders over the last 30 days',
 );
 
 $lang['NEW_POLL_START'] = 'Poll enabled';
@@ -2787,13 +2787,13 @@ $lang['UPLOAD_ERROR_DIMENSIONS'] = 'Image dimensions exceed the maximum allowabl
 $lang['UPLOAD_ERROR_NOT_IMAGE'] = 'The uploaded file is not an image';
 $lang['UPLOAD_ERROR_NOT_ALLOWED'] = 'Extension %s for downloads is not allowed';
 $lang['UPLOAD_ERRORS'] = array(
-	UPLOAD_ERR_INI_SIZE   => 'you have exceeded the maximum file size for the server',
-	UPLOAD_ERR_FORM_SIZE  => 'you have exceeded the maximum file upload size',
-	UPLOAD_ERR_PARTIAL    => 'the file was partially downloaded',
-	UPLOAD_ERR_NO_FILE    => 'file was not uploaded',
-	UPLOAD_ERR_NO_TMP_DIR => 'temporary directory not found',
-	UPLOAD_ERR_CANT_WRITE => 'write error',
-	UPLOAD_ERR_EXTENSION  => 'upload stopped by extension',
+    UPLOAD_ERR_INI_SIZE => 'you have exceeded the maximum file size for the server',
+    UPLOAD_ERR_FORM_SIZE => 'you have exceeded the maximum file upload size',
+    UPLOAD_ERR_PARTIAL => 'the file was partially downloaded',
+    UPLOAD_ERR_NO_FILE => 'file was not uploaded',
+    UPLOAD_ERR_NO_TMP_DIR => 'temporary directory not found',
+    UPLOAD_ERR_CANT_WRITE => 'write error',
+    UPLOAD_ERR_EXTENSION => 'upload stopped by extension',
 );
 
 // Captcha
