@@ -288,6 +288,12 @@ $bb_cfg['lang'] = array(
 		'encoding' => 'UTF-8',
 		'captcha'  => 'ru',
 	),
+	'uk' => array(
+		'name'     => 'Український',
+		'locale'   => 'uk_UA.UTF-8',
+		'encoding' => 'UTF-8',
+		'captcha'  => 'uk',
+	),
 	'en' => array(
 		'name'     => 'English',
 		'locale'   => 'en_US.UTF-8',
