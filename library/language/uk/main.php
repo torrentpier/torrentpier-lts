@@ -110,6 +110,8 @@ $lang['LOADING'] = 'Завантаження...';
 $lang['JUMPBOX_TITLE'] = 'Оберіть форум для переходу';
 $lang['DISPLAYING_OPTIONS'] = 'Опції показу';
 
+$lang['COPY_TO_CLIPBOARD'] = 'Копіювати в буфер обміну';
+
 // Global Header strings
 $lang['REGISTERED_USERS'] = 'Зареєстровані користувачі:';
 $lang['BROWSING_FORUM'] = 'Зараз цей форум переглядають:';
