@@ -72,9 +72,9 @@ $domain_name = 'torrentpier.com'; // enter here your primary domain name of your
 $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? $_SERVER['SERVER_NAME'] : $domain_name;
 
 // Version info
-$bb_cfg['tp_version'] = '2.1.5';
-$bb_cfg['tp_release_date'] = '06-12-2014';
-$bb_cfg['tp_release_state'] = 'ALPHA';
+$bb_cfg['tp_version'] = '2.1.5-2023.03';
+$bb_cfg['tp_release_date'] = '04-04-2023';
+$bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.3.3';
 
 // Database
@@ -84,7 +84,7 @@ $pconnect = false;
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост, название базы, пользователь, пароль, charset, pconnect);
 $bb_cfg['db'] = array(
-	'db1' => array('localhost', 'tp_215', 'user', 'pass', $charset, $pconnect),
+	'db1' => array('localhost', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
 	//'db2' => array('localhost2', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
 	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
