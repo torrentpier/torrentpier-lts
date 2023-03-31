@@ -216,7 +216,7 @@ class user_common
 	*/
 	function session_create ($userdata, $auto_created = false)
 	{
-		global $bb_cfg;
+		global $bb_cfg, $lang;
 
 		$this->data = $userdata;
 		$session_id = $this->sessiondata['sid'];
@@ -238,7 +238,7 @@ class user_common
 
 			if (DB()->fetch_row($sql))
 			{
-				header('Location: https://torrentpier.com/banned/');
+				bb_simple_die($lang['YOU_BEEN_BANNED']);
 			}
 		}
 
