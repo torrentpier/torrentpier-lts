@@ -19,7 +19,7 @@ switch($mode)
 		{
 			foreach($stats['birthday_week_list'] as $week)
 			{
-				$html[] = profile_url($week) .' <span class="small">('. birthday_age($week['user_birthday']) .')</span>';
+				$html[] = profile_url($week) .' <span class="small">('. birthday_age(date('Y-m-d', strtotime('-1 year', strtotime($week['user_birthday'])))) .')</span>';
 			}
 			$html = sprintf($lang['BIRTHDAY_WEEK'], $bb_cfg['birthday_check_day'], join(', ', $html));
 		}
