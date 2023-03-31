@@ -178,7 +178,7 @@ if ($result = DB()->fetch_rowset($sql))
 		}
 		else
 		{
-			$email = '';
+			$email = $lang['NOSELECT'];
 		}
 
 		if ($row['user_website'])
@@ -187,8 +187,13 @@ if ($result = DB()->fetch_rowset($sql))
 		}
 		else
 		{
-			$www = '';
+			$www = $lang['NOSELECT'];
 		}
+
+        if(!$from)
+        {
+            $from = $lang['NOSELECT'];
+        }
 
 		$row_class = !($i % 2) ? 'row1' : 'row2';
 		$template->assign_block_vars('memberrow', array(
