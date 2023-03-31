@@ -49,6 +49,9 @@ switch ($mode)
 			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Weblogs: <font style="color: red;">'.$lang['SITEMAP_ERROR'].'</font> URL: <a href="http://rpc.weblogs.com/pingSiteForm?name=InfraBlog&url='.urlencode($map_link).'" target="_blank">http://rpc.weblogs.com/pingSiteForm?name=InfraBlog&url='.$map_link.'</a>';
 		}
 	break;
+
+    default:
+        $this->ajax_die('Invalid mode');
 }
 
 $this->response['html'] = $html;
