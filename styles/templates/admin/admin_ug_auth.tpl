@@ -190,7 +190,7 @@ if (tCont.offsetHeight > document.body.clientHeight) {
 	tCont.style.height = document.body.clientHeight;
 }
 
-if (is_moz) {
+if ($.browser.mozilla) {
 	if (tBody.offsetHeight > document.body.clientHeight - 65) {
 		tBody.style.height = document.body.clientHeight - 65;
 	}
