@@ -7,7 +7,8 @@ if (!empty($setmodules))
 }
 require('./pagestart.php');
 
-if ($bb_cfg['emailer_disabled']) {
+if ($bb_cfg['emailer_disabled'])
+{
     bb_die($lang['EMAILER_DISABLED']);
 }
 
