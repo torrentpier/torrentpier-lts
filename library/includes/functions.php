@@ -2656,7 +2656,7 @@ function profile_url ($data)
 	return $profile;
 }
 
-function get_avatar ($user_id, $ext_id, $allow_avatar = true, $size = true, $height = '', $width = '')
+function get_avatar ($user_id, $ext_id, $allow_avatar = true, $size = true, $height = '100', $width = '100')
 {
 	global $bb_cfg;
 
