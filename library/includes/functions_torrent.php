@@ -268,7 +268,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	if ($bb_cfg['bt_disable_dht'])
 	{
 		$tor['info']['private'] = (int) 1;
-		$fp = fopen($filename, 'w+');
+		$fp = fopen($filename, 'wb+');
 		fwrite ($fp, bencode($tor));
 		fclose ($fp);
 	}
