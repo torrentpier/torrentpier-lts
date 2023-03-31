@@ -42,7 +42,6 @@ if ($torrent['poster_id'] == $userdata['user_id'] && !IS_AM)
 {
 	if ($type == 'del_torrent' || $type == 'reg' || $type == 'unreg')
 	{
-		true;
 	}
 	else
 	{
