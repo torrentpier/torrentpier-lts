@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -81,15 +81,15 @@ class Attribute
             return $retArray;
         } elseif (is_int($index)) {
             if (!isset($data[$attribName])) {
-                return null;
+                return;
             } elseif ($index >= 0 && $index < count($data[$attribName])) {
                 return self::valueFromLdap($data[$attribName][$index]);
             } else {
-                return null;
+                return;
             }
         }
 
-        return null;
+        return;
     }
 
     /**
@@ -197,7 +197,7 @@ class Attribute
             } else {
                 return $return;
             }
-        } catch (Exception\InvalidArgumentException $e) {
+        } catch (Converter\Exception\InvalidArgumentException $e) {
             return $value;
         }
     }
@@ -318,7 +318,7 @@ class Attribute
             return Converter\Converter::toLdapDateTime($value, $utc);
         }
 
-        return null;
+        return;
     }
 
     /**
@@ -361,10 +361,10 @@ class Attribute
             try {
                 return Converter\Converter::fromLdapDateTime($value, false)->format('U');
             } catch (Converter\Exception\InvalidArgumentException $e) {
-                return null;
+                return;
             }
         }
 
-        return null;
+        return;
     }
 }

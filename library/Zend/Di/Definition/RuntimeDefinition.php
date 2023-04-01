@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -37,6 +37,11 @@ class RuntimeDefinition implements DefinitionInterface
      * @var array
      */
     protected $injectionMethods = array();
+
+    /**
+     * @var array
+     */
+    protected $processedClass = array();
 
     /**
      * Constructor
@@ -176,23 +181,18 @@ class RuntimeDefinition implements DefinitionInterface
 
     /**
      * @param string $class
-     *
-     * @return bool
-     */
-    protected function hasProcessedClass($class)
-    {
-        return array_key_exists($class, $this->classes) && is_array($this->classes[$class]);
-    }
-
-    /**
-     * @param string $class
      * @param bool $forceLoad
      */
     protected function processClass($class, $forceLoad = false)
     {
-        if (!$forceLoad && $this->hasProcessedClass($class)) {
+        if (!isset($this->processedClass[$class]) || $this->processedClass[$class] === false) {
+            $this->processedClass[$class] = (array_key_exists($class, $this->classes) && is_array($this->classes[$class]));
+        }
+
+        if (!$forceLoad && $this->processedClass[$class]) {
             return;
         }
+
         $strategy = $this->introspectionStrategy; // localize for readability
 
         /** @var $rClass \Zend\Code\Reflection\ClassReflection */
@@ -231,9 +231,9 @@ class RuntimeDefinition implements DefinitionInterface
             $rTarget = $rTargetParent;
         } while (true);
 
-        $def['supertypes'] = $supertypes;
+        $def['supertypes'] = array_keys(array_flip($supertypes));
 
-        if ($def['instantiator'] == null) {
+        if ($def['instantiator'] === null) {
             if ($rClass->isInstantiable()) {
                 $def['instantiator'] = '__construct';
             }
