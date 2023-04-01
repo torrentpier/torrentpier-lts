@@ -238,7 +238,7 @@ var TPL = {
 
 		$('select.rel-input').bind('change', function(){
 			var $sel = $(this);
-			if ( $sel.val().toLowerCase().match(/^друг(ой|ая|ое|ие)$/) ) {
+			if ( $sel.val().toLowerCase().match(/^друг(ой|ая|ое|ие)|other$/) ) {
 				var $input = $('<input class="rel-el rel-input" type="text" id="'+ $sel.attr('id') +'" style="width: '+ $sel.width() +'px;" />');
 				$sel.after($input);
 				$sel.remove();
@@ -629,8 +629,9 @@ TPL.el_attr = {
 	screenshots: ['TXT', 'Скриншоты', '3', 'spoiler'],
 	screenshots_about: ['TXT', 'Скриншоты окна About', '3', 'spoiler'],
 	vista_compat: ['SEL', 'Совместимость с Vista', '', ''],
-	vista_compat_new: ['SEL', 'Совместимость с Vista', '', ''],
 	windows7_compat: ['SEL', 'Совместимость с Windows 7', '', ''],
+	windows8_compat: ['SEL', 'Совместимость с Windows 8', '', ''],
+	windows10_compat: ['SEL', 'Совместимость с Windows 10', '', ''],
 	country: ['INP', 'Страна', '200,50', ''],
 	crack_exists: ['SEL', 'Таблэтка', '', ''],
 	//в аудиокнигах, огрызке (apple)
@@ -1537,13 +1538,6 @@ TPL.selects = {
 		'Изначально компьютерное (eBook)',
 		'Сфотографированные страницы'
 		],
-	vista_compat: [
-		'&raquo; Совместимость с Vista',
-		'полная',
-		'да',
-		'нет',
-		'неизвестно'
-		],
 	game_plat_wii: [
 		'',
 		'Nintendo Wii',
@@ -1610,7 +1604,7 @@ TPL.selects = {
 		'x64',
 		'x86+x64'
 		],
-	vista_compat_new: [
+	vista_compat: [
 		'&raquo; Совместимость с Vista',
 		'полная',
 		'только с х86 (32-бит)',
@@ -1620,6 +1614,22 @@ TPL.selects = {
 		],
 	windows7_compat: [
 		'&raquo; Совместимость с Windows 7',
+		'полная',
+		'только с х86 (32-бит)',
+		'только с х64 (64-бит)',
+		'нет',
+		'неизвестно'
+		],
+	windows8_compat: [
+		'&raquo; Совместимость с Windows 8',
+		'полная',
+		'только с х86 (32-бит)',
+		'только с х64 (64-бит)',
+		'нет',
+		'неизвестно'
+		],
+	windows10_compat: [
+		'&raquo; Совместимость с Windows 10',
 		'полная',
 		'только с х86 (32-бит)',
 		'только с х64 (64-бит)',
