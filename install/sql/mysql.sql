@@ -724,8 +724,8 @@ CREATE TABLE IF NOT EXISTS `bb_groups` (
   `group_type` tinyint(4) NOT NULL DEFAULT '1',
   `release_group` tinyint(4) NOT NULL DEFAULT '0',
   `group_name` varchar(40) NOT NULL DEFAULT '',
-  `group_description` text NOT NULL,
-  `group_signature` text NOT NULL,
+  `group_description` text NOT NULL DEFAULT '',
+  `group_signature` text NOT NULL DEFAULT '',
   `group_moderator` mediumint(8) NOT NULL DEFAULT '0',
   `group_single_user` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`group_id`),
@@ -1106,7 +1106,7 @@ CREATE TABLE IF NOT EXISTS `bb_topics` (
 -- ----------------------------
 -- Records of bb_topics
 -- ----------------------------
-INSERT INTO `bb_topics` VALUES ('1', '1', 'Добро пожаловать в TorrentPier II', '2', UNIX_TIMESTAMP(), '2', '0', '0', '0', '0', '1', '1', '0', '0', '0', '1414658247', '0');
+INSERT INTO `bb_topics` VALUES ('1', '1', 'Добро пожаловать в TorrentPier II', '2', UNIX_TIMESTAMP(), '0', '0', '0', '0', '0', '1', '1', '0', '0', '0', UNIX_TIMESTAMP(), '0');
 
 -- ----------------------------
 -- Table structure for `bb_topics_watch`
@@ -1179,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `bb_users` (
   `user_icq` varchar(15) NOT NULL DEFAULT '',
   `user_website` varchar(100) NOT NULL DEFAULT '',
   `user_from` varchar(100) NOT NULL DEFAULT '',
-  `user_sig` text NOT NULL,
+  `user_sig` text NOT NULL DEFAULT '',
   `user_occ` varchar(100) NOT NULL DEFAULT '',
   `user_interests` varchar(255) NOT NULL DEFAULT '',
   `user_actkey` varchar(32) NOT NULL DEFAULT '',
