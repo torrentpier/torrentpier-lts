@@ -16,6 +16,12 @@ $page_cfg['load_tpl_vars'] = array(
 	'post_icons',
 );
 
+//
+// Define censored word matches
+//
+$orig_word = $replacement_word = array();
+obtain_word_list($orig_word, $replacement_word);
+
 // Session start
 $user->session_start(array('req_login' => $bb_cfg['bt_tor_browse_only_reg']));
 
@@ -800,7 +806,7 @@ if ($allowed_forums)
 				'FORUM_ID'     => $forum_id,
 				'FORUM_NAME'   => ($forum_id) ? $forum_name_html[$forum_id] : '',
 				'TOPIC_ID'     => $tor['topic_id'],
-				'TOPIC_TITLE'  => wbr($tor['topic_title']),
+				'TOPIC_TITLE'  => wbr(preg_replace($orig_word, $replacement_word, $tor['topic_title'])),
 				'TOPIC_TIME'   => bb_date($tor['topic_time'], 'd-M-y') .' <b>&middot;</b> '. delta_time($tor['topic_time']),
 				'POST_ID'      => $tor['post_id'],
 				'POSTER_ID'    => $poster_id,
