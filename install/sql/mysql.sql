@@ -544,8 +544,8 @@ CREATE TABLE IF NOT EXISTS `bb_cron` (
   `run_day` enum('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28') DEFAULT NULL,
   `run_time` time DEFAULT '04:00:00',
   `run_order` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `last_run` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `next_run` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_run` datetime NOT NULL DEFAULT '1900-01-01 00:00:00',
+  `next_run` datetime NOT NULL DEFAULT '1900-01-01 00:00:00',
   `run_interval` time DEFAULT NULL DEFAULT '0',
   `log_enabled` tinyint(1) NOT NULL DEFAULT '0',
   `log_file` char(120) NOT NULL DEFAULT '',
@@ -811,7 +811,7 @@ CREATE TABLE IF NOT EXISTS `bb_posts` (
   `post_edit_count` smallint(5) unsigned NOT NULL DEFAULT '0',
   `post_attachment` tinyint(1) NOT NULL DEFAULT '0',
   `user_post` tinyint(1) NOT NULL DEFAULT '1',
-  `mc_comment` text NOT NULL,
+  `mc_comment` text NOT NULL DEFAULT '',
   `mc_type` tinyint(1) NOT NULL DEFAULT '0',
   `mc_user_id` mediumint(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`post_id`),
@@ -1172,7 +1172,7 @@ CREATE TABLE IF NOT EXISTS `bb_users` (
   `user_rank` int(11) NOT NULL DEFAULT '0',
   `avatar_ext_id` tinyint(4) NOT NULL DEFAULT '0',
   `user_gender` tinyint(1) NOT NULL DEFAULT '0',
-  `user_birthday` date NOT NULL DEFAULT '0000-00-00',
+  `user_birthday` date NOT NULL DEFAULT '1900-01-01',
   `user_email` varchar(255) NOT NULL DEFAULT '',
   `user_skype` varchar(32) NOT NULL DEFAULT '',
   `user_twitter` varchar(15) NOT NULL DEFAULT '',
@@ -1197,9 +1197,9 @@ CREATE TABLE IF NOT EXISTS `bb_users` (
 -- ----------------------------
 -- Records of bb_users
 -- ----------------------------
-INSERT INTO `bb_users` VALUES ('-1', '0', 'Guest', 'd41d8cd98f00b204e9800998ecf8427e', '0', '0', '0', UNIX_TIMESTAMP(), '0', '0', '0', '', 'ru', '0', '0', '0', '0', '0', '0', '0', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
-INSERT INTO `bb_users` VALUES ('-746', '0', 'bot', 'd41d8cd98f00b204e9800998ecf8427e', '0', '0', '0', UNIX_TIMESTAMP(), '0', '0', '0', '', 'ru', '0', '0', '0', '144', '0', '0', '0', '0000-00-00', 'bot@torrentpier.com', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
-INSERT INTO `bb_users` VALUES ('2', '1', 'admin', 'c3284d0f94606de1fd2af172aba15bf3', '0', '0', '0', UNIX_TIMESTAMP(), '0', '1', '1', '', 'ru', '0', '0', '0', '304', '1', '0', '0', '0000-00-00', 'admin@torrentpier.com', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
+INSERT INTO `bb_users` VALUES ('-1', '0', 'Guest', 'd41d8cd98f00b204e9800998ecf8427e', '0', '0', '0', UNIX_TIMESTAMP(), '0', '0', '0', '', 'ru', '0', '0', '0', '0', '0', '0', '0', '1900-01-01', '', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
+INSERT INTO `bb_users` VALUES ('-746', '0', 'bot', 'd41d8cd98f00b204e9800998ecf8427e', '0', '0', '0', UNIX_TIMESTAMP(), '0', '0', '0', '', 'ru', '0', '0', '0', '144', '0', '0', '0', '1900-01-01', 'bot@torrentpier.com', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
+INSERT INTO `bb_users` VALUES ('2', '1', 'admin', 'c3284d0f94606de1fd2af172aba15bf3', '0', '0', '0', UNIX_TIMESTAMP(), '0', '1', '1', '', 'ru', '0', '0', '0', '304', '1', '0', '0', '1900-01-01', 'admin@torrentpier.com', '', '', '', '', '', '', '', '', '', '', '', '0', '0.00', 'default');
 
 -- ----------------------------
 -- Table structure for `bb_user_group`
