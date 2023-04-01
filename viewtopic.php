@@ -537,6 +537,8 @@ $poll_time_expired = ($t_data['topic_time'] < TIMENOW - $bb_cfg['poll_max_days']
 $can_manage_poll = ($t_data['topic_poster'] == $userdata['user_id'] || $is_auth['auth_mod']);
 $can_add_poll = ($can_manage_poll && !$topic_has_poll && !$poll_time_expired && !$start);
 
+$page_title = ((int)($start / $posts_per_page) === 0) ? $topic_title : $topic_title . ' - ' . $lang['SHORT_PAGE'] . ' ' . (floor($start / $posts_per_page) + 1);
+
 //
 // Send vars to template
 //
@@ -549,7 +551,7 @@ $template->assign_vars(array(
 	'FORUM_ID'            => $forum_id,
 	'FORUM_NAME'          => htmlCHR($forum_name),
 	'TOPIC_ID'            => $topic_id,
-	'PAGE_TITLE'          => $topic_title,
+	'PAGE_TITLE'          => $page_title,
 	'TOPIC_TITLE'         => wbr($topic_title),
 	'PORNO_FORUM'         => $t_data['allow_porno_topic'],
 	'REPLY_IMG'           => $reply_img,
