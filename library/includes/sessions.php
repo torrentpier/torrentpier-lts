@@ -568,7 +568,7 @@ class user_common
 	*/
 	function init_userprefs ()
 	{
-		global $bb_cfg, $theme, $lang, $DeltaTime;
+		global $bb_cfg, $theme, $source_lang, $DeltaTime;
 
 		if (defined('LANG_DIR')) return;  // prevent multiple calling
 
@@ -594,6 +594,14 @@ class user_common
 
 		if (!defined('LANG_DIR')) define('LANG_DIR', DEFAULT_LANG_DIR);
 
+        /** Temporary place source language to the global */
+        $lang = array();
+        require(ENGLISH_LANG_DIR .'main.php');
+        $source_lang = $lang;
+        unset($lang);
+
+        /** Place user language to the global */
+        global $lang;
 		require(LANG_DIR .'main.php');
 		setlocale(LC_ALL, isset($bb_cfg['lang'][$this->data['user_lang']]['locale']) ? $bb_cfg['lang'][$this->data['user_lang']]['locale'] : 'en_US.UTF-8');
 
