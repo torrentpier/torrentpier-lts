@@ -1626,7 +1626,7 @@ function bb_date ($gmepoch, $format = false, $friendly_date = true)
 function birthday_age ($date)
 {
 	global $bb_cfg;
-	if (!$date) return;
+	if (!$date) return '';
 
 	$tz = TIMENOW + (3600 * $bb_cfg['board_timezone']);
 	return delta_time(strtotime($date, $tz));
