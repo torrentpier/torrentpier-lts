@@ -277,32 +277,14 @@ $bb_cfg['pm_url']      = 'privmsg.php';  #  "http://{$domain_name}/privmsg.php"
 
 // Language
 $bb_cfg['charset']       = 'utf8'; // page charset
-$bb_cfg['auto_language'] = true;   // select user-preferred language automatically
 
-if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) && $bb_cfg['auto_language'])
+if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
 {
-	$user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-	if (file_exists(LANG_ROOT_DIR . $user_lang .'/'))
-	{
-		$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR . $user_lang .'/';
-		$bb_cfg['default_lang'] = $user_lang;
-	}
-	else
-	{
-		$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR .'en/';
-		$bb_cfg['default_lang'] = 'en';
-	}
+    $bb_cfg['default_lang_dir'] = LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/';
 }
 else
 {
-	if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
-	{
-		$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/';
-	}
-	else
-	{
-		$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR .'en/';
-	}
+    $bb_cfg['default_lang_dir'] = LANG_ROOT_DIR .'en/';
 }
 
 $bb_cfg['lang'] = array(
