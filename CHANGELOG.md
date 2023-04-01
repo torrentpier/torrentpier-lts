@@ -51,6 +51,7 @@
 - Minor adjustments in sql dump [\#109](https://github.com/torrentpier/torrentpier-lts/pull/109) ([belomaxorka](https://github.com/belomaxorka))
 - Fix default users language in dump [\#110](https://github.com/torrentpier/torrentpier-lts/pull/110) ([belomaxorka](https://github.com/belomaxorka))
 - Fix some bugs with MySQL strict mode [\#111](https://github.com/torrentpier/torrentpier-lts/pull/111) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed broken sitemap sending [\#112](https://github.com/torrentpier/torrentpier-lts/pull/112) ([belomaxorka](https://github.com/belomaxorka))
 - Minor fixes [\#89](https://github.com/torrentpier/torrentpier-lts/pull/89), [\#94](https://github.com/torrentpier/torrentpier-lts/pull/94), [\#98](https://github.com/torrentpier/torrentpier-lts/pull/98), [\#101](https://github.com/torrentpier/torrentpier-lts/pull/101), [\#103](https://github.com/torrentpier/torrentpier-lts/pull/103) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5](https://github.com/torrentpier/torrentpier/tree/v2.1.5) (2015-05-23)
