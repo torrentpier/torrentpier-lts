@@ -23,31 +23,19 @@ switch ($mode)
 	case 'search_update':
 		if (!@file_exists(SITEMAP_DIR. 'sitemap.xml')) $map->create();
 
-		$map_link = make_url(SITEMAP_DIR. 'sitemap.xml');
+		$map_link = make_url(hide_bb_path(SITEMAP_DIR. 'sitemap.xml'));
 
-		if (strpos($map->send_url("http://google.com/webmasters/sitemaps/ping?sitemap=", $map_link), "successfully added") !== false) {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Google: <font style="color: green;">'.$lang['SITEMAP_SENT'].'</font>';
-		} else {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Google: <font style="color: red;">'.$lang['SITEMAP_ERROR'].'</font> URL: <a href="http://google.com/webmasters/sitemaps/ping?sitemap='.urlencode($map_link).'" target="_blank">http://google.com/webmasters/sitemaps/ping?sitemap='.$map_link.'</a>';
-		}
-
-		if (strpos($map->send_url("http://ping.blogs.yandex.ru/ping?sitemap=", $map_link), "OK") !== false) {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Yandex: <font style="color: green;">'.$lang['SITEMAP_SENT'].'</font>';
-		} else {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Yandex: <font style="color: red;">'.$lang['SITEMAP_ERROR'].'</font> URL: <a href="http://ping.blogs.yandex.ru/ping?sitemap='.urlencode($map_link).'" target="_blank">http://ping.blogs.yandex.ru/ping?sitemap='.$map_link.'</a>';
-		}
-
-		if ($map->send_url("http://www.bing.com/ping?sitemap=", $map_link)) {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Bing: <font style="color: green;">'.$lang['SITEMAP_SENT'].'</font>';
-		} else {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Bing: <font style="color: red;">'.$lang['SITEMAP_ERROR'].'</font> URL: <a href="http://www.bing.com/ping?sitemap='.urlencode($map_link).'" target="_blank">http://www.bing.com/ping?sitemap='.$map_link.'</a>';
-		}
-
-		if (strpos($map->send_url("http://rpc.weblogs.com/pingSiteForm?name=InfraBlog&url=", $map_link), "Thanks for the ping") !== false) {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Weblogs: <font style="color: green;">'.$lang['SITEMAP_SENT'].'</font>';
-		} else {
-			$html .= '<br />'.$lang['SITEMAP_NOTIFY_SEARCH'].' Weblogs: <font style="color: red;">'.$lang['SITEMAP_ERROR'].'</font> URL: <a href="http://rpc.weblogs.com/pingSiteForm?name=InfraBlog&url='.urlencode($map_link).'" target="_blank">http://rpc.weblogs.com/pingSiteForm?name=InfraBlog&url='.$map_link.'</a>';
-		}
+		foreach ($bb_cfg['sitemap_sending'] as $source_name => $source_link)
+		{
+            if ($map->send_url($source_link, $map_link))
+			{
+                $html .= '<br />' . $lang['SITEMAP_NOTIFY_SEARCH'] . '&nbsp;' . $source_name . ' : <span style="color: green;">' . $lang['SITEMAP_SENT'] . '</span>';
+            }
+			else
+			{
+                $html .= '<br />' . $lang['SITEMAP_NOTIFY_SEARCH'] . '&nbsp;' . $source_name . ' : <span style="color: red;">' . $lang['SITEMAP_ERROR'] . '</span> URL: <a href="' . $source_link . urlencode($map_link) . '" target="_blank">' . $source_link . $map_link . '</a>';
+            }
+        }
 	break;
 
     default:
