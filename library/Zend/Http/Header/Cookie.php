@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -22,17 +22,25 @@ class Cookie extends ArrayObject implements HeaderInterface
     public static function fromSetCookieArray(array $setCookies)
     {
         $nvPairs = array();
-        /* @var $setCookie SetCookie */
+
         foreach ($setCookies as $setCookie) {
-            if (!$setCookie instanceof SetCookie) {
-                throw new Exception\InvalidArgumentException(__CLASS__ . '::' . __METHOD__ . ' requires an array of SetCookie objects');
+            if (! $setCookie instanceof SetCookie) {
+                throw new Exception\InvalidArgumentException(sprintf(
+                    '%s requires an array of SetCookie objects',
+                    __METHOD__
+                ));
             }
+
             if (array_key_exists($setCookie->getName(), $nvPairs)) {
-                throw new Exception\InvalidArgumentException('Two cookies with the same name were provided to ' . __CLASS__ . '::' . __METHOD__);
+                throw new Exception\InvalidArgumentException(sprintf(
+                    'Two cookies with the same name were provided to %s',
+                    __METHOD__
+                ));
             }
 
             $nvPairs[$setCookie->getName()] = $setCookie->getValue();
         }
+
         return new static($nvPairs);
     }
 

@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -204,7 +204,7 @@ class Proxy extends Socket
     protected function connectHandshake($host, $port = 443, $httpVer = '1.1', array &$headers = array())
     {
         $request = "CONNECT $host:$port HTTP/$httpVer\r\n" .
-                   "Host: " . $this->config['proxy_host'] . "\r\n";
+                   "Host: " . $host . "\r\n";
 
         // Add the user-agent header
         if (isset($this->config['useragent'])) {

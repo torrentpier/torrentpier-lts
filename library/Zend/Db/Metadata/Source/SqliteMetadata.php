@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -77,9 +77,6 @@ class SqliteMetadata extends AbstractSource
         }
         $this->prepareDataHierarchy('columns', $schema, $table);
         $this->prepareDataHierarchy('sqlite_columns', $schema, $table);
-
-        $p = $this->adapter->getPlatform();
-
 
         $results = $this->fetchPragma('table_info', $table, $schema);
 
@@ -274,7 +271,7 @@ class SqliteMetadata extends AbstractSource
         }
 
         if (!preg_match($re, $sql, $matches)) {
-            return null;
+            return;
         }
         return array(
             'view_definition' => $matches['view_definition'],
@@ -294,7 +291,7 @@ class SqliteMetadata extends AbstractSource
                 'TRIGGER',
                 array('IF', 'NOT', 'EXISTS'),
                 $identifierChain,
-                array('(?<action_timing>BEFORE|AFTER|INSTEAD\\s+OF)',),
+                array('(?<action_timing>BEFORE|AFTER|INSTEAD\\s+OF)', ),
                 '(?<event_manipulation>DELETE|INSERT|UPDATE)',
                 array('OF', '(?<column_usage>' . $identifierList . ')'),
                 'ON',
@@ -309,7 +306,7 @@ class SqliteMetadata extends AbstractSource
         }
 
         if (!preg_match($re, $sql, $matches)) {
-            return null;
+            return;
         }
         $data = array();
 

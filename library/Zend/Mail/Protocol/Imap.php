@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -299,7 +299,7 @@ class Imap
         } elseif ($tokens[0] == 'NO') {
             return false;
         }
-        return null;
+        return;
     }
 
     /**
@@ -428,7 +428,6 @@ class Imap
         }
         return $result;
     }
-
 
     /**
      * Get capabilities from IMAP server
@@ -586,7 +585,8 @@ class Imap
             // if we want only one message we can ignore everything else and just return
             if ($to === null && !is_array($from) && $tokens[0] == $from) {
                 // we still need to read all lines
-                while (!$this->readLine($tokens, $tag));
+                while (!$this->readLine($tokens, $tag)) {
+                }
                 return $data;
             }
             $result[$tokens[0]] = $data;
@@ -651,14 +651,14 @@ class Imap
 
         $flags = $this->escapeList($flags);
         $set = (int) $from;
-        if ($to != null) {
+        if ($to !== null) {
             $set .= ':' . ($to == INF ? '*' : (int) $to);
         }
 
         $result = $this->requestAndResponse('STORE', array($set, $item, $flags), $silent);
 
         if ($silent) {
-            return $result ? true : false;
+            return (bool) $result;
         }
 
         $tokens = $result;
@@ -710,7 +710,7 @@ class Imap
     public function copy($folder, $from, $to = null)
     {
         $set = (int) $from;
-        if ($to != null) {
+        if ($to !== null) {
             $set .= ':' . ($to == INF ? '*' : (int) $to);
         }
 
@@ -749,6 +749,17 @@ class Imap
     public function delete($folder)
     {
         return $this->requestAndResponse('DELETE', array($this->escapeString($folder)), true);
+    }
+
+    /**
+     * subscribe to a folder
+     *
+     * @param string $folder folder name
+     * @return bool success
+     */
+    public function subscribe($folder)
+    {
+        return $this->requestAndResponse('SUBSCRIBE', array($this->escapeString($folder)), true);
     }
 
     /**
