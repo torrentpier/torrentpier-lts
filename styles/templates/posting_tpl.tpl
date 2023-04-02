@@ -238,7 +238,7 @@ var TPL = {
 
 		$('select.rel-input').bind('change', function(){
 			var $sel = $(this);
-			if ( $sel.val().toLowerCase().match(/^друг(ой|ая|ое|ие)$/) ) {
+			if ( $sel.val().toLowerCase().match(/^друг(ой|ая|ое|ие)|other$/) ) {
 				var $input = $('<input class="rel-el rel-input" type="text" id="'+ $sel.attr('id') +'" style="width: '+ $sel.width() +'px;" />');
 				$sel.after($input);
 				$sel.remove();
