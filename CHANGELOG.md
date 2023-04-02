@@ -10,6 +10,7 @@
 - Torrent file content sort fix [\#119](https://github.com/torrentpier/torrentpier-lts/pull/119) ([belomaxorka](https://github.com/belomaxorka))
 - Fix release template editor [\#120](https://github.com/torrentpier/torrentpier-lts/pull/120) ([belomaxorka](https://github.com/belomaxorka))
 - Fix some notices in admin panel reported by BugSnag [\#121](https://github.com/torrentpier/torrentpier-lts/pull/121) ([belomaxorka](https://github.com/belomaxorka))
+- Fix magnet link passkey creation for new users [\#122](https://github.com/torrentpier/torrentpier-lts/pull/122) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.03](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.03) (2023-04-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.03...main)
