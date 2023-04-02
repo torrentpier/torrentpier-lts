@@ -1,10 +1,11 @@
 # Change Log
 
-## [v2.1.5-2023.04](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.04) (2023-05-04)
+## [v2.1.5-2023.04](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.04) (2023-05-04) (В разработке)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.03...v2.1.5-2023.04)
 
 **Merged pull requests:**
 
+- Release v2.1.5-2023.04 🎉
 - Display source language if no user language variable [\#113](https://github.com/torrentpier/torrentpier-lts/pull/113) ([belomaxorka](https://github.com/belomaxorka))
 - Torrent file content sort fix [\#119](https://github.com/torrentpier/torrentpier-lts/pull/119) ([belomaxorka](https://github.com/belomaxorka))
 - Fix release template editor [\#120](https://github.com/torrentpier/torrentpier-lts/pull/120) ([belomaxorka](https://github.com/belomaxorka))
