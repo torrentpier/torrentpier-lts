@@ -890,49 +890,56 @@ else
 
 	$select_sql .= "	ORDER BY ";
 
-	switch (strtolower(@$_GET['sort']))
+	if (isset($_GET['sort']))
 	{
-		case 'regdate':
-			$sort = 'regdate';
-			$select_sql .= 'u.user_regdate';
-			break;
+		switch (strtolower(@$_GET['sort']))
+		{
+			case 'regdate':
+				$sort = 'regdate';
+				$select_sql .= 'u.user_regdate';
+				break;
 
-		case 'posts':
-			$sort = 'posts';
-			$select_sql .= 'u.user_posts';
-			break;
+			case 'posts':
+				$sort = 'posts';
+				$select_sql .= 'u.user_posts';
+				break;
 
-		case 'user_email':
-			$sort = 'user_email';
-			$select_sql .= 'u.user_email';
-			break;
+			case 'user_email':
+				$sort = 'user_email';
+				$select_sql .= 'u.user_email';
+				break;
 
-		case 'lastvisit':
-			$sort = 'lastvisit';
-			$select_sql .= 'u.user_lastvisit';
-			break;
+			case 'lastvisit':
+				$sort = 'lastvisit';
+				$select_sql .= 'u.user_lastvisit';
+				break;
 
-		case 'username':
-		default:
-			$sort = 'username';
-			$select_sql .= 'u.username';
+			case 'username':
+				$sort = 'username';
+				$select_sql .= 'u.username';
+				break;
+		}
 	}
-
-	switch (@$_GET['order'])
+	else
 	{
-		case 'DESC':
-			$order = 'DESC';
-			$o_order = 'ASC';
-			break;
+        $sort = 'username';
+        $select_sql .= 'u.username';
+    }
 
-		default:
-			$o_order = 'DESC';
-			$order = 'ASC';
-	}
+	if (isset($_GET['order']))
+	{
+        $o_order = 'ASC';
+        $order = 'DESC';
+    }
+	else
+	{
+        $o_order = 'DESC';
+        $order = 'ASC';
+    }
 
 	$select_sql .= " $order";
 
-	$page = ( isset($_GET['page']) ) ? intval($_GET['page']) : intval(trim(@$_POST['page']));
+	$page = ( isset($_GET['page']) ) ? intval($_GET['page']) : 0;
 
 	if ($page < 1)
 	{
