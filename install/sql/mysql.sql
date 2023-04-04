@@ -973,7 +973,7 @@ DROP TABLE IF EXISTS `bb_search_results`;
 CREATE TABLE IF NOT EXISTS `bb_search_results` (
   `session_id` char(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `search_type` tinyint(4) NOT NULL DEFAULT '0',
-  `search_id` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `search_time` int(11) NOT NULL DEFAULT '0',
   `search_settings` text NOT NULL,
   `search_array` text NOT NULL,
@@ -989,7 +989,7 @@ CREATE TABLE IF NOT EXISTS `bb_search_results` (
 -- ----------------------------
 DROP TABLE IF EXISTS `bb_sessions`;
 CREATE TABLE IF NOT EXISTS `bb_sessions` (
-  `session_id` char(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `session_id` char(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `session_user_id` mediumint(8) NOT NULL DEFAULT '0',
   `session_start` int(11) NOT NULL DEFAULT '0',
   `session_time` int(11) NOT NULL DEFAULT '0',
@@ -1154,8 +1154,8 @@ DROP TABLE IF EXISTS `bb_users`;
 CREATE TABLE IF NOT EXISTS `bb_users` (
   `user_id` mediumint(8) NOT NULL AUTO_INCREMENT,
   `user_active` tinyint(1) NOT NULL DEFAULT '1',
-  `username` varchar(25) NOT NULL DEFAULT '',
-  `user_password` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `username` varchar(255) NOT NULL DEFAULT '',
+  `user_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `user_session_time` int(11) NOT NULL DEFAULT '0',
   `user_lastvisit` int(11) NOT NULL DEFAULT '0',
   `user_last_ip` char(32) NOT NULL DEFAULT '',
@@ -1182,9 +1182,9 @@ CREATE TABLE IF NOT EXISTS `bb_users` (
   `user_sig` text NOT NULL DEFAULT '',
   `user_occ` varchar(100) NOT NULL DEFAULT '',
   `user_interests` varchar(255) NOT NULL DEFAULT '',
-  `user_actkey` varchar(32) NOT NULL DEFAULT '',
-  `user_newpasswd` varchar(32) NOT NULL DEFAULT '',
-  `autologin_id` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user_actkey` varchar(255) NOT NULL DEFAULT '',
+  `user_newpasswd` varchar(255) NOT NULL DEFAULT '',
+  `autologin_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `user_newest_pm_id` mediumint(8) NOT NULL DEFAULT '0',
   `user_points` float(16,2) NOT NULL DEFAULT '0.00',
   `tpl_name` varchar(255) NOT NULL DEFAULT 'default',
