@@ -50,13 +50,13 @@ switch($mode)
 			}
 			else
 			{
-				if (mb_strlen($pass, 'UTF-8') > 20)
+				if (mb_strlen($pass, 'UTF-8') > PASSWORD_MAX_LENGTH)
 				{
-					$html = '<img src="./styles/images/bad.gif"> <span class="leechmed bold">'. sprintf($lang['CHOOSE_PASS_ERR_MAX'], 20) .'</span>';
+					$html = '<img src="./styles/images/bad.gif"> <span class="leechmed bold">'. sprintf($lang['CHOOSE_PASS_ERR_MAX'], PASSWORD_MAX_LENGTH) .'</span>';
 				}
-				elseif (mb_strlen($pass, 'UTF-8') < 5)
+				elseif (mb_strlen($pass, 'UTF-8') < PASSWORD_MIN_LENGTH)
 				{
-					$html = '<img src="./styles/images/bad.gif"> <span class="leechmed bold">'. sprintf($lang['CHOOSE_PASS_ERR_MIN'], 5) .'</span>';
+					$html = '<img src="./styles/images/bad.gif"> <span class="leechmed bold">'. sprintf($lang['CHOOSE_PASS_ERR_MIN'], PASSWORD_MIN_LENGTH) .'</span>';
 				}
 				else
 				{
