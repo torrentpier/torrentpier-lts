@@ -610,7 +610,7 @@ if ($submit && !$errors)
 	{
 		if ($bb_cfg['reg_email_activation'])
 		{
-			$user_actkey = make_rand_str(12);
+			$user_actkey = make_rand_str(ACTKEY_LENGHT);
 			$db_data['user_active'] = 0;
 			$db_data['user_actkey'] = $user_actkey;
 		}
@@ -683,7 +683,7 @@ if ($submit && !$errors)
 		{
 			if (!$pr_data['user_active'])
 			{
-				$user_actkey = make_rand_str(12);
+				$user_actkey = make_rand_str(ACTKEY_LENGHT);
 				$pr_data['user_actkey'] = $user_actkey;
 				$db_data['user_actkey'] = $user_actkey;
 
