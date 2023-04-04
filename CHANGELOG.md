@@ -15,6 +15,9 @@
 - Make user_newpasswd lenght configurable [\#126](https://github.com/torrentpier/torrentpier-lts/pull/126) ([belomaxorka](https://github.com/belomaxorka))
 - Make password lenght configurable [\#127](https://github.com/torrentpier/torrentpier-lts/pull/127) ([belomaxorka](https://github.com/belomaxorka))
 - Increase mysql types limits [\#128](https://github.com/torrentpier/torrentpier-lts/pull/128) ([belomaxorka](https://github.com/belomaxorka))
+- Added installed extensions check [\#129](https://github.com/torrentpier/torrentpier-lts/pull/129) ([belomaxorka](https://github.com/belomaxorka))
+- Make sql log file name configurable [\#130](https://github.com/torrentpier/torrentpier-lts/pull/130) ([belomaxorka](https://github.com/belomaxorka))
+- Enhanced https check [\#131](https://github.com/torrentpier/torrentpier-lts/pull/131) ([belomaxorka](https://github.com/belomaxorka))
 - Minor fixes [\#124](https://github.com/torrentpier/torrentpier-lts/pull/124) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.03](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.03) (2023-04-04)
