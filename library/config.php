@@ -377,15 +377,16 @@ $bb_cfg['abuse_email']             = "abuse@$domain_name";
 $bb_cfg['adv_email']               = "adv@$domain_name";
 
 // Debug
-define('DBG_LOG',              false);    // enable forum debug (off on production)
-define('DBG_TRACKER',          false);    // enable tracker debug (off on production)
-define('COOKIE_DBG',           'bb_dbg'); // debug cookie name
-define('SQL_DEBUG',            true);     // enable forum sql & cache debug
-define('SQL_LOG_ERRORS',       true);     // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
-define('SQL_CALC_QUERY_TIME',  true);     // for stats
-define('SQL_LOG_SLOW_QUERIES', true);     // log sql slow queries
-define('SQL_SLOW_QUERY_TIME',  10);       // slow query in seconds
-define('SQL_PREPEND_SRC_COMM', false);    // prepend source file comment to sql query
+define('DBG_LOG',              false);            // enable forum debug (off on production)
+define('DBG_TRACKER',          false);            // enable tracker debug (off on production)
+define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
+define('SQL_DEBUG',            true);             // enable forum sql & cache debug
+define('SQL_LOG_NAME',         'sql_error_bb');   // mysql log filename
+define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
+define('SQL_CALC_QUERY_TIME',  true);             // for stats
+define('SQL_LOG_SLOW_QUERIES', true);             // log sql slow queries
+define('SQL_SLOW_QUERY_TIME',  10);               // slow query in seconds
+define('SQL_PREPEND_SRC_COMM', false);            // prepend source file comment to sql query
 
 // Special users
 $bb_cfg['dbg_users'] = array(
