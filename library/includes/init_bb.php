@@ -307,6 +307,7 @@ define('SHOW_PEERS_FULL',  3);
 
 define('SEARCH_ID_LENGTH', 12);
 define('SID_LENGTH',       20);
+define('ACTKEY_LENGHT',    12);
 define('LOGIN_KEY_LENGTH', 12);
 define('USERNAME_MIN_LENGTH',   3);
 define('USERNAME_MAX_LENGTH',  25);
