@@ -214,13 +214,13 @@ foreach ($profile_fields as $field => $can_edit)
 				// пароль для гостя и при смене пароля юзером
 				if (!empty($new_pass))
 				{
-					if (mb_strlen($new_pass, 'UTF-8') > 20)
+					if (mb_strlen($new_pass, 'UTF-8') > PASSWORD_MAX_LENGTH)
 					{
-						$errors[] = sprintf($lang['CHOOSE_PASS_ERR_MAX'], 20);
+						$errors[] = sprintf($lang['CHOOSE_PASS_ERR_MAX'], PASSWORD_MAX_LENGTH);
 					}
-					elseif (mb_strlen($new_pass, 'UTF-8') < 4)
+					elseif (mb_strlen($new_pass, 'UTF-8') < PASSWORD_MIN_LENGTH)
 					{
-						$errors[] = sprintf($lang['CHOOSE_PASS_ERR_MIN'], 4);
+						$errors[] = sprintf($lang['CHOOSE_PASS_ERR_MIN'], PASSWORD_MIN_LENGTH);
 					}
 					elseif ($new_pass != $cfm_pass)
 					{
