@@ -11,6 +11,11 @@
 - Fix release template editor [\#120](https://github.com/torrentpier/torrentpier-lts/pull/120) ([belomaxorka](https://github.com/belomaxorka))
 - Fix some notices in admin panel reported by BugSnag [\#121](https://github.com/torrentpier/torrentpier-lts/pull/121) ([belomaxorka](https://github.com/belomaxorka))
 - Fix magnet link passkey creation for new users [\#122](https://github.com/torrentpier/torrentpier-lts/pull/122) ([belomaxorka](https://github.com/belomaxorka))
+- Make activate key lenght configurable [\#125](https://github.com/torrentpier/torrentpier-lts/pull/125) ([belomaxorka](https://github.com/belomaxorka))
+- Make user_newpasswd lenght configurable [\#126](https://github.com/torrentpier/torrentpier-lts/pull/126) ([belomaxorka](https://github.com/belomaxorka))
+- Make password lenght configurable [\#127](https://github.com/torrentpier/torrentpier-lts/pull/127) ([belomaxorka](https://github.com/belomaxorka))
+- Increase mysql types limits [\#128](https://github.com/torrentpier/torrentpier-lts/pull/128) ([belomaxorka](https://github.com/belomaxorka))
+- Minor fixes [\#124](https://github.com/torrentpier/torrentpier-lts/pull/124) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.03](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.03) (2023-04-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.03...main)

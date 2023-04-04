@@ -63,3 +63,11 @@ ALTER TABLE `bb_posts` CHANGE `mc_comment` `mc_comment` TEXT NOT NULL DEFAULT ''
 ALTER TABLE `bb_users` CHANGE `user_sig` `user_sig` TEXT NOT NULL DEFAULT '';
 ALTER TABLE `bb_groups` CHANGE `group_signature` `group_signature` TEXT NOT NULL DEFAULT '';
 ALTER TABLE `bb_groups` CHANGE `group_description` `group_description` TEXT NOT NULL DEFAULT '';
+
+// 2.1.5 (LTS 2023.04)
+ALTER TABLE `bb_users` CHANGE `user_actkey` `user_actkey` VARCHAR(255) NOT NULL DEFAULT '';
+ALTER TABLE `bb_users` CHANGE `user_newpasswd` `user_newpasswd` VARCHAR(255) NOT NULL DEFAULT '';
+ALTER TABLE `bb_users` CHANGE `autologin_id` `autologin_id` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
+ALTER TABLE `bb_users` CHANGE `username` `username` VARCHAR(255) NOT NULL DEFAULT '';
+ALTER TABLE `bb_sessions` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
+ALTER TABLE `bb_search_results` CHANGE `search_id` `search_id` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
