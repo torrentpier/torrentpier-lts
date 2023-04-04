@@ -420,6 +420,10 @@ ini_set('error_log',       LOG_DIR .'php_err.log');
 if (get_magic_quotes_gpc()) die('Set magic_quotes off');
 // JSON
 if (!function_exists('json_encode')) die('Json_encode not installed');
+// Mbstring
+if (!extension_loaded('mbstring')) die('Mbstring not installed');
+// BCMath
+if (!extension_loaded('bcmath')) die('BCMath not installed');
 
 // Triggers
 define('BB_ENABLED',   TRIGGERS_DIR .'$on');
