@@ -71,3 +71,4 @@ ALTER TABLE `bb_users` CHANGE `autologin_id` `autologin_id` VARCHAR(255) CHARACT
 ALTER TABLE `bb_users` CHANGE `username` `username` VARCHAR(255) NOT NULL DEFAULT '';
 ALTER TABLE `bb_sessions` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
 ALTER TABLE `bb_search_results` CHANGE `search_id` `search_id` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
+ALTER TABLE `bb_search_results` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
