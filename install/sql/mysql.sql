@@ -971,7 +971,7 @@ CREATE TABLE IF NOT EXISTS `bb_search_rebuild` (
 -- ----------------------------
 DROP TABLE IF EXISTS `bb_search_results`;
 CREATE TABLE IF NOT EXISTS `bb_search_results` (
-  `session_id` char(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `session_id` char(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `search_type` tinyint(4) NOT NULL DEFAULT '0',
   `search_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `search_time` int(11) NOT NULL DEFAULT '0',
