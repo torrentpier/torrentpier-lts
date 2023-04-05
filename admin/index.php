@@ -207,7 +207,7 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 
 					$username = $onlinerow_reg[$i]['username'];
 
-					if (bf($onlinerow_reg[$i]['user_opt'], 'user_opt', 'user_viewonline'))
+					if ($onlinerow_reg[$i]['user_id'] != $userdata['user_id'] && bf($onlinerow_reg[$i]['user_opt'], 'user_opt', 'user_viewonline'))
 					{
 						$hidden_users++;
 						$hidden = TRUE;
@@ -224,11 +224,11 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 
 					$template->assign_block_vars('reg_user_row', array(
 						'ROW_CLASS'  => $row_class,
-						'USER'       => profile_url($onlinerow_reg[$i]),
-						'STARTED'    => bb_date($onlinerow_reg[$i]['session_start'], 'H:i', false),
-						'LASTUPDATE' => bb_date($onlinerow_reg[$i]['user_session_time'], 'H:i', false),
-						'IP_ADDRESS' => $reg_ip,
-						'U_WHOIS_IP' => $bb_cfg['whois_info'] . $reg_ip,
+						'USER'       => $hidden ? $lang['HIDDEN_USER'] : profile_url($onlinerow_reg[$i]),
+						'STARTED'    => $hidden ? '' : bb_date($onlinerow_reg[$i]['session_start'], 'H:i', false),
+						'LASTUPDATE' => $hidden ? '' : bb_date($onlinerow_reg[$i]['user_session_time'], 'H:i', false),
+						'IP_ADDRESS' => $hidden ? false : $reg_ip,
+						'U_WHOIS_IP' => $hidden ? false : ($bb_cfg['whois_info'] . $reg_ip),
 					));
 				}
 			}
