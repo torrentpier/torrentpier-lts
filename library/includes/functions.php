@@ -2443,15 +2443,20 @@ function init_sphinx ()
 
 function log_sphinx_error ($err_type, $err_msg, $query = '')
 {
-	$ignore_err_txt = array(
-		'negation on top level',
-		'Query word length is less than min prefix length',
-	);
-	if (!count($ignore_err_txt) || !preg_match('#'. join('|', $ignore_err_txt) .'#i', $err_msg))
+	if (SPHINX_LOG_ERRORS)
 	{
-		$orig_query = strtr($_REQUEST['nm'], array("\n" => '\n'));
-		bb_log(date('m-d H:i:s') ." | $err_type | $err_msg | $orig_query | $query". LOG_LF, 'sphinx_error');
+		$ignore_err_txt = array(
+			'negation on top level',
+			'Query word length is less than min prefix length',
+		);
+		if (!count($ignore_err_txt) || !preg_match('#'. join('|', $ignore_err_txt) .'#i', $err_msg))
+		{
+			$orig_query = strtr($_REQUEST['nm'], array("\n" => '\n'));
+			bb_log(date('m-d H:i:s') ." | $err_type | $err_msg | $orig_query | $query". LOG_LF, SPHINX_LOG_NAME);
+		}
 	}
+
+	return false;
 }
 
 function get_title_match_topics ($title_match_sql, $forum_ids = array())
