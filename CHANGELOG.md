@@ -19,7 +19,7 @@
 - Make sql log file name configurable [\#130](https://github.com/torrentpier/torrentpier-lts/pull/130) ([belomaxorka](https://github.com/belomaxorka))
 - Enhanced https check [\#131](https://github.com/torrentpier/torrentpier-lts/pull/131), [\#132](https://github.com/torrentpier/torrentpier-lts/pull/132) ([belomaxorka](https://github.com/belomaxorka))
 - Added ability to configure sphinx debug [\#137](https://github.com/torrentpier/torrentpier-lts/pull/137) ([belomaxorka](https://github.com/belomaxorka))
-- Minor fixes [\#124](https://github.com/torrentpier/torrentpier-lts/pull/124), [\#133](https://github.com/torrentpier/torrentpier-lts/pull/133), [\#135](https://github.com/torrentpier/torrentpier-lts/pull/135), [\#136](https://github.com/torrentpier/torrentpier-lts/pull/136) ([belomaxorka](https://github.com/belomaxorka))
+- Minor fixes [\#124](https://github.com/torrentpier/torrentpier-lts/pull/124), [\#133](https://github.com/torrentpier/torrentpier-lts/pull/133), [\#135](https://github.com/torrentpier/torrentpier-lts/pull/135), [\#136](https://github.com/torrentpier/torrentpier-lts/pull/136), [\#139](https://github.com/torrentpier/torrentpier-lts/pull/139) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.03](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.03) (2023-04-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.03...main)
