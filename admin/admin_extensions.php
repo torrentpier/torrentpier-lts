@@ -29,7 +29,7 @@ include(ATTACH_DIR .'includes/functions_selects.php');
 if (!isset($lang['TEST_SETTINGS_SUCCESSFUL']))
 {
 	// include_once is used within the function
-	include_attach_lang();
+	// include_attach_lang();
 }
 
 // Init Vars
@@ -43,6 +43,9 @@ $size = get_var('size', '');
 $mode = get_var('mode', '');
 $e_mode = get_var('e_mode', '');
 
+$error = false;
+$add_forum = (isset($_POST['add_forum'])) ? TRUE : FALSE;
+$delete_forum = (isset($_POST['del_forum'])) ? TRUE : FALSE;
 $submit = (isset($_POST['submit'])) ? TRUE : FALSE;
 
 // Get Attachment Config
@@ -510,9 +513,6 @@ if ($mode == 'groups')
 if ($e_mode == 'perm')
 {
 	$group = get_var('e_group', 0);
-
-	$add_forum = (isset($_POST['add_forum'])) ? TRUE : FALSE;
-	$delete_forum = (isset($_POST['del_forum'])) ? TRUE : FALSE;
 
 	if (isset($_POST['close_perm']))
 	{
