@@ -70,9 +70,8 @@ function bb_setcookie ($name, $val, $lifetime = COOKIE_PERSIST, $httponly = fals
 // Debug options
 if (DBG_USER)
 {
-	ini_set('error_reporting',    E_ALL);
-	ini_set('display_startup_errors', 1);
-	ini_set('display_errors',         1);
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors',  1);
 }
 else
 {

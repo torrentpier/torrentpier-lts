@@ -414,11 +414,10 @@ define('LOG_LF',       "\n");
 define('LOG_MAX_SIZE', 1048576); // bytes
 
 // Error reporting
-ini_set('error_reporting',                          E_ALL);
-ini_set('display_errors',                               0);
-ini_set('display_startup_errors',                       0);
-ini_set('log_errors',                                   1);
-ini_set('error_log',               LOG_DIR .'php_err.log');
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors',  0);
+ini_set('log_errors',      1);
+ini_set('error_log',       LOG_DIR .'php_err.log');
 
 // Check some variable
 // Magic quotes
