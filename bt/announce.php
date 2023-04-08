@@ -363,6 +363,12 @@ if ($tr_cfg['gold_silver_enabled'] && $down_add)
 	}
 }
 
+// Freeleech
+if ($tr_cfg['freeleech'] && $down_add)
+{
+    $down_add = 0;
+}
+
 // Insert/update peer info
 $peer_info_updated = false;
 $update_time = ($stopped) ? 0 : TIMENOW;
