@@ -547,9 +547,11 @@ function get_var($var_name, $default, $multibyte = false)
 	}
 	else
 	{
-		list($key_type, $type) = each($default);
-		$type = gettype($type);
-		$key_type = gettype($key_type);
+		foreach ($default as $key_type => $type)
+		{
+            $key_type = gettype($key_type);
+            $type = gettype($type);
+        }
 	}
 
 	if (is_array($var))
