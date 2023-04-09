@@ -12,10 +12,17 @@ if (empty($_SERVER['HTTP_REFERER']))    $_SERVER['HTTP_REFERER'] = '';
 if (empty($_SERVER['SERVER_NAME']))     $_SERVER['SERVER_NAME'] = '';
 
 if (!defined('BB_ROOT')) define('BB_ROOT', './');
+if (!defined('BB_SCRIPT')) define('BB_SCRIPT', 'undefined');
 if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS');
+
+// Cloudflare
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+{
+    $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+}
 
 // Get initial config
 require(BB_ROOT . 'library/config.php');
