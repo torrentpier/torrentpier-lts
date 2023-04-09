@@ -7,10 +7,10 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 function update_forum_feed ($forum_id, $forum_data)
 {
-	global $bb_cfg;
+    global $bb_cfg, $lang;
 	$file_path = $bb_cfg['atom']['path'] .'/f/'. $forum_id .'.atom';
 	$select_tor_sql = $join_tor_sql = '';
-	if ($forum_id == 0) $forum_data['forum_name'] = 'Общая по всем разделам';
+	if ($forum_id == 0) $forum_data['forum_name'] = (isset($lang['ATOM_GLOBAL_FEED']) ? $lang['ATOM_GLOBAL_FEED'] : $bb_cfg['server_name']);
 	if ($forum_id > 0 && $forum_data['allow_reg_tracker'])
 	{
 		$select_tor_sql = ', tor.size AS tor_size, tor.tor_status';
@@ -121,7 +121,7 @@ function update_user_feed ($user_id, $username)
 
 function create_atom ($file_path, $mode, $id, $title, $topics)
 {
-	global $bb_cfg;
+    global $lang;
 	$dir = dirname($file_path);
 	if (!file_exists($dir))
 	{
@@ -137,11 +137,11 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 	}
 	$atom = "";
 	$atom .= "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
-	$atom .= "<feed xmlns=\"http://www.w3.org/2005/Atom\" xml:base=\"http://". $bb_cfg['server_name'] . $bb_cfg['script_path'] ."\">\n";
+    $atom .= "<feed xmlns=\"http://www.w3.org/2005/Atom\" xml:base=\"" . FULL_URL . "\">\n";
 	$atom .= "<title>$title</title>\n";
 	$atom .= "<updated>". $date ."T$time+00:00</updated>\n";
 	$atom .= "<id>tag:rto.feed,2000:/$mode/$id</id>\n";
-	$atom .= "<link href=\"http://". $bb_cfg['server_name'] . $bb_cfg['script_path'] ."\" />\n";
+    $atom .= "<link href=\"" . FULL_URL . "\" />\n";
 	foreach ($topics as $topic)
 	{
 		$topic_id = $topic['topic_id'];
@@ -159,14 +159,14 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 			$topic_title = preg_replace($orig_word, $replacement_word, $topic_title);
 		}
 		$topic_title = wbr($topic_title);
-		$author_name = ($topic['first_username']) ? wbr($topic['first_username']) : 'Гость';
+		$author_name = ($topic['first_username']) ? wbr($topic['first_username']) : $lang['GUEST'];
 		$last_time = $topic['topic_last_post_time'];
 		if ($topic['topic_last_post_edit_time']) $last_time = $topic['topic_last_post_edit_time'];
 		$date = bb_date($last_time, 'Y-m-d', 0);
 		$time = bb_date($last_time, 'H:i:s', 0);
 		$updated = '';
 		$checktime = TIMENOW - 604800; // неделя (week)
-		if ($topic['topic_first_post_edit_time'] && $topic['topic_first_post_edit_time'] > $checktime) $updated = '[Обновлено] ';
+		if ($topic['topic_first_post_edit_time'] && $topic['topic_first_post_edit_time'] > $checktime) $updated = '[' . $lang['ATOM_UPDATED'] . '] ';
 		$atom .= "<entry>\n";
 		$atom .= "	<title type=\"html\"><![CDATA[$updated$topic_title$tor_size]]></title>\n";
 		$atom .= "	<author>\n";
