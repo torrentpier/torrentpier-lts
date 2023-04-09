@@ -12,7 +12,6 @@
    - Config
    - Datastore
  * Server
-   - Cloudflare
    - GZip
  * Tracker
  * Ocelot
@@ -140,12 +139,6 @@ $bb_cfg['datastore_type'] = 'filecache';
 $bb_cfg['server_name'] = $domain_name;                                                     // The domain name from which this board runs
 $bb_cfg['server_port'] = (!empty($_SERVER['SERVER_PORT'])) ? $_SERVER['SERVER_PORT'] : 80; // The port your server is running on
 $bb_cfg['script_path'] = '/';                                                              // The path where FORUM is located relative to the domain name
-
-// Cloudflare
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
-{
-	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
-}
 
 // GZip
 $bb_cfg['gzip_compress']      = true;              // compress output
