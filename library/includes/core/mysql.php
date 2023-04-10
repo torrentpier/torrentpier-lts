@@ -5,7 +5,7 @@ if (!defined('SQL_DEBUG')) die(basename(__FILE__));
 class sql_db
 {
 	var $cfg            = array();
-	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'dbport', 'charset', 'persist');
+	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'charset', 'persist');
 	var $link           = null;
 	var $result         = null;
 	var $db_server      = '';
