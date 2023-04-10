@@ -5,7 +5,7 @@ if (!defined('SQL_DEBUG')) die(basename(__FILE__));
 class sql_db
 {
 	var $cfg            = array();
-	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'charset', 'persist');
+	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'dbport', 'charset', 'persist');
 	var $link           = null;
 	var $result         = null;
 	var $db_server      = '';
@@ -716,7 +716,11 @@ class sql_db
 			}
 		}
 
-		@define('IN_FIRST_SLOW_QUERY', true);
+        if (!defined('IN_FIRST_SLOW_QUERY'))
+        {
+            define('IN_FIRST_SLOW_QUERY', true);
+        }
+
 		CACHE('bb_cache')->set('dont_log_slow_query', $new_priority, $ignoring_time);
 	}
 
