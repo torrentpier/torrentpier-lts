@@ -537,7 +537,10 @@ function cron_release_deadlock ()
 
 function cron_release_file_lock ()
 {
-	$lock_released = @rename(CRON_RUNNING, CRON_ALLOWED);
+    if (file_exists(CRON_RUNNING))
+    {
+        rename(CRON_RUNNING, CRON_ALLOWED);
+    }
 	cron_touch_lock_file(CRON_ALLOWED);
 }
 
@@ -548,10 +551,16 @@ function cron_touch_lock_file ($lock_file)
 
 function cron_enable_board ()
 {
-	@rename(BB_DISABLED, BB_ENABLED);
+    if (file_exists(BB_DISABLED))
+    {
+        rename(BB_DISABLED, BB_ENABLED);
+    }
 }
 
 function cron_disable_board ()
 {
-	@rename(BB_ENABLED, BB_DISABLED);
+    if (file_exists(BB_ENABLED))
+    {
+        rename(BB_ENABLED, BB_DISABLED);
+    }
 }
