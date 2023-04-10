@@ -36,7 +36,7 @@ switch ($mode)
 
 		global $template;
 
-		$match = 'tpl_';
+		$match = XS_TPL_PREFIX;
 		$match_len = strlen($match);
 		$dir = $template->cachedir;
 		$res = @opendir($dir);
