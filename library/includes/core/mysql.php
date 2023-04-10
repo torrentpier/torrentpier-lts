@@ -716,7 +716,11 @@ class sql_db
 			}
 		}
 
-		@define('IN_FIRST_SLOW_QUERY', true);
+        if (!defined('IN_FIRST_SLOW_QUERY'))
+        {
+            define('IN_FIRST_SLOW_QUERY', true);
+        }
+
 		CACHE('bb_cache')->set('dont_log_slow_query', $new_priority, $ignoring_time);
 	}
 
