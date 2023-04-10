@@ -76,7 +76,7 @@ switch ($mode)
 		));
 
 		//detect cron status
-		if (@file_exists('../triggers/cron_running'))
+		if (@file_exists(CRON_RUNNING))
 		{
 			$template->assign_vars(array(
 				'CRON_RUNNING' => true,
@@ -85,9 +85,9 @@ switch ($mode)
 	break;
 
 	case 'repair':
-		if (@file_exists('../triggers/cron_running'))
+		if (@file_exists(CRON_RUNNING))
 		{
-			rename("../triggers/cron_running", "../triggers/cron_allowed");
+			rename(CRON_RUNNING, CRON_ALLOWED);
 		}
 		redirect('admin/'.basename(__FILE__) . '?mode=list');
 	break;

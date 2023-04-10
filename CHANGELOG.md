@@ -25,6 +25,7 @@
 - Fixed issue with atom feed [\#147](https://github.com/torrentpier/torrentpier-lts/pull/147) ([belomaxorka](https://github.com/belomaxorka))
 - Added theme exists check [\#149](https://github.com/torrentpier/torrentpier-lts/pull/149) ([belomaxorka](https://github.com/belomaxorka))
 - Use XS_TPL_PREFIX instread of 'tpl_' [\#150](https://github.com/torrentpier/torrentpier-lts/pull/150) ([belomaxorka](https://github.com/belomaxorka))
+- Use constants instead of string literals [\#151](https://github.com/torrentpier/torrentpier-lts/pull/151) ([belomaxorka](https://github.com/belomaxorka))
 - Minor fixes [\#124](https://github.com/torrentpier/torrentpier-lts/pull/124), [\#133](https://github.com/torrentpier/torrentpier-lts/pull/133), [\#135](https://github.com/torrentpier/torrentpier-lts/pull/135), [\#136](https://github.com/torrentpier/torrentpier-lts/pull/136), [\#139](https://github.com/torrentpier/torrentpier-lts/pull/139), [\#142](https://github.com/torrentpier/torrentpier-lts/pull/142), [\#144](https://github.com/torrentpier/torrentpier-lts/pull/144), [\#145](https://github.com/torrentpier/torrentpier-lts/pull/145), [\#148](https://github.com/torrentpier/torrentpier-lts/pull/148) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.03](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.03) (2023-04-04)
