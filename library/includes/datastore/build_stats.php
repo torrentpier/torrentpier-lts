@@ -66,7 +66,7 @@ if ($bb_cfg['birthday_check_day'] && $bb_cfg['birthday_enabled'])
 
 	foreach ($sql as $row)
 	{
-		$user_birthday = date('md', strtotime($row['user_birthday']));
+		$user_birthday = bb_date(strtotime($row['user_birthday']), 'md', false);
 
 		if ($user_birthday > $date_today  && $user_birthday <= $date_forward)
 		{
