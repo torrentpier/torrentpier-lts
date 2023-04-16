@@ -154,6 +154,10 @@ class datastore_common
 			$dbg['time'] = $this->cur_query_time;
 			$id++;
 		}
+        else
+        {
+            trigger_error("[Datastore] Invalid debug mode: $mode", E_USER_ERROR);
+        }
 	}
 
 	function debug_find_source ($mode = '')
