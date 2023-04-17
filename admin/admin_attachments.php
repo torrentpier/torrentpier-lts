@@ -27,7 +27,7 @@ include(ATTACH_DIR .'includes/functions_selects.php');
 if (!isset($lang['TEST_SETTINGS_SUCCESSFUL']))
 {
 	// include_once is used within the function
-	include_attach_lang();
+	// include_attach_lang();
 }
 
 // Init Vars
