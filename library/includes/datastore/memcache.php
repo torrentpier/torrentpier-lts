@@ -14,7 +14,7 @@ class datastore_memcache extends datastore_common
 	{
 		if (!$this->is_installed())
 		{
-			die('Error: Memcached extension not installed');
+            die("Error: {$this->engine} extension not installed");
 		}
 
 		$this->cfg         = $cfg;
@@ -35,11 +35,14 @@ class datastore_memcache extends datastore_common
 			$this->connected = true;
 		}
 
-		if (DBG_LOG) dbg_log(($this->connected ? "Connected successfully to {$this->engine} server" : "Could not connect to {$this->engine} server"), "{$this->engine}-CACHE-connect". ($this->connected ? '' : '-FAIL'));
-
 		if (!$this->connected && $this->cfg['con_required'])
 		{
-			die('Could not connect to memcached server');
+            if (DBG_LOG)
+            {
+                dbg_log("Could not connect to {$this->engine} server", "{$this->engine}-CACHE-connect-FAIL" . time());
+            }
+
+			die("Could not connect to {$this->engine} server");
 		}
 
 		$this->debug('stop');

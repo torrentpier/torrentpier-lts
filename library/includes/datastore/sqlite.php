@@ -24,7 +24,7 @@ class datastore_sqlite extends datastore_common
 	{
         if (!$this->is_installed())
         {
-            die('Error: SQLite3 extension not installed');
+            die("Error: {$this->engine} extension not installed");
         }
 
 		$this->cfg = array_merge($this->cfg, $cfg);
