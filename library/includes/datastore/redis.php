@@ -37,7 +37,7 @@ class datastore_redis extends datastore_common
 		{
             if (DBG_LOG)
             {
-                dbg_log("Could not connect to {$this->engine} server", "{$this->engine}-CACHE-connect-FAIL" . time());
+                dbg_log("Could not connect to {$this->engine} server", "{$this->engine}-CACHE-connect-FAIL_" . time());
             }
 
             die("Could not connect to {$this->engine} server");
