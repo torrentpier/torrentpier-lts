@@ -12,7 +12,7 @@ class cache_apc extends cache_common
 	{
 		if (!$this->is_installed())
 		{
-			die('Error: APC extension not installed');
+			die("Error: {$this->engine} extension not installed");
 		}
 		$this->dbg_enabled = sql_dbg_enabled();
 		$this->prefix = $prefix;

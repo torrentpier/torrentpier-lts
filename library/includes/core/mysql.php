@@ -95,7 +95,10 @@ class sql_db
 		{
 			$server = (DBG_USER) ? $this->cfg['dbhost'] : '';
 			header("HTTP/1.0 503 Service Unavailable");
-			bb_log("Could not connect to mysql server $server", ("db_err/connect_failed_{$this->cfg['dbhost']}_" . time()));
+            if (DBG_USER)
+            {
+                dbg_log("Could not connect to mysql server $server", "{$server}-DB-connect-FAIL_" . time());
+            }
 			die("Could not connect to mysql server $server");
 		}
 

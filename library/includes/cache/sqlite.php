@@ -25,7 +25,7 @@ class cache_sqlite extends cache_common
 	{
         if (!$this->is_installed())
         {
-            die('Error: SQLite3 extension not installed');
+            die("Error: {$this->db->engine} extension not installed");
         }
 
 		$this->cfg = array_merge($this->cfg, $cfg);
