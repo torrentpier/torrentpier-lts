@@ -154,12 +154,17 @@ class sqlite_common extends cache_common
 			$this->connected = true;
 		}
 
-		if (DBG_LOG) dbg_log(' ', $this->cfg['log_name'] .'-connect'. ($this->connected ? '' : '-FAIL'));
+        if (!$this->connected && $this->cfg['con_required'])
+        {
+            $con_error = "Could not connect to {$this->engine}";
 
-		if (!$this->connected && $this->cfg['con_required'])
-		{
-			trigger_error('SQLite not connected', E_USER_ERROR);
-		}
+            if (DBG_LOG)
+            {
+                dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL_" . time());
+            }
+
+            die($con_error);
+        }
 
 		$this->debug('stop');
 		$this->cur_query = null;
