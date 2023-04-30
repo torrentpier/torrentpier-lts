@@ -38,12 +38,14 @@ class cache_memcache extends cache_common
 
 		if (!$this->connected && $this->cfg['con_required'])
 		{
+			$con_error = "Could not connect to {$this->engine} server";
+			
             if (DBG_LOG)
             {
-                dbg_log("Could not connect to {$this->engine} server", "{$this->engine}-CACHE-connect-FAIL_" . time());
+                dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL_" . time());
             }
 
-            die("Could not connect to {$this->engine} server");
+            die($con_error);
 		}
 
 		$this->debug('stop');
