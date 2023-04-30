@@ -10,7 +10,7 @@ function get_sql_log ()
 
 	foreach ($DBS->srv as $srv_name => $db_obj)
 	{
-		$log .= !empty($db_obj) ? get_sql_log_html($db_obj, "$srv_name [MySQL]") : '';
+		$log .= !empty($db_obj) ? get_sql_log_html($db_obj, "database: $srv_name [{$db_obj->engine}]") : '';
 	}
 
 	foreach ($CACHES->obj as $cache_name => $cache_obj)
