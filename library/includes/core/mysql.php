@@ -479,33 +479,33 @@ class sql_db
 		{
 			switch ($clause)
 			{
-			case 'SELECT':
-				$sql .= ($ary) ? ' SELECT '. join(' ', $sql_ary['select_options']) .' '. join(', ', $ary) : '';
-				break;
-			case 'FROM':
-				$sql .= ($ary) ? ' FROM '. join(', ', $ary) : '';
-				break;
-			case 'INNER JOIN':
-				$sql .= ($ary) ? ' INNER JOIN '. join(' INNER JOIN ', $ary) : '';
-				break;
-			case 'LEFT JOIN':
-				$sql .= ($ary) ? ' LEFT JOIN '. join(' LEFT JOIN ', $ary) : '';
-				break;
-			case 'WHERE':
-				$sql .= ($ary) ? ' WHERE '. join(' AND ', $ary) : '';
-				break;
-			case 'GROUP BY':
-				$sql .= ($ary) ? ' GROUP BY '. join(', ', $ary) : '';
-				break;
-			case 'HAVING':
-				$sql .= ($ary) ? ' HAVING '. join(' AND ', $ary) : '';
-				break;
-			case 'ORDER BY':
-				$sql .= ($ary) ? ' ORDER BY '. join(', ', $ary) : '';
-				break;
-			case 'LIMIT':
-				$sql .= ($ary) ? ' LIMIT '. join(', ', $ary) : '';
-				break;
+                case 'SELECT':
+                    $sql .= ($ary) ? ' SELECT '. join(' ', $sql_ary['select_options']) .' '. join(', ', $ary) : '';
+                    break;
+                case 'FROM':
+                    $sql .= ($ary) ? ' FROM '. join(', ', $ary) : '';
+                    break;
+                case 'INNER JOIN':
+                    $sql .= ($ary) ? ' INNER JOIN '. join(' INNER JOIN ', $ary) : '';
+                    break;
+                case 'LEFT JOIN':
+                    $sql .= ($ary) ? ' LEFT JOIN '. join(' LEFT JOIN ', $ary) : '';
+                    break;
+                case 'WHERE':
+                    $sql .= ($ary) ? ' WHERE '. join(' AND ', $ary) : '';
+                    break;
+                case 'GROUP BY':
+                    $sql .= ($ary) ? ' GROUP BY '. join(', ', $ary) : '';
+                    break;
+                case 'HAVING':
+                    $sql .= ($ary) ? ' HAVING '. join(' AND ', $ary) : '';
+                    break;
+                case 'ORDER BY':
+                    $sql .= ($ary) ? ' ORDER BY '. join(', ', $ary) : '';
+                    break;
+                case 'LIMIT':
+                    $sql .= ($ary) ? ' LIMIT '. join(', ', $ary) : '';
+                    break;
 			}
 		}
 
