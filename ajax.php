@@ -69,7 +69,7 @@ class ajax_common
 	var $response = array();
 
 	var $valid_actions = array(
-		// ACTION NAME         AJAX_AUTH
+		// ACTION NAME         AJAX_AUTH         AJAX_ALWAYS_ACTIVE
 		'edit_user_profile' => array('admin'),
 		'change_user_rank'  => array('admin'),
 		'change_user_opt'   => array('admin'),
