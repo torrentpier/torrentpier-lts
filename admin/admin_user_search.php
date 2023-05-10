@@ -244,7 +244,7 @@ else
 			break;
 
 		default:
-			bb_die('Invalid mode');
+			bb_die('Invalid mode: ' . htmlCHR($mode));
 	}
 
 	$base_url = 'admin_user_search.php?dosearch=true';

@@ -9,12 +9,12 @@ $new_opt = Zend\Json\Json::decode($this->request['user_opt'], Zend\Json\Json::TY
 
 if (!$user_id OR !$u_data = get_userdata($user_id))
 {
-	$this->ajax_die('invalid user_id');
+	$this->ajax_die('invalid user_id: ' . htmlCHR($user_id));
 }
 
 if (!is_array($new_opt))
 {
-	$this->ajax_die('invalid new_opt');
+	$this->ajax_die('invalid new_opt: ' . htmlCHR($new_opt));
 }
 
 foreach ($bf['user_opt'] as $opt_name => $opt_bit)
