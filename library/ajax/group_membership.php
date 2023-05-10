@@ -65,5 +65,5 @@ switch ($mode)
 	break;
 
 	default:
-		$this->ajax_die("invalid mode: $mode");
+		$this->ajax_die('Invalid mode: ' . htmlCHR($mode));
 }

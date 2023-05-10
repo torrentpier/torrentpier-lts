@@ -36,7 +36,7 @@ switch ($req_mode)
 		break;
 
 	default:
-		bb_simple_die('Invalid request');
+		bb_simple_die('Invalid request: ' . htmlCHR($req_mode));
 }
 
 $require = file_exists($html_dir . $info['src']) ? $html_dir . $info['src'] : $html_dir . 'not_found.html';
