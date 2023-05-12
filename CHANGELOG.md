@@ -5,7 +5,7 @@
 
 **Merged pull requests:**
 
-- Minor improvements [\#167](https://github.com/torrentpier/torrentpier-lts/pull/167), Minor improvements [\#168](https://github.com/torrentpier/torrentpier-lts/pull/168) ([belomaxorka](https://github.com/belomaxorka))
+- Minor improvements [\#167](https://github.com/torrentpier/torrentpier-lts/pull/167), [\#168](https://github.com/torrentpier/torrentpier-lts/pull/168) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.04](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.04) (2023-05-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.03...v2.1.5-2023.04)
