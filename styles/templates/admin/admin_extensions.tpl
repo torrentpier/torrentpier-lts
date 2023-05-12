@@ -93,7 +93,7 @@
 	  <td class="row1" align="center"><input type="checkbox" name="add_allowed" /></td>
 	  <td class="row2" align="center">{S_ADD_DOWNLOAD_MODE}</td>
 	  <td class="row1" align="center"><input type="text" size="15" maxlength="100" name="add_upload_icon" class="post" value="{UPLOAD_ICON}" /></td>
-	  <td class="row2" align="center"><input type="text" size="3" maxlength="15" name="add_max_filesize" class="post" value="{MAX_FILESIZE}" /> {S_FILESIZE}</td>
+	  <td class="row2" align="center"><input type="number" size="3" maxlength="15" name="add_max_filesize" class="post" value="{MAX_FILESIZE}" /> {S_FILESIZE}</td>
 	  <td class="row1" align="center">&nbsp;</td>
 	  <td class="row2" align="center"><input type="checkbox" name="add_extension_group_check" /></td>
 	</tr>
@@ -125,7 +125,7 @@
 	  <td class="row1" align="center"><input type="checkbox" name="allowed_list[]" value="{grouprow.GROUP_ID}" {grouprow.S_ALLOW_SELECTED} /></td>
 	  <td class="row2" align="center">{grouprow.S_DOWNLOAD_MODE}</td>
 	  <td class="row1" align="center"><input type="text" size="15" maxlength="100" name="upload_icon_list[]" class="post" value="{grouprow.UPLOAD_ICON}" /></td>
-	  <td class="row2" align="center"><input type="text" size="3" maxlength="15" name="max_filesize_list[]" class="post" value="{grouprow.MAX_FILESIZE}" /> {grouprow.S_FILESIZE}</td>
+	  <td class="row2" align="center"><input type="number" size="3" maxlength="15" name="max_filesize_list[]" class="post" value="{grouprow.MAX_FILESIZE}" /> {grouprow.S_FILESIZE}</td>
 	  <td class="row1" align="center"><span class="small"><a href="{grouprow.U_FORUM_PERMISSIONS}" class="small">{L_EXT_GROUP_PERMISSIONS}</a></span></td>
 	  <td class="row2" align="center"><input type="checkbox" name="group_id_list[]" value="{grouprow.GROUP_ID}" /></td>
 	</tr>
