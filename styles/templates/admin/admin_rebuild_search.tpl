@@ -58,7 +58,7 @@ function swap_values()
 	<td><h4>{L_STARTING_POST_ID}</h4><h6>{L_STARTING_POST_ID_EXPLAIN}</h6></td>
 	<td>
 		<!-- BEGIN start_text_input -->
-		<input class="post" type="text" name="start_t" value="0" size="10" disabled="disabled" />
+		<input class="post" type="number" name="start_t" value="0" size="10" disabled="disabled" />
 		<input type="hidden" name="start" value="0" />
 		<!-- END start_text_input -->
 		<!-- BEGIN start_select_input -->
@@ -79,19 +79,19 @@ function swap_values()
 </tr>
 <tr>
 	<td><h4>{L_NUM_OF_POSTS}</h4><h6>{L_NUM_OF_POSTS_EXPLAIN}</h6></td>
-	<td><input class="post" type="text" name="session_posts_processing" value="{SESSION_POSTS_PROCESSING}" size="10" /></td>
+	<td><input class="post" type="number" name="session_posts_processing" value="{SESSION_POSTS_PROCESSING}" size="10" /></td>
 </tr>
 <tr>
 	<td><h4>{L_POSTS_PER_CYCLE}</h4><h6>{L_POSTS_PER_CYCLE_EXPLAIN}</h6></td>
-	<td><input class="post" type="text" name="post_limit" value="{POST_LIMIT}" size="10" /></td>
+	<td><input class="post" type="number" name="post_limit" value="{POST_LIMIT}" size="10" /></td>
 </tr>
 <tr>
 	<td><h4>{L_TIME_LIMIT}</h4><h6>{L_TIME_LIMIT_EXPLAIN}</h6></td>
-	<td><input class="post" type="text" name="time_limit" value="{TIME_LIMIT}" size="10" /></td>
+	<td><input class="post" type="number" name="time_limit" value="{TIME_LIMIT}" size="10" /></td>
 </tr>
 <tr>
 	<td><h4>{L_REFRESH_RATE}</h4><h6>{L_REFRESH_RATE_EXPLAIN}</h6></td>
-	<td><input class="post" type="text" name="refresh_rate" value="{REFRESH_RATE}" size="10" /></td>
+	<td><input class="post" type="number" name="refresh_rate" value="{REFRESH_RATE}" size="10" /></td>
 </tr>
 <!-- BEGIN last_saved_info -->
 <tr>

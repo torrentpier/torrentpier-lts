@@ -58,7 +58,7 @@ table.log_filters td {
 							<p class="input nowrap">
 								<input class="post" type="text" size="10" maxlength="20" name="{DATETIME_NAME}" value="{DATETIME_VAL}" />
 								&amp;
-								<input class="post" type="text" size="2" maxlength="5" name="{DAYSBACK_NAME}" value="{DAYSBACK_VAL}" />
+								<input class="post" type="number" size="2" maxlength="5" name="{DAYSBACK_NAME}" value="{DAYSBACK_VAL}" />
 								{L_ACTS_LOG_DAYS_BACK}
 							</p>
 						</div>

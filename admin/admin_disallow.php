@@ -42,17 +42,19 @@ elseif (isset($_POST['delete_name']))
 {
 	$disallowed_id = (isset($_POST['disallowed_id']) ) ? intval( $_POST['disallowed_id'] ) : intval( $_GET['disallowed_id']);
 
-	$sql = "DELETE FROM " . BB_DISALLOW . " WHERE disallow_id = $disallowed_id";
-	$result = DB()->sql_query($sql);
-	if (!$result)
+	if (!empty($disallowed_id))
 	{
-		bb_die('Could not removed disallowed user');
+		$sql = "DELETE FROM " . BB_DISALLOW . " WHERE disallow_id = $disallowed_id";
+		$result = DB()->sql_query($sql);
+		if (!$result)
+		{
+			bb_die('Could not removed disallowed user');
+		}
+
+		$message .= $lang['DISALLOWED_DELETED'] .'<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') .'<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+		bb_die($message);
 	}
-
-	$message .= $lang['DISALLOWED_DELETED'] .'<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') .'<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
-
-	bb_die($message);
-
 }
 
 //
