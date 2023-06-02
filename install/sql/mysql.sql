@@ -595,6 +595,10 @@ CREATE TABLE IF NOT EXISTS `bb_disallow` (
 -- ----------------------------
 -- Records of bb_disallow
 -- ----------------------------
+INSERT INTO `bb_disallow` VALUES ('1', 'torrentpier*');
+INSERT INTO `bb_disallow` VALUES ('2', 'tracker*');
+INSERT INTO `bb_disallow` VALUES ('3', 'forum*');
+INSERT INTO `bb_disallow` VALUES ('4', 'torrent*');
 
 -- ----------------------------
 -- Table structure for `bb_extensions`
