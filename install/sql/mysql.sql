@@ -1263,3 +1263,4 @@ CREATE TABLE IF NOT EXISTS `buf_topic_view` (
 
 -- ----------------------------
 -- Records of buf_topic_view
+-- ----------------------------
