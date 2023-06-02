@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="{$bb_cfg['default_lang']}">
 <head>
 <title><!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF --></title>
 <meta http-equiv="Content-Type" content="text/html; charset={CONTENT_ENCODING}" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="application-name" content="{SITENAME}"/>
+<meta property="og:site_name" content="{SITENAME}">
 <meta property="og:image" content="{SITE_URL}styles/images/logo/logo.png" />
+<meta property="twitter:image" content="{SITE_URL}styles/images/logo/logo.png">
+<meta property="og:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
+<meta property="twitter:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
 {META}
 <link rel="stylesheet" href="{STYLESHEET}?v={$bb_cfg['css_ver']}" type="text/css">
 <link rel="shortcut icon" href="{SITE_URL}favicon.ico" type="image/x-icon">
 <link rel="search" type="application/opensearchdescription+xml" href="{SITE_URL}opensearch_desc.xml" title="{SITENAME} (Forum)" />
 <link rel="search" type="application/opensearchdescription+xml" href="{SITE_URL}opensearch_desc_bt.xml" title="{SITENAME} (Tracker)" />
+
+<meta name="generator" content="TorrentPier LTS">
+<meta name="version" content="{$bb_cfg['tp_version']}">
 
 <script type="text/javascript" src="{SITE_URL}styles/js/jquery.pack.js?v={$bb_cfg['js_ver']}"></script>
 <script type="text/javascript" src="{SITE_URL}styles/js/main.js?v={$bb_cfg['js_ver']}"></script>

@@ -10,6 +10,7 @@ if (empty($_SERVER['REMOTE_ADDR']))     $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
 if (empty($_SERVER['HTTP_USER_AGENT'])) $_SERVER['HTTP_USER_AGENT'] = '';
 if (empty($_SERVER['HTTP_REFERER']))    $_SERVER['HTTP_REFERER'] = '';
 if (empty($_SERVER['SERVER_NAME']))     $_SERVER['SERVER_NAME'] = '';
+if (empty($_SERVER['SERVER_ADDR']))     $_SERVER['SERVER_ADDR'] = getenv('SERVER_ADDR');
 
 if (!defined('BB_ROOT')) define('BB_ROOT', './');
 if (!defined('BB_SCRIPT')) define('BB_SCRIPT', 'undefined');
