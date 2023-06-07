@@ -1,5 +1,13 @@
 # Change Log
 
+## [v2.1.5-2023.06](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.06) (2023-07-04) (В разработке)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.05...v2.1.5-2023.06)
+
+**Merged pull requests:**
+
+- Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed empty user search box [\#171](https://github.com/torrentpier/torrentpier-lts/pull/171) ([belomaxorka](https://github.com/belomaxorka))
+
 ## [v2.1.5-2023.05](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.05) (2023-06-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.04...v2.1.5-2023.05)
 
