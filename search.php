@@ -953,7 +953,7 @@ function username_search ($search_match)
 		}
 		if (!$username_list)
 		{
-			$username_list = '<option>'. $lang['NO_MATCH'] .'</option>';
+			$username_list = '<option value="">'. $lang['NO_MATCH'] .'</option>';
 		}
 	}
 
