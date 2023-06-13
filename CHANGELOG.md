@@ -7,6 +7,8 @@
 
 - Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed empty user search box [\#171](https://github.com/torrentpier/torrentpier-lts/pull/171) ([belomaxorka](https://github.com/belomaxorka))
+- Added some placeholders for input fields [\#173](https://github.com/torrentpier/torrentpier-lts/pull/173) ([belomaxorka](https://github.com/belomaxorka))
+- Maked max post length configurable [\#174](https://github.com/torrentpier/torrentpier-lts/pull/174) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.05](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.05) (2023-06-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.04...v2.1.5-2023.05)
