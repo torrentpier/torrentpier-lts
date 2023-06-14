@@ -6,7 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.06 🎉
-- Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172), [\#175](https://github.com/torrentpier/torrentpier-lts/pull/175) ([belomaxorka](https://github.com/belomaxorka))
+- Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172), [\#175](https://github.com/torrentpier/torrentpier-lts/pull/175), [\#176](https://github.com/torrentpier/torrentpier-lts/pull/176) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed empty user search box [\#171](https://github.com/torrentpier/torrentpier-lts/pull/171) ([belomaxorka](https://github.com/belomaxorka))
 - Added some placeholders for input fields [\#173](https://github.com/torrentpier/torrentpier-lts/pull/173) ([belomaxorka](https://github.com/belomaxorka))
 - Maked max post length configurable [\#174](https://github.com/torrentpier/torrentpier-lts/pull/174) ([belomaxorka](https://github.com/belomaxorka))
