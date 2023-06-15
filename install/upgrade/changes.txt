@@ -72,3 +72,23 @@ ALTER TABLE `bb_users` CHANGE `username` `username` VARCHAR(255) NOT NULL DEFAUL
 ALTER TABLE `bb_sessions` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
 ALTER TABLE `bb_search_results` CHANGE `search_id` `search_id` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
 ALTER TABLE `bb_search_results` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
+
+// 2.1.5 (LTS 2023.06)
+UPDATE `bb_posts` SET `poster_ip` = '0';
+ALTER TABLE `bb_posts` CHANGE `poster_ip` `poster_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_bt_tracker` SET `ip` = '0';
+ALTER TABLE `bb_bt_tracker` CHANGE `ip` `ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_users` SET `user_last_ip` = '0';
+ALTER TABLE `bb_users` CHANGE `user_last_ip` `user_last_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_users` SET `user_reg_ip` = '0';
+ALTER TABLE `bb_users` CHANGE `user_reg_ip` `user_reg_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_log` SET `log_user_ip` = '0';
+ALTER TABLE `bb_log` CHANGE `log_user_ip` `log_user_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_poll_users` SET `vote_ip` = '0';
+ALTER TABLE `bb_poll_users` CHANGE `vote_ip` `vote_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_privmsgs` SET `privmsgs_ip` = '0';
+ALTER TABLE `bb_privmsgs` CHANGE `privmsgs_ip` `privmsgs_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_sessions` SET `session_ip` = '0';
+ALTER TABLE `bb_sessions` CHANGE `session_ip` `session_ip` varchar(42) NOT NULL DEFAULT '0';
+UPDATE `bb_banlist` SET `ban_ip` = '0';
+ALTER TABLE `bb_banlist` CHANGE `ban_ip` `ban_ip` varchar(42) NOT NULL DEFAULT '0';
