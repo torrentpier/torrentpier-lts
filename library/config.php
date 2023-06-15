@@ -486,7 +486,7 @@ $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard
 
 // Posting
 $bb_cfg['prevent_multiposting']  = true;           // replace "reply" with "edit last msg" if user (not admin or mod) is last topic poster
-$bb_cfg['max_smilies']           = 10;             // Максимальное число смайлов в посте (0 - без ограничения)
+$bb_cfg['max_smilies']           = 25;             // Максимальное число смайлов в посте (0 - без ограничения)
 
 // PM
 $bb_cfg['privmsg_disable']      = false;           // отключить систему личных сообщений на форуме

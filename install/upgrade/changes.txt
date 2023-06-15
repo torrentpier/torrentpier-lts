@@ -92,3 +92,4 @@ UPDATE `bb_sessions` SET `session_ip` = '0';
 ALTER TABLE `bb_sessions` CHANGE `session_ip` `session_ip` varchar(42) NOT NULL DEFAULT '0';
 UPDATE `bb_banlist` SET `ban_ip` = '0';
 ALTER TABLE `bb_banlist` CHANGE `ban_ip` `ban_ip` varchar(42) NOT NULL DEFAULT '0';
+INSERT INTO `bb_cron` VALUES ('999', '1', 'PM cleanup', 'clean_pm.php', 'daily', '', '05:00:00', '70', '', '', '', '1', '', '0', '1', '0');
