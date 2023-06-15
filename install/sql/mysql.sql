@@ -153,7 +153,7 @@ DROP TABLE IF EXISTS `bb_banlist`;
 CREATE TABLE IF NOT EXISTS `bb_banlist` (
   `ban_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `ban_userid` mediumint(8) NOT NULL DEFAULT '0',
-  `ban_ip` varchar(42) NOT NULL DEFAULT 0,
+  `ban_ip` varchar(42) NOT NULL DEFAULT '0',
   `ban_email` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ban_id`),
   KEY `ban_ip_user_id` (`ban_ip`,`ban_userid`)
