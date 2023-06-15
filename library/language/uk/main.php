@@ -668,7 +668,7 @@ $lang['SORT_EMAIL'] = 'за адресою e-mail';
 $lang['SORT_WEBSITE'] = 'за адресою сайту';
 $lang['ASC'] = 'за зростанням';
 $lang['DESC'] = 'за спаданням';
-$lang['ORDER'] = ''; // не потрібно, в англійській використовується в контексті 'ascending Order';
+$lang['ORDER'] = 'Сортувати';
 
 // Group control panel
 $lang['GROUP_CONTROL_PANEL'] = 'Групи';
