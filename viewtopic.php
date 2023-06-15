@@ -892,7 +892,7 @@ $template->assign_vars(array(
 if (IS_ADMIN)
 {
 	$template->assign_vars(array(
-		'U_LOGS' => "admin/admin_log.php?sid={$userdata['session_id']}&amp;t=$topic_id&amp;db=365",
+		'U_LOGS' => "admin/admin_log.php?sid={$userdata['session_id']}&amp;t=$topic_id&amp;db={$bb_cfg['log_days_keep']}",
 	));
 }
 

@@ -497,7 +497,7 @@ $bb_cfg['max_sentbox_privmsgs'] = 50;              // максимальное �
 $bb_cfg['pm_days_keep']         = 180;             // время хранения ЛС
 
 // Actions log
-$bb_cfg['log_days_keep'] = 90;
+$bb_cfg['log_days_keep'] = 365;
 
 // Users
 $bb_cfg['color_nick']                   = true;    // Окраска ников пользователей по user_rank
@@ -508,7 +508,7 @@ $bb_cfg['user_not_active_days_keep']    = 180;     // inactive users but only wi
 $bb_cfg['group_members_per_page']       = 50;
 
 // Tidy
-$bb_cfg['tidy_post'] = (!in_array('tidy', get_loaded_extensions())) ? false : true;
+$bb_cfg['tidy_post'] = in_array('tidy', get_loaded_extensions());
 
 // Ads
 $bb_cfg['show_ads'] = false;
