@@ -357,6 +357,7 @@ define('REQUEST', 4);
 define('CHBOX',   5);
 define('SELECT',  6);
 
+// Check banned agents
 if (!empty($banned_user_agents))
 {
 	foreach ($banned_user_agents as $agent)

@@ -138,7 +138,7 @@ switch ($mode)
 		bb_die($lang['NEW_POLL_ADDED']);
 		break;
 
-	// редакторование
+	// редактирование
 	case 'poll_edit':
 		if (!$t_data['topic_vote'])
 		{
