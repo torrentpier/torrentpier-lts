@@ -87,11 +87,11 @@ $charset  = 'utf8'; // кодировка базы данных
 $pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
-// порядок параметров srv_cfg (хост, название базы, пользователь, пароль, кодировка, pconnect);
+// порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, pconnect);
 $bb_cfg['db'] = array(
-	'db1' => array('localhost', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
-	//'db2' => array('localhost2', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
-	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
+	'db1' => array('localhost:3306', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
+	//'db2' => array('localhost2:3306', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
+	//'db3' => array('localhost3:3306', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
 
 $bb_cfg['db_alias'] = array(
