@@ -5,7 +5,7 @@ if (!defined('SQL_DEBUG')) die(basename(__FILE__));
 class sql_db
 {
 	var $cfg            = array();
-	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'charset', 'persist');
+	var $cfg_keys       = array('dbhost', 'dbname', 'dbuser', 'dbpasswd', 'dbport', 'charset', 'persist');
 	var $link           = null;
 	var $result         = null;
 	var $db_server      = '';
@@ -93,7 +93,7 @@ class sql_db
 
 		$connect_type = ($this->cfg['persist']) ? 'mysql_pconnect' : 'mysql_connect';
 
-		if (!$link = @$connect_type($this->cfg['dbhost'], $this->cfg['dbuser'], $this->cfg['dbpasswd']))
+		if (!$link = @$connect_type($this->cfg['dbhost'] . ":{$this->cfg['dbport']}", $this->cfg['dbuser'], $this->cfg['dbpasswd']))
 		{
 			$server = (DBG_USER) ? $this->cfg['dbhost'] : '';
 			header("HTTP/1.0 503 Service Unavailable");

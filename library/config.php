@@ -82,31 +82,31 @@ $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
 // Database
-$charset  = 'utf8';
-$pconnect = false;
+$charset  = 'utf8'; // кодировка базы данных
+$pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
-// порядок параметров srv_cfg (хост, название базы, пользователь, пароль, charset, pconnect);
+// порядок параметров srv_cfg (хост, название базы, пользователь, пароль, порт, кодировка, pconnect);
 $bb_cfg['db'] = array(
-	'db1' => array('localhost', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
-	//'db2' => array('localhost2', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
-	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
+	'db' => array('localhost', 'tp_215_lts', 'user', 'pass', 3306, $charset, $pconnect),
+	//'db2' => array('localhost2', 'dbase2', 'user2', 'pass2', 3306, $charset, $pconnect),
+	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', 3306, $charset, $pconnect),
 );
 
 $bb_cfg['db_alias'] = array(
 //	'alias'  => 'srv_name'
 #	db1
-	'log'    => 'db1', // BB_LOG
-	'search' => 'db1', // BB_TOPIC_SEARCH
-	'sres'   => 'db1', // BB_BT_USER_SETTINGS, BB_SEARCH_RESULTS
-	'u_ses'  => 'db1', // BB_USER_SES, BB_USER_LASTVISIT
+	'log'    => 'db', // BB_LOG
+	'search' => 'db', // BB_TOPIC_SEARCH
+	'sres'   => 'db', // BB_BT_USER_SETTINGS, BB_SEARCH_RESULTS
+	'u_ses'  => 'db', // BB_USER_SES, BB_USER_LASTVISIT
 #	db2
-	'dls'    => 'db1', // BB_BT_DLS_*
-	'ip'     => 'db1', // BB_POSTS_IP
-	'ut'     => 'db1', // BB_TOPICS_USER_POSTED
+	'dls'    => 'db', // BB_BT_DLS_*
+	'ip'     => 'db', // BB_POSTS_IP
+	'ut'     => 'db', // BB_TOPICS_USER_POSTED
 #	db3
-	'pm'     => 'db1', // BB_PRIVMSGS, BB_PRIVMSGS_TEXT
-	'pt'     => 'db1', // BB_POSTS_TEXT
+	'pm'     => 'db', // BB_PRIVMSGS, BB_PRIVMSGS_TEXT
+	'pt'     => 'db', // BB_POSTS_TEXT
 );
 
 // Cache

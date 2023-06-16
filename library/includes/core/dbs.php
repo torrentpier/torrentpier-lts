@@ -26,7 +26,7 @@ class DBS
 	}
 
 	// получение/инициализация класса для сервера $srv_name
-	function get_db_obj ($srv_name_or_alias = 'db1')
+	function get_db_obj ($srv_name_or_alias = 'db')
 	{
 		$srv_name = $this->get_srv_name($srv_name_or_alias);
 
@@ -41,7 +41,7 @@ class DBS
 	// определение имени сервера
 	function get_srv_name ($name)
 	{
-        $srv_name = 'db1';
+        $srv_name = 'db';
 
 		if (isset($this->alias[$name]))
 		{

@@ -84,7 +84,7 @@ require(CORE_DIR . 'dbs.php');
 require(CORE_DIR . 'mysql.php');
 $DBS = new DBS($bb_cfg);
 
-function DB ($db_alias = 'db1')
+function DB ($db_alias = 'db')
 {
 	global $DBS;
 	return $DBS->get_db_obj($db_alias);
