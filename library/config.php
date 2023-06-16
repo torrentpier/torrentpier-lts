@@ -7,6 +7,7 @@
  * Version info
  * Database
    - Charset
+   - Persistent connection
    - Config
    - Aliases
  * Cache
