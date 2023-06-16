@@ -82,11 +82,11 @@ $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
 // Database
-$charset  = 'utf8';
-$pconnect = false;
+$charset  = 'utf8'; // кодировка базы данных
+$pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
-// порядок параметров srv_cfg (хост, название базы, пользователь, пароль, charset, pconnect);
+// порядок параметров srv_cfg (хост, название базы, пользователь, пароль, кодировка, pconnect);
 $bb_cfg['db'] = array(
 	'db1' => array('localhost', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
 	//'db2' => array('localhost2', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
