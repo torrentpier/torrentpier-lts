@@ -1347,13 +1347,20 @@ div#autocomplete_popup input {
 	width: 83px;
 }
 
-div#autocomplete_popup span.regenerate {
+div#autocomplete_popup span {
 	width: 16px;
 	height: 16px;
 	margin: 24px 0 0 8px;
-	background: url("../../../images/pic_loading.gif") transparent no-repeat;
 	cursor: pointer;
 	display: inline-block;
+}
+
+div#autocomplete_popup span.regenerate {
+	background: url("../../../images/pic_loading.gif") transparent no-repeat;
+}
+
+div#autocomplete_popup span[title="Copy to clipboard"] {
+	background: url("../../../images/page.gif") transparent no-repeat;
 }
 /* ================================================================ *
     Alert
