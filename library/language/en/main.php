@@ -75,7 +75,7 @@ $lang['SKYPE_ERROR'] = 'You entered an invalid Skype login';
 $lang['TWITTER'] = 'Twitter';
 $lang['TWITTER_ERROR'] = 'You entered an invalid Twitter login';
 
-$lang['FORUM_INDEX'] = '%s Forum Index'; // eg. sitename Forum Index, %s can be removed if you prefer
+$lang['FORUM_INDEX'] = '%s Forum Index'; // e.g. sitename Forum Index, %s can be removed if you prefer
 
 $lang['POST_NEW_TOPIC'] = 'Post new topic';
 $lang['POST_NEW_RELEASE'] = 'Post new release';
@@ -294,7 +294,7 @@ $lang['SELECT_POSTS_PER_PAGE'] = 'posts per page';
 // Posting/Replying (Not private messaging!)
 $lang['TOPIC_REVIEW'] = 'Topic review';
 
-$lang['NO_POST_MODE'] = 'No post mode selected'; // If posting.php is called without a mode (newtopic/reply/delete/etc, shouldn't be shown normaly)
+$lang['NO_POST_MODE'] = 'No post mode selected'; // If posting.php is called without a mode (newtopic/reply/delete/etc., shouldn't be shown normally)
 
 $lang['POST_A_NEW_TOPIC'] = 'Post new topic';
 $lang['POST_A_REPLY'] = 'Post new reply';
@@ -463,7 +463,7 @@ $lang['SEND_A_NEW_MESSAGE'] = 'Send a new private message';
 $lang['SEND_A_REPLY'] = 'Reply to a private message';
 $lang['EDIT_MESSAGE'] = 'Edit private message';
 
-$lang['NOTIFICATION_SUBJECT'] = 'New Private Message has been recieved!';
+$lang['NOTIFICATION_SUBJECT'] = 'New Private Message has been received!';
 
 $lang['FIND_USERNAME'] = 'Find a username';
 $lang['SELECT_USERNAME'] = 'Select a Username';
@@ -480,7 +480,7 @@ $lang['UNMARK_ALL'] = 'Unmark all';
 $lang['CONFIRM_DELETE_PM'] = 'Are you sure you want to delete this message?';
 $lang['CONFIRM_DELETE_PMS'] = 'Are you sure you want to delete these messages?';
 
-$lang['INBOX_SIZE'] = 'Your Inbox is<br /><b>%d%%</b> full'; // eg. Your Inbox is 50% full
+$lang['INBOX_SIZE'] = 'Your Inbox is<br /><b>%d%%</b> full'; // e.g. Your Inbox is 50% full
 $lang['SENTBOX_SIZE'] = 'Your Sentbox is<br /><b>%d%%</b> full';
 $lang['SAVEBOX_SIZE'] = 'Your Savebox is<br /><b>%d%%</b> full';
 
@@ -548,10 +548,10 @@ $lang['HAPPY_BIRTHDAY'] = 'Happy Birthday!';
 $lang['WRONG_BIRTHDAY_FORMAT'] = 'The birthday format was entered incorrectly.';
 $lang['AGE'] = 'Age';
 $lang['BIRTHDAY_TO_HIGH'] = 'Sorry, this site, does not accept user older than %d years old';
-$lang['BIRTHDAY_TO_LOW'] = 'Sorry, this site, does not accept user yonger than %d years old';
+$lang['BIRTHDAY_TO_LOW'] = 'Sorry, this site, does not accept user younger than %d years old';
 $lang['BIRTHDAY_TODAY'] = 'Users with a birthday today: ';
 $lang['BIRTHDAY_WEEK'] = 'Users with a birthday within the next %d days: %s';
-$lang['NOBIRTHDAY_WEEK'] = 'No users are having a birthday in the upcoming %d days'; // %d is substitude with the number of days
+$lang['NOBIRTHDAY_WEEK'] = 'No users are having a birthday in the upcoming %d days'; // %d is substitute with the number of days
 $lang['NOBIRTHDAY_TODAY'] = 'No users have a birthday today';
 $lang['BIRTHDAY_ENABLE'] = 'Enable birthday';
 $lang['BIRTHDAY_MAX_AGE'] = 'Max age';
@@ -793,8 +793,8 @@ $lang['BRIEFLY'] = 'Briefly';
 $lang['NO_SEARCHABLE_FORUMS'] = 'You do not have permissions to search any forum on this site.';
 
 $lang['NO_SEARCH_MATCH'] = 'No topics or posts met your search criteria';
-$lang['FOUND_SEARCH_MATCH'] = 'Search found %d match'; // eg. Search found 1 match
-$lang['FOUND_SEARCH_MATCHES'] = 'Search found %d matches'; // eg. Search found 24 matches
+$lang['FOUND_SEARCH_MATCH'] = 'Search found %d match'; // e.g. Search found 1 match
+$lang['FOUND_SEARCH_MATCHES'] = 'Search found %d matches'; // e.g. Search found 24 matches
 $lang['TOO_MANY_SEARCH_RESULTS'] = 'Too many results may be found, please try to be more specific';
 
 $lang['CLOSE_WINDOW'] = 'Close Window';
@@ -1678,7 +1678,7 @@ $lang['PRIVATE'] = 'Private';
 $lang['REGISTERED'] = 'Registered';
 $lang['ADMINISTRATORS'] = 'Administrators';
 
-// These are displayed in the drop down boxes for advanced mode forum auth, try and keep them short!
+// These are displayed in the drop-down boxes for advanced mode forum auth, try and keep them short!
 $lang['FORUM_ALL'] = 'ALL';
 $lang['FORUM_REG'] = 'REG';
 $lang['FORUM_PRIVATE'] = 'PRIVATE';
@@ -1924,7 +1924,7 @@ $lang['LOOK_UP_GROUP'] = 'Look up group';
 
 // Prune Administration
 $lang['FORUM_PRUNE'] = 'Forum Prune';
-$lang['FORUM_PRUNE_EXPLAIN'] = 'This will delete any topic which has not been posted to within the number of days you select. If you do not enter a number then all topics will be deleted. It will not remove <b>sticky</b> topics and <b>announcements</b>. You will need to remove those topics manually.';
+$lang['FORUM_PRUNE_EXPLAIN'] = 'This will delete any topic which has not been posted to within the number of days you select. If you do not enter a number than all topics will be deleted. It will not remove <b>sticky</b> topics and <b>announcements</b>. You will need to remove those topics manually.';
 $lang['DO_PRUNE'] = 'Do Prune';
 $lang['ALL_FORUMS'] = 'All Forums';
 $lang['PRUNE_TOPICS_NOT_POSTED'] = 'Prune topics with no replies in this many days';
@@ -2053,7 +2053,7 @@ $lang['TRACKER_STATS'] = 'Statistics on the tracker';
 $lang['WHOIS_INFO'] = 'Information about IP address';
 $lang['SHOW_MOD_HOME_PAGE'] = 'Show on moderators the index.php';
 $lang['PREMOD_HELP'] = '<h4><span class="tor-icon tor-dup">&#8719;</span> Pre-moderation</h4> <h6>If you do not have distributions to the status of v, #, or T in this section, including subsections, the distribution will automatically receive this status</h6>';
-$lang['TOR_COMMENT'] = '<h4>Commentary on the status of distribution</h4> <h6>Comment successfully allows you to specify releasers mistakes. When nedooformlennyh statuses releasers available form of the response of the correction release</h6>';
+$lang['TOR_COMMENT'] = '<h4>Comment on the status of a distribution</h4> <h6>The comment allows you to point out the errors made to the releaser. If the statuses are incomplete, a release response form is available to the release manager to correct the release</h6>';
 $lang['SEED_BONUS_ADD'] = '<h4>Adding seed bonus </h4> <h6> Number of distributions are handed out by the user and the size of bonuses for them (charging times an hour) </h6>';
 $lang['SEED_BONUS_RELEASE'] = 'to N-number of releases';
 $lang['SEED_BONUS_POINTS'] = 'bonuses in an hour';
@@ -2120,7 +2120,7 @@ $lang['EMPTY_FILE_ENTRY'] = 'Empty File Entry';
 
 // Attachments -> Sync
 $lang['SYNC_THUMBNAIL_RESETTED'] = 'Thumbnail resetted for Attachment: %s'; // replace %s with physical Filename
-$lang['ATTACH_SYNC_FINISHED'] = 'Attachment Syncronization Finished.';
+$lang['ATTACH_SYNC_FINISHED'] = 'Attachment Synchronization Finished.';
 $lang['SYNC_TOPICS'] = 'Sync Topics';
 $lang['SYNC_POSTS'] = 'Sync Posts';
 $lang['SYNC_THUMBNAILS'] = 'Sync Thumbnails';
@@ -2149,7 +2149,7 @@ $lang['EXTENSION_GROUP_EXIST'] = 'The Extension Group %s already exist'; // repl
 
 // Extensions -> Special Categories
 $lang['MANAGE_CATEGORIES'] = 'Manage Special Categories';
-$lang['MANAGE_CATEGORIES_EXPLAIN'] = 'Here you can configure the Special Categories. You can set up Special Parameters and Conditions for the Special Categorys assigned to an Extension Group.';
+$lang['MANAGE_CATEGORIES_EXPLAIN'] = 'Here you can configure the Special Categories. You can set up Special Parameters and Conditions for the Special Categories assigned to an Extension Group.';
 $lang['SETTINGS_CAT_IMAGES'] = 'Settings for Special Category: Images';
 $lang['SETTINGS_CAT_FLASH'] = 'Settings for Special Category: Flash Files';
 $lang['DISPLAY_INLINED'] = 'Display Images Inlined';
@@ -2401,7 +2401,7 @@ $lang['REPAIR_CRON'] = 'Repair Cron';
 
 $lang['CRON_EDIT_HEAD_EDIT'] = 'Edit job';
 $lang['CRON_EDIT_HEAD_ADD'] = 'Add job';
-$lang['CRON_SCRIPT_EXPL'] = 'name of the script from "includes/cron/jobs/"';;
+$lang['CRON_SCRIPT_EXPL'] = 'name of the script from "includes/cron/jobs/"';
 $lang['SCHEDULE'] = array(
 	'select'   => '&raquo; Select start',
 	'hourly'   => 'hourly',
@@ -2570,7 +2570,7 @@ $lang['RELEASES'] = 'Releases';
 
 $lang['BACK'] = 'Back';
 $lang['ERROR_FORM'] = 'Invalid fields';
-$lang['RELEASE_WELCOME'] = 'Pleae fill in the releae form';
+$lang['RELEASE_WELCOME'] = 'Please fill in the release form';
 $lang['NEW_RELEASE'] = 'New release';
 $lang['NEXT'] = 'Continue';
 $lang['OTHER'] = 'Other';
@@ -2652,7 +2652,7 @@ $lang['SEARCH_USERS_GROUPS_EXPLAIN'] = 'View all members of the selected group.'
 $lang['SEARCH_USERS_RANKS_EXPLAIN'] = 'View all carriers of the selected rank.';
 $lang['BANNED_USERS'] = 'Banned Users';
 $lang['DISABLED_USERS'] = 'Disabled Users';
-$lang['SEARCH_USERS_MISC_EXPLAIN'] = 'Administrators - All users with Administrator powers; Moderators - All forum moderators; Banned Users - All accounts that have been banned on these forums; Disabled Users - All users with disabled accounts (either manually disabled or never verified their email address); Users with disabled PMs - Selects users who have the Private Messages priviliges removed (Done via User Management)';
+$lang['SEARCH_USERS_MISC_EXPLAIN'] = 'Administrators - All users with Administrator powers; Moderators - All forum moderators; Banned Users - All accounts that have been banned on these forums; Disabled Users - All users with disabled accounts (either manually disabled or never verified their email address); Users with disabled PMs - Selects users who have the Private Messages privileges removed (Done via User Management)';
 $lang['POSTCOUNT'] = 'Postcount';
 $lang['EQUALS'] = 'Equals';
 $lang['GREATER_THAN'] = 'Greater than';
@@ -2665,7 +2665,7 @@ $lang['SEARCH_USERS_LANGUAGE_EXPLAIN'] = 'This will display users whom have sele
 $lang['SEARCH_USERS_TIMEZONE_EXPLAIN'] = 'Users who have selected a specific timezone in their profile';
 $lang['SEARCH_USERS_STYLE_EXPLAIN'] = 'Display users who have selected a specific style.';
 $lang['MODERATORS_OF'] = 'Moderators of';
-$lang['SEARCH_USERS_MODERATORS_EXPLAIN'] = 'Search for users with Moderating permissions to a specific forum. Moderating permissions are recoginised either by User Permissions or by being in a Group with the right Group Permssions.';
+$lang['SEARCH_USERS_MODERATORS_EXPLAIN'] = 'Search for users with Moderating permissions to a specific forum. Moderating permissions are recognized either by User Permissions or by being in a Group with the right Group Permissions.';
 
 $lang['SEARCH_USERS_NEW'] = '%s yielded %d result(s). Perform <a href="%s">another search</a>.';
 $lang['BANNED'] = 'Banned';
@@ -2727,7 +2727,7 @@ $lang['SITEMAP_BING_1'] = 'Register your site at <a href="https://www.bing.com/w
 $lang['SITEMAP_BING_2'] = 'Add sitemap of site you registered in its settings.';
 $lang['SITEMAP_ADD_TITLE'] = 'Additional pages for sitemap';
 $lang['SITEMAP_ADD_PAGE'] = 'Additional pages';
-$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site (for example, <b>http://torrentpier.com/memberlist.php</b>) which should be included in your sitemap file that you creating.';
+$lang['SITEMAP_ADD_EXP_1'] = 'You can specify additional pages on your site (for example, <b>http://torrentpier.com/memberlist.php</b>) which should be included in your sitemap file that you are creating.';
 $lang['SITEMAP_ADD_EXP_2'] = 'Each reference must begin with http(s):// and a new line!';
 
 $lang['FORUM_MAP'] = 'Forums\' map';
