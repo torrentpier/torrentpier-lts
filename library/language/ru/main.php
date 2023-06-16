@@ -2314,8 +2314,8 @@ $lang['ALLOW_PORNO_TOPIC'] = 'Разрешено размещать контен
 $lang['SHOW_DL_BUTTONS'] = 'Показывать кнопки для изменения DL-статуса';
 $lang['SELF_MODERATED'] = 'Автор топика может перенести его в другой форум';
 
-$lang['BT_ANNOUNCE_URL_HEAD'] = 'Announce URL';
-$lang['BT_ANNOUNCE_URL'] = 'Announce url';
+$lang['BT_ANNOUNCE_URL_HEAD'] = 'URL-адрес анонсера';
+$lang['BT_ANNOUNCE_URL'] = 'URL-адрес анонсера';
 $lang['BT_ANNOUNCE_URL_EXPL'] = 'дополнительные разрешенные адреса можно задать в "includes/torrent_announce_urls.php"';
 $lang['BT_DISABLE_DHT'] = 'Запретить DHT сети';
 $lang['BT_DISABLE_DHT_EXPL'] = 'Запретить обмен пирами и DHT (рекомендовано для приватных сетей, только url announce)';
@@ -2326,7 +2326,7 @@ $lang['BT_REPLACE_ANN_URL_EXPL'] = 'заменять оригинальный an
 $lang['BT_DEL_ADDIT_ANN_URLS'] = 'Удалять все дополнительные announce urls';
 $lang['BT_DEL_ADDIT_ANN_URLS_EXPL'] = 'если торрент содержит адреса других трекеров, они будут удалены';
 
-$lang['BT_SHOW_PEERS_HEAD'] = 'Peers-List';
+$lang['BT_SHOW_PEERS_HEAD'] = 'Список пиров';
 $lang['BT_SHOW_PEERS'] = 'Показывать список источников (seeders/leechers)';
 $lang['BT_SHOW_PEERS_EXPL'] = 'будет выводиться над топиком с торрентом';
 $lang['BT_SHOW_PEERS_MODE'] = 'По умолчанию показывать источники как:';
