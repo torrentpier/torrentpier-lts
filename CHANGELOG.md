@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.06 🎉
+- Corrected translations [\#183](https://github.com/torrentpier/torrentpier-lts/pull/183) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed $bb_cfg['pm_days_keep'] [\#180](https://github.com/torrentpier/torrentpier-lts/pull/180) ([belomaxorka](https://github.com/belomaxorka))
 - IP storage bugfix [\#177](https://github.com/torrentpier/torrentpier-lts/pull/177) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172), [\#175](https://github.com/torrentpier/torrentpier-lts/pull/175), [\#176](https://github.com/torrentpier/torrentpier-lts/pull/176), [\#178](https://github.com/torrentpier/torrentpier-lts/pull/178), [\#179](https://github.com/torrentpier/torrentpier-lts/pull/179), [\#181](https://github.com/torrentpier/torrentpier-lts/pull/181) ([belomaxorka](https://github.com/belomaxorka))
