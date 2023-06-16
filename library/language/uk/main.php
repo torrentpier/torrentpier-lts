@@ -480,7 +480,7 @@ $lang['UNMARK_ALL'] = 'Зняти виділення';
 $lang['CONFIRM_DELETE_PM'] = 'Ви впевнені, що хочете видалити це повідомлення?';
 $lang['CONFIRM_DELETE_PMS'] = 'Ви впевнені, що хочете видалити ці повідомлення?';
 
-$lang['INBOX_SIZE'] = 'Ваша папка &laquo;Вхідні&raquo;<br />заповнена на <b>%d%%</b>'; // eg. Your Inbox is 50% full
+$lang['INBOX_SIZE'] = 'Ваша папка &laquo;Вхідні&raquo;<br />заповнена на <b>%d%%</b>'; // e.g. Your Inbox is 50% full
 $lang['SENTBOX_SIZE'] = 'Ваша папка &laquo;Надіслані&raquo;<br />заповнена на <b>%d%%</b>';
 $lang['SAVEBOX_SIZE'] = 'Ваша папка &laquo;Збережені&raquo;<br />заповнена на <b>%d%%</b>';
 
@@ -793,8 +793,8 @@ $lang['BRIEFLY'] = 'Коротко';
 $lang['NO_SEARCHABLE_FORUMS'] = 'У вас немає доступу до пошуку ні в одному з форумів на сайті';
 
 $lang['NO_SEARCH_MATCH'] = 'Відповідних тем або повідомлень не знайдено';
-$lang['FOUND_SEARCH_MATCH'] = 'Результати пошуку: %d'; // eg. Search found 1 match
-$lang['FOUND_SEARCH_MATCHES'] = 'Результати пошуку: %d'; // eg. Search found 24 matches
+$lang['FOUND_SEARCH_MATCH'] = 'Результати пошуку: %d'; // e.g. Search found 1 match
+$lang['FOUND_SEARCH_MATCHES'] = 'Результати пошуку: %d'; // e.g. Search found 24 matches
 $lang['TOO_MANY_SEARCH_RESULTS'] = 'По вашому запиту може бути знайдено занадто багато повідомлень. Постарайтеся більш точно сформулювати те, що ви хочете знайти.';
 
 $lang['CLOSE_WINDOW'] = 'Закрити';
@@ -1678,7 +1678,7 @@ $lang['PRIVATE'] = 'Приватний';
 $lang['REGISTERED'] = 'Зареєстрований';
 $lang['ADMINISTRATORS'] = 'Адміністратори';
 
-// These are displayed in the drop down boxes for advanced mode forum auth, try and keep them short!
+// These are displayed in the drop-down boxes for advanced mode forum auth, try and keep them short!
 $lang['FORUM_ALL'] = 'Всi';
 $lang['FORUM_REG'] = 'Зареєстров.';
 $lang['FORUM_PRIVATE'] = 'Приватнi';
@@ -2314,8 +2314,8 @@ $lang['ALLOW_PORNO_TOPIC'] = 'Дозволено розміщувати конт
 $lang['SHOW_DL_BUTTONS'] = 'Показувати кнопки для зміни DL-статусу';
 $lang['SELF_MODERATED'] = 'Автор топіка може перенести його в інший форум';
 
-$lang['BT_ANNOUNCE_URL_HEAD'] = 'Announce URL';
-$lang['BT_ANNOUNCE_URL'] = 'Announce url';
+$lang['BT_ANNOUNCE_URL_HEAD'] = 'URL-адреса анонсу';
+$lang['BT_ANNOUNCE_URL'] = 'URL-адреса анонсу';
 $lang['BT_ANNOUNCE_URL_EXPL'] = 'додаткові дозволені адреси можна задати в "includes/torrent_announce_urls.php"';
 $lang['BT_DISABLE_DHT'] = 'Заборонити DHT мережі';
 $lang['BT_DISABLE_DHT_EXPL'] = 'Заборонити обмін пiрами та DHT (рекомендовано для приватних мереж, тільки url announce)';
@@ -2326,7 +2326,7 @@ $lang['BT_REPLACE_ANN_URL_EXPL'] = 'заміняти оригінальний an
 $lang['BT_DEL_ADDIT_ANN_URLS'] = 'Видалити всі додаткові announce urls';
 $lang['BT_DEL_ADDIT_ANN_URLS_EXPL'] = 'якщо торрент містить адреси інших трекерів, вони будуть видалені';
 
-$lang['BT_SHOW_PEERS_HEAD'] = 'Peers-List';
+$lang['BT_SHOW_PEERS_HEAD'] = 'Список пірів';
 $lang['BT_SHOW_PEERS'] = 'Показувати список джерел (seeders/leechers)';
 $lang['BT_SHOW_PEERS_EXPL'] = 'буде виводитися над топиком з торрентом';
 $lang['BT_SHOW_PEERS_MODE'] = 'За замовчуванням показувати джерела як:';
