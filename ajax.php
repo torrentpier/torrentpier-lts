@@ -230,7 +230,7 @@ class ajax_common
 	{
 		$this->response['action'] = $this->action;
 
-		if (DBG_USER && SQL_DEBUG && !empty($_COOKIE['sql_log']))
+		if (sql_dbg_enabled())
 		{
 			$this->response['sql_log'] = get_sql_log();
 		}
