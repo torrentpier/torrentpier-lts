@@ -513,12 +513,12 @@ function get_fs_link ()
 	var fs_url = '{TRACKER_URL}';
 	var fs_val = $('#fs-main').val();
 
-	if (fs_val == null) {
-		alert('{L_NOT_SEL_CHAPTERS}');
+	if (fs_val != null && $.inArray('-1', fs_val) == -1) {
+		fs_url += 'f=' + fs_val.sort().join();
+		window.prompt('{L_SEL_CHAPTERS}:', fs_url);
 	}
 	else {
-		fs_url += 'f[]='+ fs_val.join('&f[]=');
-		window.prompt('{L_SEL_CHAPTERS}:', fs_url);
+		alert('{L_NOT_SEL_CHAPTERS}');
 	}
 	return false;
 }

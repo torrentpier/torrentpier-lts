@@ -391,10 +391,16 @@ if (!$set_default)
 	{
 		if ($req_forums != $search_all)
 		{
-			$req_forums = (array) $req_forums;
-			array_deep($req_forums, 'intval');
-			$valid_forums = array_intersect($req_forums, $allowed_forums);
-			$forum_val = join(',', $valid_forums);
+            $clean_forums = [];
+            if (is_array($req_forums))
+            {
+                $req_forums = implode(',', $req_forums);
+            }
+            foreach (explode(',', $req_forums) as $req_forum)
+            {
+                $clean_forums[] = (int)$req_forum;
+            }
+            $forum_val = implode(',', array_intersect($clean_forums, $allowed_forums));
 		}
 	}
 	else if (isset($previous_settings[$forum_key]))
