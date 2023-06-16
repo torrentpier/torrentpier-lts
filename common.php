@@ -196,7 +196,7 @@ function bb_log ($msg, $file_name)
 	return file_write($msg, LOG_DIR . $file_name);
 }
 
-function file_write($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $replace_content = false)
+function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $replace_content = false)
 {
     $bytes_written = false;
     clearstatcache();
