@@ -196,52 +196,41 @@ function bb_log ($msg, $file_name)
 	return file_write($msg, LOG_DIR . $file_name);
 }
 
-function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $replace_content = false)
+function file_write($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $replace_content = false)
 {
-	$bytes_written = false;
-
+    $bytes_written = false;
     clearstatcache();
 
-    if ($max_size && @file_exists($file) && !is_dir($file) && (@filesize($file) >= $max_size))
-	{
-		$old_name = $file; $ext = '';
-		if (preg_match('#^(.+)(\.[^\\\/]+)$#', $file, $matches))
-		{
-			$old_name = $matches[1]; $ext = $matches[2];
-		}
-		$new_name = $old_name .'_[old]_'. date('Y-m-d_H-i-s_') . getmypid() . $ext;
-		clearstatcache();
-        if (@file_exists($file) && !is_dir($file) && (@filesize($file) >= $max_size) && !@file_exists($new_name))
-		{
-			@rename($file, $new_name);
-		}
-	}
-
+    if (($max_size && file_exists($file) && is_file($file)) && filesize($file) >= $max_size)
+    {
+        $file_parts = pathinfo($file);
+        $new_name = ($file_parts['dirname'] . '/' . $file_parts['filename'] . '_[old]_' . date('Y-m-d_H-i-s_') . getmypid() . '.' . $file_parts['extension']);
+        clearstatcache();
+        if (!file_exists($new_name) && !is_file($new_name))
+        {
+            rename($file, $new_name);
+        }
+    }
     clearstatcache();
+    if (bb_mkdir(dirname($file)))
+    {
+        if ($fp = fopen($file, 'ab+'))
+        {
+            if ($lock)
+            {
+                flock($fp, LOCK_EX);
+            }
+            if ($replace_content)
+            {
+                ftruncate($fp, 0);
+                fseek($fp, 0, SEEK_SET);
+            }
+            $bytes_written = fwrite($fp, $str);
+            fclose($fp);
+        }
+    }
 
-	if (!$fp = @fopen($file, 'ab'))
-	{
-		if ($dir_created = bb_mkdir(dirname($file)))
-		{
-			$fp = @fopen($file, 'ab');
-		}
-	}
-	if ($fp)
-	{
-		if ($lock)
-		{
-			@flock($fp, LOCK_EX);
-		}
-		if ($replace_content)
-		{
-			@ftruncate($fp, 0);
-			@fseek($fp, 0, SEEK_SET);
-		}
-		$bytes_written = @fwrite($fp, $str);
-		@fclose($fp);
-	}
-
-	return $bytes_written;
+    return $bytes_written;
 }
 
 function bb_mkdir ($path, $mode = 0777)
