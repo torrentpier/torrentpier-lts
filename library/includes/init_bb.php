@@ -1,7 +1,6 @@
 <?php
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
-if (!(PHP_VERSION_ID >= 50303)) die('TorrentPier II requires PHP version 5.3.3+. Your PHP version '. PHP_VERSION);
 if (!defined('BB_CFG_LOADED')) trigger_error('File config.php not loaded', E_USER_ERROR);
 
 // Define some basic configuration arrays
