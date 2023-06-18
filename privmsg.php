@@ -927,6 +927,17 @@ else if ( $submit || $refresh || $mode != '' )
 			$error = TRUE;
 			$error_msg .= ( ( !empty($error_msg) ) ? '<br />' : '' ) . $lang['EMPTY_MESSAGE'];
 		}
+
+		// Check smilies limit
+		if ($bb_cfg['max_smilies_pm'])
+		{
+			$count_smilies = substr_count(bbcode2html($privmsg_message), '<img class="smile" src="'. $bb_cfg['smilies_path']);
+			if ($count_smilies > $bb_cfg['max_smilies_pm'])
+			{
+				$error = TRUE;
+				$error_msg .= ( ( !empty($error_msg) ) ? '<br />' : '' ) . sprintf($lang['MAX_SMILIES_PER_POST'], $bb_cfg['max_smilies_pm']);
+			}
+		}
 	}
 
 	if ( $submit && !$error )
@@ -1205,7 +1216,7 @@ else if ( $submit || $refresh || $mode != '' )
 	//
 	if (bf($userdata['user_opt'], 'user_opt', 'dis_pm') && $mode != 'edit')
 	{
-		$message = ($lang['CANNOT_SEND_PRIVMSG']);
+		bb_die($lang['CANNOT_SEND_PRIVMSG']);
 	}
 
 	//
