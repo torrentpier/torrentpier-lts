@@ -358,6 +358,7 @@ $lang['POLL_FOR_EXPLAIN'] = '[ Enter 0 or leave blank for a never-ending poll ]'
 $lang['DELETE_POLL'] = 'Delete poll';
 
 $lang['MAX_SMILIES_PER_POST'] = 'Emoticons limit of %s emoticons exceeded.';
+$lang['MAX_POST_LEN_PER_POST'] = 'The limit of %s characters in the message has been exceeded.';
 
 $lang['ATTACH_SIGNATURE'] = 'Attach signature (signatures can be changed in profile)';
 $lang['NOTIFY'] = 'Notify me when on replies';

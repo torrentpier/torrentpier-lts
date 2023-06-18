@@ -49,6 +49,16 @@ function prepare_post(&$mode, &$post_data, &$error_msg, &$username, &$subject, &
 		$error_msg .= (!empty($error_msg)) ? '<br />' . $lang['EMPTY_MESSAGE'] : $lang['EMPTY_MESSAGE'];
 	}
 
+	// Check text limit
+	if ($bb_cfg['max_post_length'])
+	{
+		if (mb_strlen($message, 'UTF-8') > $bb_cfg['max_post_length'])
+		{
+			$to_many_letters = sprintf($lang['MAX_POST_LEN_PER_POST'], $bb_cfg['max_post_length']);
+			$error_msg .= (!empty($error_msg)) ? '<br />'. $to_many_letters : $to_many_letters;
+		}
+	}
+
 	// Check smilies limit
 	if ($bb_cfg['max_smilies'])
 	{
