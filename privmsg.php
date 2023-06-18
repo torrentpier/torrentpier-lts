@@ -928,6 +928,16 @@ else if ( $submit || $refresh || $mode != '' )
 			$error_msg .= ( ( !empty($error_msg) ) ? '<br />' : '' ) . $lang['EMPTY_MESSAGE'];
 		}
 
+		// Max symbols in PM
+		if ($bb_cfg['max_symbols_pm'])
+		{
+			if (mb_strlen($privmsg_message, 'UTF-8') > $bb_cfg['max_symbols_pm'])
+			{
+				$error = TRUE;
+				$error_msg .= ( ( !empty($error_msg) ) ? '<br />' : '' ) . sprintf($lang['MAX_SYMBOLS_PER_POST'], $bb_cfg['max_symbols_pm']);
+			}
+		}
+
 		// Check smilies limit
 		if ($bb_cfg['max_smilies_pm'])
 		{
