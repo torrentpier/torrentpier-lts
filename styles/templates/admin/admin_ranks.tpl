@@ -65,7 +65,8 @@
 <tr>
 	<th>{L_RANK_TITLE}</th>
 	<th>{L_RANK_IMAGE}</th>
-	<th colspan="2">{L_ACTION}</th>
+	<th>{L_EDIT}</th>
+	<th>{L_DELETE}</th>
 </tr>
 <!-- BEGIN ranks -->
 <tr class="{ranks.ROW_CLASS} tCenter">

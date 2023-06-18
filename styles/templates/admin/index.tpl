@@ -149,9 +149,14 @@ ajax.callback.manage_admin = function(data) {
 </table>
 <br />
 
+<h3>{L_FORUM_STATS}</h3>
+
 <table class="forumline">
 	<tr>
-		<th colspan="4">{L_FORUM_STATS}</th>
+		<th width="25%">{L_STATISTIC}</th>
+		<th width="25%">{L_VALUE}</th>
+		<th width="25%">{L_STATISTIC}</th>
+		<th width="25%">{L_VALUE}</th>
 	</tr>
 	<tr>
 		<td class="row1" nowrap="nowrap">{L_NUMBER_POSTS}:</td>

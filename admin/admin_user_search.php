@@ -108,7 +108,6 @@ if (!isset($_REQUEST['dosearch']))
 		'FORUMS_LIST' => $forums_list,
 		'LASTVISITED_LIST' => $lastvisited_list,
 
-        'U_SEARCH_USER' => BB_ROOT . 'search.php?mode=searchuser',
 		'S_SEARCH_ACTION' => 'admin_user_search.php',
 	));
 }
