@@ -471,15 +471,17 @@ $bb_cfg['use_ajax_posts']        = true;
 
 // Search
 $bb_cfg['search_engine_type']         = 'mysql';   // none, mysql, sphinx
+
 $bb_cfg['sphinx_topic_titles_host']   = '127.0.0.1';
 $bb_cfg['sphinx_topic_titles_port']   = 3312;
 $bb_cfg['sphinx_config_path']         = realpath("../install/sphinx/sphinx.conf");
+
 $bb_cfg['disable_ft_search_in_posts'] = false;     // disable searching in post bodies
-$bb_cfg['disable_search_for_guest']   = true;
+$bb_cfg['disable_search_for_guest']   = true;      // отключить поиск для гостей
 $bb_cfg['allow_search_in_bool_mode']  = true;
-$bb_cfg['max_search_words_per_post']  = 200;
-$bb_cfg['search_min_word_len']        = 3;
-$bb_cfg['search_max_word_len']        = 35;
+$bb_cfg['max_search_words_per_post']  = 200;       // максимальное число слов в рамках одного поста
+$bb_cfg['search_min_word_len']        = 3;         // минимальное число слов для поиска
+$bb_cfg['search_max_word_len']        = 35;        // максимальное число слов для поиска
 $bb_cfg['limit_max_search_results']   = false;
 $bb_cfg['spam_filter_file_path']      = '';        // BB_PATH .'/misc/spam_filter_words.txt';
 $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard layout
@@ -508,7 +510,7 @@ $bb_cfg['user_not_activated_days_keep'] = 7;       // "not activated" == "not fi
 $bb_cfg['user_not_active_days_keep']    = 180;     // inactive users but only with no posts
 
 // Groups
-$bb_cfg['group_members_per_page']       = 50;
+$bb_cfg['group_members_per_page']       = 50;      // количество групп на одной странице
 
 // Tidy
 $bb_cfg['tidy_post'] = in_array('tidy', get_loaded_extensions());
