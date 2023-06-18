@@ -467,7 +467,7 @@ $bb_cfg['user_signature_end']     = '</div>';      // Это позволит и
 // Posts
 $bb_cfg['use_posts_cache']       = true;           // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
 $bb_cfg['posts_cache_days_keep'] = 14;
-$bb_cfg['max_post_length']       = 2500;           // Max symbols in post
+$bb_cfg['max_post_length']       = 120000;         // bytes
 $bb_cfg['use_ajax_posts']        = true;
 
 // Search
