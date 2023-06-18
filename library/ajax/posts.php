@@ -138,13 +138,6 @@ switch($this->request['type'])
 			{
 				if ($text != $post['post_text'])
 				{
-					if ($bb_cfg['max_post_length'])
-					{
-						if (mb_strlen($text, 'UTF-8') > $bb_cfg['max_post_length'])
-						{
-							$this->ajax_die(sprintf($lang['MAX_POST_LEN_PER_POST'], $bb_cfg['max_post_length']));
-						}
-					}
 					if ($bb_cfg['max_smilies'])
 					{
 						$count_smilies = substr_count(bbcode2html($text), '<img class="smile" src="'. $bb_cfg['smilies_path']);
@@ -294,13 +287,6 @@ switch($this->request['type'])
 			}
 		}
 
-		if ($bb_cfg['max_post_length'])
-		{
-			if (mb_strlen($message, 'UTF-8') > $bb_cfg['max_post_length'])
-			{
-				$this->ajax_die(sprintf($lang['MAX_POST_LEN_PER_POST'], $bb_cfg['max_post_length']));
-			}
-		}
 		if ($bb_cfg['max_smilies'])
 		{
 			$count_smilies = substr_count(bbcode2html($message), '<img class="smile" src="'. $bb_cfg['smilies_path']);
