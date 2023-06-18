@@ -467,7 +467,6 @@ $bb_cfg['user_signature_end']     = '</div>';      // Это позволит и
 // Posts
 $bb_cfg['use_posts_cache']       = true;           // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
 $bb_cfg['posts_cache_days_keep'] = 14;
-$bb_cfg['max_post_length']       = 120000;         // bytes
 $bb_cfg['use_ajax_posts']        = true;
 
 // Search
@@ -488,6 +487,7 @@ $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard
 // Posting
 $bb_cfg['prevent_multiposting']  = true;           // replace "reply" with "edit last msg" if user (not admin or mod) is last topic poster
 $bb_cfg['max_smilies']           = 25;             // Максимальное число смайлов в посте (0 - без ограничения)
+$bb_cfg['max_symbols_post']      = 5000;           // Максимальное число символов в посте (0 - без ограничения)
 
 // PM
 $bb_cfg['privmsg_disable']      = false;           // отключить систему личных сообщений на форуме
@@ -495,10 +495,12 @@ $bb_cfg['max_outgoing_pm_cnt']  = 10;              // ограничение н�
 $bb_cfg['max_inbox_privmsgs']   = 200;             // максимальное число сообщений в папке входящие
 $bb_cfg['max_savebox_privmsgs'] = 25;              // максимальное число сообщений в папке сохраненные
 $bb_cfg['max_sentbox_privmsgs'] = 50;              // максимальное число сообщений в папке отправленные
+$bb_cfg['max_smilies_pm']       = 15;              // максимальное число смайлов в сообщении (0 - без ограничения)
+$bb_cfg['max_symbols_pm']       = 1500;            // максимальное число символов в сообщении (0 - без ограничения)
 $bb_cfg['pm_days_keep']         = 180;             // время хранения ЛС
 
 // Actions log
-$bb_cfg['log_days_keep'] = 365;
+$bb_cfg['log_days_keep'] = 365;                    // время хранения истории действий
 
 // Users
 $bb_cfg['color_nick']                   = true;    // Окраска ников пользователей по user_rank
