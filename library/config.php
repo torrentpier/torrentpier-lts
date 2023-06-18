@@ -446,16 +446,16 @@ $bb_cfg['sf_on_first_page_only']   = true;
 $bb_cfg['allowed_topics_per_page'] = array(50, 100, 150, 200, 250, 300);
 
 // Topics
-$bb_cfg['show_quick_reply']       = true;
-$bb_cfg['show_rank_text']         = false;
-$bb_cfg['show_rank_image']        = true;
-$bb_cfg['show_poster_joined']     = true;
-$bb_cfg['show_poster_posts']      = true;
-$bb_cfg['show_poster_from']       = true;
-$bb_cfg['show_bot_nick']          = false;
+$bb_cfg['show_quick_reply']       = true;          // показывать форму быстрого ответа
+$bb_cfg['show_rank_text']         = false;         // показывать название лычки в топиках
+$bb_cfg['show_rank_image']        = true;          // показывать картинку лычки в топиках
+$bb_cfg['show_poster_joined']     = true;          // показывать дату регистрации пользователя в топиках
+$bb_cfg['show_poster_posts']      = true;          // показывать количество постов пользователя в топиках
+$bb_cfg['show_poster_from']       = true;          // показывать страну пользователя
+$bb_cfg['show_bot_nick']          = false;         // показывать ник бота
 $bb_cfg['text_buttons']           = false;         // replace EDIT, QUOTE... images with text links
 $bb_cfg['parse_ed2k_links']       = true;          // make ed2k links clickable
-$bb_cfg['post_date_format']       = 'd-M-Y H:i';
+$bb_cfg['post_date_format']       = 'd-M-Y H:i';   // формат даты публикации в топиках
 $bb_cfg['ext_link_new_win']       = true;          // open external links in new window
 
 $bb_cfg['topic_moved_days_keep']  = 7;             // remove topic moved links after xx days (or FALSE to disable)
