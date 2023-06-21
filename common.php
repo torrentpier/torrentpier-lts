@@ -1,7 +1,6 @@
 <?php
 
 if (isset($_REQUEST['GLOBALS'])) die();
-if (!(PHP_VERSION_ID >= 50303)) die('TorrentPier II requires PHP version 5.3.3+. Your PHP version '. PHP_VERSION);
 
 ignore_user_abort(true);
 define('TIMESTART', utime());
