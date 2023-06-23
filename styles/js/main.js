@@ -494,9 +494,9 @@ var array_rand = function (array) {
 	return Math.floor(result);
 };
 
-var autocomplete = function (noCenter) {
+var autocomplete = function (noCenter, pass_length = 8) {
 	var string_result = ""; // Empty string
-	for (var i = 1; i <= 12; i++) {
+	for (var i = 1; i <= pass_length; i++) {
 		string_result += array_for_rand_pass[array_rand(array_for_rand_pass)];
 	}
 
@@ -518,10 +518,6 @@ var autocomplete = function (noCenter) {
 };
 
 $(document).ready(function () {
-	$("span#autocomplete").click(function () {
-		autocomplete();
-	});
-
 	// перемещение окна
 	var _X, _Y;
 	var _bMoveble = false;
