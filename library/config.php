@@ -538,7 +538,8 @@ define('MEM_USAGE', function_exists('memory_get_usage'));
 $bb_cfg['mem_on_start'] = (MEM_USAGE) ? memory_get_usage() : 0;
 
 $bb_cfg['translate_dates'] = true; // in displaying time
-$bb_cfg['use_word_censor'] = true;
+$bb_cfg['use_word_censor'] = true; // использовать цензор слов
+$bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
 
 $bb_cfg['last_visit_date_format'] = 'd-M H:i';
 $bb_cfg['last_post_date_format']  = 'd-M-y H:i';
