@@ -13,7 +13,7 @@ if (empty($_SERVER['SERVER_NAME']))     $_SERVER['SERVER_NAME'] = '';
 if (empty($_SERVER['SERVER_ADDR']))     $_SERVER['SERVER_ADDR'] = getenv('SERVER_ADDR');
 
 if (!defined('BB_ROOT')) define('BB_ROOT', './');
-if (!defined('BB_SCRIPT')) define('BB_SCRIPT', 'undefined');
+if (!defined('BB_SCRIPT')) define('BB_SCRIPT', null);
 if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 
 header('X-Frame-Options: SAMEORIGIN');
