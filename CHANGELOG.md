@@ -6,10 +6,11 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.06 🎉
+- Added showing PM counter in page title [\#193](https://github.com/torrentpier/torrentpier-lts/pull/193) ([belomaxorka](https://github.com/belomaxorka))
 - Corrected translations [\#183](https://github.com/torrentpier/torrentpier-lts/pull/183) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed $bb_cfg['pm_days_keep'] [\#180](https://github.com/torrentpier/torrentpier-lts/pull/180) ([belomaxorka](https://github.com/belomaxorka))
 - IP storage bugfix [\#177](https://github.com/torrentpier/torrentpier-lts/pull/177) ([belomaxorka](https://github.com/belomaxorka))
-- Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172), [\#175](https://github.com/torrentpier/torrentpier-lts/pull/175), [\#176](https://github.com/torrentpier/torrentpier-lts/pull/176), [\#178](https://github.com/torrentpier/torrentpier-lts/pull/178), [\#179](https://github.com/torrentpier/torrentpier-lts/pull/179), [\#181](https://github.com/torrentpier/torrentpier-lts/pull/181), [\#187](https://github.com/torrentpier/torrentpier-lts/pull/187), [\#186](https://github.com/torrentpier/torrentpier-lts/pull/186), [\#191](https://github.com/torrentpier/torrentpier-lts/pull/191), [\#192](https://github.com/torrentpier/torrentpier-lts/pull/192) ([belomaxorka](https://github.com/belomaxorka))
+- Minor improvements [\#172](https://github.com/torrentpier/torrentpier-lts/pull/172), [\#175](https://github.com/torrentpier/torrentpier-lts/pull/175), [\#176](https://github.com/torrentpier/torrentpier-lts/pull/176), [\#178](https://github.com/torrentpier/torrentpier-lts/pull/178), [\#179](https://github.com/torrentpier/torrentpier-lts/pull/179), [\#181](https://github.com/torrentpier/torrentpier-lts/pull/181), [\#187](https://github.com/torrentpier/torrentpier-lts/pull/187), [\#186](https://github.com/torrentpier/torrentpier-lts/pull/186), [\#191](https://github.com/torrentpier/torrentpier-lts/pull/191), [\#192](https://github.com/torrentpier/torrentpier-lts/pull/192), [\#194](https://github.com/torrentpier/torrentpier-lts/pull/194) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed empty user search box [\#171](https://github.com/torrentpier/torrentpier-lts/pull/171) ([belomaxorka](https://github.com/belomaxorka))
 - Added some placeholders for input fields [\#173](https://github.com/torrentpier/torrentpier-lts/pull/173) ([belomaxorka](https://github.com/belomaxorka))
 
