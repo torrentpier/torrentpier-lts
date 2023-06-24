@@ -76,7 +76,7 @@ class sql_db
 				$charset_error = "Could not set charset {$this->cfg['charset']}";
 				if (DBG_USER)
 				{
-					dbg_log($charset_error, "{$charset_error}-DB-set-FAIL_" . time());
+					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
 				}
 				die($charset_error);
 			}
