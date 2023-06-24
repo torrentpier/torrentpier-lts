@@ -496,7 +496,7 @@ var array_rand = function (array) {
 
 var autocomplete = function (noCenter) {
 	var string_result = ""; // Empty string
-	for (var i = 1; i <= 12; i++) {
+	for (var i = 1; i <= 8; i++) {
 		string_result += array_for_rand_pass[array_rand(array_for_rand_pass)];
 	}
 
