@@ -1791,8 +1791,6 @@ function obtain_word_list (&$orig_word, &$replacement_word)
 		$orig_word[] = '#(?<![\p{Nd}\p{L}_])(' . str_replace('\*', '[\p{Nd}\p{L}_]*?', preg_quote($row['word'], '#')) . ')(?![\p{Nd}\p{L}_])#iu';
 		$replacement_word[] = $row['replacement'];
 	}
-
-	return true;
 }
 
 function bb_die ($msg_text)

@@ -547,7 +547,7 @@ $template->assign_vars(array(
 	'PAGE_URL'            => $pg_url,
 	'PAGE_URL_PPP'        => url_arg($pg_url, 'ppp', null),
 	'PAGE_START'          => $start,
-	'SHOW_JUMPBOX'        => true,
+	'SHOW_JUMPBOX'        => $bb_cfg['show_jumpbox'],
 
 	'FORUM_ID'            => $forum_id,
 	'FORUM_NAME'          => htmlCHR($forum_name),
