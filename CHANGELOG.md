@@ -1,4 +1,4 @@
-# Change Log
+# 📖 Change Log
 
 ## [v2.1.5-2023.06](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.06) (2023-07-04) (В разработке)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.05...v2.1.5-2023.06)
