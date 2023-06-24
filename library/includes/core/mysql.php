@@ -73,7 +73,12 @@ class sql_db
 		{
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
-				die("Could not set charset {$this->cfg['charset']}");
+				$charset_error = "Could not set charset {$this->cfg['charset']}";
+				if (DBG_USER)
+				{
+					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
+				}
+				die($charset_error);
 			}
 		}
 
@@ -123,8 +128,13 @@ class sql_db
 
 		if (!@mysql_select_db($this->cfg['dbname'], $this->link))
 		{
-			$database = (DBG_USER) ? $this->cfg['dbhost'] : '';
-			die("Could not select database $database");
+			$db_name = (DBG_USER) ? $this->cfg['dbname'] : '';
+			$select_error = "Could not select database $db_name";
+			if (DBG_USER)
+			{
+				dbg_log($select_error, "{$db_name}-DB-select-FAIL_" . time());
+			}
+			die($select_error);
 		}
 
 		$this->debug('stop');

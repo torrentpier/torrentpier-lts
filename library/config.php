@@ -380,8 +380,8 @@ $bb_cfg['adv_email']               = "adv@$domain_name";
 define('SPHINX_LOG_ERRORS',    true);             // log sphinx errors
 define('SPHINX_LOG_NAME',      'sphinx_errors');  // sphinx log filename
 
-define('DBG_LOG',              true);             // enable forum debug (off on production)
-define('DBG_TRACKER',          true);             // enable tracker debug (off on production)
+define('DBG_LOG',              false);            // enable forum debug (off on production)
+define('DBG_TRACKER',          false);            // enable tracker debug (off on production)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // enable forum sql & cache debug
 define('SQL_LOG_NAME',         'sql_error_bb');   // mysql log filename
