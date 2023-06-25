@@ -1556,7 +1556,7 @@ function setup_style ()
 		'BB_ROOT'          => BB_ROOT,
 		'SPACER'           => make_url('styles/images/spacer.gif'),
 		'STYLESHEET'       => make_url($css_dir . $stylesheet),
-		'TPL_SCRIPTS'      => make_url($js_path),
+		'TPL_SCRIPTS'      => defined('IN_ADMIN') ? false : make_url($js_path),
 		'EXT_LINK_NEW_WIN' => $bb_cfg['ext_link_new_win'],
 		'TPL_DIR'          => make_url($css_dir),
 		'SITE_URL'         => make_url('/'),
