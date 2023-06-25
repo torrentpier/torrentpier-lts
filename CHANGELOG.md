@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.06 🎉
+- Show smilies in post for guests [\#196](https://github.com/torrentpier/torrentpier-lts/pull/196) ([belomaxorka](https://github.com/belomaxorka))
 - Added showing PM counter in page title [\#193](https://github.com/torrentpier/torrentpier-lts/pull/193) ([belomaxorka](https://github.com/belomaxorka))
 - Corrected translations [\#183](https://github.com/torrentpier/torrentpier-lts/pull/183) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed $bb_cfg['pm_days_keep'] [\#180](https://github.com/torrentpier/torrentpier-lts/pull/180) ([belomaxorka](https://github.com/belomaxorka))
