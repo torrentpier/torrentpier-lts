@@ -84,7 +84,7 @@ $bb_cfg['tp_zf_version'] = '2.4.13';
 
 // Database
 $charset  = 'utf8'; // кодировка базы данных
-$pconnect = false;  // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
+$pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, pconnect);
@@ -195,7 +195,7 @@ $tr_cfg = array(
 	'limit_seed_ips'        => 0,
 	'limit_leech_ips'       => 0,
 	'tor_topic_up'          => true,
-	'gold_silver_enabled'   => true,  // при включенном gold_silver_enabled нужно отключить freeleech.
+	'gold_silver_enabled'   => true, // при включенном gold_silver_enabled нужно отключить freeleech.
 	'retracker'             => true,
 	'retracker_host'        => 'http://retracker.local/announce',
     'freeleech'             => false, // при включенном freeleech нужно отключить gold_silver_enabled.
@@ -207,7 +207,7 @@ $bb_cfg['show_dl_status_in_forum']  = true;
 $bb_cfg['show_tor_info_in_dl_list'] = true;
 $bb_cfg['allow_dl_list_names_mode'] = true;
 
-$bb_cfg['torrent_name_style'] = true;       // use torrent name style [yoursite.com].txxx.torrent
+$bb_cfg['torrent_name_style'] = true; // use torrent name style [yoursite.com].txxx.torrent
 $bb_cfg['tor_help_links']     = 'terms.php';
 
 // Сколько дней сохранять торрент зарегистрированным / Days to keep torrent registered, if:
@@ -215,8 +215,8 @@ $bb_cfg['seeder_last_seen_days_keep']  = 0; // сколько дней наза�
 $bb_cfg['seeder_never_seen_days_keep'] = 0; // сколько дней имеется статус "Сида не было никогда"
 
 // Ratio limits
-define('TR_RATING_LIMITS', true);           // ON/OFF
-define('MIN_DL_FOR_RATIO', 10737418240);    // 10 GB in bytes, 0 - disable
+define('TR_RATING_LIMITS', true);        // ON/OFF
+define('MIN_DL_FOR_RATIO', 10737418240); // 10 GB in bytes, 0 - disable
 
 // Don't change the order of ratios (from 0 to 1)
 // rating < 0.4 -- allow only 1 torrent for leeching
@@ -309,19 +309,18 @@ $bb_cfg['lang'] = array(
 );
 
 // Templates
-define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // путь к шаблонам админки
+define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/');
 
 $bb_cfg['templates'] = array(
-//  Список всех используемых шаблонов
-#	'папка'   => 'Имя',
+//	'folder'  => 'Name',
 	'default' => 'Стандартный',
 );
 
-$bb_cfg['tpl_name']   = 'default';               // название шаблона по умолчанию (папка)
-$bb_cfg['stylesheet'] = 'main.css';              // файл стилей используемый шаблоном
+$bb_cfg['tpl_name']   = 'default';
+$bb_cfg['stylesheet'] = 'main.css';
 
-$bb_cfg['show_sidebar1_on_every_page'] = false;  // показывать левый сайд-бар на каждой странице?
-$bb_cfg['show_sidebar2_on_every_page'] = false;  // показывать правый сайд-бар на каждой странице?
+$bb_cfg['show_sidebar1_on_every_page'] = false;
+$bb_cfg['show_sidebar2_on_every_page'] = false;
 
 $page_cfg['show_sidebar1'] = array(
 #	BB_SCRIPT => true
@@ -354,7 +353,7 @@ $bb_cfg['new_user_reg_restricted'] = false;        // Ограничить ре�
 $bb_cfg['reg_email_activation']    = true;         // Требовать активацию учетной записи по email
 
 // Email
-$bb_cfg['emailer_disabled']        = false; // отключить ли emailer? (false - Да, true - Нет)
+$bb_cfg['emailer_disabled']        = false;
 
 $bb_cfg['smtp_delivery']           = false; // send email via a named server instead of the local mail function
 $bb_cfg['smtp_ssl']                = false; // use ssl connect
@@ -364,18 +363,18 @@ $bb_cfg['smtp_username']           = '';    // enter a username if your SMTP ser
 $bb_cfg['smtp_password']           = '';    // enter a password if your SMTP server requires it
 
 $bb_cfg['board_email']             = "noreply@$domain_name"; // admin email address
-$bb_cfg['board_email_form']        = false;                  // can users send email to each other via board
-$bb_cfg['board_email_sig']         = '';                     // this text will be attached to all emails the board sends
-$bb_cfg['board_email_sitename']    = $domain_name;           // sitename used in all emails header
+$bb_cfg['board_email_form']        = false;        // can users send email to each other via board
+$bb_cfg['board_email_sig']         = '';           // this text will be attached to all emails the board sends
+$bb_cfg['board_email_sitename']    = $domain_name; // sitename used in all emails header
 
 $bb_cfg['topic_notify_enabled']    = true;
 $bb_cfg['pm_notify_enabled']       = true;
 $bb_cfg['group_send_email']        = true;
-$bb_cfg['email_change_disabled']   = false;                  // disable changing email by user
+$bb_cfg['email_change_disabled']   = false;        // disable changing email by user
 
-$bb_cfg['tech_admin_email']        = "admin@$domain_name";   // почта тех. админа
-$bb_cfg['abuse_email']             = "abuse@$domain_name";   // почта для абузов
-$bb_cfg['adv_email']               = "adv@$domain_name";     // почта по вопросам рекламы
+$bb_cfg['tech_admin_email']        = "admin@$domain_name"; // email for sending error reports
+$bb_cfg['abuse_email']             = "abuse@$domain_name";
+$bb_cfg['adv_email']               = "adv@$domain_name";
 
 // Debug
 define('SPHINX_LOG_ERRORS',    true);             // log sphinx errors
@@ -409,17 +408,17 @@ $bb_cfg['super_admins'] = array(
 );
 
 // Log options
-define('LOG_EXT',      'log');                                  // Расширение лог-файла
-define('LOG_SEPR',     ' | ');                                  // Разделитель в лог-файле
-define('LOG_LF',       "\n");                                   // Символ переноса строки
-define('LOG_MAX_SIZE', 1048576);                                // Максимальный размер лог-файла (Не относиться к нативному логу PHP)
+define('LOG_EXT',      'log');
+define('LOG_SEPR',     ' | ');
+define('LOG_LF',       "\n");
+define('LOG_MAX_SIZE', 1048576); // bytes
 
 // Error reporting
-ini_set('error_reporting', E_ALL);                   // Уровень протоколирования ошибки | подробнее тут: https://www.php.net/manual/ru/errorfunc.constants.php
-ini_set('display_errors',  0);                       // Показывать ли ошибки?
-ini_set('display_startup_errors', 0);                // Показывать ли ошибки во время запуска PHP? (Нужно для лучшей отладки)
-ini_set('log_errors',      1);                       // Логировать ли ошибки?
-ini_set('error_log',       LOG_DIR .'php_err.log');  // Путь к лог файлу
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors',  0);
+ini_set('display_startup_errors', 0);
+ini_set('log_errors',      1);
+ini_set('error_log',       LOG_DIR .'php_err.log');
 
 // Check some variable
 // Magic quotes
