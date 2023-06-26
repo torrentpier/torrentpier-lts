@@ -317,9 +317,8 @@ $bb_cfg['templates'] = array(
 	'default' => 'Стандартный',
 );
 
-$bb_cfg['tpl_name']       = 'default';           // название шаблона по умолчанию (папка)
-$bb_cfg['stylesheet']     = 'main.css';          // файл стилей используемый шаблоном
-$bb_cfg['tpl_javascript'] = 'scripts.js';        // путь к js файлу со скриптами для шаблона
+$bb_cfg['tpl_name']   = 'default';               // название шаблона по умолчанию (папка)
+$bb_cfg['stylesheet'] = 'main.css';              // файл стилей используемый шаблоном
 
 $bb_cfg['show_sidebar1_on_every_page'] = false;  // показывать левый сайд-бар на каждой странице?
 $bb_cfg['show_sidebar2_on_every_page'] = false;  // показывать правый сайд-бар на каждой странице?

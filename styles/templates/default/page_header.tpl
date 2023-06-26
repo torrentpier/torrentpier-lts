@@ -21,7 +21,6 @@
 
 <script type="text/javascript" src="{SITE_URL}styles/js/jquery.pack.js?v={$bb_cfg['js_ver']}"></script>
 <script type="text/javascript" src="{SITE_URL}styles/js/main.js?v={$bb_cfg['js_ver']}"></script>
-<script type="text/javascript" src="{TPL_SCRIPTS}"></script>
 
 <!-- IF INCLUDE_BBCODE_JS -->
 <script type="text/javascript" src="{SITE_URL}styles/js/bbcode.js?v={$bb_cfg['js_ver']}"></script>
