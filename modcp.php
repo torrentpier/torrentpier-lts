@@ -846,7 +846,7 @@ switch ($mode)
 		break;
 
 	default:
-		bb_die('Invalid action: ' . htmlCHR($mode));
+		bb_die('invalid action');
 		break;
 }
 

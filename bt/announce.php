@@ -76,31 +76,31 @@ $passkey = isset($$passkey_key) ? $$passkey_key : null;
 // Required params (info_hash, peer_id, port, uploaded, downloaded, left, passkey)
 if (!isset($info_hash) || strlen($info_hash) != 20)
 {
-	msg_die('Invalid info_hash: ' . htmlCHR($info_hash));
+	msg_die('Invalid info_hash');
 }
 if (!isset($peer_id) || strlen($peer_id) != 20)
 {
-	msg_die('Invalid peer_id: ' . htmlCHR($peer_id));
+	msg_die('Invalid peer_id');
 }
 if (!isset($port) || $port < 0 || $port > 0xFFFF)
 {
-	msg_die('Invalid port: ' . htmlCHR($port));
+	msg_die('Invalid port');
 }
 if (!isset($uploaded) || $uploaded < 0 || $uploaded > $max_up_down_val || $uploaded == 1844674407370)
 {
-	msg_die('Invalid uploaded value: ' . htmlCHR($uploaded));
+	msg_die('Invalid uploaded value');
 }
 if (!isset($downloaded) || $downloaded < 0 || $downloaded > $max_up_down_val || $downloaded == 1844674407370)
 {
-	msg_die('Invalid downloaded value: ' . htmlCHR($downloaded));
+	msg_die('Invalid downloaded value');
 }
 if (!isset($left) || $left < 0 || $left > $max_left_val)
 {
-	msg_die('Invalid left value: ' . htmlCHR($left));
+	msg_die('Invalid left value');
 }
 if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 {
-	msg_die('Invalid passkey: ' . htmlCHR($passkey));
+	msg_die('Invalid passkey');
 }
 
 // IP

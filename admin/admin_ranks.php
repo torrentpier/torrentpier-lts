@@ -200,7 +200,7 @@ if ($mode != '')
 	}
 	else
 	{
-		bb_die('Invalid mode: ' . htmlCHR($mode));
+		bb_die('Invalid mode');
 	}
 }
 else

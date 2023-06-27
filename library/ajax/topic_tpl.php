@@ -154,7 +154,7 @@ switch ($mode)
 
 	// ошибочный $mode
 	default:
-		$this->ajax_die('Invalid mode: ' . htmlCHR($mode));
+		$this->ajax_die("invalid mode: $mode");
 }
 
 // возможный дубль названия шаблона

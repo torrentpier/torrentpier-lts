@@ -53,7 +53,7 @@
 	</tr>
 	<!-- END ranks_exist -->
 	<tr>
-		<td class="row1"><span class="gen"><b>{L_POSTCOUNT}</b>&nbsp;<select name="postcount_type"><option value="equals" selected="selected">{L_EQUALS}</option><option value="lesser">{L_LESS_THAN}</option><option value="greater">{L_GREATER_THAN}</option></select>&nbsp;<input value="0" class="post" type="number" name="postcount_value" maxlength="25" size="5" />&nbsp;<input type="submit" class="post2" name="search_postcount" value="{L_SEARCH}" /></span><br /><span class="small">{L_SEARCH_USERS_POSTCOUNT_EXPLAIN}</span></td>
+		<td class="row1"><span class="gen"><b>{L_POSTCOUNT}</b>&nbsp;<select name="postcount_type"><option value="equals" selected="selected">{L_EQUALS}</option><option value="lesser">{L_LESS_THAN}</option><option value="greater">{L_GREATER_THAN}</option></select>&nbsp;<input value="0" class="post" type="text" name="postcount_value" maxlength="25" size="5" />&nbsp;<input type="submit" class="post2" name="search_postcount" value="{L_SEARCH}" /></span><br /><span class="small">{L_SEARCH_USERS_POSTCOUNT_EXPLAIN}</span></td>
 	</tr>
 	<tr>
 		<td class="row2">&nbsp;</td>
