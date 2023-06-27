@@ -132,7 +132,7 @@ switch($mode)
 	break;
 
     default:
-        $this->ajax_die('Invalid mode: ' . htmlCHR($mode));
+        $this->ajax_die('Invalid mode');
 }
 
 $this->response['html'] = $html;
