@@ -288,6 +288,7 @@ else
 }
 
 $bb_cfg['lang'] = array(
+	// Список доступных языков
 	'ru' => array(
 		'name'     => 'Русский',
 		'locale'   => 'ru_RU.UTF-8',
@@ -316,11 +317,11 @@ $bb_cfg['templates'] = array(
 	'default' => 'Стандартный',
 );
 
-$bb_cfg['tpl_name']   = 'default';
+$bb_cfg['tpl_name']   = 'default'; // шаблон по умолчанию
 $bb_cfg['stylesheet'] = 'main.css';
 
-$bb_cfg['show_sidebar1_on_every_page'] = false;
-$bb_cfg['show_sidebar2_on_every_page'] = false;
+$bb_cfg['show_sidebar1_on_every_page'] = false; // показывать левый сайд-бар на каждой странице
+$bb_cfg['show_sidebar2_on_every_page'] = false; // показывать правый сайд-бар на каждой странице
 
 $page_cfg['show_sidebar1'] = array(
 #	BB_SCRIPT => true
@@ -408,17 +409,17 @@ $bb_cfg['super_admins'] = array(
 );
 
 // Log options
-define('LOG_EXT',      'log');
+define('LOG_EXT',      'log'); // расширение лог файла
 define('LOG_SEPR',     ' | ');
 define('LOG_LF',       "\n");
-define('LOG_MAX_SIZE', 1048576); // bytes
+define('LOG_MAX_SIZE', 1048576); // максимальный размер лог файла (в байтах)
 
 // Error reporting
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors',  0);
-ini_set('display_startup_errors', 0);
-ini_set('log_errors',      1);
-ini_set('error_log',       LOG_DIR .'php_err.log');
+ini_set('error_reporting', E_ALL); // уровень отладки | https://www.php.net/manual/ru/errorfunc.constants.php
+ini_set('display_errors',  0); // показывать ли ошибки
+ini_set('display_startup_errors', 0); // показывать ли ошибки запуска | https://www.php.net/manual/en/errorfunc.configuration.php#ini.display-startup-errors
+ini_set('log_errors',      1); // логировать ли ошибки
+ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла (нативный лог)
 
 // Check some variable
 // Magic quotes
@@ -461,8 +462,9 @@ $bb_cfg['ext_link_new_win']       = true;          // open external links in new
 $bb_cfg['topic_moved_days_keep']  = 7;             // remove topic moved links after xx days (or FALSE to disable)
 
 $bb_cfg['allowed_posts_per_page'] = array(15, 30, 50, 100);
+
 $bb_cfg['user_signature_start']   = '<div class="signature"><br />_________________<br />';
-$bb_cfg['user_signature_end']     = '</div>';      // Это позволит использовать html теги, которые требуют закрытия. Например <table> или <font color>
+$bb_cfg['user_signature_end']     = '</div>';
 
 // Posts
 $bb_cfg['use_posts_cache']       = true;           // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
