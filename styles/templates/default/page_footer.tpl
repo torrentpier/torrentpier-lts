@@ -54,7 +54,7 @@
 
 	<div class="copyright tCenter">
 		<b style="color:rgb(204,0,0);">{L_NOTICE}</b><br />
-		{L_COPY}
+		{L_COPY}<br /><br />
 	</div>
 
 	<!--/page_footer -->

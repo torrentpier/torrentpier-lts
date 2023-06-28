@@ -688,6 +688,7 @@ table.forums { width: 100%; }
 
 .f_icon {                    /* Forum Icon cell */
 	width: 46px;
+	text-align: center;
 	padding: 6px 0 !important;
 }
 .f_titles {                  /* Forum Title cell */
