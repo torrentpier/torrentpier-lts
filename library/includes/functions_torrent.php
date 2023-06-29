@@ -426,7 +426,7 @@ function send_torrent_with_passkey ($filename)
 
 	if (bf($userdata['user_opt'], 'user_opt', 'dis_passkey') && !IS_GUEST)
 	{
-		bb_die('Could not add passkey');
+		bb_die($lang['DISALLOWED']);
 	}
 
 	if ($bt_userdata = get_bt_userdata($user_id))
