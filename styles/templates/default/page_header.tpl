@@ -182,6 +182,13 @@ input[type="checkbox"] { margin-bottom: -1px; }
 		<input type="button" class="editable-cancel" value="x" style="width: 30px;">
 	</span>
 </div>
+<div id="editable-tpl-yesno-skype" style="display: none;">
+	<span class="editable-inputs nowrap" style="display: none;">
+		<input type="text" class="editable-value" value="{SKYPE}" />
+		<input type="button" class="editable-submit" value="&raquo;" style="width: 30px; font-weight: bold;">
+		<input type="button" class="editable-cancel" value="x" style="width: 30px;">
+	</span>
+</div>
 <div id="editable-tpl-yesno-birthday" style="display: none;">
 	<span class="editable-inputs nowrap" style="display: none;">
 		<input type="date" class="editable-value" value="{BIRTHDAY}" />
