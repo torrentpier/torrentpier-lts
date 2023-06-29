@@ -249,7 +249,7 @@ ajax.callback.gen_passkey = function(data){
 		</tr>
 		<!-- ENDIF -->
 		<!-- IF SKYPE -->
-		<a style="display: none;" data-config="commands=*;size=14;status=off;" id="skaip-buttons" href="http://www.skaip.org/"></a><script src="//apps.skaip.org/buttons/widget/core.min.js" defer="defer"></script>
+		<a style="display: none;" data-config="commands=*;size=14;status=off;theme=logo;language=en;bgcolor=#2a92f3;" id="skaip-buttons" href="http://www.skaip.org/"></a><script src="//apps.skaip.org/buttons/widget/core.min.js" defer="defer"></script>
 		<tr>
 			<th>{L_SKYPE}:</th>
 			<td class="tLeft med" id="user_skype">
