@@ -9,7 +9,7 @@ require(BB_ROOT . 'common.php');
 $user->session_start();
 
 set_die_append_msg();
-$mode = request_var('mode', '');
+$mode = request_var('mode', 'viewprofile');
 
 switch ($mode)
 {
