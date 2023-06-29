@@ -93,7 +93,7 @@ $(document).ready(function(){
 <var class="ajax-params">{action: "edit_user_profile", id: "user_occ"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_interests"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_icq"}</var>
-<var class="ajax-params">{action: "edit_user_profile", id: "user_skype"}</var>
+<var class="ajax-params">{action: "edit_user_profile", id: "user_skype",    editableType: "yesno-skype"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_twitter",  editableType: "yesno-twitter"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_gender",   editableType: "yesno-gender"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_birthday", editableType: "yesno-birthday"}</var>
@@ -249,12 +249,12 @@ ajax.callback.gen_passkey = function(data){
 		</tr>
 		<!-- ENDIF -->
 		<!-- IF SKYPE -->
-		<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+		<a style="display: none;" data-config="commands=*;size=14;status=off;theme=logo;language=en;bgcolor=#2a92f3;" id="skaip-buttons" href="http://www.skaip.org/"></a><script src="//apps.skaip.org/buttons/widget/core.min.js" defer="defer"></script>
 		<tr>
 			<th>{L_SKYPE}:</th>
 			<td class="tLeft med" id="user_skype">
-				<span class="editable">{SKYPE}
-					<a href="skype:{SKYPE}"><img align="middle" src="http://mystatus.skype.com/smallicon/{SKYPE}" width="16" height="16"></a>
+				<span class="editable">
+					<a href="skype:{SKYPE}">{SKYPE}</a>
 				</span>
 			</td>
 		</tr>
