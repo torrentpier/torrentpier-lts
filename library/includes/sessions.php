@@ -338,6 +338,7 @@ class user_common
 			DELETE FROM ". BB_SESSIONS ."
 			WHERE session_id = '{$this->data['session_id']}'
 		");
+		cache_rm_userdata($this->data);
 
 		if (!IS_GUEST)
 		{
@@ -362,6 +363,7 @@ class user_common
 					DELETE FROM ". BB_SESSIONS ."
 					WHERE session_user_id = '{$this->data['user_id']}'
 				");
+				cache_rm_user_sessions($this->data['user_id']);
 			}
 		}
 
