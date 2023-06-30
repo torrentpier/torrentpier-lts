@@ -31,10 +31,6 @@ if ($poll_max_days = (int) $bb_cfg['poll_max_days'])
 		{
 			break;
 		}
-		if (!($start_id % ($per_cycle*10)))
-		{
-			sleep(1);
-		}
 		$start_id += $per_cycle;
 	}
 }

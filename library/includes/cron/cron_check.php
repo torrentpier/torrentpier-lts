@@ -22,7 +22,6 @@ if ($cron_jobs)
 		if ($job['disable_board'])
 		{
 			cron_disable_board();
-			sleep(10);
 			break;
 		}
 	}

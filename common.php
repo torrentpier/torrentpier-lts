@@ -2,7 +2,6 @@
 
 if (isset($_REQUEST['GLOBALS'])) die();
 
-ignore_user_abort(true);
 define('TIMESTART', utime());
 define('TIMENOW',   time());
 
