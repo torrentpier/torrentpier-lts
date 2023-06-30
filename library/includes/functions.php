@@ -997,7 +997,8 @@ function bt_show_port ($port)
 
 function decode_ip_xx ($ip)
 {
-	return inet_ntop(inet_pton($ip) & inet_pton("255.255.255.0"));
+	$h = explode('.', chunk_split($ip, 2, '.'));
+	return hexdec($h[0]) .'.'. hexdec($h[1]) .'.'. hexdec($h[2]) .'.xx';
 }
 
 function checkbox_get_val (&$key, &$val, $default = 1, $on = 1, $off = 0)
