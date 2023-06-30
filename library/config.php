@@ -515,7 +515,7 @@ $bb_cfg['user_not_active_days_keep']    = 180;     // inactive users but only wi
 $bb_cfg['group_members_per_page']       = 50;      // количество групп на одной странице
 
 // Tidy
-$bb_cfg['tidy_post'] = in_array('tidy', get_loaded_extensions());
+$bb_cfg['tidy_post'] = (!in_array('tidy', get_loaded_extensions())) ? false : true;
 
 // Ads
 $bb_cfg['show_ads'] = false;
