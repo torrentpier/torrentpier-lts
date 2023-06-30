@@ -266,13 +266,17 @@ function clean_filename ($fname)
 
 function encode_ip ($ip)
 {
-	$d = explode('.', $ip);
-	return sprintf('%02x%02x%02x%02x', $d[0], $d[1], $d[2], $d[3]);
+	$long = -1;
+	if (verify_ip($ip))
+	{
+		$long = ip2long($ip);
+	}
+	return $long;
 }
 
 function decode_ip ($ip)
 {
-	return long2ip("0x{$ip}");
+	return long2ip($ip);
 }
 
 function ip2int ($ip)
@@ -300,7 +304,7 @@ function hexhex ($value)
 
 function verify_ip ($ip)
 {
-	return preg_match('#^(\d{1,3}\.){3}\d{1,3}$#', $ip);
+	return (bool)filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 }
 
 function str_compact ($str)
