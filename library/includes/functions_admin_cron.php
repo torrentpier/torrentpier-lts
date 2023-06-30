@@ -41,7 +41,6 @@ function run_jobs($jobs)
 			END
 			WHERE cron_id IN ($jobs)
 		");
-	sleep(3);
 	return;
 }
 

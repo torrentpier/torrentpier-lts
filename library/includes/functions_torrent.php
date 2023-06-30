@@ -677,16 +677,11 @@ function ocelot_send_request ($get, $max_attempts = 1, &$err = false)
 	global $bb_cfg;
 
 	$header = "GET /$get HTTP/1.1\r\nConnection: Close\r\n\r\n";
-	$attempts = $sleep = $success = $response = 0;
+	$attempts = $success = $response = 0;
 	$start_time = microtime(true);
 
 	while (!$success && $attempts++ < $max_attempts)
 	{
-		if ($sleep)
-		{
-			sleep($sleep);
-		}
-
 		// Send request
 		$file = fsockopen($bb_cfg['ocelot']['host'], $bb_cfg['ocelot']['port'], $error_num, $error_string);
 		if ($file)
@@ -694,14 +689,12 @@ function ocelot_send_request ($get, $max_attempts = 1, &$err = false)
 			if (fwrite($file, $header) === false)
 			{
 				$err = "Failed to fwrite()";
-				$sleep = 3;
 				continue;
 			}
 		}
 		else
 		{
 			$err = "Failed to fsockopen() - $error_num - $error_string";
-			$sleep = 6;
 			continue;
 		}
 
