@@ -300,7 +300,7 @@ function hexhex ($value)
 
 function verify_ip ($ip)
 {
-	return preg_match('#^(\d{1,3}\.){3}\d{1,3}$#', $ip);
+	return (bool)filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 }
 
 function str_compact ($str)
