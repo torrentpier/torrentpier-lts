@@ -52,4 +52,6 @@ while (true)
 	{
 		break;
 	}
+
+	sleep(3);
 }

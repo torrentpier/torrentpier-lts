@@ -58,6 +58,7 @@ function cron_track_running ($mode)
 //
 if (cron_get_file_lock())
 {
+	ignore_user_abort(true);
 	register_shutdown_function('cron_release_file_lock');
 	register_shutdown_function('cron_enable_board');
 

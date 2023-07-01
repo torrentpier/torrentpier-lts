@@ -254,8 +254,10 @@ class sql_db
 			}
 			return $result;
 		}
-
-		return false;
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -269,8 +271,10 @@ class sql_db
 		{
 			return isset($row[$field_name]) ? $row[$field_name] : false;
 		}
-
-		return $row;
+		else
+		{
+			return $row;
+		}
 	}
 
 	/**
@@ -527,8 +531,10 @@ class sql_db
 		{
 			return array('code' => mysql_errno($this->link), 'message' => mysql_error($this->link));
 		}
-
-		return array('code' => '', 'message' => 'not connected');
+		else
+		{
+			return array('code' => '', 'message' => 'not connected');
+		}
 	}
 
 	/**
