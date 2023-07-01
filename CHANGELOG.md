@@ -6,7 +6,6 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.06 🎉
-- Cron subsystem rework [\#206](https://github.com/torrentpier/torrentpier-lts/pull/206) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed broken sessions [\#205](https://github.com/torrentpier/torrentpier-lts/pull/205) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed broken skype widget in user profile [\#203](https://github.com/torrentpier/torrentpier-lts/pull/203) ([belomaxorka](https://github.com/belomaxorka))
 - Redirect to viewprofile.php if profile.php hasn't arguments [\#202](https://github.com/torrentpier/torrentpier-lts/pull/202) ([belomaxorka](https://github.com/belomaxorka))
