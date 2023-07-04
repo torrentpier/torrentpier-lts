@@ -13,7 +13,7 @@ function cron_get_file_lock ()
 	{
 #		bb_log(date('H:i:s - ') . getmypid() .' -x-- FILE-LOCK try'. LOG_LF, CRON_LOG_DIR .'cron_check');
 
-		$lock_obtained = @rename(CRON_ALLOWED, CRON_RUNNING);
+		$lock_obtained = rename(CRON_ALLOWED, CRON_RUNNING);
 	}
 	elseif (file_exists(CRON_RUNNING))
 	{
@@ -22,7 +22,7 @@ function cron_get_file_lock ()
 	elseif (!file_exists(CRON_ALLOWED) && !file_exists(CRON_RUNNING))
 	{
 		file_write('', CRON_ALLOWED);
-		$lock_obtained = @rename(CRON_ALLOWED, CRON_RUNNING);
+		$lock_obtained = rename(CRON_ALLOWED, CRON_RUNNING);
 	}
 
 	return $lock_obtained;
