@@ -1,5 +1,13 @@
 # 📖 Change Log
 
+## [v2.1.5-2023.07](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.07) (2023-08-04) (В разработке)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.06...v2.1.5-2023.07)
+
+**Merged pull requests:**
+
+- Release v2.1.5-2023.07 🎉
+- Fix RFC 1918 RegExp [\#210](https://github.com/torrentpier/torrentpier-lts/pull/210) ([belomaxorka](https://github.com/belomaxorka))
+
 ## [v2.1.5-2023.06](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.06) (2023-07-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.05...v2.1.5-2023.06)
 
