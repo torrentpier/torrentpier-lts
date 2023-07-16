@@ -794,8 +794,8 @@ class bbcode
 		}
 		if ($this->smilies)
 		{
-			$parsed_text = preg_replace($this->smilies['orig'], $this->smilies['repl'], $text, 101, $smilies_cnt);
-			$text = ($smilies_cnt <= 100) ? $parsed_text : $text;
+			$parsed_text = preg_replace($this->smilies['orig'], $this->smilies['repl'], $text);
+			$text = $parsed_text;
 		}
 
 		return $text;
