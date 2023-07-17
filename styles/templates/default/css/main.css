@@ -1,44 +1,50 @@
 /*
 	* Initial neutralization
 	* Top Level
+
 	* Globals
-
-	* Links
-	* Backgrounds
-	* Headers
-	* General text
-
-	* Code blocks
-	* Quote blocks
-	* Spoiler
-
-	* Infoboxes
-	* Inputs, buttons, forms
-	* Text replacement for buttons
-	* Basic tables
+		- Links
+		- Backgrounds
+		- Headers
+		- General text
+		- Post elements
+		- Code blocks
+		- Quote blocks
+		- Spoiler
+		- List
+		- Post images
+		- Other BBCode related
+		- Infoboxes
+		- Inputs, buttons, forms
+		- Text replacement for buttons
+		- Basic tables
 
 	* Page header
 		- TopMenu, Quick Login, PM Info, Loguot, Search..
 		- Logo
 		- Main navigation
 		- Latest News
+		- Search input
 
 	* Page content
-	* Sidebar 1
-	* Latest News
+		- Sidebar 1
+		- Sidebar 2
+		- User ratio
 
-	* Forums on home page
-	* Forums on viewforum page
-
-	* Topics on viewtopic page
-	* Torrent status
-	* Attachments
-	* Search Results page
-	* Tracker
+	* Main content
+		- Forums on home page
+		- Forums on viewforum page
+		- Topics on viewtopic page
+		- Torrent status
+		- Attachments
+		- Search Results page
+		- Tracker
 
 	* Images
 	* Page footer
 	* Menus
+	* Ajax
+	* Treeview, TableSorter
 	* Misc
 	* Shortcuts
 	* YouTube Panel
@@ -483,7 +489,7 @@ table.smilies td { padding: 3px; text-align: center; }
      Page header
  * ================================================================ */
 /* ---------------------------------- *
-     TopMenu, Quick Login, PM Info, Loguot..
+     TopMenu, Quick Login, PM Info, Loguot, Search..
  * ---------------------------------- */
 .topmenu {
 	background: #eff0f3; border: 1px solid #CFD4D8;
@@ -592,7 +598,9 @@ table.smilies td { padding: 3px; text-align: center; }
 #sidebar2 ul { margin: 6px 0 0 10px; }
 #sidebar2 li { margin-bottom: 2px; margin-left: 14px; }
 #sidebar2 a  { text-decoration: none; color: #005A88; }
-/* User ratio */
+/* ---------------------------------- *
+     User ratio
+ * ---------------------------------- */
 #user_ratio {
 	padding: 1px 6px 0 0; font-size: 11px;
 }
@@ -1442,10 +1450,9 @@ div#autocomplete_popup span.regenerate {
 .alert-gray hr {
 	border-top-color: #a5afb4;
 }
-
-/**
-  * Alert theme
-  **/
+/* ---------------------------------- *
+     Alert theme
+ * ---------------------------------- */
 .alert {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
 	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
