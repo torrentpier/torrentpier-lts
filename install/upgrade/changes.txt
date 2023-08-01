@@ -97,3 +97,5 @@ INSERT INTO `bb_cron` VALUES ('999', '1', 'PM cleanup', 'clean_pm.php', 'daily',
 // 2.1.5 (LTS 2023.07)
 DELETE FROM `bb_smilies` WHERE `code` = ':ad:';
 INSERT INTO `bb_smilies` (`code`, `smile_url`, `emoticon`) VALUES (':cd:', 'cd.gif', 'cd');
+ALTER TABLE `bb_posts_text` CHANGE `post_text` `post_text` MEDIUMTEXT NOT NULL;
+ALTER TABLE `bb_privmsgs_text` CHANGE `privmsgs_text` `privmsgs_text` MEDIUMTEXT NOT NULL;

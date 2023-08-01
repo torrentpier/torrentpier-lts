@@ -867,7 +867,7 @@ CREATE TABLE IF NOT EXISTS `bb_posts_search` (
 DROP TABLE IF EXISTS `bb_posts_text`;
 CREATE TABLE IF NOT EXISTS `bb_posts_text` (
   `post_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `post_text` text NOT NULL,
+  `post_text` mediumtext NOT NULL,
   PRIMARY KEY (`post_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -903,7 +903,7 @@ CREATE TABLE IF NOT EXISTS `bb_privmsgs` (
 DROP TABLE IF EXISTS `bb_privmsgs_text`;
 CREATE TABLE IF NOT EXISTS `bb_privmsgs_text` (
   `privmsgs_text_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `privmsgs_text` text NOT NULL,
+  `privmsgs_text` mediumtext NOT NULL,
   PRIMARY KEY (`privmsgs_text_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
