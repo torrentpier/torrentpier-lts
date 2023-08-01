@@ -8,6 +8,7 @@
 - Release v2.1.5-2023.07 🎉
 - Fix RFC 1918 RegExp [\#210](https://github.com/torrentpier/torrentpier-lts/pull/210) ([belomaxorka](https://github.com/belomaxorka))
 - Maked max smilies in PM configurable [\#211](https://github.com/torrentpier/torrentpier-lts/pull/211) ([belomaxorka](https://github.com/belomaxorka))
+- Increase post_text & privmsgs_text limits [\#213](https://github.com/torrentpier/torrentpier-lts/pull/213) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#212](https://github.com/torrentpier/torrentpier-lts/pull/212) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.06](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.06) (2023-07-04)
