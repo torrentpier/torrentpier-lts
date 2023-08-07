@@ -25,11 +25,11 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
     $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
 }
 
-// Get initial config
-require(BB_ROOT . 'library/config.php');
-
 // Load polyfills
 require(BB_ROOT . 'library/includes/polyfills.php');
+
+// Get initial config
+require(BB_ROOT . 'library/config.php');
 
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
