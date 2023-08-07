@@ -28,6 +28,9 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 // Get initial config
 require(BB_ROOT . 'library/config.php');
 
+// Load polyfills
+require(BB_ROOT . 'library/includes/polyfills.php');
+
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
 require(BB_ROOT . 'library/Zend/Loader/StandardAutoloader.php');
@@ -70,11 +73,6 @@ define('TOR_TYPE_SILVER',     2);
 
 define('GUEST_UID', -1);
 define('BOT_UID',   -746);
-
-function sqlite3_escape_string ($str)
-{
-    return SQLite3::escapeString($str);
-}
 
 /**
  * Database
