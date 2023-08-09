@@ -147,6 +147,7 @@ switch ($field)
 		}
 		$btu[$field] = $value;
 		$this->response['update_ids']['u_ratio'] = (string) get_bt_ratio($btu);
+        CACHE('bb_cache')->rm('btu_' . $user_id);
 		break;
 
 	case 'user_points':
