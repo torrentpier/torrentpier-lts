@@ -128,9 +128,9 @@ switch ($field)
 		$table = BB_BT_USERS;
 		$value = (float) str_replace(',', '.', $this->request['value']);
 
-		foreach (array('KB'=>1,'MB'=>2,'GB'=>3,'TB'=>4) as $s => $m)
+		foreach (array('KB'=>1,'MB'=>2,'GB'=>3,'TB'=>4,'PB'=>5,'EB'=>6,'ZB'=>7,'YB'=>8) as $s => $m)
 		{
-			if (strpos($this->request['value'], $s) !== false)
+			if (stripos($this->request['value'], $s) !== false)
 			{
 				$value *= pow(1024, $m);
 				break;
@@ -147,6 +147,7 @@ switch ($field)
 		}
 		$btu[$field] = $value;
 		$this->response['update_ids']['u_ratio'] = (string) get_bt_ratio($btu);
+        CACHE('bb_cache')->rm('btu_' . $user_id);
 		break;
 
 	case 'user_points':
