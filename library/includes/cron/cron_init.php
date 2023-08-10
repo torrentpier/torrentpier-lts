@@ -30,10 +30,10 @@ function cron_get_file_lock ()
 
 function cron_track_running ($mode)
 {
-    if (!defined('CRON_STARTMARK'))
-    {
-        define('CRON_STARTMARK', TRIGGERS_DIR . 'cron_started_at_' . date('Y-m-d_H-i-s') . '_by_pid_' . getmypid());
-    }
+	if (!defined('CRON_STARTMARK'))
+	{
+		define('CRON_STARTMARK', TRIGGERS_DIR . 'cron_started_at_' . date('Y-m-d_H-i-s') . '_by_pid_' . getmypid());
+	}
 
 	if ($mode == 'start')
 	{
@@ -42,15 +42,15 @@ function cron_track_running ($mode)
 	}
 	elseif ($mode == 'end')
 	{
-        if (file_exists(CRON_STARTMARK))
-        {
-            unlink(CRON_STARTMARK);
-        }
+		if (file_exists(CRON_STARTMARK))
+		{
+			unlink(CRON_STARTMARK);
+		}
 	}
-    else
-    {
-        bb_simple_die("Invalid cron track mode: $mode");
-    }
+	else
+	{
+		bb_simple_die("Invalid cron track mode: $mode");
+	}
 }
 
 //

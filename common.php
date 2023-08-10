@@ -22,7 +22,7 @@ header('X-Powered-By: TorrentPier LTS');
 // Cloudflare
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 {
-    $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
 }
 
 // Get initial config

@@ -103,10 +103,10 @@ class sql_db
 			$server = (DBG_USER) ? $this->cfg['dbhost'] : '';
 			header("HTTP/1.0 503 Service Unavailable");
 			$con_error = "Could not connect to {$this->engine} server $server";
-            if (DBG_USER)
-            {
-                dbg_log($con_error, "{$server}-DB-connect-FAIL_" . time());
-            }
+			if (DBG_USER)
+			{
+				dbg_log($con_error, "{$server}-DB-connect-FAIL_" . time());
+			}
 			die($con_error);
 		}
 
@@ -732,10 +732,10 @@ class sql_db
 			}
 		}
 
-        if (!defined('IN_FIRST_SLOW_QUERY'))
-        {
-            define('IN_FIRST_SLOW_QUERY', true);
-        }
+		if (!defined('IN_FIRST_SLOW_QUERY'))
+		{
+			define('IN_FIRST_SLOW_QUERY', true);
+		}
 
 		CACHE('bb_cache')->set('dont_log_slow_query', $new_priority, $ignoring_time);
 	}
@@ -924,84 +924,84 @@ class sql_db
 
 		switch ($mode)
 		{
-            case 'start':
-                $this->explain_hold = '';
-                // TODO: добавить поддержку многотабличных запросов
-                if (preg_match('#UPDATE ([a-z0-9_]+).*?WHERE(.*)/#', $query, $m))
-                {
-                    $query = "SELECT * FROM $m[1] WHERE $m[2]";
-                }
-                else if (preg_match('#DELETE FROM ([a-z0-9_]+).*?WHERE(.*)#s', $query, $m))
-                {
-                    $query = "SELECT * FROM $m[1] WHERE $m[2]";
-                }
+        	case 'start':
+				$this->explain_hold = '';
+				// TODO: добавить поддержку многотабличных запросов
+				if (preg_match('#UPDATE ([a-z0-9_]+).*?WHERE(.*)/#', $query, $m))
+				{
+					$query = "SELECT * FROM $m[1] WHERE $m[2]";
+				}
+				else if (preg_match('#DELETE FROM ([a-z0-9_]+).*?WHERE(.*)#s', $query, $m))
+				{
+					$query = "SELECT * FROM $m[1] WHERE $m[2]";
+				}
 
-                if (preg_match('#^SELECT#', $query))
-                {
-                    $html_table = false;
+				if (preg_match('#^SELECT#', $query))
+				{
+					$html_table = false;
 
-                    if ($result = @mysql_query("EXPLAIN $query", $this->link))
-                    {
-                        while ($row = @mysql_fetch_assoc($result))
-                        {
-                            $html_table = $this->explain('add_explain_row', $html_table, $row);
-                        }
-                    }
-                    if ($html_table)
-                    {
-                        $this->explain_hold .= '</table>';
-                    }
-                }
-                break;
+					if ($result = @mysql_query("EXPLAIN $query", $this->link))
+					{
+						while ($row = @mysql_fetch_assoc($result))
+						{
+							$html_table = $this->explain('add_explain_row', $html_table, $row);
+						}
+					}
+					if ($html_table)
+					{
+						$this->explain_hold .= '</table>';
+					}
+				}
+				break;
 
-            case 'stop':
-                if (!$this->explain_hold) break;
+			case 'stop':
+				if (!$this->explain_hold) break;
 
-                $id   = $this->dbg_id-1;
-                $htid = 'expl-'. intval($this->link) .'-'. $id;
-                $dbg  = $this->dbg[$id];
+				$id   = $this->dbg_id-1;
+				$htid = 'expl-'. intval($this->link) .'-'. $id;
+				$dbg  = $this->dbg[$id];
 
-                $this->explain_out .= '
-                    <table width="98%" cellpadding="0" cellspacing="0" class="bodyline row2 bCenter" style="border-bottom: 0px;">
-                    <tr>
-                        <th style="height: 22px; cursor: pointer;" align="left">&nbsp;'. $dbg['src'] .'&nbsp; ['. sprintf('%.4f', $dbg['time']) .' s]&nbsp; <i>'. $dbg['info'] .'</i></th>
-                        <th style="height: 22px; cursor: pointer;" align="right" title="Copy to clipboard" onclick="$(\'#'. $htid .'\').CopyToClipboard();">'. "[$this->engine] $this->db_server.$this->selected_db" .' :: Query #'. ($this->num_queries+1) .'&nbsp;</th>
-                    </tr>
-                    <tr><td colspan="2">'. $this->explain_hold .'</td></tr>
-                    </table>
-                    <div class="sqlLog"><div id="'. $htid .'" class="sqlLogRow sqlExplain" style="padding: 0px;">'. short_query($dbg['sql'], true) .'&nbsp;&nbsp;</div></div>
-                    <br />';
-                break;
+				$this->explain_out .= '
+					<table width="98%" cellpadding="0" cellspacing="0" class="bodyline row2 bCenter" style="border-bottom: 0px;">
+						<tr>
+							<th style="height: 22px; cursor: pointer;" align="left">&nbsp;'. $dbg['src'] .'&nbsp; ['. sprintf('%.4f', $dbg['time']) .' s]&nbsp; <i>'. $dbg['info'] .'</i></th>
+							<th style="height: 22px; cursor: pointer;" align="right" title="Copy to clipboard" onclick="$(\'#'. $htid .'\').CopyToClipboard();">'. "[$this->engine] $this->db_server.$this->selected_db" .' :: Query #'. ($this->num_queries+1) .'&nbsp;</th>
+						</tr>
+						<tr><td colspan="2">'. $this->explain_hold .'</td></tr>
+					</table>
+					<div class="sqlLog"><div id="'. $htid .'" class="sqlLogRow sqlExplain" style="padding: 0px;">'. short_query($dbg['sql'], true) .'&nbsp;&nbsp;</div></div>
+					<br />';
+				break;
 
-            case 'add_explain_row':
-                if (!$html_table && $row)
-                {
-                    $html_table = true;
-                    $this->explain_hold .= '<table width="100%" cellpadding="3" cellspacing="1" class="bodyline" style="border-width: 0;"><tr>';
-                    foreach (array_keys($row) as $val)
-                    {
-                        $this->explain_hold .= '<td class="row3 gensmall" align="center"><b>'. $val .'</b></td>';
-                    }
-                    $this->explain_hold .= '</tr>';
-                }
-                $this->explain_hold .= '<tr>';
-                foreach (array_values($row) as $i => $val)
-                {
-                    $class = !($i % 2) ? 'row1' : 'row2';
-                    $this->explain_hold .= '<td class="'. $class .' gen">'. str_replace(array("{$this->selected_db}.", ',', ';'), array('', ', ', ';<br />'), $val) .'</td>';
-                }
-                $this->explain_hold .= '</tr>';
+			case 'add_explain_row':
+				if (!$html_table && $row)
+				{
+					$html_table = true;
+					$this->explain_hold .= '<table width="100%" cellpadding="3" cellspacing="1" class="bodyline" style="border-width: 0;"><tr>';
+					foreach (array_keys($row) as $val)
+					{
+						$this->explain_hold .= '<td class="row3 gensmall" align="center"><b>'. $val .'</b></td>';
+					}
+					$this->explain_hold .= '</tr>';
+				}
+				$this->explain_hold .= '<tr>';
+				foreach (array_values($row) as $i => $val)
+				{
+					$class = !($i % 2) ? 'row1' : 'row2';
+					$this->explain_hold .= '<td class="'. $class .' gen">'. str_replace(array("{$this->selected_db}.", ',', ';'), array('', ', ', ';<br />'), $val) .'</td>';
+				}
+				$this->explain_hold .= '</tr>';
 
-                return $html_table;
-                break;
+				return $html_table;
+				break;
 
-            case 'display':
-                echo '<a name="explain"></a><div class="med">'. $this->explain_out .'</div>';
-                break;
+			case 'display':
+				echo '<a name="explain"></a><div class="med">'. $this->explain_out .'</div>';
+				break;
 
-            default:
-                die("Invalid {$this->engine} explain mode");
-                break;
+			default:
+				die("Invalid {$this->engine} explain mode");
+				break;
 		}
 	}
 }

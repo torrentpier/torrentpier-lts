@@ -41,7 +41,7 @@ class DBS
 	// определение имени сервера
 	function get_srv_name ($name)
 	{
-        $srv_name = 'db1';
+		$srv_name = 'db1';
 
 		if (isset($this->alias[$name]))
 		{
