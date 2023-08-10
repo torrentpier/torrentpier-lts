@@ -673,10 +673,10 @@ switch ($mode)
 			bb_die($lang['NO_SUCH_POST']);
 		}
 
-        if (!$ip_this_post = decode_ip($post_row['poster_ip']))
-        {
-            $ip_this_post = $lang['NOT_AVAILABLE'];
-        }
+		if (!$ip_this_post = decode_ip($post_row['poster_ip']))
+		{
+			$ip_this_post = $lang['NOT_AVAILABLE'];
+		}
 		$ip_this_post = ($rdns_ip_num == $ip_this_post) ? gethostbyaddr($ip_this_post) : $ip_this_post;
 
 		$poster_id = $post_row['poster_id'];
@@ -711,10 +711,10 @@ switch ($mode)
 					continue;
 				}
 
-                if (!$ip = decode_ip($row['poster_ip']))
-                {
-                    $ip = $lang['NOT_AVAILABLE'];
-                }
+				if (!$ip = decode_ip($row['poster_ip']))
+				{
+					$ip = $lang['NOT_AVAILABLE'];
+				}
 				$ip = ( $rdns_ip_num == $ip || $rdns_ip_num == 'all') ? gethostbyaddr($ip) : $ip;
 
 				$template->assign_block_vars('iprow', array(
