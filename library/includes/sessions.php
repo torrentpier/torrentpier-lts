@@ -595,17 +595,17 @@ class user_common
 
 		if (!defined('LANG_DIR')) define('LANG_DIR', DEFAULT_LANG_DIR);
 
-        /** Temporary place source language to the global */
-        $lang = array();
-        require(ENGLISH_LANG_DIR .'main.php');
-        $source_lang = $lang;
-        unset($lang);
+		/** Temporary place source language to the global */
+		$lang = array();
+		require(ENGLISH_LANG_DIR .'main.php');
+		$source_lang = $lang;
+		unset($lang);
 
-        /** Place user language to the global */
-        global $lang;
+		/** Place user language to the global */
+		global $lang;
 		require(LANG_DIR .'main.php');
 		setlocale(LC_ALL, isset($bb_cfg['lang'][$this->data['user_lang']]['locale']) ? $bb_cfg['lang'][$this->data['user_lang']]['locale'] : 'en_US.UTF-8');
-        $lang += $source_lang;
+		$lang += $source_lang;
 
 		$theme = setup_style();
 		$DeltaTime = new Date_Delta();

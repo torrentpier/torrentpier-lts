@@ -366,7 +366,7 @@ if ($tr_cfg['gold_silver_enabled'] && $down_add)
 // Freeleech
 if ($tr_cfg['freeleech'] && $down_add)
 {
-    $down_add = 0;
+	$down_add = 0;
 }
 
 // Insert/update peer info

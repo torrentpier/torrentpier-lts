@@ -136,7 +136,7 @@ $tr_cfg = array(
 	'gold_silver_enabled'   => true, // при включенном gold_silver_enabled нужно отключить freeleech.
 	'retracker'             => true,
 	'retracker_host'        => 'http://retracker.local/announce',
-    'freeleech'             => false, // при включенном freeleech нужно отключить gold_silver_enabled.
+	'freeleech'             => false, // при включенном freeleech нужно отключить gold_silver_enabled.
 );
 
 $bb_cfg['show_dl_status_in_search'] = true;

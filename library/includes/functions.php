@@ -2567,27 +2567,27 @@ function pad_with_space ($str)
 
 function create_magnet ($infohash, $auth_key)
 {
-    global $bb_cfg, $images, $lang, $userdata;
+	global $bb_cfg, $images, $lang, $userdata;
 
-    if (IS_GUEST && $bb_cfg['bt_tor_browse_only_reg'])
-    {
-        $passkey = '';
-    }
-    elseif (empty($auth_key))
-    {
-        require(INC_DIR .'functions_torrent.php');
-        if (!$passkey = generate_passkey($userdata['user_id'], true))
-        {
-            bb_die($lang['PASSKEY_ERR_EMPTY']);
-        }
-        $auth_key = $passkey;
-    }
-    else
-    {
-        $passkey = $auth_key;
-    }
+	if (IS_GUEST && $bb_cfg['bt_tor_browse_only_reg'])
+	{
+		$passkey = '';
+	}
+	elseif (empty($auth_key))
+	{
+		require(INC_DIR .'functions_torrent.php');
+		if (!$passkey = generate_passkey($userdata['user_id'], true))
+		{
+			bb_die($lang['PASSKEY_ERR_EMPTY']);
+		}
+		$auth_key = $passkey;
+	}
+	else
+	{
+		$passkey = $auth_key;
+	}
 
-    $passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
+	$passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
 	return '<a href="magnet:?xt=urn:btih:'. bin2hex($infohash) .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
 }
 

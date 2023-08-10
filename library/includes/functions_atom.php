@@ -7,7 +7,7 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 function update_forum_feed ($forum_id, $forum_data)
 {
-    global $bb_cfg, $lang;
+	global $bb_cfg, $lang;
 	$file_path = $bb_cfg['atom']['path'] .'/f/'. $forum_id .'.atom';
 	$select_tor_sql = $join_tor_sql = '';
 	if ($forum_id == 0) $forum_data['forum_name'] = (isset($lang['ATOM_GLOBAL_FEED']) ? $lang['ATOM_GLOBAL_FEED'] : $bb_cfg['server_name']);
@@ -121,7 +121,7 @@ function update_user_feed ($user_id, $username)
 
 function create_atom ($file_path, $mode, $id, $title, $topics)
 {
-    global $lang;
+	global $lang;
 	$dir = dirname($file_path);
 	if (!file_exists($dir))
 	{
@@ -137,11 +137,11 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 	}
 	$atom = "";
 	$atom .= "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
-    $atom .= "<feed xmlns=\"http://www.w3.org/2005/Atom\" xml:base=\"" . FULL_URL . "\">\n";
+	$atom .= "<feed xmlns=\"http://www.w3.org/2005/Atom\" xml:base=\"" . FULL_URL . "\">\n";
 	$atom .= "<title>$title</title>\n";
 	$atom .= "<updated>". $date ."T$time+00:00</updated>\n";
 	$atom .= "<id>tag:rto.feed,2000:/$mode/$id</id>\n";
-    $atom .= "<link href=\"" . FULL_URL . "\" />\n";
+	$atom .= "<link href=\"" . FULL_URL . "\" />\n";
 	foreach ($topics as $topic)
 	{
 		$topic_id = $topic['topic_id'];
