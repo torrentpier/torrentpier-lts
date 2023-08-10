@@ -192,7 +192,7 @@ function submit_post($mode, &$post_data, &$message, &$meta, &$forum_id, &$topic_
 		'post_text'      => $post_message,
 	));
 
-    //Обновление кеша новостей на главной
+	//Обновление кеша новостей на главной
 	if($bb_cfg['show_latest_news'])
 	{
 		$news_forums = array_flip(explode(',', $bb_cfg['latest_news_forum_id']));

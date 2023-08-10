@@ -403,7 +403,7 @@ if (!$set_default)
 		$forum_val = join(',', $valid_forums);
 	}
 
-    if ($forum_val && $forum_val != $search_all)
+	if ($forum_val && $forum_val != $search_all)
 	{
 		$search_in_forums_ary  = array_slice(explode(',', $forum_val), 0, $max_forums_selected);
 		$search_in_forums_fary = array_flip($search_in_forums_ary);
@@ -668,10 +668,10 @@ if ($allowed_forums)
 		{
 			$SQL['WHERE'][] = "sn.seeders >= 1";
 		}
-        if ($tor_type)
-        {
-            $SQL['WHERE'][] = "tor.tor_type IN(1,2)";
-        }
+		if ($tor_type)
+		{
+			$SQL['WHERE'][] = "tor.tor_type IN(1,2)";
+		}
 
 		// ORDER
 		$SQL['ORDER BY'][] = "{$order_opt[$order_val]['sql']} {$sort_opt[$sort_val]['sql']}";

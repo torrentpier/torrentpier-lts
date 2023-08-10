@@ -91,7 +91,7 @@ switch ($mode)
 			{
 				$link_reg_ip .= profile_url($row) .', ';
 			}
-            $link_reg_ip = rtrim($link_reg_ip, ', ');
+			$link_reg_ip = rtrim($link_reg_ip, ', ');
 		}
 
 		if (!empty($last_ip))
@@ -101,7 +101,7 @@ switch ($mode)
 			{
 				$link_last_ip .= profile_url($row) .', ';
 			}
-            $link_last_ip = rtrim($link_last_ip, ', ');
+			$link_last_ip = rtrim($link_last_ip, ', ');
 		}
 
 		if ($profiledata['user_level'] == ADMIN && !IS_ADMIN) $reg_ip = $last_ip = $lang['HIDDEN'];

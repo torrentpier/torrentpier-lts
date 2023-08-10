@@ -1230,7 +1230,7 @@ else if ( $submit || $refresh || $mode != '' )
 		$replacement_word = array();
 		obtain_word_list($orig_word, $replacement_word);
 
-        $preview_message = htmlCHR($privmsg_message, false, ENT_NOQUOTES);
+		$preview_message = htmlCHR($privmsg_message, false, ENT_NOQUOTES);
 		$preview_message = bbcode2html($privmsg_message);
 
 		if ( count($orig_word) )

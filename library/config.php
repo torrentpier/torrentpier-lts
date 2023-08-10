@@ -511,7 +511,7 @@ $bb_cfg['advert_url']               = 'info.php?show=advert';
 
 $bb_cfg['sitemap_sending'] = array(
 #   'Source name'          => 'http://ping_url'
-    'Google'               => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
+	'Google'               => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
 // Extensions

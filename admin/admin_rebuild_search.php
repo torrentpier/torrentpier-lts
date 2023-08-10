@@ -267,7 +267,7 @@ if ($mode == 'submit' || $mode == 'refresh')
 
 		$processing_messages .= sprintf($lang['PROCESSING_NEXT_POSTS'], $post_limit);
 
-        meta_refresh($form_action, $refresh_rate);
+		meta_refresh($form_action, $refresh_rate);
 
 		// create the meta tag for refresh
 		$template->assign_vars(array(
