@@ -39,7 +39,7 @@ if (defined('SHOW_ONLINE') && SHOW_ONLINE)
 		{
 			require(INC_DIR .'online_userlist.php');
 
-            ${$online_list} = CACHE('bb_cache')->get($online_list);
+			${$online_list} = CACHE('bb_cache')->get($online_list);
 		}
 	}
 
