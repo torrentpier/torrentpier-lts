@@ -218,11 +218,11 @@ $bb_cfg['charset']       = 'utf8'; // page charset
 
 if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
 {
-    $bb_cfg['default_lang_dir'] = LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/';
+	$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/';
 }
 else
 {
-    $bb_cfg['default_lang_dir'] = LANG_ROOT_DIR .'en/';
+	$bb_cfg['default_lang_dir'] = LANG_ROOT_DIR .'en/';
 }
 
 $bb_cfg['lang'] = array(

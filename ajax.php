@@ -111,7 +111,7 @@ class ajax_common
 	 */
 	function exec()
 	{
-        global $lang, $bb_cfg;
+		global $lang, $bb_cfg;
 
 		// Exit if we already have errors
 		if (!empty($this->response['error_code']))
@@ -122,8 +122,8 @@ class ajax_common
 		// Check that requested action is valid
 		$action = $this->action;
 
-        // Action params
-        $action_params = null;
+		// Action params
+		$action_params = null;
 
 		if (!$action || !is_string($action))
 		{
@@ -134,21 +134,21 @@ class ajax_common
 			$this->ajax_die('invalid action: ' . $action);
 		}
 
-        // Exit if board is disabled via ON/OFF trigger or by admin
-        if ($bb_cfg['board_disable'] || file_exists(BB_DISABLED))
-        {
-            if ($action_params[AJAX_ALWAYS_ACTIVE] !== true)
-            {
-                if ($bb_cfg['board_disable'])
-                {
-                    $this->ajax_die($lang['BOARD_DISABLE']);
-                }
-                elseif (file_exists(BB_DISABLED))
-                {
-                    $this->ajax_die($lang['BOARD_DISABLE_CRON']);
-                }
-            }
-        }
+		// Exit if board is disabled via ON/OFF trigger or by admin
+		if ($bb_cfg['board_disable'] || file_exists(BB_DISABLED))
+		{
+			if ($action_params[AJAX_ALWAYS_ACTIVE] !== true)
+			{
+ 				if ($bb_cfg['board_disable'])
+				{
+					$this->ajax_die($lang['BOARD_DISABLE']);
+				}
+				elseif (file_exists(BB_DISABLED))
+				{
+					$this->ajax_die($lang['BOARD_DISABLE_CRON']);
+				}
+			}
+		}
 
 		// Auth check
 		switch ($action_params[AJAX_AUTH])

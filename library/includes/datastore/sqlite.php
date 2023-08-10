@@ -22,10 +22,10 @@ class datastore_sqlite extends datastore_common
 
 	function datastore_sqlite ($cfg, $prefix = null)
 	{
-        if (!$this->is_installed())
-        {
-            die("Error: {$this->engine} extension not installed");
-        }
+		if (!$this->is_installed())
+		{
+			die("Error: {$this->engine} extension not installed");
+		}
 
 		$this->cfg = array_merge($this->cfg, $cfg);
 		$this->db  = new sqlite_common($this->cfg);
@@ -69,8 +69,8 @@ class datastore_sqlite extends datastore_common
 		$this->db->debug('stop');
 	}
 
-    function is_installed ()
-    {
-        return class_exists('SQLite3');
-    }
+	function is_installed ()
+	{
+		return class_exists('SQLite3');
+	}
 }

@@ -14,14 +14,14 @@ switch($mode)
 			'stats',
 		));
 
-        $users = array();
-        $stats = $datastore->get('stats');
+		$users = array();
+		$stats = $datastore->get('stats');
 
 		if ($stats['birthday_week_list'])
 		{
 			foreach($stats['birthday_week_list'] as $week)
 			{
-                $users[] = profile_url($week) .' <span class="small">('. birthday_age(date('Y-m-d', strtotime('-1 year', strtotime($week['user_birthday'])))) .')</span>';
+				$users[] = profile_url($week) .' <span class="small">('. birthday_age(date('Y-m-d', strtotime('-1 year', strtotime($week['user_birthday'])))) .')</span>';
 			}
 			$html = sprintf($lang['BIRTHDAY_WEEK'], $bb_cfg['birthday_check_day'], join(', ', $users));
 		}
@@ -33,14 +33,14 @@ switch($mode)
 			'stats',
 		));
 
-        $users = array();
-        $stats = $datastore->get('stats');
+		$users = array();
+		$stats = $datastore->get('stats');
 
 		if ($stats['birthday_today_list'])
 		{
 			foreach($stats['birthday_today_list'] as $today)
 			{
-                $users[] = profile_url($today) .' <span class="small">('. birthday_age($today['user_birthday']) .')</span>';
+				$users[] = profile_url($today) .' <span class="small">('. birthday_age($today['user_birthday']) .')</span>';
 			}
 			$html = $lang['BIRTHDAY_TODAY'] . join(', ', $users);
 		}
@@ -131,8 +131,8 @@ switch($mode)
 		';
 	break;
 
-    default:
-        $this->ajax_die('Invalid mode');
+	default:
+		$this->ajax_die('Invalid mode');
 }
 
 $this->response['html'] = $html;

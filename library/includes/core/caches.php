@@ -85,7 +85,7 @@ class CACHES
 						$this->ref[$cache_name] =& $this->obj[$cache_name];
 						break;
 
-                    case 'filecache':
+					case 'filecache':
 					default: //filecache
 						if (!isset($this->obj[$cache_name]))
 						{

@@ -73,7 +73,7 @@ define('BOT_UID',   -746);
 
 function sqlite3_escape_string ($str)
 {
-    return SQLite3::escapeString($str);
+	return SQLite3::escapeString($str);
 }
 
 /**

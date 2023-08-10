@@ -1240,12 +1240,12 @@ function show_bt_userdata ($user_id)
 {
 	global $lang, $template;
 
-    if (!$btu = get_bt_userdata($user_id))
-    {
-        require(INC_DIR .'functions_torrent.php');
-        generate_passkey($user_id, true);
-        $btu = get_bt_userdata($user_id);
-    }
+	if (!$btu = get_bt_userdata($user_id))
+	{
+		require(INC_DIR .'functions_torrent.php');
+		generate_passkey($user_id, true);
+		$btu = get_bt_userdata($user_id);
+	}
 
 	$template->assign_vars(array(
 		'SHOW_BT_USERDATA' => true,

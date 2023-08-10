@@ -190,10 +190,10 @@ if ($result = DB()->fetch_rowset($sql))
 			$www = $lang['NOSELECT'];
 		}
 
-        if(!$from)
-        {
-            $from = $lang['NOSELECT'];
-        }
+		if(!$from)
+		{
+			$from = $lang['NOSELECT'];
+		}
 
 		$row_class = !($i % 2) ? 'row1' : 'row2';
 		$template->assign_block_vars('memberrow', array(

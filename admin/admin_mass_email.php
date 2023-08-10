@@ -9,7 +9,7 @@ require('./pagestart.php');
 
 if ($bb_cfg['emailer_disabled'])
 {
-    bb_die($lang['EMAILER_DISABLED']);
+	bb_die($lang['EMAILER_DISABLED']);
 }
 
 @set_time_limit(1200);

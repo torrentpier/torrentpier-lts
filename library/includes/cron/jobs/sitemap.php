@@ -13,6 +13,6 @@ if (@file_exists(SITEMAP_DIR. 'sitemap.xml'))
 
 	foreach ($bb_cfg['sitemap_sending'] as $source_name => $source_link)
 	{
-        $map->send_url($source_link, $map_link);
-    }
+		$map->send_url($source_link, $map_link);
+	}
 }

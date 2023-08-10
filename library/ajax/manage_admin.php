@@ -111,9 +111,9 @@ switch ($mode)
 
 	break;
 
-    default:
+	default:
 
-        $this->ajax_die('Invalid mode');
+		$this->ajax_die('Invalid mode');
 }
 
 $this->response['mode'] = $mode;

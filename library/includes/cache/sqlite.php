@@ -23,10 +23,10 @@ class cache_sqlite extends cache_common
 
 	function cache_sqlite ($cfg, $prefix = null)
 	{
-        if (!$this->is_installed())
-        {
-            die("Error: {$this->db->engine} extension not installed");
-        }
+		if (!$this->is_installed())
+		{
+			die("Error: {$this->db->engine} extension not installed");
+		}
 
 		$this->cfg = array_merge($this->cfg, $cfg);
 		$this->db = new sqlite_common($this->cfg);
@@ -113,10 +113,10 @@ class cache_sqlite extends cache_common
 		return ($result) ? $this->db->changes() : 0;
 	}
 
-    function is_installed ()
-    {
-        return class_exists('SQLite3');
-    }
+	function is_installed ()
+	{
+		return class_exists('SQLite3');
+	}
 }
 
 class sqlite_common extends cache_common

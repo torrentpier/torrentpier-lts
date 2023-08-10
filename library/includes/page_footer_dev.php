@@ -67,9 +67,9 @@ if ($sql_log)
 ?>
 <script type="text/javascript">
 function fixSqlLog() {
-    if ($("#sqlLog").height() > 400) {
-        $("#sqlLog").height(400);
-    }
+	if ($("#sqlLog").height() > 400) {
+		$("#sqlLog").height(400);
+	}
 }
 $(document).ready(fixSqlLog);
 </script>

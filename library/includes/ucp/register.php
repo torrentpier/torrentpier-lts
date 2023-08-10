@@ -356,7 +356,7 @@ foreach ($profile_fields as $field => $can_edit)
 					}
 				}
 
-                $pr_data['user_birthday'] = $db_data['user_birthday'] = !empty($user_birthday) ? $user_birthday : null;
+				$pr_data['user_birthday'] = $db_data['user_birthday'] = !empty($user_birthday) ? $user_birthday : null;
 			}
 			$tp_data['USER_BIRTHDAY'] = $pr_data['user_birthday'];
 			break;

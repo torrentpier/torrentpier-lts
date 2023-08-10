@@ -130,6 +130,6 @@ switch ($mode)
 		';
 	break;
 
-    default:
+	default:
 		$this->ajax_die('Invalid mode');
 }

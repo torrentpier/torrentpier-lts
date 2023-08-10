@@ -207,7 +207,7 @@ $bb_cfg['tor_icons'] = array(
 	TOR_CHECKING      => '<span class="tor-icon tor-checking">%</span>',
 	TOR_TMP           => '<span class="tor-icon tor-dup">T</span>',
 	TOR_PREMOD        => '<span class="tor-icon tor-dup">&#8719;</span>',
-    TOR_REPLENISH     => '<span class="tor-icon tor-dup">R</span>',
+	TOR_REPLENISH     => '<span class="tor-icon tor-dup">R</span>',
 );
 
 // Запрет на скачивание
