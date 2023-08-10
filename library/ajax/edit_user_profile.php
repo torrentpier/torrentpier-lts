@@ -154,6 +154,10 @@ switch ($field)
 		$value = htmlCHR($value);
 		$value = (float) str_replace(',', '.', $this->request['value']);
 		$value = sprintf('%.2f', $value);
+		if (strlen(strstr($value, '.', true)) > 14)
+		{
+			$this->ajax_die($lang['WRONG_INPUT']);
+		}
 		$this->response['new_value'] = $value;
 		break;
 
