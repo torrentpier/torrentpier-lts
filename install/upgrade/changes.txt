@@ -52,7 +52,7 @@ ALTER TABLE `bb_bt_tracker` ADD `complete` INT(11) NOT NULL DEFAULT '0' AFTER `c
 // 2.1.5
 DROP TABLE IF EXISTS `bb_captcha`;
 DELETE FROM `bb_cron` WHERE `cron_script` = 'captcha_gen_gc.php';
-INSERT INTO `bb_cron` VALUES ('', '1', 'Accrual seedbonus', 'tr_seed_bonus.php', 'interval', '', '', '25', '', '', '00:15:00', '0', '', '0', '0', '0');
+INSERT INTO `bb_cron` VALUES ('998', '1', 'Accrual seedbonus', 'tr_seed_bonus.php', 'interval', '', '', '25', '', '', '00:15:00', '0', '', '0', '0', '0');
 
 // 2.1.5 (LTS 2023.03)
 UPDATE `bb_config` SET `config_value` = 'http://whatismyipaddress.com/ip/' WHERE `config_name` = 'whois_info';
