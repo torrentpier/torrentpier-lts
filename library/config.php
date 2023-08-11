@@ -578,11 +578,3 @@ $bb_cfg['nofollow'] = array(
 	'disabled'    => false,
 	'allowed_url' => array($domain_name),             // 'allowed.site', 'www.allowed.site'
 );
-
-// Local config
-if (file_exists(BB_ROOT. '/library/config.local.php'))
-{
-	include_once(BB_ROOT. '/library/config.local.php');
-}
-
-define('BB_CFG_LOADED', true);
