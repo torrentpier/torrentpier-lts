@@ -529,7 +529,7 @@ $bb_cfg['file_id_ext'] = array(
 // Attachments
 $bb_cfg['attach'] = array(
 	'upload_path' => DATA_DIR . 'torrent_files',      // путь к директории с torrent файлами
-	'max_size'    => 5*1024*1024,                        // размер аватары в байтах
+	'max_size'    => 5*1024*1024,                     // размер аватары в байтах
 );
 
 $bb_cfg['tor_forums_allowed_ext'] = array('torrent', 'zip', 'rar'); // для разделов с раздачами
