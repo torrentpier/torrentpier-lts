@@ -75,23 +75,23 @@ ALTER TABLE `bb_search_results` CHANGE `session_id` `session_id` CHAR(255) CHARA
 
 // 2.1.5 (LTS 2023.06)
 UPDATE `bb_posts` SET `poster_ip` = '0';
-ALTER TABLE `bb_posts` CHANGE `poster_ip` `poster_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_posts` CHANGE `poster_ip` `poster_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
 UPDATE `bb_bt_tracker` SET `ip` = '0';
-ALTER TABLE `bb_bt_tracker` CHANGE `ip` `ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_bt_tracker` CHANGE `ip` `ip` char(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
 UPDATE `bb_users` SET `user_last_ip` = '0';
-ALTER TABLE `bb_users` CHANGE `user_last_ip` `user_last_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_users` CHANGE `user_last_ip` `user_last_ip` char(32) NOT NULL DEFAULT '0';
 UPDATE `bb_users` SET `user_reg_ip` = '0';
-ALTER TABLE `bb_users` CHANGE `user_reg_ip` `user_reg_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_users` CHANGE `user_reg_ip` `user_reg_ip` char(32) NOT NULL DEFAULT '0';
 UPDATE `bb_log` SET `log_user_ip` = '0';
-ALTER TABLE `bb_log` CHANGE `log_user_ip` `log_user_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_log` CHANGE `log_user_ip` `log_user_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
 UPDATE `bb_poll_users` SET `vote_ip` = '0';
-ALTER TABLE `bb_poll_users` CHANGE `vote_ip` `vote_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_poll_users` CHANGE `vote_ip` `vote_ip` varchar(32) NOT NULL DEFAULT '0';
 UPDATE `bb_privmsgs` SET `privmsgs_ip` = '0';
-ALTER TABLE `bb_privmsgs` CHANGE `privmsgs_ip` `privmsgs_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_privmsgs` CHANGE `privmsgs_ip` `privmsgs_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
 UPDATE `bb_sessions` SET `session_ip` = '0';
-ALTER TABLE `bb_sessions` CHANGE `session_ip` `session_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_sessions` CHANGE `session_ip` `session_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
 UPDATE `bb_banlist` SET `ban_ip` = '0';
-ALTER TABLE `bb_banlist` CHANGE `ban_ip` `ban_ip` varchar(42) NOT NULL DEFAULT '0';
+ALTER TABLE `bb_banlist` CHANGE `ban_ip` `ban_ip` varchar(32) NOT NULL DEFAULT '0';
 INSERT INTO `bb_cron` VALUES ('999', '1', 'PM cleanup', 'clean_pm.php', 'daily', '', '05:00:00', '70', '', '', '', '1', '', '0', '1', '0');
 
 // 2.1.5 (LTS 2023.07)
