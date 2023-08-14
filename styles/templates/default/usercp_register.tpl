@@ -318,7 +318,7 @@ ajax.callback.posts = function(data){
 	<td class="catBottom" colspan="2">
 	<div id="submit-buttons">
 		<!-- IF EDIT_PROFILE --><input type="reset" value="{L_RESET}" name="reset" class="lite" />&nbsp;&nbsp;<!-- ENDIF -->
-		<input type="submit" id="agreement" disabled="disabled" name="submit" value="{L_SUBMIT}" class="main" />
+		<input type="submit" <!-- IF not EDIT_PROFILE -->id="agreement" disabled="disabled"<!-- ENDIF --> name="submit" value="{L_SUBMIT}" class="main" />
 	</div>
 	</td>
 </tr>
