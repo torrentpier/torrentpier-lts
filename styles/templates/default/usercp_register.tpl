@@ -307,7 +307,7 @@ ajax.callback.posts = function(data){
 			<div class="bCenter">
 				<?php include($V['HTML_AGREEMENT']); ?>
 			</div>
-			<p class="med bold mrg_4 tCenter"><label><input type="checkbox" value="" checked="checked" disabled="disabled" /> {L_USER_AGREEMENT_AGREE}</label></p>
+			<p class="med bold mrg_4 tCenter"><label><input type="checkbox" value="" onclick="toggle_disabled('agreement', this.checked)" /> {L_USER_AGREEMENT_AGREE}</label></p>
 		</fieldset>
 	</div><!--/infobox-wrap-->
 	</td>
@@ -318,7 +318,7 @@ ajax.callback.posts = function(data){
 	<td class="catBottom" colspan="2">
 	<div id="submit-buttons">
 		<!-- IF EDIT_PROFILE --><input type="reset" value="{L_RESET}" name="reset" class="lite" />&nbsp;&nbsp;<!-- ENDIF -->
-		<input type="submit" name="submit" value="{L_SUBMIT}" class="main" />
+		<input type="submit" <!-- IF SHOW_REG_AGREEMENT -->id="agreement" disabled="disabled"<!-- ENDIF --> name="submit" value="{L_SUBMIT}" class="main" />
 	</div>
 	</td>
 </tr>
