@@ -549,9 +549,9 @@ function get_var($var_name, $default, $multibyte = false)
 	{
 		foreach ($default as $key_type => $type)
 		{
-            $key_type = gettype($key_type);
-            $type = gettype($type);
-        }
+			$key_type = gettype($key_type);
+			$type = gettype($type);
+		}
 	}
 
 	if (is_array($var))

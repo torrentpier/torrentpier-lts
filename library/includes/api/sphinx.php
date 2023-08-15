@@ -545,7 +545,7 @@ class SphinxClient extends cache_common
 			$this->_mbenc = mb_internal_encoding();
 			mb_internal_encoding ( "latin1" );
 		}
-    }
+	}
 
 	/// leave mbstring workaround mode
 	function _MBPop ()
@@ -947,9 +947,9 @@ class SphinxClient extends cache_common
 
 	/// clear all attribute value overrides (for multi-queries)
 	function ResetOverrides ()
-    {
-    	$this->_overrides = array ();
-    }
+	{
+		$this->_overrides = array ();
+	}
 
 	//////////////////////////////////////////////////////////////////////////////
 
