@@ -927,7 +927,7 @@ else if ( $submit || $refresh || $mode != '' )
 			$error = TRUE;
 			$error_msg .= ( ( !empty($error_msg) ) ? '<br />' : '' ) . $lang['EMPTY_MESSAGE'];
 		}
-		
+
 		// Check smilies limit
 		if ($bb_cfg['max_smilies_pm'])
 		{
