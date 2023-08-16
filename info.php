@@ -7,7 +7,7 @@ require(BB_ROOT .'common.php');
 // Start session management
 $user->session_start();
 
-global $lang;
+global $lang, $bb_cfg;
 
 $info = array();
 $html_dir = LANG_DIR . 'html/';
@@ -42,11 +42,12 @@ switch ($req_mode)
 $require = file_exists($html_dir . $info['src']) ? $html_dir . $info['src'] : $html_dir . 'not_found.html';
 
 ?><!DOCTYPE html>
-<html dir="ltr">
+<html lang="<?php echo $bb_cfg['default_lang']; ?>">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<link rel="stylesheet" href="styles/templates/default/css/main.css" type="text/css">
+	<title><?php echo $info['title']; ?></title>
 </head>
 <body>
 <style type="text/css">
