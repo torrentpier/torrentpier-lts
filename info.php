@@ -11,7 +11,12 @@ global $lang, $bb_cfg;
 
 $info = array();
 $html_dir = LANG_DIR . 'html/';
-$req_mode = !empty($_REQUEST['show']) ? (string) $_REQUEST['show'] : 'not_found';
+$req_mode = !empty($_REQUEST['show']) ? (string) $_REQUEST['show'] : false;
+
+if (!$req_mode)
+{
+	bb_simple_die('Invalid request');
+}
 
 switch ($req_mode)
 {
@@ -25,21 +30,19 @@ switch ($req_mode)
 		$info['src'] = 'copyright_holders.html';
 		break;
 
-	case 'not_found':
-		$info['title'] = $lang['NOT_FOUND'];
-		$info['src'] = 'not_found.html';
-		break;
-
 	case 'user_agreement':
 		$info['title'] = $lang['USER_AGREEMENT'];
 		$info['src'] = 'user_agreement.html';
 		break;
 
 	default:
-		bb_simple_die('Invalid request');
+	case 'not_found':
+		$info['title'] = $lang['NOT_FOUND'];
+		$info['src'] = 'not_found.html';
+		break;
 }
 
-$require = file_exists($html_dir . $info['src']) ? $html_dir . $info['src'] : $html_dir . 'not_found.html';
+$require = is_file($html_dir . $info['src']) ? ($html_dir . $info['src']) : false;
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $bb_cfg['default_lang']; ?>">
@@ -63,7 +66,16 @@ $require = file_exists($html_dir . $info['src']) ? $html_dir . $info['src'] : $h
 	<fieldset class="pad_6">
 		<legend class="med bold mrg_2 warnColor1"><?php echo mb_strtoupper($info['title'], 'UTF-8'); ?></legend>
 		<div class="bCenter">
-			<?php require($require); ?>
+			<?php
+			if ($require)
+			{
+				require($require);
+			}
+			else
+			{
+				bb_simple_die('Target file does not exist');
+			}
+			?>
 		</div>
 	</fieldset>
 	<p class="gen tRight pad_6"><a href="javascript:window.close();" class="gen">[ <?php echo $lang['LOCK']; ?> ]</a></p>
