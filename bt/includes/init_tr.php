@@ -2,6 +2,8 @@
 
 if (!defined('IN_TRACKER')) die(basename(__FILE__));
 
+global $tr_cfg;
+
 // Exit if tracker is disabled
 if ($tr_cfg['off']) msg_die($tr_cfg['off_reason']);
 
