@@ -74,7 +74,7 @@ class sql_db
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
 				$charset_error = "Could not set charset {$this->cfg['charset']}";
-				if (DBG_USER)
+				if (DBG_LOG)
 				{
 					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
 				}
@@ -103,7 +103,7 @@ class sql_db
 			$server = (DBG_USER) ? $this->cfg['dbhost'] : '';
 			header("HTTP/1.0 503 Service Unavailable");
 			$con_error = "Could not connect to {$this->engine} server $server";
-			if (DBG_USER)
+			if (DBG_LOG)
 			{
 				dbg_log($con_error, "{$server}-DB-connect-FAIL_" . time());
 			}
@@ -130,7 +130,7 @@ class sql_db
 		{
 			$db_name = (DBG_USER) ? $this->cfg['dbname'] : '';
 			$select_error = "Could not select database $db_name";
-			if (DBG_USER)
+			if (DBG_LOG)
 			{
 				dbg_log($select_error, "{$db_name}-DB-select-FAIL_" . time());
 			}
