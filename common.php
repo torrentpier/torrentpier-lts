@@ -26,12 +26,13 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 }
 
 // Get initial config
-require_once(BB_ROOT . 'library/config.php');
-
-// Local config
-if (is_file(BB_ROOT . 'library/config.local.php'))
+if (file_exists(BB_ROOT . 'library/config.local.php'))
 {
 	require_once(BB_ROOT . 'library/config.local.php');
+}
+else
+{
+	require_once(BB_ROOT . 'library/config.php');
 }
 
 // Load Zend Framework
