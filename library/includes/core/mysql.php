@@ -105,7 +105,7 @@ class sql_db
 			$con_error = "Could not connect to {$this->engine} server $server";
 			if (DBG_LOG)
 			{
-				dbg_log($con_error, "{$server}-DB-connect-FAIL_" . time());
+				dbg_log($con_error, "{$this->cfg['dbhost']}-DB-connect-FAIL_" . time());
 			}
 			die($con_error);
 		}
@@ -132,7 +132,7 @@ class sql_db
 			$select_error = "Could not select database $db_name";
 			if (DBG_LOG)
 			{
-				dbg_log($select_error, "{$db_name}-DB-select-FAIL_" . time());
+				dbg_log($select_error, "{$this->cfg['dbname']}-DB-select-FAIL_" . time());
 			}
 			die($select_error);
 		}
