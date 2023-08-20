@@ -1456,7 +1456,7 @@ function make_jumpbox ($selected = 0)
 {
 	global $datastore, $template, $bb_cfg;
 
-	if ($bb_cfg['show_jumpbox'])
+	if (!$bb_cfg['show_jumpbox'])
 	{
 		return;
 	}
