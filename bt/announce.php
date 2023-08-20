@@ -4,8 +4,6 @@ define('IN_TRACKER', true);
 define('BB_ROOT', './../');
 require(BB_ROOT .'common.php');
 
-global $bb_cfg, $tr_cfg;
-
 if (empty($_SERVER['HTTP_USER_AGENT']))
 {
 	header('Location: http://127.0.0.1', true, 301);
