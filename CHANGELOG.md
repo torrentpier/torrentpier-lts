@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.08 🎉
+- Show set/unset downloaded actions in log actions [\#226](https://github.com/torrentpier/torrentpier-lts/pull/226) ([belomaxorka](https://github.com/belomaxorka))
 - Show pin & unpin actions in log actions [\#225](https://github.com/torrentpier/torrentpier-lts/pull/225) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#215](https://github.com/torrentpier/torrentpier-lts/pull/215), [\#216](https://github.com/torrentpier/torrentpier-lts/pull/216), [\#217](https://github.com/torrentpier/torrentpier-lts/pull/217), [\#218](https://github.com/torrentpier/torrentpier-lts/pull/218), [\#221](https://github.com/torrentpier/torrentpier-lts/pull/221), [\#222](https://github.com/torrentpier/torrentpier-lts/pull/222), [\#224](https://github.com/torrentpier/torrentpier-lts/pull/224) ([belomaxorka](https://github.com/belomaxorka))
 
