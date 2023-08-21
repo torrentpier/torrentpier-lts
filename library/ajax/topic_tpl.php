@@ -16,6 +16,7 @@ switch ($mode)
 {
 	case 'load':
 	case 'save':
+	case 'remove':
 		if (!$tpl_id = (int) $this->request['tpl_id'])
 		{
 			$this->ajax_die('Выбранный шаблон не найден, создайте новый (empty tpl_id)');
@@ -150,6 +151,16 @@ switch ($mode)
 		{
 			$sql_error = DB()->sql_error();
 		}
+		break;
+
+	// удаление шаблона
+	case 'remove':
+		$sql = "DELETE FROM ". BB_TOPIC_TPL . " WHERE tpl_id = $tpl_id LIMIT 1";
+		if (!@DB()->query($sql))
+		{
+			$sql_error = DB()->sql_error();
+		}
+		$this->response['msg'] = "Шаблон {$tpl_data['tpl_name']} успешно удалён";
 		break;
 
 	// ошибочный $mode
