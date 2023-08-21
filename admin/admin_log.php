@@ -265,6 +265,8 @@ if ($log_rowset)
 			case $log_type['mod_topic_lock']:
 			case $log_type['mod_topic_unlock']:
 			case $log_type['mod_post_delete']:
+			case $log_type['mod_post_pin']:
+			case $log_type['mod_post_unpin']:
 			case $log_type['mod_topic_split']:
 				// topic_title
 				if (!empty($row['log_topic_title']))
@@ -326,7 +328,7 @@ if ($log_rowset)
 			'TOPIC_HREF_NEW_S' => url_arg($url, $topic_key, $row['log_topic_id_new']),
 			'TOPIC_TITLE_NEW'  => $topic_title_new,
 
-			'DATE'             => bb_date($row['log_time'], 'd-M-y'),
+			'DATE'             => bb_date($row['log_time'], 'd-M-y', false),
 			'TIME'             => bb_date($row['log_time'], 'H:i'),
 			'DATETIME_HREF_S'  => $datetime_href_s,
 			'MSG'              => $msg,
