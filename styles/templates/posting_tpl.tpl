@@ -4090,10 +4090,12 @@ ajax.topic_tpl = function(mode, params) {
 			$('#tpl-new-block').toggle();
 			break;
 
+		case 'remove':
 		case 'load':
 			ajax.exec({
 				action : 'topic_tpl',
-				mode   : 'load',
+				mode   : mode,
+				forum_id : {FORUM_ID},
 				tpl_id : $('#forum_tpl_select').val()
 			});
 			break;
@@ -4164,6 +4166,7 @@ ajax.callback.topic_tpl = function(data) {
 			break;
 
 		case 'assign':
+		case 'remove':
 			alert(data.msg);
 			window.location.reload();
 			break;
@@ -4180,6 +4183,7 @@ ajax.callback.topic_tpl = function(data) {
 
 		case 'new':
 			$('#tpl-new-resp').html('новый шаблон создан (в списке выбора он появится после перезагрузки страницы)');
+			window.location.reload();
 			break;
 	}
 };
@@ -4400,6 +4404,7 @@ $(function(){
 			<!-- IF TPL_SELECT -->{TPL_SELECT} &nbsp;
 			<input type="button" value="Включить в этом форуме" class="bold" onclick="ajax.topic_tpl('assign', {tpl_id: $('#forum_tpl_select').val()})" /> &nbsp;
 			<input type="button" value="Загрузить" onclick="ajax.topic_tpl('load')" /> &nbsp;
+			<input type="button" value="{L_REMOVE}" onclick="ajax.topic_tpl('remove')" /> &nbsp;
 			<!-- ELSE -->Нет щаблонов для релизов<!-- ENDIF -->
 			<br /><br />
 			<span class="gen">
