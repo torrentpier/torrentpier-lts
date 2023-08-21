@@ -4090,18 +4090,11 @@ ajax.topic_tpl = function(mode, params) {
 			$('#tpl-new-block').toggle();
 			break;
 
+		case 'remove':
 		case 'load':
 			ajax.exec({
 				action : 'topic_tpl',
-				mode   : 'load',
-				tpl_id : $('#forum_tpl_select').val()
-			});
-			break;
-
-		case 'remove':
-			ajax.exec({
-				action : 'topic_tpl',
-				mode   : 'remove',
+				mode   : mode,
 				tpl_id : $('#forum_tpl_select').val()
 			});
 			break;
