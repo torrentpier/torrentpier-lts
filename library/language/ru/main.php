@@ -2544,6 +2544,7 @@ $lang['LOG_ACTION']['LOG_TYPE'] = array(
 	'mod_topic_split'  => 'Топик:<br /> <b>разделен</b>',
 	'mod_topic_set_downloaded' => 'Топик:<br /> <b>скачивание разрешено</b>',
 	'mod_topic_unset_downloaded' => 'Топик:<br /> <b>скачивание запрещено</b>',
+	'mod_topic_renamed' => 'Топик:<br /> <b>переименован</b>',
 	'mod_post_delete'  => 'Пост:<br /> <b>удален</b>',
 	'mod_post_pin'     => 'Пост:<br /> <b>закреплен</b>',
 	'mod_post_unpin'   => 'Пост:<br /> <b>откреплен</b>',
