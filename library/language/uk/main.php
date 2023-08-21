@@ -2544,6 +2544,7 @@ $lang['LOG_ACTION']['LOG_TYPE'] = array(
 	'mod_topic_split'  => 'Топік:<br /> <b>розділений</b>',
 	'mod_topic_set_downloaded' => 'Топік:<br /> <b>скачування дозволено</b>',
 	'mod_topic_unset_downloaded' => 'Топік:<br /> <b>скачування заборонено</b>',
+	'mod_topic_renamed' => 'Топік:<br /> <b>перейменовано</b>',
 	'mod_post_delete'  => 'Пост:<br /> <b>видалений</b>',
 	'mod_post_pin'     => 'Пост:<br /> <b>закріплений</b>',
 	'mod_post_unpin'   => 'Пост:<br /> <b>відкріплений</b>',
