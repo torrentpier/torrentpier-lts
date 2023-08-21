@@ -4095,6 +4095,7 @@ ajax.topic_tpl = function(mode, params) {
 			ajax.exec({
 				action : 'topic_tpl',
 				mode   : mode,
+				forum_id : {FORUM_ID},
 				tpl_id : $('#forum_tpl_select').val()
 			});
 			break;
