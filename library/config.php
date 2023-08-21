@@ -578,3 +578,5 @@ $bb_cfg['nofollow'] = array(
 	'disabled'    => false,
 	'allowed_url' => array($domain_name),             // 'allowed.site', 'www.allowed.site'
 );
+
+define('BB_CFG_LOADED', true);
