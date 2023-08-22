@@ -139,7 +139,7 @@ class ajax_common
 		{
 			if ($action_params[AJAX_ALWAYS_ACTIVE] !== true)
 			{
- 				if ($bb_cfg['board_disable'])
+				if ($bb_cfg['board_disable'])
 				{
 					$this->ajax_die($lang['BOARD_DISABLE']);
 				}
