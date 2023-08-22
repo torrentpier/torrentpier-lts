@@ -19,6 +19,8 @@ else
 }
 
 $delimeter  = '=+:';
+$s_hidden_fields = '';
+$smiley_paks = [];
 
 // Read a listing of uploaded smilies for use in the add or edit smliey code
 $dir = @opendir(BB_ROOT . $bb_cfg['smilies_path']);
@@ -235,7 +237,7 @@ else if ( $mode != '' )
 			}
 			$smile_data = DB()->sql_fetchrow($result);
 
-			$filename_list = '';
+			$filename_list = $smiley_edit_img = '';
 			for ($i = 0; $i < count($smiley_images); $i++)
 			{
 				if ($smiley_images[$i] == $smile_data['smile_url'])
