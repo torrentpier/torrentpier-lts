@@ -5,7 +5,8 @@ require('./pagestart.php');
 // Generate relevant output
 if (isset($_GET['pane']) && $_GET['pane'] == 'left')
 {
-	if (!$module = CACHE('bb_cache')->get('admin_module'))
+	$module = [];
+	if (!$module = CACHE('bb_cache')->get('admin_module_' . $user->id))
 	{
 		$dir = @opendir('.');
 		$setmodules = 1;
@@ -18,8 +19,11 @@ if (isset($_GET['pane']) && $_GET['pane'] == 'left')
 		}
 		unset($setmodules);
 		@closedir($dir);
-		CACHE('bb_cache')->set('admin_module', $module, 600);
+		CACHE('bb_cache')->set('admin_module_' . $user->id, $module, 600);
 	}
+
+	// Get modules from cache
+	$module = CACHE('bb_cache')->get('admin_module_' . $user->id);
 
 	$template->assign_vars(array(
 		'TPL_ADMIN_NAVIGATE' => true,
