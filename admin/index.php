@@ -22,9 +22,6 @@ if (isset($_GET['pane']) && $_GET['pane'] == 'left')
 		CACHE('bb_cache')->set('admin_module_' . $user->id, $module, 600);
 	}
 
-	// Get modules from cache
-	$module = CACHE('bb_cache')->get('admin_module_' . $user->id);
-
 	$template->assign_vars(array(
 		'TPL_ADMIN_NAVIGATE' => true,
 		'U_FORUM_INDEX'      => '../index.php',
