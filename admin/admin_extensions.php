@@ -429,7 +429,7 @@ if ($mode == 'groups')
 
 	$template->assign_vars(array(
 		'TPL_ATTACH_EXTENSION_GROUPS' => true,
-		'ADD_GROUP_NAME' => ( isset($submit) ) ? @$extension_group : '',
+		'ADD_GROUP_NAME' => ( isset($extension_group) ) ? $extension_group : '',
 		'MAX_FILESIZE' => $max_add_filesize,
 		'S_FILESIZE' => size_select('add_size_select', $size),
 		'S_ADD_DOWNLOAD_MODE' => download_select('add_download_mode'),
@@ -481,7 +481,7 @@ if ($mode == 'groups')
 			'S_FILESIZE' => size_select('size_select_list[]', $size_format),
 
 			'MAX_FILESIZE' => $extension_group[$i]['max_filesize'],
-			'CAT_BOX' => ( $viewgroup == $extension_group[$i]['group_id'] ) ? '+' : '-',
+			'CAT_BOX' => ( $viewgroup == $extension_group[$i]['group_id'] ) ? '-' : '+',
 			'U_VIEWGROUP' => ( $viewgroup == $extension_group[$i]['group_id'] ) ? "admin_extensions.php?mode=groups" : "admin_extensions.php?mode=groups&" . POST_GROUPS_URL . "=" . $extension_group[$i]['group_id'],
 			'U_FORUM_PERMISSIONS' => "admin_extensions.php?mode=$mode&amp;e_mode=perm&amp;e_group=" . $extension_group[$i]['group_id'],
 		));
