@@ -203,7 +203,7 @@ if ($download_mode == PHYSICAL_LINK)
 }
 else
 {
-	if (IS_GUEST && !bb_captcha('check'))
+	if ((IS_GUEST && !$bb_cfg['captcha']['disabled']) && !bb_captcha('check'))
 	{
 		global $template;
 

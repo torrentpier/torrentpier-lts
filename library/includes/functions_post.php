@@ -60,7 +60,7 @@ function prepare_post(&$mode, &$post_data, &$error_msg, &$username, &$subject, &
 		}
 	}
 
-	if (IS_GUEST && !bb_captcha('check'))
+	if ((IS_GUEST && !$bb_cfg['captcha']['disabled']) && !bb_captcha('check'))
 	{
 		$error_msg .= (!empty($error_msg)) ? '<br />' . $lang['CAPTCHA_WRONG'] : $lang['CAPTCHA_WRONG'];
 	}
