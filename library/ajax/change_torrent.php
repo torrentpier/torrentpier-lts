@@ -10,7 +10,7 @@ if (!isset($this->request['attach_id']))
 }
 if (!isset($this->request['type']))
 {
-	$this->ajax_die('type');
+	$this->ajax_die('empty type');
 }
 $attach_id  = (int) $this->request['attach_id'];
 $type       = (string) $this->request['type'];
