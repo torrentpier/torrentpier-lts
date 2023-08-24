@@ -139,6 +139,8 @@ if ($topic_attachment)
 	));
 }
 
+set_die_append_msg($forum_id);
+
 // Find newest post
 if (($next_topic_id || @$_GET['view'] === 'newest') && !IS_GUEST && $topic_id)
 {

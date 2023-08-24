@@ -160,6 +160,8 @@ if ($post_info = DB()->fetch_row($sql))
 	$forum_id = $post_info['forum_id'];
 	$forum_name = $post_info['forum_name'];
 
+	set_die_append_msg($forum_id);
+
 	$is_auth = auth(AUTH_ALL, $forum_id, $userdata, $post_info);
 
 	if ($post_info['forum_status'] == FORUM_LOCKED && !$is_auth['auth_mod'])
