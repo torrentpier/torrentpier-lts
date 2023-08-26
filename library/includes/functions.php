@@ -2815,14 +2815,18 @@ function hash_search ($hash)
 
 function bb_captcha ($mode, $callback = '')
 {
-	global $bb_cfg, $userdata;
+	global $bb_cfg, $lang;
 
 	require_once(CLASS_DIR .'recaptcha.php');
 
 	$secret = $bb_cfg['captcha']['secret_key'];
 	$public = $bb_cfg['captcha']['public_key'];
 	$theme  = $bb_cfg['captcha']['theme'];
-	$lang   = $bb_cfg['lang'][$userdata['user_lang']]['captcha'];
+
+	if (!$public && !$secret)
+	{
+		bb_die($lang['CAPTCHA_SETTINGS']);
+	}
 
 	$reCaptcha = new ReCaptcha($secret);
 
@@ -2840,7 +2844,7 @@ function bb_captcha ($mode, $callback = '')
 					};
 				</script>
 				<div id=\"tp-captcha\"></div>
-				<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&hl=" . $lang . "&render=explicit\" async defer></script>";
+				<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit\" async defer></script>";
 			break;
 
 		case 'check':

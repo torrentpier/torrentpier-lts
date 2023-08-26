@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.08 🎉
+- Captcha improvements [\#229](https://github.com/torrentpier/torrentpier-lts/pull/229) ([belomaxorka](https://github.com/belomaxorka))
 - Show renamed topic actions in log actions [\#227](https://github.com/torrentpier/torrentpier-lts/pull/227) ([belomaxorka](https://github.com/belomaxorka))
 - Show set/unset downloaded actions in log actions [\#226](https://github.com/torrentpier/torrentpier-lts/pull/226) ([belomaxorka](https://github.com/belomaxorka))
 - Show pin & unpin actions in log actions [\#225](https://github.com/torrentpier/torrentpier-lts/pull/225) ([belomaxorka](https://github.com/belomaxorka))
