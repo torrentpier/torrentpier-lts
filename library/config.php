@@ -421,7 +421,7 @@ $bb_cfg['max_search_words_per_post']  = 200;       // максимальное �
 $bb_cfg['search_min_word_len']        = 3;         // минимальное число слов для поиска
 $bb_cfg['search_max_word_len']        = 35;        // максимальное число слов для поиска
 $bb_cfg['limit_max_search_results']   = false;
-$bb_cfg['spam_filter_file_path']      = '';        // BB_PATH .'/misc/spam_filter_words.txt';
+$bb_cfg['spam_filter_file_path']      = '';        // INT_DATA_DIR . 'spam_filter_words.txt';
 $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard layout
 
 // Posting
