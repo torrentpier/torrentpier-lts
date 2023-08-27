@@ -357,7 +357,7 @@ ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла 
 
 // Check some variable
 // Magic quotes
-if (get_magic_quotes_gpc()) die('Set magic_quotes off');
+if (@get_magic_quotes_gpc()) die('Set magic_quotes off');
 // JSON
 if (!function_exists('json_encode')) die('Json_encode not installed');
 // Mbstring
