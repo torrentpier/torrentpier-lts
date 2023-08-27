@@ -67,7 +67,8 @@ $row = DB()->fetch_row("
 		LIMIT 1
 ");
 
-if (!$row) {
+if (!$row)
+{
 	msg_die('Torrent not registered, info_hash = ' . bin2hex($info_hash_sql));
 }
 
