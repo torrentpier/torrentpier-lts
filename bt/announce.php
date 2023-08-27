@@ -74,10 +74,25 @@ $passkey = isset($$passkey_key) ? $$passkey_key : null;
 
 // Verify request
 // Required params (info_hash, peer_id, port, uploaded, downloaded, left, passkey)
-if (!isset($info_hash) || strlen($info_hash) != 20)
+if (!isset($info_hash))
+{
+	msg_die('info_hash does not exist');
+}
+
+// Check info_hash version
+if (strlen($info_hash) == 32)
+{
+	$is_bt_v2 = true;
+}
+elseif (strlen($info_hash) == 20)
+{
+	$is_bt_v2 = false;
+}
+else
 {
 	msg_die('Invalid info_hash');
 }
+
 if (!isset($peer_id) || strlen($peer_id) != 20)
 {
 	msg_die('Invalid peer_id');
@@ -225,13 +240,14 @@ else
 {
 	// Verify if torrent registered on tracker and user authorized
 	$info_hash_sql = rtrim(DB()->escape($info_hash), ' ');
+	$info_hash_where = $is_bt_v2 ? "WHERE tor.info_hash_v2 = '$info_hash_sql'" : "WHERE tor.info_hash = '$info_hash_sql'";
 	$passkey_sql   = DB()->escape($passkey);
 
 	$sql = "
 		SELECT tor.topic_id, tor.poster_id, tor.tor_type, u.*
 		FROM ". BB_BT_TORRENTS ." tor
 		LEFT JOIN ". BB_BT_USERS ." u ON u.auth_key = '$passkey_sql'
-		WHERE tor.info_hash = '$info_hash_sql'
+		$info_hash_where
 		LIMIT 1
 	";
 
