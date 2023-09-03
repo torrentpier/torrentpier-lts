@@ -1242,7 +1242,7 @@ function show_bt_userdata ($user_id)
 
 	if (!$btu = get_bt_userdata($user_id))
 	{
-		require_once(INC_DIR .'functions_torrent.php');
+		require(INC_DIR .'functions_torrent.php');
 		generate_passkey($user_id, true);
 		$btu = get_bt_userdata($user_id);
 	}
@@ -2584,7 +2584,7 @@ function create_magnet ($infohash, $infohash_v2, $auth_key)
 	}
 	elseif (empty($auth_key))
 	{
-		require_once(INC_DIR .'functions_torrent.php');
+		require(INC_DIR .'functions_torrent.php');
 		if (!$passkey = generate_passkey($userdata['user_id'], true))
 		{
 			bb_die($lang['PASSKEY_ERR_EMPTY']);
@@ -2597,7 +2597,7 @@ function create_magnet ($infohash, $infohash_v2, $auth_key)
 	}
 
 	$passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
-	return '<a href="magnet:?xt=urn:btih:' . bin2hex($infohash) . (!empty($infohash_v2) ? '&xt=urn:btmh:1220' . bin2hex($infohash_v2) : '') . '&tr=' . urlencode($bb_cfg['bt_announce_url'] . $passkey_url) . '"><img src="' . $images['icon_magnet'] . '" width="12" height="12" border="0" /></a>';
+	return '<a href="magnet:?xt=urn:btih:'. bin2hex($infohash) . (!empty($infohash_v2) ? '&xt=urn:btmh:1220' . bin2hex($infohash_v2) : '') .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
 }
 
 function set_die_append_msg ($forum_id = null, $topic_id = null, $group_id = null)
