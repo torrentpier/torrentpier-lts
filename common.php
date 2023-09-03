@@ -28,11 +28,11 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 // Get initial config
 if (file_exists(BB_ROOT . 'library/config.local.php'))
 {
-	require_once(BB_ROOT . 'library/config.local.php');
+	require(BB_ROOT . 'library/config.local.php');
 }
 else
 {
-	require_once(BB_ROOT . 'library/config.php');
+	require(BB_ROOT . 'library/config.php');
 }
 
 // Load Zend Framework
@@ -88,7 +88,6 @@ function sqlite3_escape_string ($str)
  */
 // Core DB class
 require(CORE_DIR . 'dbs.php');
-require(CORE_DIR . 'mysql.php');
 $DBS = new DBS($bb_cfg);
 
 function DB ($db_alias = 'db1')

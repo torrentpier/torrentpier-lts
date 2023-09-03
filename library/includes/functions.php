@@ -1242,7 +1242,7 @@ function show_bt_userdata ($user_id)
 
 	if (!$btu = get_bt_userdata($user_id))
 	{
-		require(INC_DIR .'functions_torrent.php');
+		require_once(INC_DIR .'functions_torrent.php');
 		generate_passkey($user_id, true);
 		$btu = get_bt_userdata($user_id);
 	}
@@ -2584,7 +2584,7 @@ function create_magnet ($infohash, $auth_key)
 	}
 	elseif (empty($auth_key))
 	{
-		require(INC_DIR .'functions_torrent.php');
+		require_once(INC_DIR .'functions_torrent.php');
 		if (!$passkey = generate_passkey($userdata['user_id'], true))
 		{
 			bb_die($lang['PASSKEY_ERR_EMPTY']);
