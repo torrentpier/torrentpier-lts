@@ -154,7 +154,7 @@ if ($tor_reged && $tor_info)
 
 	// Magnet link
 	$passkey = DB()->fetch_row("SELECT auth_key FROM ". BB_BT_USERS ." WHERE user_id = ". (int) $bt_user_id ." LIMIT 1");
-	$tor_magnet = create_magnet($tor_info['info_hash'], $tor_info['info_hash_v2'], $passkey['auth_key']);
+	$tor_magnet = create_magnet($tor_info['info_hash'], $passkey['auth_key']);
 
 	// ratio limits
 	$min_ratio_dl = $bb_cfg['bt_min_ratio_allow_dl_tor'];
@@ -231,7 +231,6 @@ if ($tor_reged && $tor_info)
 			'FILESIZE'        => $tor_file_size,
 			'MAGNET'          => $tor_magnet,
 			'HASH'            => strtoupper(bin2hex($tor_info['info_hash'])),
-			'HASH_V2'         => !empty($tor_info['info_hash_v2']) ? strtoupper(bin2hex($tor_info['info_hash_v2'])) : false,
 			'DOWNLOAD_COUNT'  => sprintf($lang['DOWNLOAD_NUMBER'], $download_count),
 			'REGED_TIME'      => bb_date($tor_info['reg_time']),
 			'REGED_DELTA'     => delta_time($tor_info['reg_time']),

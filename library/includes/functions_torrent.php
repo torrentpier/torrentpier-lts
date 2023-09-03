@@ -249,8 +249,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	$topic_id  = $torrent['topic_id'];
 	$forum_id  = $torrent['forum_id'];
 	$poster_id = $torrent['poster_id'];
-	$info_hash = $info_hash_v2 = null;
-	$info_hash_sql = $info_hash_v2_sql = null;
+	$info_hash = null;
 
 	if ($torrent['extension'] !== TORRENT_EXT) return torrent_error_exit($lang['NOT_TORRENT']);
 	if (!$torrent['allow_reg_tracker']) return torrent_error_exit($lang['REG_NOT_ALLOWED_IN_THIS_FORUM']);
@@ -295,24 +294,9 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 		return torrent_error_exit($lang['TORFILE_INVALID']);
 	}
 
-	// Check if torrent contains info_hash v2
-	$bt_v2 = false;
-	if (($info['meta version'] ?? null) == 2 && is_array($info['file tree'] ?? null))
-	{
-		$bt_v2 = true;
-	}
-
-	// Getting info_hash v1
 	$info_hash     = pack('H*', sha1(bencode($info)));
 	$info_hash_sql = rtrim(DB()->escape($info_hash), ' ');
 	$info_hash_md5 = md5($info_hash);
-
-	// Getting info_hash v2
-	if ($bt_v2)
-	{
-		$info_hash_v2 = pack('H*', hash('sha256', bencode($info)));
-		$info_hash_v2_sql = rtrim(DB()->escape($info_hash_v2), ' ');
-	}
 
 	// Ocelot
 	if ($bb_cfg['ocelot']['enabled'])
@@ -337,11 +321,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	{
 		foreach ($info['files'] as $fn => $f)
 		{
-			// Exclude padding files
-			if (($f['attr'] ?? null) !== 'p')
-			{
-				$totallen += (float) $f['length'];
-			}
+			$totallen += (float) $f['length'];
 		}
 	}
 	else
@@ -351,8 +331,8 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	$size = sprintf('%.0f', (float) $totallen);
 
-	$columns = ' info_hash,       post_id,  poster_id,  topic_id,  forum_id,  attach_id,    size,  reg_time,  tor_status,  info_hash_v2';
-	$values = "'$info_hash_sql', $post_id, $poster_id, $topic_id, $forum_id, $attach_id, '$size', $reg_time, $tor_status, '$info_hash_v2_sql'";
+	$columns = ' info_hash,       post_id,  poster_id,  topic_id,  forum_id,  attach_id,    size,  reg_time,  tor_status';
+	$values = "'$info_hash_sql', $post_id, $poster_id, $topic_id, $forum_id, $attach_id, '$size', $reg_time, $tor_status";
 
 	$sql = "INSERT INTO ". BB_BT_TORRENTS ." ($columns) VALUES ($values)";
 

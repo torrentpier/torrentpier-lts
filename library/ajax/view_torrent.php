@@ -103,11 +103,6 @@ class torrent
 				{
 					continue;
 				}
-				// Exclude padding files
-				if (($f['attr'] ?? null) === 'p')
-				{
-					continue;
-				}
 				array_deep($f['path'], 'clean_tor_dirname');
 
 				$length = isset($f['length']) ? (float) $f['length'] : 0;

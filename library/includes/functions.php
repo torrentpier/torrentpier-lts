@@ -2574,7 +2574,7 @@ function pad_with_space ($str)
 	return ($str) ? " $str " : $str;
 }
 
-function create_magnet ($infohash, $infohash_v2, $auth_key)
+function create_magnet ($infohash, $auth_key)
 {
 	global $bb_cfg, $images, $lang, $userdata;
 
@@ -2597,7 +2597,7 @@ function create_magnet ($infohash, $infohash_v2, $auth_key)
 	}
 
 	$passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
-	return '<a href="magnet:?xt=urn:btih:'. bin2hex($infohash) . (!empty($infohash_v2) ? '&xt=urn:btmh:1220' . bin2hex($infohash_v2) : '') .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
+	return '<a href="magnet:?xt=urn:btih:'. bin2hex($infohash) .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
 }
 
 function set_die_append_msg ($forum_id = null, $topic_id = null, $group_id = null)
@@ -2795,30 +2795,15 @@ function hash_search ($hash)
 	global $lang;
 
 	$hash = htmlCHR(trim($hash));
-	$info_hash_where = null;
 
-	if (!isset($hash))
+	if (!isset($hash) || mb_strlen($hash, 'UTF-8') != 40)
 	{
 		bb_die(sprintf($lang['HASH_INVALID'], $hash));
 	}
 
 	$info_hash = DB()->escape(pack("H*", $hash));
 
-	// Check info_hash version
-	if (mb_strlen($hash, 'UTF-8') == 40)
-	{
-		$info_hash_where = "WHERE info_hash = '$info_hash'";
-	}
-	elseif (mb_strlen($hash, 'UTF-8') == 64)
-	{
-		$info_hash_where = "WHERE info_hash_v2 = '$info_hash'";
-	}
-	else
-	{
-		bb_die(sprintf($lang['HASH_INVALID'], $hash));
-	}
-
-	if ($row = DB()->fetch_row("SELECT topic_id FROM " . BB_BT_TORRENTS . " $info_hash_where"))
+	if ($row = DB()->fetch_row("SELECT topic_id FROM " . BB_BT_TORRENTS . " WHERE info_hash = '$info_hash'"))
 	{
 		redirect(TOPIC_URL . $row['topic_id']);
 	}
