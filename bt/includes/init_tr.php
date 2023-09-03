@@ -128,7 +128,7 @@ class sql_db
 
 		$connect_type = ($this->cfg['persist']) ? 'mysql_pconnect' : 'mysql_connect';
 
-		if (!$link = @$connect_type($this->cfg['dbhost'], $this->cfg['dbuser'], $this->cfg['dbpasswd']))
+		if (!$link = $connect_type($this->cfg['dbhost'], $this->cfg['dbuser'], $this->cfg['dbpasswd']))
 		{
 			$this->log_error();
 		}
@@ -163,7 +163,7 @@ class sql_db
 		$this->cur_query = 'select db';
 		$this->debug('start');
 
-		if (!@mysql_select_db($this->cfg['dbname'], $this->link))
+		if (!mysql_select_db($this->cfg['dbname'], $this->link))
 		{
 			$this->log_error();
 			error_exit("Could not select database '{$this->cfg['dbname']}'");
