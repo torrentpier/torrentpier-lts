@@ -104,7 +104,7 @@ class torrent
 					continue;
 				}
 				// Exclude padding files
-				if ((isset($f['attr']) ? $f['attr'] : null) === 'p')
+				if (($f['attr'] ?? null) === 'p')
 				{
 					continue;
 				}

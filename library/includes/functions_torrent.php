@@ -297,7 +297,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	// Check if torrent contains info_hash v2
 	$bt_v2 = false;
-	if ((isset($info['meta version']) ? $info['meta version'] : null) == 2 && is_array(isset($info['file tree']) ? $info['file tree'] : null))
+	if (($info['meta version'] ?? null) == 2 && is_array($info['file tree'] ?? null))
 	{
 		$bt_v2 = true;
 	}
@@ -338,7 +338,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 		foreach ($info['files'] as $fn => $f)
 		{
 			// Exclude padding files
-			if ((isset($f['attr']) ? $f['attr'] : null) !== 'p')
+			if (($f['attr'] ?? null) !== 'p')
 			{
 				$totallen += (float) $f['length'];
 			}
