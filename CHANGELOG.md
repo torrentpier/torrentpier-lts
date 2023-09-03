@@ -6,7 +6,6 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.08 🎉
-- Fixed info hash v2 issue [\#233](https://github.com/torrentpier/torrentpier-lts/pull/233) ([belomaxorka](https://github.com/belomaxorka))
 - BitTorrent v2 support 🐸 [\#230](https://github.com/torrentpier/torrentpier-lts/pull/230) ([belomaxorka](https://github.com/belomaxorka))
 - Captcha improvements [\#229](https://github.com/torrentpier/torrentpier-lts/pull/229) ([belomaxorka](https://github.com/belomaxorka))
 - Show renamed topic actions in log actions [\#227](https://github.com/torrentpier/torrentpier-lts/pull/227) ([belomaxorka](https://github.com/belomaxorka))
