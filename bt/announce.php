@@ -239,7 +239,7 @@ else
 
 	if (empty($row['topic_id']))
 	{
-		msg_die('Torrent not registered, info_hash = ' . bin2hex($info_hash_sql));
+		msg_die('Torrent not registered, info_hash = ' . bin2hex($info_hash));
 	}
 	if (empty($row['user_id']))
 	{
@@ -487,16 +487,16 @@ if (!$output)
 			LIMIT 1
 		");
 
-		$seeders  = $row['seeders'];
-		$leechers = $row['leechers'];
+		$seeders  = isset($row['seeders']) ? $row['seeders'] : 0;
+		$leechers = isset($row['leechers']) ? $row['leechers'] : 0;
 	}
 
 	$output = array(
 		'interval'     => (int) $announce_interval,
 		'min interval' => (int) $announce_interval,
-		'peers'        => $peers,
 		'complete'     => (int) $seeders,
 		'incomplete'   => (int) $leechers,
+		'peers'        => $peers,
 	);
 
 	$peers_list_cached = CACHE('tr_cache')->set(PEERS_LIST_PREFIX . $topic_id, $output, PEERS_LIST_EXPIRE);
