@@ -712,7 +712,7 @@ $template->assign_vars(array(
 	'POSTER_RGROUPS'       => isset($poster_rgroups) && !empty($poster_rgroups) ? $poster_rgroups : '',
 	'ATTACH_RG_SIG'        => ($switch_rg_sig) ? $switch_rg_sig : false,
 
-	'U_VIEWTOPIC'          => ($mode == 'reply') ? "viewtopic.php?" . POST_TOPIC_URL . "=$topic_id&amp;postorder=desc" : '',
+	'U_VIEWTOPIC'          => ($mode == 'reply') ? TOPIC_URL . "$topic_id&amp;postorder=desc" : '',
 
 	'S_NOTIFY_CHECKED'     => ($notify_user) ? 'checked="checked"' : '',
 	'S_TYPE_TOGGLE'        => $topic_type_toggle,

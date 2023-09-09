@@ -102,7 +102,7 @@ if (!$tor_reged)
 		'U_DOWNLOAD_LINK' => $download_link,
 		'FILESIZE'        => $tor_file_size,
 
-		'DOWNLOAD_COUNT'  => sprintf($lang['DOWNLOAD_NUMBER'], $download_count),
+		'DOWNLOAD_COUNT'  => declension((int)$download_count, 'times'),
 		'POSTED_TIME'     => $tor_file_time,
 	));
 
@@ -231,11 +231,11 @@ if ($tor_reged && $tor_info)
 			'FILESIZE'        => $tor_file_size,
 			'MAGNET'          => $tor_magnet,
 			'HASH'            => strtoupper(bin2hex($tor_info['info_hash'])),
-			'DOWNLOAD_COUNT'  => sprintf($lang['DOWNLOAD_NUMBER'], $download_count),
+			'DOWNLOAD_COUNT'  => declension((int)$download_count, 'times'),
 			'REGED_TIME'      => bb_date($tor_info['reg_time']),
 			'REGED_DELTA'     => delta_time($tor_info['reg_time']),
 			'TORRENT_SIZE'    => humn_size($tor_size),
-			'COMPLETED'       => sprintf($lang['DOWNLOAD_NUMBER'], $tor_info['complete_count']),
+			'COMPLETED'       => declension((int)$tor_info['complete_count'], 'times'),
 		));
 
 		if ($comment)
@@ -252,7 +252,8 @@ if ($tor_reged && $tor_info)
 
 			'TOR_SIZE'      => humn_size($tor_size),
 			'TOR_LONGEVITY' => delta_time($tor_info['reg_time']),
-			'TOR_COMPLETED' => declension($tor_info['complete_count'], 'times'),
+			'TOR_COMPLETED' => declension((int)$tor_info['complete_count'], 'times'),
+			'TOR_DOWNLOAD_COUNT' => declension((int)$download_count, 'times'),
 		));
 	}
 
@@ -433,7 +434,7 @@ if ($tor_reged && $tor_info)
 						if (!defined('SEEDER_EXIST'))
 						{
 							define('SEEDER_EXIST', true);
-							$seed_order_action = "viewtopic.php?". POST_TOPIC_URL ."=$bt_topic_id&amp;spmode=full#seeders";
+							$seed_order_action = TOPIC_URL . "$bt_topic_id&amp;spmode=full#seeders";
 
 							$template->assign_block_vars("$x_full", array(
 								'SEED_ORD_ACT'   => $seed_order_action,
@@ -586,7 +587,7 @@ if ($bb_cfg['bt_allow_spmode_change'] && $s_mode != 'full')
 {
 	$template->assign_vars(array(
 		'PEERS_FULL_LINK'  => true,
-		'SPMODE_FULL_HREF' => "viewtopic.php?". POST_TOPIC_URL ."=$bt_topic_id&amp;spmode=full#seeders",
+		'SPMODE_FULL_HREF' => TOPIC_URL . "$bt_topic_id&amp;spmode=full#seeders",
 	));
 }
 
