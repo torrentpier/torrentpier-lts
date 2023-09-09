@@ -6,7 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
-- Minor improvements [\#235](https://github.com/torrentpier/torrentpier-lts/pull/235), [\#236](https://github.com/torrentpier/torrentpier-lts/pull/236) ([belomaxorka](https://github.com/belomaxorka))
+- Minor improvements [\#235](https://github.com/torrentpier/torrentpier-lts/pull/235), [\#236](https://github.com/torrentpier/torrentpier-lts/pull/236), [\#237](https://github.com/torrentpier/torrentpier-lts/pull/237) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.08](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.08) (2023-09-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.07...v2.1.5-2023.08)
@@ -110,7 +110,6 @@
 - Fixed getting online info from cache [\#16](https://github.com/torrentpier/torrentpier-lts/pull/16) ([belomaxorka](https://github.com/belomaxorka))
 - Incorrect log file rotation regex [\#77](https://github.com/torrentpier/torrentpier-lts/pull/77) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed typo in file cache [\#78](https://github.com/torrentpier/torrentpier-lts/pull/78) ([belomaxorka](https://github.com/belomaxorka))
-- Fixed get_avatar method [\#79](https://github.com/torrentpier/torrentpier-lts/pull/79) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed undefined is_moz [\#80](https://github.com/torrentpier/torrentpier-lts/pull/80) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed Static methods invocation via '->'. [\#81](https://github.com/torrentpier/torrentpier-lts/pull/81) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed broken user_birthday applying ajax [\#82](https://github.com/torrentpier/torrentpier-lts/pull/82) ([belomaxorka](https://github.com/belomaxorka))
