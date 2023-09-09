@@ -99,7 +99,6 @@
 - Simplified make_rand_str function [\#4](https://github.com/torrentpier/torrentpier-lts/pull/4) ([belomaxorka](https://github.com/belomaxorka))
 - Tidy deprecated option merge-spans remove [\#5](https://github.com/torrentpier/torrentpier-lts/pull/5) ([belomaxorka](https://github.com/belomaxorka))
 - Incorrect case close operators [\#6](https://github.com/torrentpier/torrentpier-lts/pull/6) ([belomaxorka](https://github.com/belomaxorka))
-- Fix Error in GET /bt/announce.php [\#7](https://github.com/torrentpier/torrentpier-lts/pull/7) ([belomaxorka](https://github.com/belomaxorka))
 - Poster birthday with no birthday date fix [\#8](https://github.com/torrentpier/torrentpier-lts/pull/8) ([belomaxorka](https://github.com/belomaxorka))
 - New external service for look up IP address [\#9](https://github.com/torrentpier/torrentpier-lts/pull/9) ([belomaxorka](https://github.com/belomaxorka))
 - Add check lang [\#10](https://github.com/torrentpier/torrentpier-lts/pull/10) ([belomaxorka](https://github.com/belomaxorka))
