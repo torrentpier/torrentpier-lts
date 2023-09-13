@@ -61,7 +61,7 @@ $bb_cfg['cache']['memcache'] = array(
 $bb_cfg['cache']['redis']  = array(
 	'host'         => '127.0.0.1',
 	'port'         => 6379,
-	'pconnect'     => true,
+	'pconnect'     => PHP_ZTS ? false : true,
 	'con_required' => true,
 );
 

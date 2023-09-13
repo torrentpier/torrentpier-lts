@@ -2574,7 +2574,7 @@ function pad_with_space ($str)
 	return ($str) ? " $str " : $str;
 }
 
-function create_magnet ($infohash, $auth_key)
+function create_magnet ($infohash, $auth_key, $name)
 {
 	global $bb_cfg, $images, $lang, $userdata;
 
@@ -2597,7 +2597,7 @@ function create_magnet ($infohash, $auth_key)
 	}
 
 	$passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
-	return '<a href="magnet:?xt=urn:btih:'. bin2hex($infohash) .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
+	return '<a href="magnet:?xt=urn:btih:' . bin2hex($infohash) . '&tr=' . urlencode($bb_cfg['bt_announce_url'] . $passkey_url) . '&dn=' . urlencode($name) . '"><img src="' . $images['icon_magnet'] . '" width="12" height="12" border="0" /></a>';
 }
 
 function set_die_append_msg ($forum_id = null, $topic_id = null, $group_id = null)
