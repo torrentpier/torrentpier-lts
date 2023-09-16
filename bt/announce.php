@@ -487,8 +487,8 @@ if (!$output)
 			LIMIT 1
 		");
 
-		$seeders  = isset($row['seeders']) ? $row['seeders'] : 0;
-		$leechers = isset($row['leechers']) ? $row['leechers'] : 0;
+		$seeders  = isset($row['seeders']) ? $row['seeders'] : ($seeder ? 1 : 0);
+		$leechers = isset($row['leechers']) ? $row['leechers'] : (!$seeder ? 1 : 0);
 	}
 
 	$output = array(
