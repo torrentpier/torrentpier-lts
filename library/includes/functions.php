@@ -2821,7 +2821,7 @@ function bb_captcha ($mode, $callback = '')
 
 	$secret = $bb_cfg['captcha']['secret_key'];
 	$public = $bb_cfg['captcha']['public_key'];
-	$theme  = $bb_cfg['captcha']['theme'] ?? 'light';
+	$theme  = isset($bb_cfg['captcha']['theme']) ? $bb_cfg['captcha']['theme'] : 'light';
 
 	$reCaptcha = new ReCaptcha($secret);
 
