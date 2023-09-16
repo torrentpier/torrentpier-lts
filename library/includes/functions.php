@@ -2817,22 +2817,21 @@ function bb_captcha ($mode, $callback = '')
 {
 	global $bb_cfg, $lang;
 
-	require_once(CLASS_DIR .'recaptcha.php');
-
 	$secret = $bb_cfg['captcha']['secret_key'];
 	$public = $bb_cfg['captcha']['public_key'];
 	$theme  = isset($bb_cfg['captcha']['theme']) ? $bb_cfg['captcha']['theme'] : 'light';
 
+	if (!$bb_cfg['captcha']['disabled'] && (!$public || !$secret))
+	{
+		bb_die($lang['CAPTCHA_SETTINGS']);
+	}
+
+	require_once(CLASS_DIR .'recaptcha.php');
 	$reCaptcha = new ReCaptcha($secret);
 
 	switch ($mode)
 	{
 		case 'get':
-			if (!$public || !$secret)
-			{
-				bb_die($lang['CAPTCHA_SETTINGS']);
-			}
-
 			return "
 				<script type=\"text/javascript\">
 					var onloadCallback = function() {
