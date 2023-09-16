@@ -2821,18 +2821,18 @@ function bb_captcha ($mode, $callback = '')
 
 	$secret = $bb_cfg['captcha']['secret_key'];
 	$public = $bb_cfg['captcha']['public_key'];
-	$theme  = $bb_cfg['captcha']['theme'];
-
-	if (!$public && !$secret)
-	{
-		bb_die($lang['CAPTCHA_SETTINGS']);
-	}
+	$theme  = $bb_cfg['captcha']['theme'] ?? 'light';
 
 	$reCaptcha = new ReCaptcha($secret);
 
 	switch ($mode)
 	{
 		case 'get':
+			if (!$public || !$secret)
+			{
+				bb_die($lang['CAPTCHA_SETTINGS']);
+			}
+
 			return "
 				<script type=\"text/javascript\">
 					var onloadCallback = function() {
