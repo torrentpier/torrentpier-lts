@@ -27,7 +27,7 @@ class datastore_redis extends datastore_common
 	{
 		$connect_type = ($this->cfg['pconnect']) ? 'pconnect' : 'connect';
 
-		$this->cur_query = 'connect '. $this->cfg['host'] .':'. $this->cfg['port'];
+		$this->cur_query = $connect_type .' '. $this->cfg['host'] .':'. $this->cfg['port'];
 		$this->debug('start');
 
 		if (@$this->redis->$connect_type($this->cfg['host'], $this->cfg['port']))
