@@ -187,14 +187,14 @@ if ($search_imagick)
 		{
 			$path = 'c:/imagemagick/convert.exe';
 
-			if ( !@file_exists(@amod_realpath($path)))
+			if ( @file_exists(@amod_realpath($path)))
 			{
 				$imagick = $path;
 			}
 		}
 	}
 
-	if ( !@file_exists(@amod_realpath(trim($imagick))))
+	if ( @file_exists(@amod_realpath(trim($imagick))))
 	{
 		$new_attach['img_imagick'] = trim($imagick);
 	}
