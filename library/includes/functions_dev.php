@@ -15,11 +15,11 @@ function get_sql_log ()
 
 	foreach ($CACHES->obj as $cache_name => $cache_obj)
 	{
-		if (!empty($cache_obj->db))
+		if (!empty($cache_obj->db->dbg))
 		{
 			$log .= get_sql_log_html($cache_obj->db, "cache: $cache_name [{$cache_obj->db->engine}]");
 		}
-		elseif (!empty($cache_obj->engine))
+		elseif (!empty($cache_obj->dbg))
 		{
 			$log .= get_sql_log_html($cache_obj, "cache: $cache_name [{$cache_obj->engine}]");
 		}
@@ -29,11 +29,11 @@ function get_sql_log ()
 
 	if (!empty($datastore->db->dbg))
 	{
-		$log .= get_sql_log_html($datastore->db, 'cache: datastore ['.$datastore->engine.']');
+		$log .= get_sql_log_html($datastore->db, "cache: datastore [{$datastore->db->engine}]");
 	}
 	else if(!empty($datastore->dbg))
 	{
-		$log .= get_sql_log_html($datastore, 'cache: datastore ['.$datastore->engine.']');
+		$log .= get_sql_log_html($datastore, "cache: datastore [{$datastore->engine}]");
 	}
 
 	return $log;
