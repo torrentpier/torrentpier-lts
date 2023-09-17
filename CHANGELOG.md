@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- Fixed cache directory auto-creating with SQLite [\#247](https://github.com/torrentpier/torrentpier-lts/pull/247) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#245](https://github.com/torrentpier/torrentpier-lts/pull/245), [\#246](https://github.com/torrentpier/torrentpier-lts/pull/246) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.08-HotFix](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.08-HotFix) (2023-09-17)
