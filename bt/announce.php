@@ -78,7 +78,11 @@ if (strlen($info_hash) != 20)
 {
 	msg_die('Invalid info_hash: ' . bin2hex($info_hash));
 }
-if (!isset($peer_id) || strlen($peer_id) != 20)
+if (!isset($peer_id))
+{
+	msg_die('peer_id was not provided');
+}
+if (strlen($peer_id) != 20)
 {
 	msg_die('Invalid peer_id: ' . bin2hex($peer_id));
 }
