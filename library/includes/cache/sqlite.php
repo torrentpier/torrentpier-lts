@@ -142,6 +142,24 @@ class sqlite_common extends cache_common
 	{
 		$this->cfg = array_merge($this->cfg, $cfg);
 		$this->dbg_enabled = sql_dbg_enabled();
+
+		// Creates filecache dir
+		$db_dir = dirname($this->cfg['db_file_path']);
+
+		if (!is_dir($db_dir))
+		{
+			if (!bb_mkdir($db_dir))
+			{
+				$create_error = "Cannot create {$this->engine} cache dir: $db_dir";
+
+				if (DBG_LOG)
+				{
+					dbg_log($create_error, "{$this->engine}-CACHE-mkdir-FAIL_" . time());
+				}
+
+				die($create_error);
+			}
+		}
 	}
 
 	function connect ()
