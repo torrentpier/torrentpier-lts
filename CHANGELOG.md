@@ -1,7 +1,7 @@
 # 📖 Change Log
 
 ## [v2.1.5-2023.09](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.09) (2023-10-04) (В разработке)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.08...v2.1.5-2023.09)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.08-HotFix...v2.1.5-2023.09)
 
 **Merged pull requests:**
 
