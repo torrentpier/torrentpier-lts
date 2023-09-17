@@ -318,6 +318,7 @@ function display_attachments($post_id)
 					'IMG_THUMB_SRC'  => $thumb_source,
 					'FILESIZE'       => $filesize,
 					'COMMENT'        => $comment,
+					'DOWNLOAD_COUNT' => declension((int)$attachments['_' . $post_id][$i]['download_count'], 'times'),
 				));
 			}
 
@@ -338,7 +339,7 @@ function display_attachments($post_id)
 					'FILESIZE'        => $filesize,
 					'COMMENT'         => $comment,
 					'TARGET_BLANK'    => $target_blank,
-					'DOWNLOAD_COUNT'  => sprintf($lang['DOWNLOAD_NUMBER'], $attachments['_' . $post_id][$i]['download_count']),
+					'DOWNLOAD_COUNT'  => declension((int)$attachments['_' . $post_id][$i]['download_count'], 'times'),
 				));
 			}
 		}
