@@ -320,7 +320,8 @@ define('DBG_LOG',              false);            // enable forum debug (off on 
 define('DBG_TRACKER',          false);            // enable tracker debug (off on production)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // enable forum sql & cache debug
-define('SQL_LOG_NAME',         'sql_error_bb');   // mysql log filename
+define('SQL_BB_LOG_NAME',      'sql_error_bb');   // mysql log filename (Board)
+define('SQL_TR_LOG_NAME',      'sql_error_tr');   // mysql log filename (Tracker)
 define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
 define('SQL_CALC_QUERY_TIME',  true);             // for stats
 define('SQL_LOG_SLOW_QUERIES', true);             // log sql slow queries
@@ -438,10 +439,10 @@ $bb_cfg['max_savebox_privmsgs'] = 500;             // максимальное �
 $bb_cfg['max_sentbox_privmsgs'] = 500;             // максимальное число сообщений в папке отправленные
 $bb_cfg['max_smilies_pm']       = 15;              // максимальное число смайлов в сообщении (0 - без ограничения)
 $bb_cfg['max_symbols_pm']       = 1500;            // TODO: максимальное число символов в сообщении (0 - без ограничения)
-$bb_cfg['pm_days_keep']         = 180;             // время хранения ЛС
+$bb_cfg['pm_days_keep']         = 0;               // время хранения ЛС (0 - без ограничения)
 
 // Actions log
-$bb_cfg['log_days_keep'] = 365;                    // время хранения истории действий
+$bb_cfg['log_days_keep'] = 365;                    // время хранения истории действий (0 - без ограничения)
 
 // Users
 $bb_cfg['color_nick']                   = true;    // Окраска ников пользователей по user_rank

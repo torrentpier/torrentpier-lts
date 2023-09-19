@@ -484,6 +484,6 @@ class sql_db
 		$msg[] = 'Method  : '. @$_SERVER['REQUEST_METHOD'];
 		$msg[] = 'Request : '. trim(print_r($_REQUEST, true)) . str_repeat('_', 78) . LOG_LF;
 		$msg[] = '';
-		bb_log($msg, 'sql_error_tr');
+		bb_log($msg, SQL_TR_LOG_NAME);
 	}
 }
