@@ -910,7 +910,7 @@ class sql_db
 		$msg[] = 'PID     : '. sprintf('%05d', getmypid());
 		$msg[] = 'Request : '. trim(print_r($_REQUEST, true)) . str_repeat('_', 78) . LOG_LF;
 		$msg[] = '';
-		bb_log($msg, SQL_LOG_NAME);
+		bb_log($msg, SQL_BB_LOG_NAME);
 	}
 
 	/**
