@@ -332,7 +332,7 @@ if ($log_rowset)
 			'TOPIC_TITLE_NEW'  => $topic_title_new,
 
 			'DATE'             => bb_date($row['log_time'], 'd-M-y', false),
-			'TIME'             => bb_date($row['log_time'], 'H:i'),
+			'TIME'             => bb_date($row['log_time'], 'H:i', false),
 			'DATETIME_HREF_S'  => $datetime_href_s,
 			'MSG'              => $msg,
 			'ROW_CLASS'        => $row_class,
