@@ -9,7 +9,7 @@ $bb_cfg['js_ver'] = $bb_cfg['css_ver'] = 1;
 
 // Primary domain name
 $domain_name = 'torrentpier.com'; // enter here your primary domain name of your site
-$domain_name = (!empty($_SERVER['SERVER_NAME'])) ? $_SERVER['SERVER_NAME'] : $domain_name;
+$domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_NAME']) : $domain_name;
 
 // Domain secure (HTTPS)
 $domain_ssl = false;
