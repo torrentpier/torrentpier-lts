@@ -1,6 +1,6 @@
 <?php
 
-if (empty($bb_cfg['topic_notify_enabled']))
+if (!$bb_cfg['topic_notify_enabled'])
 {
 	bb_die($lang['DISABLED']);
 }

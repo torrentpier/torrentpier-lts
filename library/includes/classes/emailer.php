@@ -137,7 +137,7 @@ class emailer
 
 		if ($bb_cfg['emailer_disabled'])
 		{
-			return;
+			return false;
 		}
 
 		// Escape all quotes
