@@ -615,6 +615,7 @@ $lang['EMAIL_TAKEN'] = 'Вибачте, але цей e-mail адреса вже
 $lang['EMAIL_BANNED'] = 'Вибачте, адреса <b>%s</b> знаходиться в чорному списку';
 $lang['EMAIL_INVALID'] = 'Вибачте, але цей e-mail адреса неправильний';
 $lang['EMAIL_TOO_LONG'] = 'Занадто довга email адреса';
+$lang['EMAIL_CHANGING_DISABLED'] = 'Ви не можете змінити адресу електронної пошти. Функцію вимкнено адміністратором сайту';
 $lang['SIGNATURE_TOO_LONG'] = 'Занадто довгий підпис';
 $lang['SIGNATURE_ERROR_HTML'] = 'Підпис може містити тільки BBCode';
 $lang['FIELDS_EMPTY'] = "Ви повинні заповнити обов'язкові поля";

@@ -273,7 +273,7 @@ foreach ($profile_fields as $field => $can_edit)
 				{
 					if ($bb_cfg['email_change_disabled'] && !$adm_edit)
 					{
-						$errors[] = '';
+						$errors[] = $lang['EMAIL_CHANGING_DISABLED'];
 					}
 					if (!$cur_pass_valid)
 					{
