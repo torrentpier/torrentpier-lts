@@ -1711,6 +1711,8 @@ $lang['USER_AUTH_UPDATED'] = 'Права користувача змінено';
 $lang['GROUP_AUTH_UPDATED'] = 'Права групи змінено';
 
 $lang['AUTH_UPDATED'] = 'Права доступу змінено';
+$lang['AUTH_GENERAL_ERROR'] = 'Не вдалося оновити статус адміністратора';
+$lang['AUTH_SELF_ERROR'] = 'Не вдалося змінити себе з адміністратора на користувача';
 $lang['CLICK_RETURN_USERAUTH'] = '%sВернуться до управління правами користувачів%s';
 $lang['CLICK_RETURN_GROUPAUTH'] = '%sВернуться до управління правами груп%s';
 $lang['CLICK_RETURN_FORUMAUTH'] = '%sВернуться до управління доступом до форумів%s';
