@@ -1471,6 +1471,9 @@ $lang['OFF'] = 'вимк.';
 $lang['MEMORY'] = "Пам'ять: ";
 $lang['QUERIES'] = 'запит.';
 $lang['LIMIT'] = 'Ліміт:';
+$lang['SHOW_LOG'] = 'показати лог';
+$lang['CUT_LONG_LOG'] = 'скоротити довгі запити';
+$lang['EXPLAIN_LOG'] = 'пояснений лог';
 
 // Attach Guest
 $lang['DOWNLOAD_INFO'] = 'Зареєструватися та завантажити торрент!';
