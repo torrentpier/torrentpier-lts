@@ -253,7 +253,7 @@ $bb_cfg['templates'] = array(
 );
 
 $bb_cfg['tpl_name']   = 'default'; // шаблон по умолчанию
-$bb_cfg['stylesheet'] = 'main.css';
+$bb_cfg['stylesheet'] = 'main.css'; // указать основной файл стилей используемый в шаблоне
 
 $bb_cfg['show_sidebar1_on_every_page'] = false; // показывать левый сайд-бар на каждой странице
 $bb_cfg['show_sidebar2_on_every_page'] = false; // показывать правый сайд-бар на каждой странице
@@ -291,26 +291,26 @@ $bb_cfg['reg_email_activation']    = true;         // Требовать акт�
 // Email
 $bb_cfg['emailer_disabled']        = false;
 
-$bb_cfg['smtp_delivery']           = false; // send email via a named server instead of the local mail function
-$bb_cfg['smtp_ssl']                = false; // use ssl connect
-$bb_cfg['smtp_host']               = '';    // SMTP server host
-$bb_cfg['smtp_port']               = 25;    // SMTP server port
-$bb_cfg['smtp_username']           = '';    // enter a username if your SMTP server requires it
-$bb_cfg['smtp_password']           = '';    // enter a password if your SMTP server requires it
+$bb_cfg['smtp_delivery']           = false; // использовать ли SMTP (если false, то будет использоваться нативная функция mail())
+$bb_cfg['smtp_ssl']                = false; // использовать ли SSL при подключении к SMTP
+$bb_cfg['smtp_host']               = '';    // SMTP название хоста
+$bb_cfg['smtp_port']               = 25;    // SMTP порт сервера
+$bb_cfg['smtp_username']           = '';    // указать имя пользователя SMTP (если требуется)
+$bb_cfg['smtp_password']           = '';    // указать пароль для SMTP (если требуется)
 
 $bb_cfg['board_email']             = "noreply@$domain_name"; // admin email address
 $bb_cfg['board_email_form']        = false;        // can users send email to each other via board
 $bb_cfg['board_email_sig']         = '';           // this text will be attached to all emails the board sends
 $bb_cfg['board_email_sitename']    = $domain_name; // sitename used in all emails header
 
-$bb_cfg['topic_notify_enabled']    = true;
-$bb_cfg['pm_notify_enabled']       = true;
+$bb_cfg['topic_notify_enabled']    = true; // отправлять ли уведомление на почту, если в
+$bb_cfg['pm_notify_enabled']       = true; // отправлять ли уведомление на почту, если пришло личное письмо на сайте
 $bb_cfg['group_send_email']        = true;
-$bb_cfg['email_change_disabled']   = false;        // disable changing email by user
+$bb_cfg['email_change_disabled']   = false; // отключить возможность изменять почту самим пользователям
 
-$bb_cfg['tech_admin_email']        = "admin@$domain_name"; // email for sending error reports
-$bb_cfg['abuse_email']             = "abuse@$domain_name";
-$bb_cfg['adv_email']               = "adv@$domain_name";
+$bb_cfg['tech_admin_email']        = "admin@$domain_name"; // почта технической поддержки (тех. админа / создателя)
+$bb_cfg['abuse_email']             = "abuse@$domain_name"; // почта для жалоб (абуз, правообладатели)
+$bb_cfg['adv_email']               = "adv@$domain_name"; // почта для рекламных предложений
 
 // Debug
 define('SPHINX_LOG_ERRORS',    true);             // log sphinx errors
@@ -346,8 +346,8 @@ $bb_cfg['super_admins'] = array(
 
 // Log options
 define('LOG_EXT',      'log'); // расширение лог файла
-define('LOG_SEPR',     ' | ');
-define('LOG_LF',       "\n");
+define('LOG_SEPR',     ' | '); // разделить в лог файле
+define('LOG_LF',       "\n"); // символ переноса строки
 define('LOG_MAX_SIZE', 1048576); // максимальный размер лог файла (в байтах)
 
 // Error reporting
