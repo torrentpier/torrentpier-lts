@@ -271,7 +271,7 @@ foreach ($profile_fields as $field => $can_edit)
 				}
 				else if ($email != $pr_data['user_email']) // если смена мейла юзером
 				{
-					if ($bb_cfg['email_change_disabled'] && !$adm_edit)
+					if ($bb_cfg['email_change_disabled'] && !$adm_edit && !IS_ADMIN)
 					{
 						$errors[] = $lang['EMAIL_CHANGING_DISABLED'];
 					}
