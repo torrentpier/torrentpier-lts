@@ -477,8 +477,8 @@ else
 		'MOD_TIME'               => (!empty($group_info['mod_time'])) ? bb_date($group_info['mod_time']) : $lang['NONE'],
 		'U_SEARCH_USER'          => "search.php?mode=searchuser",
 		'U_SEARCH_RELEASES'      => "tracker.php?srg=$group_id",
-		'U_GROUP_RELEASES'       => "group.php?view=releases&amp;". POST_GROUPS_URL ."=$group_id",
-		'U_GROUP_MEMBERS'        => "group.php?view=members&amp;". POST_GROUPS_URL ."=$group_id",
+		'U_GROUP_RELEASES'       => GROUP_URL . $group_id . "&view=releases",
+		'U_GROUP_MEMBERS'        => GROUP_URL . $group_id . "&view=members",
 		'U_GROUP_CONFIG'         => "group_edit.php?g=$group_id",
 		'RELEASE_GROUP'          => ($group_info['release_group']) ? true : false,
 		'GROUP_TYPE'             => $group_type,
@@ -493,7 +493,7 @@ else
 		'S_MODE_SELECT'          => $select_sort_mode,
 		'S_ORDER_SELECT'         => $select_sort_order,
 
-		'S_GROUP_ACTION'         => "group.php?" . POST_GROUPS_URL . "=$group_id",
+		'S_GROUP_ACTION'         => GROUP_URL . $group_id,
 	));
 
 	switch ($view_mode)
