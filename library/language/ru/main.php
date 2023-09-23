@@ -1471,6 +1471,9 @@ $lang['OFF'] = 'выкл';
 $lang['MEMORY'] = 'Память: ';
 $lang['QUERIES'] = 'запр.';
 $lang['LIMIT'] = 'Лимит:';
+$lang['SHOW_LOG'] = 'показать лог';
+$lang['CUT_LONG_LOG'] = 'обрезать длинные запросы';
+$lang['EXPLAIN_LOG'] = 'подробный лог';
 
 // Attach Guest
 $lang['DOWNLOAD_INFO'] = 'Скачать бесплатно и на максимальной скорости!';
