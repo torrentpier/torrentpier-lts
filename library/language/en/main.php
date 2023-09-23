@@ -615,6 +615,7 @@ $lang['EMAIL_TAKEN'] = 'Sorry, but that e-mail address is already registered to 
 $lang['EMAIL_BANNED'] = 'Sorry, but <b>%s</b> address has been banned.';
 $lang['EMAIL_INVALID'] = 'Sorry, but this e-mail address is invalid.';
 $lang['EMAIL_TOO_LONG'] = 'Your email is too long.';
+$lang['EMAIL_CHANGING_DISABLED'] = 'You cannot change your email address. Feature disabled by site administrator';
 $lang['SIGNATURE_TOO_LONG'] = 'Your signature is too long.';
 $lang['SIGNATURE_ERROR_HTML'] = 'The signature can contain only BBCode';
 $lang['FIELDS_EMPTY'] = 'You must fill in the required fields.';
