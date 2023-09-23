@@ -35,6 +35,12 @@ else
 	require(BB_ROOT . 'library/config.php');
 }
 
+// Get mods config
+if (file_exists(BB_ROOT . 'library/config.mods.php'))
+{
+	require(BB_ROOT . 'library/config.mods.php');
+}
+
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
 require(BB_ROOT . 'library/Zend/Loader/StandardAutoloader.php');
