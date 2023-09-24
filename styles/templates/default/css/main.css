@@ -1338,6 +1338,7 @@ div#autocomplete_popup div.title {
 	font-size: 11px;
 	font-weight: bold;
 	padding: 6px 8px 7px;
+	cursor: move;
 }
 
 div#autocomplete_popup div.close {
@@ -1355,7 +1356,7 @@ div#autocomplete_popup div.close {
 div#autocomplete_popup input {
 	font-size: 16px;
 	margin: 20px 0 0;
-	width: 83px;
+	width: 180px;
 }
 
 div#autocomplete_popup span.regenerate {

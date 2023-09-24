@@ -170,9 +170,10 @@ document.write('<input type="hidden" name="user_timezone" value="'+tz+'" />');
 </tr>
 <!-- ENDIF -->
 <!-- IF not SIG_DISALLOWED -->
-<tr colspan="2" id="view_message" class="hidden">
-	<td colspan="2">
-	    <div class="signature"></div>
+<tr id="view_message" class="hidden">
+	<td class="prof-title">{L_PREVIEW}:</td>
+	<td>
+		<div class="signature"></div>
 	</td>
 </tr>
 <script type="text/javascript">
