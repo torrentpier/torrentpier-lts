@@ -1037,7 +1037,7 @@ else
 			'ROW_CLASS' => $row_class,
 			'USER' => profile_url($rowset[$i]),
 			'EMAIL' => $rowset[$i]['user_email'],
-			'JOINDATE' => bb_date($rowset[$i]['user_regdate'], $bb_cfg['date_format']),
+			'JOINDATE' => bb_date($rowset[$i]['user_regdate'], $bb_cfg['reg_date_format']),
 			'LASTVISIT' => bb_date($rowset[$i]['user_lastvisit'], $bb_cfg['last_visit_date_format']),
 			'POSTS' => $rowset[$i]['user_posts'],
 			'BAN' => ( ( !isset($banned[$rowset[$i]['user_id']]) ) ? $lang['NOT_BANNED'] : $lang['BANNED'] ),
