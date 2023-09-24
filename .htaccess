@@ -1,3 +1,6 @@
+## index file
+DirectoryIndex index.php
+
 ## set default server charset
 AddDefaultCharset UTF-8
 
