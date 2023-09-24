@@ -412,7 +412,7 @@ $bb_cfg['posts_cache_days_keep'] = 14;
 $bb_cfg['use_ajax_posts']        = true;
 
 // Search
-$bb_cfg['search_engine_type']         = 'mysql';   // none, mysql, sphinx
+$bb_cfg['search_engine_type']         = 'mysql';   // драйвер для поиска (варианты: none, mysql, sphinx)
 
 $bb_cfg['sphinx_topic_titles_host']   = '127.0.0.1';
 $bb_cfg['sphinx_topic_titles_port']   = 3312;
@@ -484,7 +484,7 @@ $bb_cfg['use_word_censor'] = true; // использовать цензор сл
 $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
 
 $bb_cfg['last_visit_date_format'] = 'd-M H:i';
-$bb_cfg['last_post_date_format']  = 'd-M-y H:i';
+$bb_cfg['last_post_date_format']  = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
 $bb_cfg['poll_max_days']          = 180; // сколько дней с момента создания темы опрос будет активным
 
 $bb_cfg['allow_change'] = array(
