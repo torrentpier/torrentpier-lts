@@ -378,7 +378,7 @@ define('CRON_ALLOWED', TRIGGERS_DIR .'cron_allowed');
 define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 
 // Date format
-$bb_cfg['date_format']             = 'Y-m-d';
+$bb_cfg['date_format']             = 'Y-m-d H:i';
 
 // Subforums
 $bb_cfg['sf_on_first_page_only']   = true;
