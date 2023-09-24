@@ -303,9 +303,9 @@ $bb_cfg['board_email_form']        = false;        // can users send email to ea
 $bb_cfg['board_email_sig']         = '';           // this text will be attached to all emails the board sends
 $bb_cfg['board_email_sitename']    = $domain_name; // sitename used in all emails header
 
-$bb_cfg['topic_notify_enabled']    = true; // отправлять ли уведомление на почту, если в
+$bb_cfg['topic_notify_enabled']    = true; // отправлять ли уведомление на почту, если в теме которую отслеживает пользователь есть новые ответы
 $bb_cfg['pm_notify_enabled']       = true; // отправлять ли уведомление на почту, если пришло личное письмо на сайте
-$bb_cfg['group_send_email']        = true;
+$bb_cfg['group_send_email']        = true; // отправлять ли уведомление на почту, если пользователя приняли в группу, пригласили в группу
 $bb_cfg['email_change_disabled']   = false; // отключить возможность изменять почту самим пользователям
 
 $bb_cfg['tech_admin_email']        = "admin@$domain_name"; // почта технической поддержки (тех. админа / создателя)
@@ -424,12 +424,14 @@ $bb_cfg['allow_search_in_bool_mode']  = true;
 $bb_cfg['max_search_words_per_post']  = 200;       // максимальное число слов в рамках одного поста
 $bb_cfg['search_min_word_len']        = 3;         // минимальное число слов для поиска
 $bb_cfg['search_max_word_len']        = 35;        // максимальное число слов для поиска
-$bb_cfg['limit_max_search_results']   = false;
+$bb_cfg['limit_max_search_results']   = false;     // ограничить число результатов поиска (указать максимальное число результатов) (false - выключено)
 $bb_cfg['spam_filter_file_path']      = '';        // INT_DATA_DIR . 'spam_filter_words.txt';
 $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard layout
 
 // Posting
-$bb_cfg['prevent_multiposting']  = true;           // replace "reply" with "edit last msg" if user (not admin or mod) is last topic poster
+$bb_cfg['prevent_multiposting']  = true;           // заменить кнопку "ответить" на "отредактировать последнее сообщение" если автор последнего сообщения не является модератором или админом
+$bb_cfg['prevent_multiposting_time'] = 600;        // время в течении которого будет отображаться кнопка "отредактировать последнее сообщение" (в минутах, по умолчанию: 10 минут)
+
 $bb_cfg['max_smilies']           = 25;             // Максимальное число смайлов в посте (0 - без ограничения)
 $bb_cfg['max_symbols_post']      = 5000;           // TODO: Максимальное число символов в посте (0 - без ограничения)
 
