@@ -621,7 +621,6 @@ class bbcode
 	{
 		global $bb_cfg;
 		static $spam_words = null;
-		static $spam_replace = ' СПАМ';
 
 		if (isset($this))
 		{
@@ -671,7 +670,7 @@ class bbcode
 			}
 			$spam_exp = join('|', $spam_exp);
 
-			$text = preg_replace("/($spam_exp)(\S*)/i", $spam_replace, $msg_decoded);
+			$text = preg_replace("/($spam_exp)(\S*)/i", $bb_cfg['spam_filter_replacement'], $msg_decoded);
 			$text = htmlCHR($text, false, ENT_NOQUOTES);
 #			bb_log(date("H:i:s") ." | ". sprintf('%.4f', (utime() - $tm_start)) ." | ". sprintf('%-6s', strlen($text)) ." | ". join(' ** ', $found_spam) ."\n", 'spam_filter');
 		}
