@@ -321,7 +321,11 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	{
 		foreach ($info['files'] as $fn => $f)
 		{
-			$totallen += (float) $f['length'];
+			// Exclude padding files [Only for hybrid torrents]
+			if ((isset($f['attr']) ? $f['attr'] : null) !== 'p')
+			{
+				$totallen += (float) $f['length'];
+			}
 		}
 	}
 	else
