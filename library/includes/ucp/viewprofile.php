@@ -87,7 +87,7 @@ $template->assign_vars(array(
 	'USERNAME'             => $profiledata['username'],
 	'PROFILE_USER_ID'      => $profiledata['user_id'],
 	'PROFILE_USER'         => $profile_user_id,
-	'USER_REGDATE'         => bb_date($profiledata['user_regdate'], $bb_cfg['date_format'], false),
+	'USER_REGDATE'         => bb_date($profiledata['user_regdate'], $bb_cfg['reg_date_format'], false),
 	'POSTER_RANK'          => ($poster_rank) ? "<span class=\"$rank_style\">". $poster_rank ."</span>" : $lang['USER'],
 	'RANK_IMAGE'           => $rank_image,
 	'RANK_SELECT'          => $rank_select,

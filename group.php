@@ -17,7 +17,7 @@ function generate_user_info(&$row, $date_format, $group_mod, &$from, &$posts, &$
 	global $lang, $images, $bb_cfg;
 
 	$from      = (!empty($row['user_from'])) ? $row['user_from'] : $lang['NOSELECT'];
-	$joined    = bb_date($row['user_regdate'], $bb_cfg['date_format']);
+	$joined    = bb_date($row['user_regdate'], $bb_cfg['reg_date_format']);
 	$user_time = (!empty($row['user_time'])) ? bb_date($row['user_time']) : $lang['NONE'];
 	$posts     = ($row['user_posts']) ? $row['user_posts'] : 0;
 	$pm        = ($bb_cfg['text_buttons']) ? '<a class="txtb" href="'. (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'">'. $lang['SEND_PM_TXTB'] .'</a>' : '<a href="' . (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'"><img src="' . $images['icon_pm'] . '" alt="' . $lang['SEND_PRIVATE_MESSAGE'] . '" title="' . $lang['SEND_PRIVATE_MESSAGE'] . '" border="0" /></a>';
