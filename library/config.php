@@ -360,6 +360,8 @@ ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла 
 // Check some variable
 // Magic quotes
 if (@get_magic_quotes_gpc()) die('Set magic_quotes off');
+// MySQL
+if (!extension_loaded('mysql')) die('Mysql extension not installed');
 // JSON
 if (!function_exists('json_encode')) die('Json_encode not installed');
 // Mbstring
