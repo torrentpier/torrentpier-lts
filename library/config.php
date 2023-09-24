@@ -488,7 +488,8 @@ $bb_cfg['translate_dates'] = true; // in displaying time
 $bb_cfg['use_word_censor'] = true; // использовать цензор слов
 $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
 
-$bb_cfg['last_visit_date_format'] = 'd-M H:i';
+$bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
+$bb_cfg['last_visit_date_format'] = 'Y-m-d H:i'; // формат даты последнего визита на сайте
 $bb_cfg['last_post_date_format']  = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
 $bb_cfg['poll_max_days']          = 180; // сколько дней с момента создания темы опрос будет активным
 

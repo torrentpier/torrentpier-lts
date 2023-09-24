@@ -138,7 +138,7 @@ $template->assign_vars(array(
 	'FORUM_PATH'         => FORUM_PATH,
 	'FULL_URL'           => FULL_URL,
 
-	'CURRENT_TIME'       => sprintf($lang['CURRENT_TIME'], bb_date(TIMENOW, $bb_cfg['last_visit_date_format'], false)),
+	'CURRENT_TIME'       => sprintf($lang['CURRENT_TIME'], bb_date(TIMENOW, $bb_cfg['current_time_date_format'], false)),
 	'S_TIMEZONE'         => preg_replace('/\(.*?\)/', '', sprintf($lang['ALL_TIMES'], $lang['TZ'][str_replace(',', '.', floatval($bb_cfg['board_timezone']))])),
 	'BOARD_TIMEZONE'     => $bb_cfg['board_timezone'],
 
