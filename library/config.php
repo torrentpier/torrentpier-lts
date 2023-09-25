@@ -299,10 +299,10 @@ $bb_cfg['smtp_port']               = 25;    // SMTP порт сервера
 $bb_cfg['smtp_username']           = '';    // указать имя пользователя SMTP (если требуется)
 $bb_cfg['smtp_password']           = '';    // указать пароль для SMTP (если требуется)
 
-$bb_cfg['board_email']             = "noreply@$domain_name"; // admin email address
-$bb_cfg['board_email_form']        = false;        // can users send email to each other via board
-$bb_cfg['board_email_sig']         = '';           // this text will be attached to all emails the board sends
-$bb_cfg['board_email_sitename']    = $domain_name; // sitename used in all emails header
+$bb_cfg['board_email']             = "noreply@$domain_name"; // почта с которой будет происходить отправка писем, она же будет указываться как почта сайта
+$bb_cfg['board_email_form']        = false;        // могут ли пользователи отправлять друг другу электронные письма через сайт
+$bb_cfg['board_email_sig']         = '';           // подпись под сообщениями
+$bb_cfg['board_email_sitename']    = $domain_name; // название сайта (хост) который будет указываться в сообщениях
 
 $bb_cfg['topic_notify_enabled']    = true; // отправлять ли уведомление на почту, если в теме которую отслеживает пользователь есть новые ответы
 $bb_cfg['pm_notify_enabled']       = true; // отправлять ли уведомление на почту, если пришло личное письмо на сайте
@@ -330,17 +330,17 @@ define('SQL_SLOW_QUERY_TIME',  10);               // slow query in seconds
 define('SQL_PREPEND_SRC_COMM', false);            // prepend source file comment to sql query
 
 // Special users
-$bb_cfg['dbg_users'] = array(
+$bb_cfg['dbg_users'] = array( // Пользователи которым доступна дебаг панель / отладка (тех. админы например)
 #	user_id => 'name',
 	2 => 'admin',
 );
 
-$bb_cfg['unlimited_users'] = array(
+$bb_cfg['unlimited_users'] = array( // Пользователи на которых не действует ограничение на количество одновременных закачек / раздач
 #	user_id => 'name',
 	2 => 'admin',
 );
 
-$bb_cfg['super_admins'] = array(
+$bb_cfg['super_admins'] = array( // Супер админы (разработчики сайта)
 #	user_id => 'name',
 	2 => 'admin',
 );
@@ -399,10 +399,10 @@ $bb_cfg['show_poster_joined']     = true;          // показывать да�
 $bb_cfg['show_poster_posts']      = true;          // показывать количество постов пользователя в топиках
 $bb_cfg['show_poster_from']       = true;          // показывать страну пользователя
 $bb_cfg['show_bot_nick']          = false;         // показывать ник бота
-$bb_cfg['text_buttons']           = false;         // replace EDIT, QUOTE... images with text links
+$bb_cfg['text_buttons']           = false;         // использоваться текстовые кнопки вместо иконок
 $bb_cfg['parse_ed2k_links']       = true;          // make ed2k links clickable
 $bb_cfg['post_date_format']       = 'd-M-Y H:i';   // формат даты публикации в топиках
-$bb_cfg['ext_link_new_win']       = true;          // open external links in new window
+$bb_cfg['ext_link_new_win']       = true;          // открывать внешние (сторонние) ссылки в отдельном окне
 
 $bb_cfg['topic_moved_days_keep']  = 7;             // remove topic moved links after xx days (or FALSE to disable)
 
