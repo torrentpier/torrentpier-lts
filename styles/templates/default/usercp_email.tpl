@@ -48,9 +48,9 @@
 </div><!--/bottom_info-->
 
 <script type="text/javascript">
-function checkForm(formObj) {
-
-	formErrors = false;
+function checkForm(formObj)
+{
+	var formErrors = false;
 
 	if (formObj.message.value.length < 2) {
 		formErrors = "{L_EMPTY_MESSAGE_EMAIL}";
