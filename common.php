@@ -82,6 +82,7 @@ define('TOR_TYPE_GOLD',       1);
 define('TOR_TYPE_SILVER',     2);
 
 define('GUEST_UID', -1);
+define('ANONYMOUS', GUEST_UID); // Alias for GUEST_UID
 define('BOT_UID',   -746);
 
 function sqlite3_escape_string ($str)

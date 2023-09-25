@@ -107,7 +107,7 @@ class cache_redis extends cache_common
 		}
 		else
 		{
-			return ($this->connected) ? $this->redis->flushdb() : false;
+			return ($this->connected) ? $this->redis->flushDB() : false;
 		}
 	}
 
