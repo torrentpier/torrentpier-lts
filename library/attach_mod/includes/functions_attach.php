@@ -544,6 +544,7 @@ function get_var($var_name, $default, $multibyte = false)
 	if (!is_array($default))
 	{
 		$type = gettype($default);
+		$key_type = null;
 	}
 	else
 	{

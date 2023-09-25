@@ -92,6 +92,7 @@ $excluded_users = array(
 	BOT_UID,
 );
 define('EXCLUDED_USERS_CSV', implode(',', $excluded_users));
+define('EXCLUDED_USERS', EXCLUDED_USERS_CSV); // Alias for EXCLUDED_USERS_CSV
 
 // User related
 define('USER_ACTIVATION_NONE',  0);
