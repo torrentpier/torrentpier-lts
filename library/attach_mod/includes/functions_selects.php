@@ -103,7 +103,7 @@ function download_select($select_name, $group_id = 0)
 */
 function category_select($select_name, $group_id = 0)
 {
-	global $types_category, $modes_category;
+	global $types_category, $modes_category, $lang;
 
 	$sql = 'SELECT group_id, cat_id FROM ' . BB_EXTENSION_GROUPS;
 
@@ -130,7 +130,7 @@ function category_select($select_name, $group_id = 0)
 	}
 
 	$types = array(NONE_CAT);
-	$modes = array('none');
+	$modes = array($lang['NONE']);
 
 	for ($i = 0; $i < sizeof($types_category); $i++)
 	{
