@@ -7,8 +7,6 @@ if (!empty($setmodules))
 }
 require('./pagestart.php');
 
-$total_attachments = 0;
-
 if (($attach_config['upload_dir'][0] == '/') || (($attach_config['upload_dir'][0] != '/') && ($attach_config['upload_dir'][1] == ':')))
 {
 	$upload_dir = $attach_config['upload_dir'];
@@ -304,6 +302,7 @@ if ($view == 'search')
 	}
 
 	$s_forums = '';
+	$list_cat = [];
 	while ($row = DB()->sql_fetchrow($result))
 	{ //sf
 		$s_forums .= '<option value="' . $row['forum_id'] . '">' . (($row['forum_parent']) ? HTML_SF_SPACER : '') . htmlCHR($row['forum_name']) . '</option>';
@@ -314,6 +313,7 @@ if ($view == 'search')
 		}
 	}
 
+	$s_categories = '';
 	if( $s_forums != '' )
 	{
 		$s_forums = '<option value="0">' . $lang['ALL_AVAILABLE'] . '</option>' . $s_forums;
@@ -532,7 +532,7 @@ if ($view == 'attachments')
 
 	if (!$search_based && !$user_based)
 	{
-		if ($total_attachments == 0)
+		if (!$attachments)
 		{
 			$sql = "SELECT attach_id FROM " . BB_ATTACHMENTS_DESC;
 
