@@ -145,8 +145,8 @@ $bb_cfg['show_dl_status_in_forum']  = true;
 $bb_cfg['show_tor_info_in_dl_list'] = true;
 $bb_cfg['allow_dl_list_names_mode'] = true;
 
-$bb_cfg['torrent_name_style'] = true; // use torrent name style [yoursite.com].txxx.torrent
-$bb_cfg['tor_help_links']     = 'terms.php';
+$bb_cfg['torrent_name_style'] = true; // использовать имя файла в названии торрент-файла (Пример: [yoursite.com].txxx.torrent)
+$bb_cfg['tor_help_links']     = 'terms.php'; // дополнительная информация (полезные ссылки например) в топике снизу раздачи
 
 // Сколько дней сохранять торрент зарегистрированным / Days to keep torrent registered, if:
 $bb_cfg['seeder_last_seen_days_keep']  = 0; // сколько дней назад был сид последний раз
@@ -180,7 +180,7 @@ $bb_cfg['torstat_days_keep']     = 60;    // days to keep user's per-torrent sta
 $bb_cfg['torhelp_enabled']       = false; // find dead torrents (without seeder) that user might help seeding
 
 $page_cfg['show_torhelp'] = array(
-#	BB_SCRIPT => true
+	// Формат: 'Значение константы BB_SCRIPT в php файле нужной страницы' => true
 	'index'   => true,
 	'tracker' => true,
 );
