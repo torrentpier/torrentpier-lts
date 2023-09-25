@@ -259,12 +259,12 @@ $bb_cfg['stylesheet'] = 'main.css'; // указать основной файл 
 $bb_cfg['show_sidebar1_on_every_page'] = false; // показывать левый сайд-бар на каждой странице
 $bb_cfg['show_sidebar2_on_every_page'] = false; // показывать правый сайд-бар на каждой странице
 
-$page_cfg['show_sidebar1'] = array(
-#	BB_SCRIPT => true
+$page_cfg['show_sidebar1'] = array( // укажите на каких страницах отображать левый сайд-бар
+	// Формат: 'Значение константы BB_SCRIPT в php файле нужной страницы' => true
 	'index'   => true,
 );
-$page_cfg['show_sidebar2'] = array(
-#	BB_SCRIPT => true
+$page_cfg['show_sidebar2'] = array( // укажите на каких страницах отображать правый сайд-бар
+	// Формат: 'Значение константы BB_SCRIPT в php файле нужной страницы' => true
 	'index'   => true,
 );
 
