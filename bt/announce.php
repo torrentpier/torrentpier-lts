@@ -304,7 +304,7 @@ else
 		}
 
 		// Limit concurrent IPs
-		if ($tr_cfg['limit_concurrent_ips'] && (($tr_cfg['limit_seed_ips'] && $seeder) || ($tr_cfg['limit_leech_ips'] && !$seeder)))
+		if (!isset($bb_cfg['unlimited_users'][$user_id]) && $tr_cfg['limit_concurrent_ips'] && (($tr_cfg['limit_seed_ips'] && $seeder) || ($tr_cfg['limit_leech_ips'] && !$seeder)))
 		{
 			$sql = "SELECT COUNT(DISTINCT ip) AS ips
 				FROM ". BB_BT_TRACKER ."
