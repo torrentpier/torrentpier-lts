@@ -248,7 +248,8 @@ $bb_cfg['lang'] = array(
 define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/');
 
 $bb_cfg['templates'] = array(
-//	'folder'  => 'Name',
+	// Список доступных шаблонов
+	// Формат: 'папка_шаблона' => 'Название шаблона'
 	'default' => 'Стандартный',
 );
 
@@ -270,7 +271,7 @@ $page_cfg['show_sidebar2'] = array(
 // Cookie
 $bb_cfg['cookie_domain'] = in_array($domain_name, array($_SERVER['SERVER_ADDR'], 'localhost')) ? '' : ".$domain_name";
 $bb_cfg['cookie_secure'] = ($domain_ssl ? 1 : (((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')) ? 1 : 0));
-$bb_cfg['cookie_prefix'] = 'bb_'; // 'bb_'
+$bb_cfg['cookie_prefix'] = 'bb_'; // Префикс для cookie файлов ('bb_')
 
 // Sessions
 $bb_cfg['session_update_intrv']    = 180;          // sec
@@ -289,7 +290,7 @@ $bb_cfg['new_user_reg_restricted'] = false;        // Ограничить ре�
 $bb_cfg['reg_email_activation']    = true;         // Требовать активацию учетной записи по email
 
 // Email
-$bb_cfg['emailer_disabled']        = false;
+$bb_cfg['emailer_disabled']        = false; // отключить ли отправку почты с сайта
 
 $bb_cfg['smtp_delivery']           = false; // использовать ли SMTP (если false, то будет использоваться нативная функция mail())
 $bb_cfg['smtp_ssl']                = false; // использовать ли SSL при подключении к SMTP
@@ -430,7 +431,7 @@ $bb_cfg['search_min_word_len']        = 3;         // минимальное ч�
 $bb_cfg['search_max_word_len']        = 35;        // максимальное число слов для поиска
 $bb_cfg['limit_max_search_results']   = false;     // ограничить число результатов поиска (указать максимальное число результатов) (false - выключено)
 
-$bb_cfg['spam_filter_file_path']      = false;     // спам фильтр (нужно указать путь, например: INT_DATA_DIR . 'spam_filter_words.txt';) (false - выключено)
+$bb_cfg['spam_filter_file_path']      = false;     // спам фильтр (нужно указать путь к файлу с спам словами, например: INT_DATA_DIR . 'spam_filter_words.txt';) (false - выключено)
 $bb_cfg['spam_filter_replacement']    = '*СПАМ*';  // слово на которое будет заменен спам
 
 $bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard layout
