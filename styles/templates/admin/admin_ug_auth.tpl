@@ -20,7 +20,7 @@ thead tr {
 	top: expression($p("tScrollCont").scrollTop); /* IE5+ only */
 }
 .tPerm {
-	background-color: #B4BBC8; margin-top: -2px;
+	background-color: #B4BBC8;
 }
 .tdHead {
 	font-size: 10px;
@@ -85,6 +85,11 @@ thead tr {
 }
 </style>
 
+<h1>{L_PERMISSIONS} ({T_AUTH_TITLE})</h1>
+
+<p>{T_AUTH_EXPLAIN}</p>
+<br />
+
 <form method="post" action="{S_AUTH_ACTION}">
 {S_HIDDEN_FIELDS}
 
@@ -93,14 +98,14 @@ thead tr {
 <table class="tPerm w100" id="tPerm" cellspacing="1" cellpadding="2">
 <thead>
 	<tr>
-		<td class="row2 tdHead" valign="bottom" width="100%">{L_FORUM}</td>
+		<td class="row2 tdHead" valign="center" width="30%">{L_FORUM}</td>
 		<td
 			id="type_{AUTH_MOD_BF}"
-			class="row2 tdHead" valign="bottom">{L_MODERATOR_STATUS}</td>
+			class="row2 tdHead" valign="center" width="10%">{L_MODERATOR_STATUS}</td>
 		<!-- BEGIN acltype -->
 		<td
 			id="type_{acltype.ACL_TYPE_BF}"
-			class="row2 tdHead" valign="bottom">{acltype.ACL_TYPE_NAME}</td>
+			class="row2 tdHead" valign="center">{acltype.ACL_TYPE_NAME}</td>
 		<!-- END acltype -->
 	</tr>
 </thead>
@@ -175,12 +180,12 @@ thead tr {
 <form method="post" action="{S_AUTH_ACTION}">
 {S_HIDDEN_FIELDS}
 
-<h3>{L_PERMISSIONS} ({T_AUTH_TITLE})</h3>
 <p class="gen">{T_USER_OR_GROUPNAME}: <span class="maintitle">{USER_OR_GROUPNAME}</span></p>
 <!-- IF USER_LEVEL --><b>{USER_LEVEL}</b> &nbsp; <input type="submit" name="submit" value="{L_SUBMIT}" class="mainoption" /><!-- ENDIF -->
-<p>{T_AUTH_EXPLAIN}</p>
 
 </form>
+
+<br clear="all"/>
 
 <script type="text/javascript">
 var tCont = $p('tScrollCont');
