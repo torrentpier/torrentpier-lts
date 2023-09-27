@@ -226,8 +226,8 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 					$template->assign_block_vars('reg_user_row', array(
 						'ROW_CLASS'  => $row_class,
 						'USER'       => profile_url($onlinerow_reg[$i]),
-						'STARTED'    => bb_date($onlinerow_reg[$i]['session_start'], 'H:i', false),
-						'LASTUPDATE' => bb_date($onlinerow_reg[$i]['user_session_time'], 'H:i', false),
+						'STARTED'    => bb_date($onlinerow_reg[$i]['session_start'], $bb_cfg['last_activity_date_format'], false),
+						'LASTUPDATE' => bb_date($onlinerow_reg[$i]['user_session_time'], $bb_cfg['last_activity_date_format'], false),
 						'IP_ADDRESS' => $reg_ip,
 						'U_WHOIS_IP' => $bb_cfg['whois_info'] . $reg_ip,
 					));
