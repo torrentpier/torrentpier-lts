@@ -29,11 +29,11 @@ function get_sql_log ()
 
 	if (!empty($datastore->db->dbg))
 	{
-		$log .= get_sql_log_html($datastore->db, "cache: datastore [{$datastore->db->engine}]");
+		$log .= get_sql_log_html($datastore->db, 'cache: datastore ['.$datastore->db->engine.']');
 	}
 	else if(!empty($datastore->dbg))
 	{
-		$log .= get_sql_log_html($datastore, "cache: datastore [{$datastore->engine}]");
+		$log .= get_sql_log_html($datastore, 'cache: datastore ['.$datastore->engine.']');
 	}
 
 	return $log;
