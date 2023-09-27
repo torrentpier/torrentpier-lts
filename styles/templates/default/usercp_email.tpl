@@ -48,7 +48,8 @@
 </div><!--/bottom_info-->
 
 <script type="text/javascript">
-function checkForm(formObj) {
+function checkForm(formObj)
+{
 	var formErrors = false;
 
 	if (formObj.message.value.length < 2) {
