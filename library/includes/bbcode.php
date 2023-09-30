@@ -496,7 +496,7 @@ class bbcode
 	function init_replacements ()
 	{
 		$tpl       = $this->tpl;
-		$img_exp   = '(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png)([a-z0-9/?&%;][^\[\]]*)?';
+		$img_exp   = '(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp)([a-z0-9/?&%;][^\[\]]*)?';
 		$email_exp = '[a-z0-9&\-_.]+?@[\w\-]+\.([\w\-\.]+\.)?[\w]+';
 
 		$this->preg = array(
