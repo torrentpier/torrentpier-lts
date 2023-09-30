@@ -32,6 +32,7 @@ class upload_common
 		6 => 'bmp',
 		7 => 'tiff',
 		8 => 'tiff',
+		9 => 'jpeg',
 	);
 
 	function init ($cfg = array(), $post_params = array(), $uploaded_only = true)
