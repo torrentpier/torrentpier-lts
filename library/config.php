@@ -545,12 +545,12 @@ $bb_cfg['attach'] = array(
 	'max_size'    => 5*1024*1024,                     // размер аватары в байтах
 );
 
-$bb_cfg['tor_forums_allowed_ext'] = array('torrent', 'zip', 'rar'); // для разделов с раздачами
-$bb_cfg['gen_forums_allowed_ext'] = array('zip', 'rar');            // для обычных разделов
+$bb_cfg['tor_forums_allowed_ext'] = array('torrent', 'zip', 'rar'); // TODO: для разделов с раздачами
+$bb_cfg['gen_forums_allowed_ext'] = array('zip', 'rar');            // TODO: для обычных разделов
 
 // Avatars
 $bb_cfg['avatars'] = array(
-	'allowed_ext' => array('gif','jpg','jpeg','png'), // разрешенные форматы файлов
+	'allowed_ext' => array('gif','jpg','jpeg','png','webp','bmp'), // разрешенные форматы файлов
 	'bot_avatar'  => 'gallery/bot.gif',               // аватара бота
 	'max_size'    => 100*1024,                        // размер аватары в байтах
 	'max_height'  => 100,                             // высота аватара в px
@@ -562,7 +562,7 @@ $bb_cfg['avatars'] = array(
 
 // Group avatars
 $bb_cfg['group_avatars'] = array(
-	'allowed_ext' => array('gif','jpg','jpeg','png'), // разрешенные форматы файлов
+	'allowed_ext' => array('gif','jpg','jpeg','png','webp','bmp'), // разрешенные форматы файлов
 	'max_size'    => 300*1024,                        // размер аватары в байтах
 	'max_height'  => 300,                             // высота аватара в px
 	'max_width'   => 300,                             // ширина аватара в px
