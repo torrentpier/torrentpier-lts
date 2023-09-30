@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- Added support webp images in BBCode [\#278](https://github.com/torrentpier/torrentpier-lts/pull/278) ([belomaxorka](https://github.com/belomaxorka))
 - Enhancements for text editor [\#277](https://github.com/torrentpier/torrentpier-lts/pull/277) ([belomaxorka](https://github.com/belomaxorka))
 - Added missing !defined('BB_ROOT') check [\#274](https://github.com/torrentpier/torrentpier-lts/pull/274) ([belomaxorka](https://github.com/belomaxorka))
 - Exclude padding files [\#260](https://github.com/torrentpier/torrentpier-lts/pull/260) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
