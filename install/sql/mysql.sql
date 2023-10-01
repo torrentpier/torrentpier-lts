@@ -628,6 +628,7 @@ INSERT INTO `bb_extensions` VALUES ('', '2', 'tar', '');
 INSERT INTO `bb_extensions` VALUES ('', '2', 'zip', '');
 INSERT INTO `bb_extensions` VALUES ('', '2', 'rar', '');
 INSERT INTO `bb_extensions` VALUES ('', '2', 'ace', '');
+INSERT INTO `bb_extensions` VALUES ('', '2', '7z', '');
 INSERT INTO `bb_extensions` VALUES ('', '3', 'txt', '');
 INSERT INTO `bb_extensions` VALUES ('', '3', 'c', '');
 INSERT INTO `bb_extensions` VALUES ('', '3', 'h', '');
