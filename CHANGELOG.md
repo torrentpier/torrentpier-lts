@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- Added missing EXCLUDED_USERS_CSV in tr_stats.php [\#283](https://github.com/torrentpier/torrentpier-lts/pull/283) ([belomaxorka](https://github.com/belomaxorka))
 - Added support 7z archives [\#282](https://github.com/torrentpier/torrentpier-lts/pull/282) ([belomaxorka](https://github.com/belomaxorka))
 - Added support bmp images in BBCode [\#279](https://github.com/torrentpier/torrentpier-lts/pull/279) ([belomaxorka](https://github.com/belomaxorka))
 - Added support webp images in BBCode [\#278](https://github.com/torrentpier/torrentpier-lts/pull/278) ([belomaxorka](https://github.com/belomaxorka))
