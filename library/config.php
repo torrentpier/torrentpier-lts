@@ -529,16 +529,10 @@ $bb_cfg['sitemap_sending'] = array(
 // Extensions
 $bb_cfg['file_id_ext'] = array(
 	1 => 'gif',
-	2 => 'gz',
-	3 => 'jpg',
+	2 => 'jpg',
+	3 => 'jpeg',
 	4 => 'png',
-	5 => 'rar',
-	6 => 'tar',
-	7 => 'tiff',
-	8 => 'torrent',
-	9 => 'zip',
-	10 => 'bmp',
-	11 => 'jpeg',
+	5 => 'bmp',
 	// Внимание: Если вы дописали расширения в $bb_cfg['avatars']['allowed_ext'] или $bb_cfg['group_avatars']['allowed_ext'],
 	// то обязательно укажите их в этом массиве тоже. (Шаблон: порядковый номер => название расширения)
 );
