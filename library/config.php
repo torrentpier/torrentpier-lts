@@ -538,6 +538,7 @@ $bb_cfg['file_id_ext'] = array(
 	8 => 'torrent',
 	9 => 'zip',
 	10 => 'bmp',
+	11 => 'jpeg',
 );
 
 // Attachments
