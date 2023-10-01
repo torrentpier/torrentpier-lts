@@ -136,7 +136,7 @@ ajax.callback.manage_admin = function(data) {
 	</tr>
 	<tr>
 		<td class="row1" nowrap="nowrap" width="25%">{L_TP_VERSION}:</td>
-		<td class="row2"><b>{$bb_cfg['tp_version']} [{$bb_cfg['tp_release_state']}]</b></td>
+		<td class="row2"><b>{$bb_cfg['tp_version']} [{$bb_cfg['tp_release_state']}] &middot; <a target="_blank" href="https://github.com/torrentpier/torrentpier-lts">GitHub</a></b></td>
 	</tr>
 	<tr>
 		<td class="row1" nowrap="nowrap" width="25%">{L_TP_RELEASE_DATE}:</td>
