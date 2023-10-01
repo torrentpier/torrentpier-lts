@@ -31,7 +31,6 @@ class upload_common
 		3 => 'png',
 		6 => 'bmp',
 		7 => 'tiff',
-		8 => 'tiff',
 		9 => 'jpeg',
 	);
 
