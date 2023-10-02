@@ -27,18 +27,10 @@ class upload_common
 	var $ext_ids      = array(); // array_flip($bb_cfg['file_id_ext'])
 	var $errors       = array();
 	var $img_types    = array(
-		// Не редактируйте!
-		1 => 'gif',
-		2 => 'jpg',
-		3 => 'png',
-		// 4 => 'swf', // [зарезервировано]
-		// 5 => 'psd', // [зарезервировано]
-		6 => 'bmp',
-		// 7 => 'tiff', // байтовый порядок intel [зарезервировано]
-		// 8 => 'tiff', // байтовый порядок motorola [зарезервировано]
-		// 9 => 'jpc', // [зарезервировано]
-		// 10 => 'jp2', // [зарезервировано]
-		// 11 => 'jpx', // [зарезервировано]
+		IMAGETYPE_GIF => 'gif',
+		IMAGETYPE_JPEG => 'jpg',
+		IMAGETYPE_PNG => 'png',
+		IMAGETYPE_BMP => 'bmp',
 	);
 
 	function init ($cfg = array(), $post_params = array(), $uploaded_only = true)
