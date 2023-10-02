@@ -528,10 +528,19 @@ $bb_cfg['sitemap_sending'] = array(
 
 // Extensions
 $bb_cfg['file_id_ext'] = array(
+	// Images
 	1 => 'gif',
 	2 => 'jpg',
 	3 => 'png',
 	4 => 'bmp',
+	// Archives
+	5 => 'gz',
+	6 => '7z',
+	7 => 'rar',
+	8 => 'zip',
+	9 => 'tar',
+	// Other
+	10 => 'torrent',
 );
 
 // Attachments
