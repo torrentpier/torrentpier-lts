@@ -526,7 +526,7 @@ $bb_cfg['sitemap_sending'] = array(
 	'Google'               => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
-// Extensions
+// Extensions [расширения разрешенные для загрузки через upload_common() класс]
 $bb_cfg['file_id_ext'] = array(
 	// Images
 	1 => 'gif',
@@ -554,7 +554,7 @@ $bb_cfg['gen_forums_allowed_ext'] = array('zip', 'rar');            // TODO: д�
 
 // Avatars
 $bb_cfg['avatars'] = array(
-	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов
+	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'bot_avatar'  => 'gallery/bot.gif',               // аватара бота
 	'max_size'    => 100*1024,                        // размер аватары в байтах
 	'max_height'  => 100,                             // высота аватара в px
@@ -566,7 +566,7 @@ $bb_cfg['avatars'] = array(
 
 // Group avatars
 $bb_cfg['group_avatars'] = array(
-	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов
+	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'max_size'    => 300*1024,                        // размер аватары в байтах
 	'max_height'  => 300,                             // высота аватара в px
 	'max_width'   => 300,                             // ширина аватара в px
