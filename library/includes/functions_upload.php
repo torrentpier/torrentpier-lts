@@ -29,9 +29,14 @@ class upload_common
 		1 => 'gif',
 		2 => 'jpg',
 		3 => 'png',
+		4 => 'swf', // [зарезервировано]
+		5 => 'psd', // [зарезервировано]
 		6 => 'bmp',
-		7 => 'tiff',
-		9 => 'jpeg',
+		7 => 'tiff', // байтовый порядок intel
+		8 => 'tiff', // байтовый порядок motorola
+		9 => 'jpc', // [зарезервировано]
+		10 => 'jp2', // [зарезервировано]
+		11 => 'jpx', // [зарезервировано]
 	);
 
 	function init ($cfg = array(), $post_params = array(), $uploaded_only = true)
