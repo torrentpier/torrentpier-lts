@@ -26,6 +26,12 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 {
 	global $bb_cfg;
 
+	// Fix $mail_to format (Adding missing ">" at end) | https://torrentpier.com/threads/otpravka-pisem-cherez-smtp.41135/page-4#post-85044
+	if (preg_match('%<(.+)>%smi', $mail_to, $regs))
+	{
+		$mail_to = $regs[1];
+	}
+
 	// Fix any bare linefeeds in the message to make it RFC821 Compliant.
 	$message = preg_replace("#(?<!\r)\n#si", "\r\n", $message);
 
