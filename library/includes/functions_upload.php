@@ -91,7 +91,7 @@ class upload_common
 				list($width, $height, $type, $attr) = $img_info;
 
 				// redefine ext
-				if (!$width || !$height || !$type || !isset($this->img_types[$type]))
+				if (!$width || !$height || !$type || !isset($this->img_types[$type]) || !isset($this->ext_ids[$this->img_types[$type]]))
 				{
 					$this->errors[] = $lang['UPLOAD_ERROR_FORMAT'];
 					return false;
