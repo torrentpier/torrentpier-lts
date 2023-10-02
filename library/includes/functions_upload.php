@@ -26,6 +26,7 @@ class upload_common
 	var $ext_ids      = array(); // array_flip($bb_cfg['file_id_ext'])
 	var $errors       = array();
 	var $img_types    = array(
+		// Не редактируйте!
 		1 => 'gif',
 		2 => 'jpg',
 		3 => 'png',
