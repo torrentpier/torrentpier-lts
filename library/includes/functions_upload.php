@@ -10,6 +10,7 @@ class upload_common
 		'max_height'  => 0,
 		'allowed_ext' => array(),
 		'upload_path' => '',
+		'up_allowed' => false,
 	);
 	var $file = array(
 		'name'        => '',
