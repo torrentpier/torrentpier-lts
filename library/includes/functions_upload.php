@@ -25,7 +25,14 @@ class upload_common
 	var $file_size    = '';
 	var $ext_ids      = array(); // array_flip($bb_cfg['file_id_ext'])
 	var $errors       = array();
-	var $img_types    = array(); // $bb_cfg['file_id_ext']
+	var $img_types    = array(
+		1 => 'gif',
+		2 => 'jpg',
+		3 => 'png',
+		6 => 'bmp',
+		7 => 'tiff',
+		9 => 'jpeg',
+	);
 
 	function init ($cfg = array(), $post_params = array(), $uploaded_only = true)
 	{
@@ -67,7 +74,6 @@ class upload_common
 		}
 		// get ext
 		$this->ext_ids = array_flip($bb_cfg['file_id_ext']);
-		$this->img_types = $bb_cfg['file_id_ext'];
 		$file_name_ary = explode('.', $this->file['name']);
 		$this->file_ext = strtolower(end($file_name_ary));
 
