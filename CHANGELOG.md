@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- ACP: Changed extensions sorting [\#288](https://github.com/torrentpier/torrentpier-lts/pull/288) ([belomaxorka](https://github.com/belomaxorka))
 - Fix $mail_to format (Adding missing ">" at end) [\#284](https://github.com/torrentpier/torrentpier-lts/pull/284) ([belomaxorka](https://github.com/belomaxorka), dchistyakov)
 - Added missing EXCLUDED_USERS_CSV in tr_stats.php [\#283](https://github.com/torrentpier/torrentpier-lts/pull/283) ([belomaxorka](https://github.com/belomaxorka))
 - Added support 7z archives [\#282](https://github.com/torrentpier/torrentpier-lts/pull/282) ([belomaxorka](https://github.com/belomaxorka))
