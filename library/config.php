@@ -360,11 +360,13 @@ ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла 
 
 // Check some variable
 // Magic quotes
-if (@get_magic_quotes_gpc()) die('Set magic_quotes off');
+if (@get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
 // MySQL
-if (!extension_loaded('mysql')) die('Mysql extension not installed');
+if (!extension_loaded('mysql')) die('MySQL extension not installed');
 // JSON
-if (!function_exists('json_encode')) die('Json_encode not installed');
+if (!function_exists('json_encode')) die('json_encode() functions not exists');
+// getmypid
+if (!function_exists('getmypid') || !getmypid()) die('getmypid() functions is disabled');
 // Mbstring
 if (!extension_loaded('mbstring')) die('Mbstring extension not installed');
 // BCMath
