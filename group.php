@@ -275,9 +275,9 @@ else
 			}
 
 			// Prevent infinity user adding into group
-			if ($member = DB()->fetch_row("SELECT user_id FROM ". BB_USER_GROUP ." WHERE group_id = $group_id AND user_id = ". $row['user_id'] ." LIMIT 1"))
+			if ($is_member = DB()->fetch_row("SELECT user_id FROM ". BB_USER_GROUP ." WHERE group_id = $group_id AND user_id = ". $row['user_id'] ." LIMIT 1"))
 			{
-				if ($member['user_id'])
+				if ($is_member['user_id'])
 				{
 					bb_die(sprintf($lang['USER_IS_MEMBER_GROUP'], profile_url($row)));
 				}
