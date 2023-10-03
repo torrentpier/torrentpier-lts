@@ -624,8 +624,8 @@ TPL.el_attr = {
 	game_region_def: ['SEL', 'Регион игры', '', ''],
 	director: ['INP', 'Режиссер', '200,50', ''],
 	rus_sub: ['SEL', 'Русские субтитры', '', ''],
-	sub_all: ['SEL', 'Cубтитры', '', ''],
-	sub_all_new: ['SEL', 'Cубтитры', '', ''],
+	sub_all: ['SEL', 'Субтитры', '', ''],
+	sub_all_new: ['SEL', 'Субтитры', '', ''],
 	screenshots: ['TXT', 'Скриншоты', '3', 'spoiler'],
 	screenshots_about: ['TXT', 'Скриншоты окна About', '3', 'spoiler'],
 	vista_compat: ['SEL', 'Совместимость с Vista', '', ''],
@@ -681,7 +681,7 @@ TPL.el_attr = {
 	game_tabletka: ['SEL', 'Таблэтка', '', ''],
 	lang_psp: ['SEL', 'Язык интерфейса', '', ''],
 	lang_sound_psp: ['SEL', 'Язык озвучки', '', ''],
-	sub_psp: ['SEL', 'Cубтитры', '', ''],
+	sub_psp: ['SEL', 'Субтитры', '', ''],
 	funct_psp: ['SEL', 'Работоспособность проверена', '', ''],
 	multiplayer_psp: ['SEL', 'Мультиплеер', '', ''],
 	popsloader_psp: ['SEL', 'Рекомендуемый POP"s', '', ''],
@@ -896,8 +896,8 @@ TPL.el_id = {
 	faq_catalog: 'инструкция',
 	psp_psx: 'PSP-PSX',
 	faq_pops: 'Что такое Popsloader?',
-	faq_code: 'Как узнать код диcка?',
-	faq_code_PS: 'Как узнать код диcка?',
+	faq_code: 'Как узнать код диска?',
+	faq_code_PS: 'Как узнать код диска?',
 	faq_pegi: 'PEGI',
 	faq_screen_psp: 'Как сделать скриншоты с PSP',
 	series: 'Серии:',
@@ -939,7 +939,7 @@ TPL.el_id = {
 	orig_audio_serial_abr: '[ABR]Оригинальная аудиодорожка',
 	translation_abr: '[ABR]Перевод',
 	flang_lang_abr: '[ABR]Язык книги',
-	sub_all_new_abr: '[ABR]Cубтитры',
+	sub_all_new_abr: '[ABR]Субтитры',
 	lang_dorama_abr: '[ABR]Язык',
 	game_lang_abr: '[ABR] Язык интерфейса',
 	game_lang_sound_abr: '[ABR] Язык озвучки',
@@ -2296,7 +2296,7 @@ TPL.selects = {
 		'Любительский (одноголосый закадровый)',
 		'Двухголосый закадровый',
 		'Многоголосый закадровый',
-		'Полное дублированние',
+		'Полное дублирование',
 		'Субтитры',
 		'Не требуется'
 		],
@@ -3111,7 +3111,7 @@ TPL.selects = {
 		],
 	transl_doc_film: [
 		'',
-		'Любительcкий (одноголосый)',
+		'Любительский (одноголосый)',
 		'Любительский (двухголосый)',
 		'Авторский (одноголосый)',
 		'Профессиональный (одноголосый)',
@@ -3414,7 +3414,7 @@ TPL.selects = {
 		'Nintendo 64',
 		'Game Boy',
 		'GameBoy Color',
-		'GameBoy Advaced',
+		'GameBoy Advance',
 		'Sega Master System',
 		'Sega Mega Drive Genesis',
 		'Sega Saturn',
@@ -4405,7 +4405,7 @@ $(function(){
 			<input type="button" value="Включить в этом форуме" class="bold" onclick="ajax.topic_tpl('assign', {tpl_id: $('#forum_tpl_select').val()})" /> &nbsp;
 			<input type="button" value="Загрузить" onclick="ajax.topic_tpl('load')" /> &nbsp;
 			<input type="button" value="{L_REMOVE}" onclick="ajax.topic_tpl('remove')" /> &nbsp;
-			<!-- ELSE -->Нет щаблонов для релизов<!-- ENDIF -->
+			<!-- ELSE -->Нет шаблонов для релизов<!-- ENDIF -->
 			<br /><br />
 			<span class="gen">
 			<!-- IF NO_TPL_ASSIGNED -->
@@ -4601,7 +4601,7 @@ $(function(){
 	Формат: <b>имя_элемента</b>[<i>атрибут1,атрибут2</i>]
 	<br /><br />
 	При создании формы (кнопка <i>Создать форму</i> и при построении того что видит юзер)
-	этот скрипт каждый раз проверяется на соответстие элементам формы. При этом отсутствующие в форме элементы из него удаляются,
+	этот скрипт каждый раз проверяется на соответствие элементам формы. При этом отсутствующие в форме элементы из него удаляются,
 	а прописанные в форме, но в нем не найденные, добавляются.
 	<br /><br />
 	Порядок элементов зависит от того как они прописаны в форме
@@ -4739,11 +4739,11 @@ $(function(){
 <!--/faq_pops-->
 
 <!--faq_code-->
-<div id="faq_code"> <a href="http://rutracker.org/forum/viewtopic.php?p=24015560#24015560" target="_blank"><b>Как узнать код диcка?</b></a> </div>
+<div id="faq_code"> <a href="http://rutracker.org/forum/viewtopic.php?p=24015560#24015560" target="_blank"><b>Как узнать код диска?</b></a> </div>
 <!--/faq_code-->
 
 <!--faq_code_PS-->
-<div id="faq_code_PS"> <a href="http://rutracker.org/forum/viewtopic.php?p=40704481#40704481" target="_blank"><b>Как узнать код диcка?</b></a> </div>
+<div id="faq_code_PS"> <a href="http://rutracker.org/forum/viewtopic.php?p=40704481#40704481" target="_blank"><b>Как узнать код диска?</b></a> </div>
 <!--/faq_code_PS-->
 
 <!--faq_pegi-->
@@ -4854,4 +4854,4 @@ $(function(){
 	<textarea id="tpl-src-msg-val" rows="10" cols="10">{TPL_SRC_MSG_VAL}</textarea>
 </div>
 
-<noscript><div class="warningBox2 bold tCenter">Для показа необходимo включить JavaScript</div></noscript>
+<noscript><div class="warningBox2 bold tCenter">Для показа необходимо включить JavaScript</div></noscript>
