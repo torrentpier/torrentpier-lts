@@ -265,12 +265,14 @@ else
 		{
 			if (isset($_POST['username']) && !($row = get_userdata($_POST['username'], true)))
 			{
+				set_die_append_msg(false, false, $group_id);
 				bb_die($lang['COULD_NOT_ADD_USER']);
 			}
 
 			// Prevent adding moderator
 			if ($row['user_id'] == $group_moderator)
 			{
+				set_die_append_msg(false, false, $group_id);
 				bb_die(sprintf($lang['USER_IS_MOD_GROUP'], profile_url($row)));
 			}
 
@@ -279,6 +281,7 @@ else
 			{
 				if ($is_member['user_id'])
 				{
+					set_die_append_msg(false, false, $group_id);
 					bb_die(sprintf($lang['USER_IS_MEMBER_GROUP'], profile_url($row)));
 				}
 			}
