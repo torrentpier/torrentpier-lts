@@ -695,6 +695,7 @@ else
 						'USER_ID'   => $user_id,
 						'PM'        => $pm,
 						'EMAIL'     => $email,
+						'WWW'       => $www,
 					));
 				}
 
