@@ -383,7 +383,7 @@ define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 // Date format
 $bb_cfg['date_format']              = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости. Если есть возможность, то используйте лучше одну из переменных ниже, исходя из целей)
 $bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
-$bb_cfg['reg_date_format']          = 'Y-m-d H:i'; // формат даты регистрации пользователя
+$bb_cfg['reg_date_format']          = 'Y-m-d H:i'; // формат даты регистрации / даты вступления пользователя
 $bb_cfg['last_visit_date_format']   = 'Y-m-d H:i'; // формат даты последнего визита на сайте
 $bb_cfg['last_activity_date_format'] = 'Y-m-d H:i'; // формат даты последней активности на сайте
 $bb_cfg['last_post_date_format']    = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
