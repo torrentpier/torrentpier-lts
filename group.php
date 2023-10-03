@@ -14,7 +14,7 @@ $select_sort_mode = $select_sort_order = '';
 
 function generate_user_info(&$row, $date_format, $group_mod, &$from, &$posts, &$joined, &$pm, &$email, &$www, &$user_time, &$avatar)
 {
-	global $lang, $images, $bb_cfg;
+	global $lang, $images, $bb_cfg, $userdata;
 
 	$from      = (!empty($row['user_from'])) ? $row['user_from'] : $lang['NOSELECT'];
 	$joined    = bb_date($row['user_regdate'], $date_format);
@@ -23,7 +23,7 @@ function generate_user_info(&$row, $date_format, $group_mod, &$from, &$posts, &$
 	$pm        = ($bb_cfg['text_buttons']) ? '<a class="txtb" href="'. (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'">'. $lang['SEND_PM_TXTB'] .'</a>' : '<a href="' . (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'"><img src="' . $images['icon_pm'] . '" alt="' . $lang['SEND_PRIVATE_MESSAGE'] . '" title="' . $lang['SEND_PRIVATE_MESSAGE'] . '" border="0" /></a>';
 	$avatar    = get_avatar($row['user_id'], $row['avatar_ext_id'], !bf($row['user_opt'], 'user_opt', 'dis_avatar'), '', 50, 50);
 
-	if (bf($row['user_opt'], 'user_opt', 'user_viewemail') || $group_mod)
+	if (bf($row['user_opt'], 'user_opt', 'user_viewemail') || $row['user_id'] == $userdata['user_id'] || $group_mod)
 	{
 		$email_uri = ($bb_cfg['board_email_form']) ? ("profile.php?mode=email&amp;". POST_USERS_URL ."=".$row['user_id']) : 'mailto:'. $row['user_email'];
 		$email = '<a class="editable" href="'. $email_uri .'">'. $row['user_email'] .'</a>';
