@@ -3415,7 +3415,6 @@ TPL.selects = {
 		'Game Boy',
 		'GameBoy Color',
 		'GameBoy Advance',
-		'GameBoy Advance SP',
 		'Sega Master System',
 		'Sega Mega Drive Genesis',
 		'Sega Saturn',
