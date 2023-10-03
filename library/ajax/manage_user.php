@@ -4,8 +4,15 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $userdata, $lang, $bb_cfg;
 
-$mode = (string) $this->request['mode'];
-$user_id = $this->request['user_id'];
+if (!$user_id = $this->request['user_id'])
+{
+	$this->ajax_die($lang['NO_USER_ID_SPECIFIED']);
+}
+
+if (!$mode = (string) $this->request['mode'])
+{
+	$this->ajax_die('invalid mode (empty)');
+}
 
 switch ($mode)
 {

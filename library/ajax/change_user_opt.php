@@ -9,7 +9,7 @@ $new_opt = Zend\Json\Json::decode($this->request['user_opt'], Zend\Json\Json::TY
 
 if (!$user_id OR !$u_data = get_userdata($user_id))
 {
-	$this->ajax_die('invalid user_id');
+	$this->ajax_die($lang['NO_USER_ID_SPECIFIED']);
 }
 
 if (!is_array($new_opt))

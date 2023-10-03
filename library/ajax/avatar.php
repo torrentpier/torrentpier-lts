@@ -9,7 +9,7 @@ $user_id = (int) $this->request['user_id'];
 
 if (!$user_id OR !$u_data = get_userdata($user_id))
 {
-	$this->ajax_die('Invalid user_id');
+	$this->ajax_die($lang['NO_USER_ID_SPECIFIED']);
 }
 
 if (!IS_ADMIN && $user_id != $user->id)
