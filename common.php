@@ -20,14 +20,26 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS');
 
 // Cloudflare
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+{
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+}
 
 // Get initial config
-if (file_exists(BB_ROOT . 'library/config.local.php')) require(BB_ROOT . 'library/config.local.php');
-else require(BB_ROOT . 'library/config.php');
+if (file_exists(BB_ROOT . 'library/config.local.php'))
+{
+	require(BB_ROOT . 'library/config.local.php');
+}
+elseif (file_exists(BB_ROOT . 'library/config.php'))
+{
+	require(BB_ROOT . 'library/config.php');
+}
 
 // Get mods config
-if (file_exists(BB_ROOT . 'library/config.mods.php')) require(BB_ROOT . 'library/config.mods.php');
+if (file_exists(BB_ROOT . 'library/config.mods.php'))
+{
+	require(BB_ROOT . 'library/config.mods.php');
+}
 
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
