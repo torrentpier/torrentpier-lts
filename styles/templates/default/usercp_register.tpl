@@ -196,7 +196,7 @@ ajax.callback.posts = function(data){
 	<!-- ENDIF -->
 </tr>
 
-<!-- IF IS_ADMIN -->
+<!-- IF IS_ADMIN || $bb_cfg['show_email_visibility_settings'] -->
 <tr>
 	<td class="prof-title">{L_PUBLIC_VIEW_EMAIL}:</td>
 	<td>
