@@ -716,7 +716,8 @@ $lang['GROUP_REQUEST'] = 'Було подано прохання про всту
 $lang['GROUP_APPROVED'] = 'Ваша прохання було задоволено.';
 $lang['GROUP_ADDED'] = 'Ви були включені в групу';
 $lang['ALREADY_MEMBER_GROUP'] = 'Ви вже є членом цієї групи';
-$lang['USER_IS_MEMBER_GROUP'] = 'Користувач вже є членом цієї групи';
+$lang['USER_IS_MEMBER_GROUP'] = 'Користувач %s вже є членом цієї групи';
+$lang['USER_IS_MOD_GROUP'] = 'Користувач % є модератором цієї групи';
 $lang['GROUP_TYPE_UPDATED'] = 'Тип групи успішно змінено';
 $lang['EFFECTIVE_DATE'] = 'Дата набрання';
 
