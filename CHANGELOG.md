@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- Added missing template var in group.php [\#294](https://github.com/torrentpier/torrentpier-lts/pull/294) ([belomaxorka](https://github.com/belomaxorka))
 - Prevent infinity user adding into group [\#292](https://github.com/torrentpier/torrentpier-lts/pull/292) ([belomaxorka](https://github.com/belomaxorka))
 - Maked configurable email visibility for everybody [\#291](https://github.com/torrentpier/torrentpier-lts/pull/291) ([belomaxorka](https://github.com/belomaxorka))
 - Corrected translations in topic templates [\#289](https://github.com/torrentpier/torrentpier-lts/pull/289) ([belomaxorka](https://github.com/belomaxorka))
