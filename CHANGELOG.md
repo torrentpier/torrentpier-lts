@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.09 🎉
+- Maked configurable email visibility for everybody [\#291](https://github.com/torrentpier/torrentpier-lts/pull/291) ([belomaxorka](https://github.com/belomaxorka))
 - Corrected translations in topic templates [\#289](https://github.com/torrentpier/torrentpier-lts/pull/289) ([belomaxorka](https://github.com/belomaxorka))
 - ACP: Changed extensions sorting [\#288](https://github.com/torrentpier/torrentpier-lts/pull/288) ([belomaxorka](https://github.com/belomaxorka))
 - Fix $mail_to format (Adding missing ">" at end) [\#284](https://github.com/torrentpier/torrentpier-lts/pull/284) ([belomaxorka](https://github.com/belomaxorka), dchistyakov)
