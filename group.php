@@ -258,6 +258,7 @@ else
 	{
 		if (!$is_moderator)
 		{
+			set_die_append_msg(false, false, $group_id);
 			bb_die($lang['NOT_GROUP_MODERATOR']);
 		}
 
@@ -321,6 +322,7 @@ else
 				}
 				if (!$sql_in = join(',', $sql_in))
 				{
+					set_die_append_msg(false, false, $group_id);
 					bb_die($lang['NONE_SELECTED']);
 				}
 
