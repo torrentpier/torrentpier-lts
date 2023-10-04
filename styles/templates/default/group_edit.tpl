@@ -25,26 +25,38 @@ function manage_group(mode, value) {
 		<td>{L_GROUP_NAME}:</td>
 		<td><input type="text" id="group_name" size="80" value="{GROUP_NAME}" onblur="manage_group(this.id, this.value);" /></td>
 	</tr>
+	<tr id="preview_description" class="hidden">
+		<td>{L_PREVIEW} ({L_GROUP_DESCRIPTION}):</td>
+		<td>
+			<div class="description genmed"></div>
+		</td>
+	</tr>
 	<tr>
 		<td>{L_GROUP_DESCRIPTION}:</td>
-		<td><div id="preview_description"></div>
+		<td>
 			<p>
 				<textarea cols="80" id="group_description" rows="6">{GROUP_DESCRIPTION}</textarea>
 			</p>
 			<p>
-				<input type="button" value="{L_AJAX_PREVIEW}" onclick="ajax.exec({ action: 'posts', type: 'view_message', message: $('textarea#group_description').val()});ajax.callback.posts=function(data){$('div#preview_description').html(data.message_html);initPostBBCode('div#preview_description')}">
+				<input type="button" value="{L_AJAX_PREVIEW}" onclick="ajax.exec({ action: 'posts', type: 'view_message', message: $('textarea#group_description').val()});ajax.callback.posts=function(data){$('tr#preview_description').show();$('div.description').html(data.message_html);initPostBBCode('div.description')}">
 				<input type="button" value="{L_SAVE}" onclick="manage_group('group_description',$('textarea#group_description').val())">
 			</p>
 		</td>
 	</tr>
+	<tr id="preview_signature" class="hidden">
+		<td>{L_PREVIEW} ({L_SIGNATURE}):</td>
+		<td>
+			<div class="signature"></div>
+		</td>
+	</tr>
 	<tr>
 		<td>{L_SIGNATURE}:</td>
-		<td><div id="preview_signature"></div>
+		<td>
 			<p>
 				<textarea cols="80" id="group_signature" rows="3">{GROUP_SIGNATURE}</textarea>
 			</p>
 			<p>
-				<input type="button" value="{L_AJAX_PREVIEW}" onclick="ajax.exec({ action: 'posts', type: 'view_message', message: $('textarea#group_signature').val()});ajax.callback.posts=function(data){$('div#preview_signature').html(data.message_html);initPostBBCode('div#preview_signature')}">
+				<input type="button" value="{L_AJAX_PREVIEW}" onclick="ajax.exec({ action: 'posts', type: 'view_message', message: $('textarea#group_signature').val()});ajax.callback.posts=function(data){$('tr#preview_signature').show();$('div.signature').html(data.message_html);initPostBBCode('div.signature')}">
 				<input type="button" value="{L_SAVE}" onclick="manage_group('group_signature',$('textarea#group_signature').val())">
 			</p>
 		</td>
