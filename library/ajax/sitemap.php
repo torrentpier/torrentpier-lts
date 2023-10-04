@@ -4,7 +4,10 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $bb_cfg, $lang;
 
-$mode = (string) $this->request['mode'];
+if (!$mode = (string) $this->request['mode'])
+{
+	$this->ajax_die('invalid mode (empty)');
+}
 $map  = new sitemap();
 $html = '';
 
