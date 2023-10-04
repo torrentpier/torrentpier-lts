@@ -19,6 +19,10 @@ if (isset($_GET['event']) && $_GET['event'] === 'completed')
 
 $announce_interval = $bb_cfg['announce_interval'];
 $passkey_key = $bb_cfg['passkey_key'];
+$max_left_val      = 536870912000;   // 500 GB
+$max_up_down_val   = 5497558138880;  // 5 TB
+$max_up_add_val    = 85899345920;    // 80 GB
+$max_down_add_val  = 85899345920;    // 80 GB
 
 // Recover info_hash
 if (isset($_GET['?info_hash']) && !isset($_GET['info_hash']))
@@ -33,7 +37,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'scrape') !== false)
 }
 if (!isset($_GET[$passkey_key]) || !is_string($_GET[$passkey_key]) || strlen($_GET[$passkey_key]) != BT_AUTH_KEY_LENGTH)
 {
-	msg_die('Please LOG IN and RE-DOWNLOAD this torrent (passkey not found)');
+	msg_die('Please LOG IN and REDOWNLOAD this torrent (passkey not found)');
 }
 
 // Input var names
@@ -70,37 +74,33 @@ $passkey = isset($$passkey_key) ? $$passkey_key : null;
 
 // Verify request
 // Required params (info_hash, peer_id, port, uploaded, downloaded, left, passkey)
-if (!isset($info_hash))
+if (!isset($info_hash) || strlen($info_hash) != 20)
 {
-	msg_die('info_hash was not provided');
-}
-if (strlen($info_hash) != 20)
-{
-	msg_die('Invalid info_hash: ' . bin2hex($info_hash));
+	msg_die('Invalid info_hash');
 }
 if (!isset($peer_id) || strlen($peer_id) != 20)
 {
-	msg_die('Invalid peer_id: ' . bin2hex($peer_id));
+	msg_die('Invalid peer_id');
 }
 if (!isset($port) || $port < 0 || $port > 0xFFFF)
 {
-	msg_die('Invalid port: ' . $port);
+	msg_die('Invalid port');
 }
-if (!isset($uploaded) || $uploaded < 0)
+if (!isset($uploaded) || $uploaded < 0 || $uploaded > $max_up_down_val || $uploaded == 1844674407370)
 {
-	msg_die('Invalid uploaded value: ' . $uploaded);
+	msg_die('Invalid uploaded value');
 }
-if (!isset($downloaded) || $downloaded < 0)
+if (!isset($downloaded) || $downloaded < 0 || $downloaded > $max_up_down_val || $downloaded == 1844674407370)
 {
-	msg_die('Invalid downloaded value: ' . $downloaded);
+	msg_die('Invalid downloaded value');
 }
-if (!isset($left) || $left < 0)
+if (!isset($left) || $left < 0 || $left > $max_left_val)
 {
-	msg_die('Invalid left value: ' . $left);
+	msg_die('Invalid left value');
 }
 if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 {
-	msg_die('Invalid passkey: ' . $passkey);
+	msg_die('Invalid passkey');
 }
 
 // IP
@@ -243,7 +243,7 @@ else
 	}
 	if (empty($row['user_id']))
 	{
-		msg_die('Please LOG IN and RE-DOWNLOAD this torrent (user not found)');
+		msg_die('Please LOG IN and REDOWNLOAD this torrent (user not found)');
 	}
 
 	$user_id  = $row['user_id'];
