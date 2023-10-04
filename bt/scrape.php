@@ -46,9 +46,9 @@ $row = DB()->fetch_row("
 ");
 
 $output['files'][$info_hash] = array(
-		'complete'    => (int) $row['seeders'],
-		'downloaded'  => (int) $row['complete_count'],
-		'incomplete'  => (int) $row['leechers'],
+	'complete'    => (int) $row['seeders'],
+	'downloaded'  => (int) $row['complete_count'],
+	'incomplete'  => (int) $row['leechers'],
 );
 
 echo bencode($output);
