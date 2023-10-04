@@ -12,11 +12,7 @@ if (isset($_GET['?info_hash']) && !isset($_GET['info_hash']))
 	$_GET['info_hash'] = $_GET['?info_hash'];
 }
 
-if (!isset($_GET['info_hash']))
-{
-	msg_die('info_hash was not provided');
-}
-if (strlen($_GET['info_hash']) != 20)
+if (!isset($_GET['info_hash']) || strlen($_GET['info_hash']) != 20)
 {
 	msg_die('Invalid info_hash: ' . bin2hex($_GET['info_hash']));
 }
