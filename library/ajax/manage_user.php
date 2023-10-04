@@ -4,7 +4,7 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $userdata, $lang, $bb_cfg;
 
-if (!$user_id = $this->request['user_id'])
+if (!$user_id = intval($this->request['user_id']))
 {
 	$this->ajax_die($lang['NO_USER_ID_SPECIFIED']);
 }

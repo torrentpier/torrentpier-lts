@@ -15,8 +15,8 @@ $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_
 $domain_ssl = false;
 
 // Version info
-$bb_cfg['tp_version'] = '2.1.5-2023.09';
-$bb_cfg['tp_release_date'] = '04-10-2023';
+$bb_cfg['tp_version'] = '2.1.5-2023.10';
+$bb_cfg['tp_release_date'] = '04-11-2023';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
@@ -281,6 +281,8 @@ $bb_cfg['user_session_gc_ttl']     = 1800;         // number of seconds that a s
 $bb_cfg['session_cache_gc_ttl']    = 1200;         // sec
 $bb_cfg['max_last_visit_days']     = 14;           // days
 $bb_cfg['last_visit_update_intrv'] = 3600;         // sec
+$bb_cfg['last_visit_date_format']   = 'Y-m-d H:i'; // формат даты последнего визита на сайте
+$bb_cfg['last_activity_date_format'] = 'Y-m-d H:i'; // формат даты последней активности на сайте
 
 // Registration
 $bb_cfg['invalid_logins']          = 5;            // Количество неверных попыток ввода пароля, перед выводом проверки капчей
@@ -288,6 +290,7 @@ $bb_cfg['new_user_reg_disabled']   = false;        // Запретить рег�
 $bb_cfg['unique_ip']               = false;        // Запретить регистрацию нескольких учетных записей с одного ip
 $bb_cfg['new_user_reg_restricted'] = false;        // Ограничить регистрацию новых пользователей по времени с 01:00 до 17:00
 $bb_cfg['reg_email_activation']    = true;         // Требовать активацию учетной записи по email
+$bb_cfg['reg_date_format']         = 'Y-m-d H:i'; // формат даты регистрации / даты вступления пользователя
 
 // Email
 $bb_cfg['emailer_disabled']        = false; // отключить ли отправку почты с сайта
@@ -382,18 +385,14 @@ define('CRON_ALLOWED', TRIGGERS_DIR .'cron_allowed');
 define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 
 // Date format
-$bb_cfg['date_format']              = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости. Если есть возможность, то используйте лучше одну из переменных ниже, исходя из целей)
-$bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
-$bb_cfg['reg_date_format']          = 'Y-m-d H:i'; // формат даты регистрации / даты вступления пользователя
-$bb_cfg['last_visit_date_format']   = 'Y-m-d H:i'; // формат даты последнего визита на сайте
-$bb_cfg['last_activity_date_format'] = 'Y-m-d H:i'; // формат даты последней активности на сайте
-$bb_cfg['last_post_date_format']    = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
+$bb_cfg['date_format']             = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости)
 
 // Subforums
 $bb_cfg['sf_on_first_page_only']   = true;
 
 // Forums
 $bb_cfg['allowed_topics_per_page'] = array(50, 100, 150, 200, 250, 300);
+$bb_cfg['last_post_date_format']   = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
 
 // Topics
 $bb_cfg['show_quick_reply']       = true;          // показывать форму быстрого ответа
@@ -499,6 +498,7 @@ $bb_cfg['mem_on_start'] = (MEM_USAGE) ? memory_get_usage() : 0;
 $bb_cfg['translate_dates'] = true; // in displaying time
 $bb_cfg['use_word_censor'] = true; // использовать цензор слов
 $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
+$bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
 
 $bb_cfg['allow_change'] = array(
 	'language'   => true,

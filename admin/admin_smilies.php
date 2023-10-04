@@ -20,7 +20,7 @@ else
 
 $delimeter  = '=+:';
 $s_hidden_fields = '';
-$smiley_paks = [];
+$smiley_paks = array();
 
 // Read a listing of uploaded smilies for use in the add or edit smliey code
 $dir = @opendir(BB_ROOT . $bb_cfg['smilies_path']);

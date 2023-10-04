@@ -302,7 +302,7 @@ if ($view == 'search')
 	}
 
 	$s_forums = '';
-	$list_cat = [];
+	$list_cat = array();
 	while ($row = DB()->sql_fetchrow($result))
 	{ //sf
 		$s_forums .= '<option value="' . $row['forum_id'] . '">' . (($row['forum_parent']) ? HTML_SF_SPACER : '') . htmlCHR($row['forum_name']) . '</option>';

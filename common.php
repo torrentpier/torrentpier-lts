@@ -1,5 +1,6 @@
 <?php
 
+if (!(PHP_VERSION_ID >= 50303)) die('TorrentPier II requires PHP version 5.3.3+. Your PHP version '. PHP_VERSION);
 if (isset($_REQUEST['GLOBALS'])) die();
 
 ignore_user_abort(true);
@@ -30,10 +31,12 @@ if (file_exists(BB_ROOT . 'library/config.local.php'))
 {
 	require(BB_ROOT . 'library/config.local.php');
 }
-elseif (file_exists(BB_ROOT . 'library/config.php'))
+else
 {
 	require(BB_ROOT . 'library/config.php');
 }
+
+if (!defined('BB_CFG_LOADED')) trigger_error('Configuration file could not be loaded', E_USER_ERROR);
 
 // Get mods config
 if (file_exists(BB_ROOT . 'library/config.mods.php'))
