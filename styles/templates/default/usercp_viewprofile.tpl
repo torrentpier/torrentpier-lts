@@ -480,7 +480,7 @@ ajax.callback.gen_passkey = function(data){
 							<td colspan="1">{L_MAX_SPEED}</td>
 							<td colspan="2">{L_DL_DL_SPEED}: {SPEED_DOWN}</td>
 							<td colspan="2">{L_DL_UL_SPEED}: {SPEED_UP}</td>
-							<!-- IF $bb_cfg['seed_bonus_enabled'] --><td colspan="1"><!-- IF PROFILE_USER --><a href="profile.php?mode=bonus">{L_EXCHANGE}</a><!-- ENDIF --></td><!-- ENDIF -->
+							<!-- IF $bb_cfg['seed_bonus_enabled'] --><td colspan="1"><!-- IF PROFILE_USER --><a href="{#BONUS_URL}">{L_EXCHANGE}</a><!-- ENDIF --></td><!-- ENDIF -->
 						</tr>
 					</table>
 				</td>
