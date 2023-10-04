@@ -281,7 +281,7 @@ $bb_cfg['user_session_gc_ttl']     = 1800;         // number of seconds that a s
 $bb_cfg['session_cache_gc_ttl']    = 1200;         // sec
 $bb_cfg['max_last_visit_days']     = 14;           // days
 $bb_cfg['last_visit_update_intrv'] = 3600;         // sec
-$bb_cfg['last_visit_date_format']   = 'Y-m-d H:i'; // формат даты последнего визита на сайте
+$bb_cfg['last_visit_date_format']  = 'Y-m-d H:i'; // формат даты последнего визита на сайте
 $bb_cfg['last_activity_date_format'] = 'Y-m-d H:i'; // формат даты последней активности на сайте
 
 // Registration
