@@ -48,7 +48,7 @@ if ($mode != '')
 		{
 			if (empty($rank_id))
 			{
-				bb_die($lang['MUST_SELECT_RANK']);
+				bb_die($lang['MUST_SELECT_RANK'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_RANKADMIN'], '<a href="admin_ranks.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			$sql = "SELECT * FROM " . BB_RANKS . " WHERE rank_id = $rank_id";
@@ -100,7 +100,7 @@ if ($mode != '')
 
 		if ($rank_title == '')
 		{
-			bb_die($lang['MUST_SELECT_RANK']);
+			bb_die($lang['MUST_SELECT_RANK'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_RANKADMIN'], '<a href="admin_ranks.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 		}
 
 		if ($special_rank == 1)
@@ -127,7 +127,7 @@ if ($mode != '')
 				$sql = "UPDATE " . BB_USERS . " SET user_rank = 0 WHERE user_rank = $rank_id";
 				if (!$result = DB()->sql_query($sql))
 				{
-					bb_die($lang['NO_UPDATE_RANKS']);
+					bb_die($lang['NO_UPDATE_RANKS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_RANKADMIN'], '<a href="admin_ranks.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 				}
 			}
 			$sql = "UPDATE " . BB_RANKS . "
@@ -186,7 +186,7 @@ if ($mode != '')
 			$sql = "UPDATE " . BB_USERS . " SET user_rank = 0 WHERE user_rank = $rank_id";
 			if (!$result = DB()->sql_query($sql))
 			{
-				bb_die($lang['NO_UPDATE_RANKS']);
+				bb_die($lang['NO_UPDATE_RANKS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_RANKADMIN'], '<a href="admin_ranks.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			$datastore->update('ranks');
@@ -195,7 +195,7 @@ if ($mode != '')
 		}
 		else
 		{
-			bb_die($lang['MUST_SELECT_RANK']);
+			bb_die($lang['MUST_SELECT_RANK'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_RANKADMIN'], '<a href="admin_ranks.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 		}
 	}
 	else

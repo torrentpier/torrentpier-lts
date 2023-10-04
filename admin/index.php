@@ -5,7 +5,7 @@ require('./pagestart.php');
 // Generate relevant output
 if (isset($_GET['pane']) && $_GET['pane'] == 'left')
 {
-	$module = [];
+	$module = array();
 	if (!$module = CACHE('bb_cache')->get('admin_module_' . $user->id))
 	{
 		$dir = @opendir('.');

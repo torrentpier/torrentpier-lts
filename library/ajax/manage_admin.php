@@ -4,7 +4,10 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $userdata, $lang, $bb_cfg;
 
-$mode = (string) $this->request['mode'];
+if (!$mode = (string) $this->request['mode'])
+{
+	$this->ajax_die('invalid mode (empty)');
+}
 
 switch ($mode)
 {
@@ -59,7 +62,7 @@ switch ($mode)
 
 		if (!is_file($bb_cfg['sphinx_config_path'].".log"))
 		{
-			file_put_contents($bb_cfg['sphinx_config_path'].".log", "##############################".date("H:i:s", TIMENOW)."##############################\r\n\r\n\r\n\r\n", FILE_APPEND);
+			file_put_contents($bb_cfg['sphinx_config_path'].".log", "####Logger from dimka3210.####".date("H:i:s", TIMENOW)."##############################\r\n\r\n\r\n\r\n", FILE_APPEND);
 		}
 
 		file_put_contents($bb_cfg['sphinx_config_path'].".log", "##############################".date("H:i:s", TIMENOW)."##############################\r\n", FILE_APPEND);

@@ -20,7 +20,7 @@ else
 
 $delimeter  = '=+:';
 $s_hidden_fields = '';
-$smiley_paks = [];
+$smiley_paks = array();
 
 // Read a listing of uploaded smilies for use in the add or edit smliey code
 $dir = @opendir(BB_ROOT . $bb_cfg['smilies_path']);
@@ -277,7 +277,7 @@ else if ( $mode != '' )
 			// If no code was entered complain
 			if ($smile_code == '' || $smile_url == '')
 			{
-				bb_die($lang['FIELDS_EMPTY']);
+				bb_die($lang['FIELDS_EMPTY'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_SMILEADMIN'], '<a href="admin_smilies.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			// Convert < and > to proper htmlentities for parsing
@@ -309,7 +309,7 @@ else if ( $mode != '' )
 			// If no code was entered complain
 			if ($smile_code == '' || $smile_url == '')
 			{
-				bb_die($lang['FIELDS_EMPTY']);
+				bb_die($lang['FIELDS_EMPTY'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_SMILEADMIN'], '<a href="admin_smilies.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			// Convert < and > to proper htmlentities for parsing
