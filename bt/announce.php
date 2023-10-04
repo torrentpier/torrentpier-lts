@@ -76,31 +76,31 @@ $passkey = isset($$passkey_key) ? $$passkey_key : null;
 // Required params (info_hash, peer_id, port, uploaded, downloaded, left, passkey)
 if (!isset($info_hash) || strlen($info_hash) != 20)
 {
-	msg_die('Invalid info_hash');
+	msg_die('Invalid info_hash: ' . bin2hex($info_hash));
 }
 if (!isset($peer_id) || strlen($peer_id) != 20)
 {
-	msg_die('Invalid peer_id');
+	msg_die('Invalid peer_id: ' . bin2hex($peer_id));
 }
 if (!isset($port) || $port < 0 || $port > 0xFFFF)
 {
-	msg_die('Invalid port');
+	msg_die('Invalid port: ' . $port);
 }
 if (!isset($uploaded) || $uploaded < 0 || $uploaded > $max_up_down_val || $uploaded == 1844674407370)
 {
-	msg_die('Invalid uploaded value');
+	msg_die('Invalid uploaded value: ' . $uploaded);
 }
 if (!isset($downloaded) || $downloaded < 0 || $downloaded > $max_up_down_val || $downloaded == 1844674407370)
 {
-	msg_die('Invalid downloaded value');
+	msg_die('Invalid downloaded value: ' . $downloaded);
 }
 if (!isset($left) || $left < 0 || $left > $max_left_val)
 {
-	msg_die('Invalid left value');
+	msg_die('Invalid left value: ' . $left);
 }
 if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 {
-	msg_die('Invalid passkey');
+	msg_die('Invalid passkey: ' . $passkey);
 }
 
 // IP
@@ -243,7 +243,7 @@ else
 	}
 	if (empty($row['user_id']))
 	{
-		msg_die('Please LOG IN and REDOWNLOAD this torrent (user not found)');
+		msg_die('Please LOG IN and RE-DOWNLOAD this torrent (user not found)');
 	}
 
 	$user_id  = $row['user_id'];
