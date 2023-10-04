@@ -75,7 +75,12 @@ if ($submit && $mode == 'user')
 	{
 		if ($userdata['user_id'] == $user_id || $user_id == GUEST_UID || $user_id == BOT_UID)
 		{
-			bb_die($lang['AUTH_GENERAL_ERROR']);
+			$message = $lang['AUTH_GENERAL_ERROR'] .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+			bb_die($message);
+			unset($message);
 		}
 
 		DB()->query("UPDATE ". BB_USERS ." SET user_level = ". ADMIN ." WHERE user_id = $user_id LIMIT 1");
@@ -95,7 +100,12 @@ if ($submit && $mode == 'user')
 		// ignore if you're trying to change yourself from an admin to user!
 		if ($userdata['user_id'] == $user_id)
 		{
-			bb_die($lang['AUTH_SELF_ERROR']);
+			$message = $lang['AUTH_SELF_ERROR'] .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+			bb_die($message);
+			unset($message);
 		}
 		// Update users level, reset to USER
 		DB()->query("UPDATE ". BB_USERS ." SET user_level = ". USER ." WHERE user_id = $user_id LIMIT 1");
