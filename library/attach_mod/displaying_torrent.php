@@ -462,7 +462,7 @@ if ($tor_reged && $tor_info)
 						if (!defined('LEECHER_EXIST'))
 						{
 							define('LEECHER_EXIST', true);
-							$leech_order_action = "viewtopic.php?". POST_TOPIC_URL ."=$bt_topic_id&amp;spmode=full#leechers";
+							$leech_order_action = TOPIC_URL ."$bt_topic_id&amp;spmode=full#leechers";
 
 							$template->assign_block_vars("$x_full", array(
 								'LEECH_ORD_ACT'     => $leech_order_action,
