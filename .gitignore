@@ -1,5 +1,7 @@
-### TorrentPier ###
+### IDE ###
 .idea/
+
+### TorrentPier ###
 data/avatars/
 data/old_files/
 data/torrent_files/
@@ -17,6 +19,7 @@ spam_filter_words.txt
 *.zip
 *.rar
 *.tar
+*.7z
 *.gz
 *.torrent
 
