@@ -49,7 +49,7 @@ if ($mode != '')
 			}
 			else
 			{
-				bb_die($lang['NO_WORD_SELECTED']);
+				bb_die($lang['NO_WORD_SELECTED'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_WORDADMIN'], '<a href="admin_words.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 		}
 
@@ -69,7 +69,7 @@ if ($mode != '')
 
 		if ($word == '' || $replacement == '')
 		{
-			bb_die($lang['MUST_ENTER_WORD']);
+			bb_die($lang['MUST_ENTER_WORD'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_WORDADMIN'], '<a href="admin_words.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 		}
 
 		if ($word_id)
@@ -115,7 +115,7 @@ if ($mode != '')
 		}
 		else
 		{
-			bb_die($lang['NO_WORD_SELECTED']);
+			bb_die($lang['NO_WORD_SELECTED'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_WORDADMIN'], '<a href="admin_words.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 		}
 	}
 }

@@ -6,7 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.10 🎉
-- Minor improvements [\#297](https://github.com/torrentpier/torrentpier-lts/pull/297), [\#298](https://github.com/torrentpier/torrentpier-lts/pull/298), [\#300](https://github.com/torrentpier/torrentpier-lts/pull/300), [\#301](https://github.com/torrentpier/torrentpier-lts/pull/301), [\#302](https://github.com/torrentpier/torrentpier-lts/pull/302), [\#303](https://github.com/torrentpier/torrentpier-lts/pull/303), [\#304](https://github.com/torrentpier/torrentpier-lts/pull/304) ([belomaxorka](https://github.com/belomaxorka))
+- Minor improvements [\#297](https://github.com/torrentpier/torrentpier-lts/pull/297), [\#298](https://github.com/torrentpier/torrentpier-lts/pull/298), [\#300](https://github.com/torrentpier/torrentpier-lts/pull/300), [\#301](https://github.com/torrentpier/torrentpier-lts/pull/301), [\#302](https://github.com/torrentpier/torrentpier-lts/pull/302), [\#303](https://github.com/torrentpier/torrentpier-lts/pull/303), [\#304](https://github.com/torrentpier/torrentpier-lts/pull/304), [\#305](https://github.com/torrentpier/torrentpier-lts/pull/305) ([belomaxorka](https://github.com/belomaxorka))
 
 ## [v2.1.5-2023.09](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.09) (2023-10-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.08-HotFix...v2.1.5-2023.09)
