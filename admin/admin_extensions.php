@@ -662,7 +662,7 @@ if ($e_mode == 'perm' && $group)
 		$forum_p = array();
 		$act_id = 0;
 		$forum_p = auth_unpack($allowed_forums);
-		$sql = "SELECT forum_id, forum_name FROM " . BB_FORUMS . " WHERE forum_id IN (" . implode(', ', $forum_p) . ")";
+		$sql = "SELECT forum_id, forum_name, forum_parent FROM " . BB_FORUMS . " WHERE forum_id IN (" . implode(', ', $forum_p) . ") ORDER BY forum_order";
 		if (!($result = DB()->sql_query($sql)))
 		{
 			bb_die('Could not get forum names');
@@ -672,6 +672,7 @@ if ($e_mode == 'perm' && $group)
 		{
 			$forum_perm[$act_id]['forum_id'] = $row['forum_id'];
 			$forum_perm[$act_id]['forum_name'] = $row['forum_name'];
+			$forum_perm[$act_id]['forum_parent'] = $row['forum_parent'];
 			$act_id++;
 		}
 	}
@@ -680,7 +681,7 @@ if ($e_mode == 'perm' && $group)
 	{
 		$template->assign_block_vars('allow_option_values', array(
 			'VALUE'		=> $forum_perm[$i]['forum_id'],
-			'OPTION'	=> htmlCHR($forum_perm[$i]['forum_name']))
+			'OPTION'	=> (($forum_perm[$i]['forum_parent']) ? HTML_SF_SPACER : '') . htmlCHR($forum_perm[$i]['forum_name']))
 		);
 	}
 
