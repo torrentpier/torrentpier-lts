@@ -140,7 +140,7 @@ elseif ($forum_id)
 
 	if (!$topic_row = DB()->fetch_row($sql))
 	{
-		bb_die('Forum not exist');
+		bb_die($lang['FORUM_NOT_EXIST']);
 	}
 
 	$forum_name = $topic_row['forum_name'];
