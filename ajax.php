@@ -275,7 +275,7 @@ class ajax_common
 	 */
 	function check_admin_session()
 	{
-		global $user;
+		global $user, $lang;
 
 		if (!$user->data['session_admin'])
 		{
@@ -291,7 +291,7 @@ class ajax_common
 				);
 				if (!$user->login($login_args, true))
 				{
-					$this->ajax_die('Wrong password');
+					$this->ajax_die($lang['ERROR_LOGIN']);
 				}
 			}
 		}
