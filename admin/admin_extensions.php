@@ -691,9 +691,9 @@ if ($e_mode == 'perm' && $group)
 		'A_PERM_ACTION' => "admin_extensions.php?mode=groups&amp;e_mode=perm&amp;e_group=$group",
 	));
 
-	$forum_option_values = array(0 => $lang['PERM_ALL_FORUMS']);
+	$forum_option_values = array(0 => array(0 => 0, 1 => $lang['PERM_ALL_FORUMS']));
 
-	$sql = "SELECT forum_id, forum_name FROM " . BB_FORUMS;
+	$sql = "SELECT forum_id, forum_name, forum_parent FROM " . BB_FORUMS . " ORDER BY forum_order";
 
 	if (!($result = DB()->sql_query($sql)))
 	{
@@ -702,7 +702,7 @@ if ($e_mode == 'perm' && $group)
 
 	while ($row = DB()->sql_fetchrow($result))
 	{
-		$forum_option_values[intval($row['forum_id'])] = $row['forum_name'];
+		$forum_option_values[intval($row['forum_id'])] = array(0 => $row['forum_parent'], 1 => $row['forum_name']);
 	}
 	DB()->sql_freeresult($result);
 
@@ -710,7 +710,7 @@ if ($e_mode == 'perm' && $group)
 	{
 		$template->assign_block_vars('forum_option_values', array(
 			'VALUE'		=> $value,
-			'OPTION'	=> htmlCHR($option))
+			'OPTION'	=> (($option[0]) ? HTML_SF_SPACER : '') . htmlCHR($option[1]))
 		);
 	}
 
