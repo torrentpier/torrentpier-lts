@@ -19,7 +19,7 @@ if (isset($_GET['event']) && $_GET['event'] === 'completed')
 
 $announce_interval = $bb_cfg['announce_interval'];
 $passkey_key = $bb_cfg['passkey_key'];
-$max_left_val      = 536870912000;   // 500 GB
+$max_left_val      = 5497558138880;  // 5 TB
 $max_up_down_val   = 5497558138880;  // 5 TB
 $max_up_add_val    = 85899345920;    // 80 GB
 $max_down_add_val  = 85899345920;    // 80 GB
