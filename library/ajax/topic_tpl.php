@@ -4,7 +4,7 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $userdata, $lang;
 
-if (!IS_SUPER_ADMIN) $this->ajax_die($lang['NOT_AUTHORISED']);
+if (!IS_SUPER_ADMIN) $this->ajax_die($lang['ONLY_FOR_SUPER_ADMIN']);
 
 array_deep($this->request, 'trim');
 
