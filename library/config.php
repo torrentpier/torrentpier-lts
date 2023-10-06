@@ -9,7 +9,7 @@ $domain_name = 'torrentpier.com'; // укажите здесь название 
 $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_NAME']) : $domain_name;
 $domain_ssl = false; // используется ли SSL сертификат (HTTPS) на сервере
 
-// Информация о версии движка
+// Информация о версии
 $bb_cfg['tp_version'] = '2.1.5-2023.10';
 $bb_cfg['tp_release_date'] = '04-11-2023';
 $bb_cfg['tp_release_state'] = 'LTS';
@@ -77,13 +77,13 @@ $bb_cfg['cache']['engines'] = array(
 // Доступные методы кэширования: filecache, memcache, sqlite, redis, apc, xcache (по умолчанию: filecache)
 $bb_cfg['datastore_type'] = 'filecache';
 
-// Настройки сервера
-$bb_cfg['server_name'] = $domain_name;                                                     // Берется значение из $domain_name, в этой строчке менять ничего не нужно
-$bb_cfg['server_port'] = (!empty($_SERVER['SERVER_PORT'])) ? $_SERVER['SERVER_PORT'] : 80; // Указывается порт на котором запущен сервер (По умолчанию определяется автоматически, если нет, то укажите порт вручную)
-$bb_cfg['script_path'] = '/';                                                              // Путь в котором расположен движок относительно корня
+// Server
+$bb_cfg['server_name'] = $domain_name;                                                     // The domain name from which this board runs
+$bb_cfg['server_port'] = (!empty($_SERVER['SERVER_PORT'])) ? $_SERVER['SERVER_PORT'] : 80; // The port your server is running on
+$bb_cfg['script_path'] = '/';                                                              // The path where FORUM is located relative to the domain name
 
 // GZip
-$bb_cfg['gzip_compress']      = true;              // использовать ли GZip сжатие на сайте
+$bb_cfg['gzip_compress']      = true;              // compress output
 
 // Tracker
 $bb_cfg['announce_interval']  = 2400;              // Announce interval (default: 2400)
@@ -210,8 +210,8 @@ $bb_cfg['login_url']   = 'login.php';    #  "http://{$domain_name}/login.php"
 $bb_cfg['posting_url'] = 'posting.php';  #  "http://{$domain_name}/posting.php"
 $bb_cfg['pm_url']      = 'privmsg.php';  #  "http://{$domain_name}/privmsg.php"
 
-// Настройки языка
-$bb_cfg['charset']       = 'utf8'; // кодировка страниц
+// Language
+$bb_cfg['charset']       = 'utf8'; // page charset
 
 if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
 {
@@ -351,7 +351,7 @@ define('LOG_SEPR',     ' | '); // разделить в лог файле
 define('LOG_LF',       "\n"); // символ переноса строки
 define('LOG_MAX_SIZE', 1048576); // максимальный размер лог файла (в байтах)
 
-// Задаем какие ошибки PHP попадут отображены на странице / попадут в логи
+// Error reporting
 ini_set('error_reporting', E_ALL); // уровень отладки | https://www.php.net/manual/ru/errorfunc.constants.php
 ini_set('display_errors',  0); // показывать ли ошибки
 ini_set('display_startup_errors', 0); // показывать ли ошибки запуска | https://www.php.net/manual/en/errorfunc.configuration.php#ini.display-startup-errors
@@ -374,7 +374,7 @@ if (!extension_loaded('bcmath')) die('BCMath extension not installed');
 // Intl
 if (!extension_loaded('intl')) die('Intl extension not installed');
 
-// Триггеры крон задач
+// Triggers
 define('BB_ENABLED',   TRIGGERS_DIR .'$on');
 define('BB_DISABLED',  TRIGGERS_DIR .'$off');
 define('CRON_ALLOWED', TRIGGERS_DIR .'cron_allowed');
