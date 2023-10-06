@@ -80,7 +80,7 @@ if (!isset($info_hash) || strlen($info_hash) != 20)
 }
 if (!isset($peer_id) || strlen($peer_id) != 20)
 {
-	msg_die('Invalid peer_id: ' . bin2hex($peer_id));
+	msg_die('Invalid peer_id: ' . $peer_id);
 }
 if (!isset($port) || $port < 0 || $port > 0xFFFF)
 {
