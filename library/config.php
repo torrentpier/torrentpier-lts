@@ -12,7 +12,7 @@ $domain_name = 'torrentpier.com'; // enter here your primary domain name of your
 $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_NAME']) : $domain_name;
 
 // Domain secure (HTTPS)
-$domain_ssl = false;
+$domain_ssl = false; // используется ли SSL сертификат (HTTPS) на сайте
 
 // Version info
 $bb_cfg['tp_version'] = '2.1.5-2023.10';
@@ -86,7 +86,7 @@ $bb_cfg['server_port'] = (!empty($_SERVER['SERVER_PORT'])) ? $_SERVER['SERVER_PO
 $bb_cfg['script_path'] = '/';                                                              // The path where FORUM is located relative to the domain name
 
 // GZip
-$bb_cfg['gzip_compress']      = true;              // compress output
+$bb_cfg['gzip_compress']      = true;              // использовать ли GZip сжатие на страницах
 
 // Tracker
 $bb_cfg['announce_interval']  = 2400;              // Announce interval (default: 2400)
@@ -214,7 +214,7 @@ $bb_cfg['posting_url'] = 'posting.php';  #  "http://{$domain_name}/posting.php"
 $bb_cfg['pm_url']      = 'privmsg.php';  #  "http://{$domain_name}/privmsg.php"
 
 // Language
-$bb_cfg['charset']       = 'utf8'; // page charset
+$bb_cfg['charset']     = 'utf8'; // page charset
 
 if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
 {
@@ -245,7 +245,7 @@ $bb_cfg['lang'] = array(
 );
 
 // Templates
-define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/');
+define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // папка с шаблонами админ панели
 
 $bb_cfg['templates'] = array(
 	// Список доступных шаблонов
@@ -437,7 +437,7 @@ $bb_cfg['limit_max_search_results']   = false;     // ограничить чи�
 $bb_cfg['spam_filter_file_path']      = false;     // спам фильтр (нужно указать путь к файлу с спам словами, например: INT_DATA_DIR . 'spam_filter_words.txt';) (false - выключено)
 $bb_cfg['spam_filter_replacement']    = '*СПАМ*';  // слово на которое будет заменен спам
 
-$bb_cfg['autocorrect_wkl']            = true;      // autocorrect wrong keyboard layout
+$bb_cfg['autocorrect_wkl']            = true;      // автоматическое исправление языка для слов в тексте из-за неправильной раскладки клавиатуры
 
 // Posting
 $bb_cfg['prevent_multiposting']  = true;           // TODO: заменить кнопку "ответить" на "отредактировать последнее сообщение" если автор последнего сообщения не является модератором или админом
@@ -468,7 +468,7 @@ $bb_cfg['user_not_activated_days_keep'] = 7;       // "not activated" == "not fi
 $bb_cfg['user_not_active_days_keep']    = 180;     // inactive users but only with no posts
 
 // Groups
-$bb_cfg['group_members_per_page']       = 50;      // количество групп на одной странице
+$bb_cfg['group_members_per_page']       = 50;      // количество групп отображаемых на одной странице
 
 // Tidy
 $bb_cfg['tidy_post'] = (!in_array('tidy', get_loaded_extensions())) ? false : true;
@@ -557,7 +557,7 @@ $bb_cfg['gen_forums_allowed_ext'] = array('zip', 'rar');            // TODO: д�
 
 // Avatars
 $bb_cfg['avatars'] = array(
-	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
+	'allowed_ext' => array('gif','jpg','png','bmp'),  // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'bot_avatar'  => 'gallery/bot.gif',               // аватара бота
 	'max_size'    => 100*1024,                        // размер аватары в байтах
 	'max_height'  => 100,                             // высота аватара в px
@@ -569,7 +569,7 @@ $bb_cfg['avatars'] = array(
 
 // Group avatars
 $bb_cfg['group_avatars'] = array(
-	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
+	'allowed_ext' => array('gif','jpg','png','bmp'),  // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'max_size'    => 300*1024,                        // размер аватары в байтах
 	'max_height'  => 300,                             // высота аватара в px
 	'max_width'   => 300,                             // ширина аватара в px
@@ -581,10 +581,10 @@ $bb_cfg['group_avatars'] = array(
 // Captcha
 // Get a Google reCAPTCHA API Key: https://www.google.com/recaptcha/admin
 $bb_cfg['captcha'] = array(
-	'disabled'   => true,
-	'public_key' => '', // your public key
-	'secret_key' => '', // your secret key
-	'theme'      => 'light', // light or dark
+	'disabled'   => true, // отключить капчу
+	'public_key' => '',   // ключ сайта
+	'secret_key' => '',   // секретный ключ
+	'theme'      => 'light', // выбор темы (доступны: light, dark)
 );
 
 // Atom feed
