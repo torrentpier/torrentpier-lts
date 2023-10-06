@@ -186,7 +186,7 @@ $page_cfg['show_torhelp'] = array(
 );
 
 // Path (trailing slash '/' at the end: XX_PATH - without, XX_DIR - with)
-define('BB_PATH',       realpath(BB_ROOT)                    );
+define('BB_PATH',       realpath(BB_ROOT)               );
 define('ADMIN_DIR',     BB_PATH .'/admin/'                   );
 define('DATA_DIR',      BB_PATH .'/data/'                    );
 define('INT_DATA_DIR',  BB_PATH .'/internal_data/'           );
@@ -517,7 +517,7 @@ $banned_user_agents = array(
 
 $bb_cfg['trash_forum_id'] = 0; // (int) 7
 
-$bb_cfg['first_logon_redirect_url'] = 'index.php';
+$bb_cfg['first_logon_redirect_url'] = 'index.php'; // на какую страницу перекидывать пользователя после завершения регистрации
 $bb_cfg['terms_and_conditions_url'] = 'terms.php';
 
 $bb_cfg['user_agreement_url']       = 'info.php?show=user_agreement';
@@ -525,8 +525,8 @@ $bb_cfg['copyright_holders_url']    = 'info.php?show=copyright_holders';
 $bb_cfg['advert_url']               = 'info.php?show=advert';
 
 $bb_cfg['sitemap_sending'] = array(
-#   'Source name'          => 'http://ping_url'
-	'Google'               => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
+#   'Source name'   => 'http://ping_url'
+	'Google'        => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
 // Extensions [расширения разрешенные для загрузки через upload_common() класс]
