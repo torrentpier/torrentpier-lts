@@ -186,7 +186,7 @@ $page_cfg['show_torhelp'] = array(
 );
 
 // Path (trailing slash '/' at the end: XX_PATH - without, XX_DIR - with)
-define('BB_PATH',       realpath(BB_ROOT)               );
+define('BB_PATH',       realpath(BB_ROOT)                    );
 define('ADMIN_DIR',     BB_PATH .'/admin/'                   );
 define('DATA_DIR',      BB_PATH .'/data/'                    );
 define('INT_DATA_DIR',  BB_PATH .'/internal_data/'           );
