@@ -147,7 +147,7 @@ $bb_cfg['show_tor_info_in_dl_list'] = true;
 $bb_cfg['allow_dl_list_names_mode'] = true;
 
 $bb_cfg['torrent_name_style'] = true; // использовать имя файла в названии торрент-файла (Пример: [yoursite.com].txxx.torrent)
-$bb_cfg['tor_help_links']     = '<div class="mrg_2"><a class="genmed" target="_blank" href="#">Полезная информация</a></div>'; // дополнительная информация (полезные ссылки например) в топике снизу раздачи
+$bb_cfg['tor_help_links']     = 'terms.php'; // дополнительная информация (полезные ссылки например) в топике снизу раздачи
 
 // Сколько дней сохранять торрент зарегистрированным / Days to keep torrent registered, if:
 $bb_cfg['seeder_last_seen_days_keep']  = 0; // сколько дней назад был сид последний раз
@@ -515,33 +515,32 @@ $banned_user_agents = array(
 
 $bb_cfg['trash_forum_id'] = 0; // (int) 7
 
-$bb_cfg['first_logon_redirect_url'] = 'index.php'; // На какую страницу перекидывать пользователя после завершения регистрации
-$bb_cfg['terms_and_conditions_url'] = 'terms.php'; // Страница с правилами
+$bb_cfg['first_logon_redirect_url'] = 'index.php';
+$bb_cfg['terms_and_conditions_url'] = 'terms.php';
 
 $bb_cfg['user_agreement_url']       = 'info.php?show=user_agreement';
 $bb_cfg['copyright_holders_url']    = 'info.php?show=copyright_holders';
 $bb_cfg['advert_url']               = 'info.php?show=advert';
 
 $bb_cfg['sitemap_sending'] = array(
-	// Указать сервисы на которые отправлять карту сайта для индексации.
-	// Формат: 'Название ресурса' => 'URL-адрес на который производить отправку'
-	'Google' => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
+#   'Source name'          => 'http://ping_url'
+	'Google'               => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
-// Расширения [расширения разрешенные для загрузки через upload_common() класс]
+// Extensions [расширения разрешенные для загрузки через upload_common() класс]
 $bb_cfg['file_id_ext'] = array(
-	// Картинки
+	// Images
 	1 => 'gif',
 	2 => 'jpg',
 	3 => 'png',
 	4 => 'bmp',
-	// Архивы
+	// Archives
 	5 => 'gz',
 	6 => '7z',
 	7 => 'rar',
 	8 => 'zip',
 	9 => 'tar',
-	// Прочее
+	// Other
 	10 => 'torrent',
 );
 
