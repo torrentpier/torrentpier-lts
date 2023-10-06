@@ -14,13 +14,13 @@ $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_
 // Domain secure (HTTPS)
 $domain_ssl = false;
 
-// Информация о версии
+// Version info
 $bb_cfg['tp_version'] = '2.1.5-2023.10';
 $bb_cfg['tp_release_date'] = '04-11-2023';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
-// Основные настройки базы данных
+// Database
 $charset  = 'utf8'; // кодировка базы данных
 $pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
@@ -32,7 +32,6 @@ $bb_cfg['db'] = array(
 	//'db3' => array('localhost3:3306', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
 
-// Алясы для базы данных
 $bb_cfg['db_alias'] = array(
 //	'alias'  => 'srv_name'
 #	db1
@@ -49,24 +48,24 @@ $bb_cfg['db_alias'] = array(
 	'pt'     => 'db1', // BB_POSTS_TEXT
 );
 
-// Кэширование
+// Cache
 $bb_cfg['cache']['pconnect'] = true;
 $bb_cfg['cache']['db_dir']   = realpath(BB_ROOT) .'/internal_data/cache/filecache/';
 $bb_cfg['cache']['prefix']   = 'tp_';  // Префикс кеша ('tp_')
 $bb_cfg['cache']['memcache'] = array(
-	'host'         => '127.0.0.1', // хост
-	'port'         => 11211, // порт
-	'pconnect'     => true, // постоянное соединение с сервером | https://www.php.net/manual/ru/memcache.pconnect.php
+	'host'         => '127.0.0.1',
+	'port'         => 11211,
+	'pconnect'     => true,
 	'con_required' => true,
 );
 $bb_cfg['cache']['redis']  = array(
-	'host'         => '127.0.0.1', // хост
-	'port'         => 6379, // порт
-	'pconnect'     => PHP_ZTS ? false : true, // постоянное соединение с сервером
+	'host'         => '127.0.0.1',
+	'port'         => 6379,
+	'pconnect'     => PHP_ZTS ? false : true,
 	'con_required' => true,
 );
 
-// Доступные методы кэширования: filecache, memcache, sqlite, redis, apc, xcache (по умолчанию: filecache)
+// Available cache types: filecache, memcache, sqlite, redis, apc, xcache (default filecache)
 # name => array( (string) type, (array) cfg )
 $bb_cfg['cache']['engines'] = array(
 	'bb_cache'      => array('filecache', array()),
@@ -77,8 +76,8 @@ $bb_cfg['cache']['engines'] = array(
 	'bb_login_err'  => array('filecache', array()),
 	'bb_poll_data'  => array('filecache', array()),
 );
-// Датастор
-// Доступные методы кэширования: filecache, memcache, sqlite, redis, apc, xcache (по умолчанию: filecache)
+// Datastore
+// Available datastore types: filecache, memcache, sqlite, redis, apc, xcache (default filecache)
 $bb_cfg['datastore_type'] = 'filecache';
 
 // Server
@@ -96,11 +95,11 @@ $bb_cfg['ignore_reported_ip'] = false;             // Ignore IP reported by clie
 $bb_cfg['verify_reported_ip'] = true;              // Verify IP reported by client against $_SERVER['HTTP_X_FORWARDED_FOR']
 $bb_cfg['allow_internal_ip']  = false;             // Allow internal IP (10.xx.. etc.)
 
-// Ocelot анонсер | https://github.com/torrentpier/ocelot
+// Ocelot
 $bb_cfg['ocelot'] = array(
-	'enabled' => false, // использовать ли Ocelot анонсер
-	'host'    => $domain_name, // хост (по умолчанию тот же самый на котором запущен движок)
-	'port'    => 34000, // порт
+	'enabled' => false,
+	'host'    => $domain_name,
+	'port'    => 34000,
 	'url'     => "http://$domain_name:34000/", // with '/'
 	'secret'  => 'some_10_chars',              // 10 chars
 	'stats'   => 'some_10_chars',              // 10 chars
