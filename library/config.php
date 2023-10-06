@@ -245,8 +245,8 @@ $bb_cfg['lang'] = array(
 	),
 );
 
-// Настройки шаблонов
-define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // путь к папке с шаблона для админ панели
+// Templates
+define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/');
 
 $bb_cfg['templates'] = array(
 	// Список доступных шаблонов
@@ -274,7 +274,7 @@ $bb_cfg['cookie_domain'] = in_array($domain_name, array($_SERVER['SERVER_ADDR'],
 $bb_cfg['cookie_secure'] = ($domain_ssl ? 1 : (((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')) ? 1 : 0));
 $bb_cfg['cookie_prefix'] = 'bb_'; // Префикс для cookie файлов ('bb_')
 
-// Настройки сессий (Движка)
+// Sessions
 $bb_cfg['session_update_intrv']    = 180;          // sec
 $bb_cfg['user_session_duration']   = 1800;         // sec
 $bb_cfg['admin_session_duration']  = 6*3600;       // sec
@@ -285,7 +285,7 @@ $bb_cfg['last_visit_update_intrv'] = 3600;         // sec
 $bb_cfg['last_visit_date_format']  = 'Y-m-d H:i'; // формат даты последнего визита на сайте
 $bb_cfg['last_activity_date_format'] = 'Y-m-d H:i'; // формат даты последней активности на сайте
 
-// Настройки регистрации
+// Registration
 $bb_cfg['invalid_logins']          = 5;            // Количество неверных попыток ввода пароля, перед выводом проверки капчей
 $bb_cfg['new_user_reg_disabled']   = false;        // Запретить регистрацию новых учетных записей
 $bb_cfg['unique_ip']               = false;        // Запретить регистрацию нескольких учетных записей с одного ip
@@ -293,7 +293,7 @@ $bb_cfg['new_user_reg_restricted'] = false;        // Ограничить ре�
 $bb_cfg['reg_email_activation']    = true;         // Требовать активацию учетной записи по email
 $bb_cfg['reg_date_format']         = 'Y-m-d H:i'; // формат даты регистрации / даты вступления пользователя
 
-// Настройки отправки почты (Email)
+// Email
 $bb_cfg['emailer_disabled']        = false; // отключить ли отправку почты с сайта
 
 $bb_cfg['smtp_delivery']           = false; // использовать ли SMTP (если false, то будет использоваться нативная функция mail())
@@ -318,14 +318,13 @@ $bb_cfg['tech_admin_email']        = "admin@$domain_name"; // почта тех�
 $bb_cfg['abuse_email']             = "abuse@$domain_name"; // почта для жалоб (абуз, правообладатели)
 $bb_cfg['adv_email']               = "adv@$domain_name"; // почта для рекламных предложений
 
-// Настройки отладки
+// Debug
 define('SPHINX_LOG_ERRORS',    true);             // log sphinx errors
 define('SPHINX_LOG_NAME',      'sphinx_errors');  // sphinx log filename
 
 define('DBG_LOG',              false);            // enable forum debug (off on production)
 define('DBG_TRACKER',          false);            // enable tracker debug (off on production)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
-
 define('SQL_DEBUG',            true);             // enable forum sql & cache debug
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // mysql log filename (Board)
 define('SQL_TR_LOG_NAME',      'sql_error_tr');   // mysql log filename (Tracker)
@@ -335,21 +334,23 @@ define('SQL_LOG_SLOW_QUERIES', true);             // log sql slow queries
 define('SQL_SLOW_QUERY_TIME',  10);               // slow query in seconds
 define('SQL_PREPEND_SRC_COMM', false);            // prepend source file comment to sql query
 
-// Специальные пользователи
+// Special users
 $bb_cfg['dbg_users'] = array( // Пользователи которым доступна дебаг панель / отладка (тех. админы например)
-	// Формат: user_id => 'логин'
-	2 => 'admin',
-);
-$bb_cfg['unlimited_users'] = array( // Пользователи на которых не действует ограничение на количество одновременных закачек / раздач
-	// Формат: user_id => 'логин'
-	2 => 'admin',
-);
-$bb_cfg['super_admins'] = array( // Супер админы (разработчики сайта)
-	// Формат: user_id => 'логин'
+#	user_id => 'name',
 	2 => 'admin',
 );
 
-// Настройки логирования
+$bb_cfg['unlimited_users'] = array( // Пользователи на которых не действует ограничение на количество одновременных закачек / раздач
+#	user_id => 'name',
+	2 => 'admin',
+);
+
+$bb_cfg['super_admins'] = array( // Супер админы (разработчики сайта)
+#	user_id => 'name',
+	2 => 'admin',
+);
+
+// Log options
 define('LOG_EXT',      'log'); // расширение лог файла
 define('LOG_SEPR',     ' | '); // разделить в лог файле
 define('LOG_LF',       "\n"); // символ переноса строки
@@ -362,7 +363,7 @@ ini_set('display_startup_errors', 0); // показывать ли ошибки 
 ini_set('log_errors',      1); // логировать ли ошибки
 ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла (нативный лог)
 
-// Проверка системных требований (Не нужно редактировать)
+// Check some variable
 // Magic quotes
 if (@get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
 // MySQL
@@ -384,14 +385,17 @@ define('BB_DISABLED',  TRIGGERS_DIR .'$off');
 define('CRON_ALLOWED', TRIGGERS_DIR .'cron_allowed');
 define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 
-// Настройки под-форумов
-$bb_cfg['sf_on_first_page_only']   = true; // показывать под-форумы только на первой странице форума
+// Date format
+$bb_cfg['date_format']             = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости)
 
-// Настройки форумов
+// Subforums
+$bb_cfg['sf_on_first_page_only']   = true;
+
+// Forums
 $bb_cfg['allowed_topics_per_page'] = array(50, 100, 150, 200, 250, 300);
 $bb_cfg['last_post_date_format']   = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
 
-// Настройки топиокв
+// Topics
 $bb_cfg['show_quick_reply']       = true;          // показывать форму быстрого ответа
 $bb_cfg['show_rank_text']         = false;         // показывать название лычки в топиках
 $bb_cfg['show_rank_image']        = true;          // показывать картинку лычки в топиках
@@ -492,7 +496,6 @@ define('MEM_USAGE', function_exists('memory_get_usage'));
 
 $bb_cfg['mem_on_start'] = (MEM_USAGE) ? memory_get_usage() : 0;
 
-$bb_cfg['date_format']     = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости)
 $bb_cfg['translate_dates'] = true; // in displaying time
 $bb_cfg['use_word_censor'] = true; // использовать цензор слов
 $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
@@ -553,7 +556,7 @@ $bb_cfg['attach'] = array(
 $bb_cfg['tor_forums_allowed_ext'] = array('torrent', 'zip', 'rar'); // TODO: для разделов с раздачами
 $bb_cfg['gen_forums_allowed_ext'] = array('zip', 'rar');            // TODO: для обычных разделов
 
-// Настройки аватарок пользователей
+// Avatars
 $bb_cfg['avatars'] = array(
 	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'bot_avatar'  => 'gallery/bot.gif',               // аватара бота
@@ -565,7 +568,7 @@ $bb_cfg['avatars'] = array(
 	'up_allowed'  => true,                            // разрешить загрузку аватар
 );
 
-// Настройки аватарок для групп
+// Group avatars
 $bb_cfg['group_avatars'] = array(
 	'allowed_ext' => array('gif','jpg','png','bmp'), // разрешенные форматы файлов (При добавлении нового расширения, продублируйте в $bb_cfg['file_id_ext'])
 	'max_size'    => 300*1024,                        // размер аватары в байтах
@@ -576,8 +579,8 @@ $bb_cfg['group_avatars'] = array(
 	'up_allowed'  => true,                            // разрешить загрузку аватар
 );
 
-// Настройки капчи
-// получить ключи для капчи можно тут: https://www.google.com/recaptcha/admin
+// Captcha
+// Get a Google reCAPTCHA API Key: https://www.google.com/recaptcha/admin
 $bb_cfg['captcha'] = array(
 	'disabled'   => true,
 	'public_key' => '', // your public key
