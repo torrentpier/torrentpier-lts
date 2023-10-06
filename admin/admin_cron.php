@@ -21,7 +21,7 @@ if ($mode == 'run' && !$job_id)
 }
 else require('./pagestart.php');
 
-if (!IS_SUPER_ADMIN) bb_die($lang['NOT_ADMIN']);
+if (!IS_SUPER_ADMIN) bb_die($lang['ONLY_FOR_SUPER_ADMIN']);
 
 require(INC_DIR .'functions_admin_torrent.php');
 require(INC_DIR .'functions_admin_cron.php');
