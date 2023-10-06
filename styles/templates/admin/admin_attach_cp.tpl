@@ -117,7 +117,7 @@
 		<td class="row2" colspan="2">{S_SORT_ORDER}</td>
 	</tr>
 	<tr>
-		<td class="catBottom" colspan="4">{S_HIDDEN_FIELDS}<input class="liteoption" type="submit" name="search" value="{L_SEARCH}" /></td>
+		<td class="catBottom" colspan="4">{S_HIDDEN_FIELDS}<input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input class="liteoption" type="submit" name="search" value="{L_SEARCH}" /></td>
 	</tr>
 </table>
 
