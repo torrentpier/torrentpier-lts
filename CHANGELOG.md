@@ -1,7 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2023.10](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04) (В разработке)
+## [v2.1.5-2023.10](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04) (Последний релиз)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.09...v2.1.5-2023.10)
+
+...Прощай, легенда! А с тобой, дорогой %username%, мы увидимся в [TorrentPier Cattle](https://github.com/torrentpier/torrentpier), с этого начинается новая эра TorrentPier! 😉👋
 
 **Merged pull requests:**
 
