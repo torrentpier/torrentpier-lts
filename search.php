@@ -3,7 +3,6 @@
 define('BB_SCRIPT', 'search');
 define('BB_ROOT', './');
 require(BB_ROOT . 'common.php');
-
 require(INC_DIR . 'bbcode.php');
 require(CLASS_DIR . 'utf8.php');
 require(CLASS_DIR . 'correct.php');
