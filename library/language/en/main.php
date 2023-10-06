@@ -1941,6 +1941,8 @@ $lang['POSTS_PRUNED'] = 'Posts pruned';
 $lang['PRUNE_SUCCESS'] = 'Forum has been pruned successfully';
 $lang['NOT_DAYS'] = 'Prune days not selected';
 
+$lang['CLICK_RETURN_PRUNEADMIN'] = 'Click %sHere%s to return to Forum Prune Administration';
+
 // Word censor
 $lang['WORDS_TITLE'] = 'Word Censoring';
 $lang['WORDS_EXPLAIN'] = 'From this control panel you can add, edit, and remove words that will be automatically censored on your forums. In addition people will not be allowed to register with usernames containing these words. Wildcards (*) are accepted in the word field. For example, *test* will match detestable, test* would match testing, *test would match detest.';
