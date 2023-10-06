@@ -48,7 +48,7 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
  * @author   Nasibullin Rinat
  * @version  1.4.3
  *
- * https://github.com/b1rdex/text-lang-correct | Aug 4 2023
+ * Fork: https://github.com/b1rdex/text-lang-correct | Aug 4 2023 | 0.1.8
  */
 
 class Text_LangCorrect
