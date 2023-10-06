@@ -70,7 +70,7 @@ function update_smiley(newimage)
 		<td class="row2"><input class="post" type="text" name="smile_emotion" value="{SMILEY_EMOTICON}" /></td>
 	</tr>
 	<tr>
-		<td class="catBottom" colspan="2"><input class="mainoption" type="submit" value="{L_SUBMIT}" /></td>
+		<td class="catBottom" colspan="2"><input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input class="mainoption" type="submit" value="{L_SUBMIT}" /></td>
 	</tr>
 </table>
 
@@ -106,7 +106,7 @@ function update_smiley(newimage)
 		<td class="row2" colspan="2" align="center">{L_SMILE_CONFLICTS}<br /><input type="radio" name="replace" value="1" checked="checked"/> {L_REPLACE_EXISTING} &nbsp; <input type="radio" name="replace" value="0" /> {L_KEEP_EXISTING}</td>
 	</tr>
 	<tr>
-		<td class="catBottom" colspan="2"><input class="mainoption" name="import_pack" type="submit" value="{L_IMPORT}" /></td>
+		<td class="catBottom" colspan="2"><input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input class="mainoption" name="import_pack" type="submit" value="{L_IMPORT}" /></td>
 	</tr>
 </table>
 

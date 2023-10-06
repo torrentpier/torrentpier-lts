@@ -78,6 +78,7 @@ function toggle_cat_list (val)
 	</tr>
 	<tr>
 		<td class="catBottom" colspan="2">
+			<input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;
 			<input type="submit" name="submit" value="{S_SUBMIT_VALUE}" class="mainoption" />
 		</td>
 	</tr>

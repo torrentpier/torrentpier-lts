@@ -25,7 +25,7 @@
 	  <td class="row2" align="center"><input type="checkbox" name="add_extension_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="4"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+	  <td class="catBottom" colspan="4"> {S_HIDDEN_FIELDS} <input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
   </tr>
   <tr>
 	  <th>&nbsp;{L_EXPLANATION}&nbsp;</th>
@@ -98,7 +98,7 @@
 	  <td class="row2" align="center"><input type="checkbox" name="add_extension_group_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="8"><input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+	  <td class="catBottom" colspan="8"><input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
   </tr>
   <tr>
 	  <th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>

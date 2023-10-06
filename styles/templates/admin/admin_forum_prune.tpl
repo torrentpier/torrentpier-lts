@@ -40,6 +40,7 @@
 </tr>
 <tr>
 	<td colspan="2" class="catBottom">
+		<input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;
 		<input type="submit" name="submit" value="{L_DO_PRUNE}" class="mainoption">
 	</td>
 </tr>

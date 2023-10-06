@@ -53,7 +53,7 @@
 		<td class="row2"><input class="post" type="text" name="replacement" value="{REPLACEMENT}" /></td>
 	</tr>
 	<tr>
-		<td class="catBottom" colspan="2">{S_HIDDEN_FIELDS}<input type="submit" name="save" value="{L_SUBMIT}" class="mainoption" /></td>
+		<td class="catBottom" colspan="2">{S_HIDDEN_FIELDS}<input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input type="submit" name="save" value="{L_SUBMIT}" class="mainoption" /></td>
 	</tr>
 </table></form>
 

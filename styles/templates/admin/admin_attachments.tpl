@@ -173,7 +173,7 @@
 		<td class="row1" align="center"><input type="checkbox" name="add_quota_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="3"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+	  <td class="catBottom" colspan="3"> {S_HIDDEN_FIELDS} <input class="liteoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
 	<tr>
 		<th>{L_DESCRIPTION}</th>
@@ -196,7 +196,7 @@
 	</tr>
 <!-- END limit_row -->
 	<tr align="right">
-	  <td class="catBottom" colspan="3"> <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+	  <td class="catBottom" colspan="3"> <input type="submit" name="{L_CANCEL}" class="liteoption" value="{L_CANCEL}" onClick="self.location.href='{S_CANCEL_ACTION}'" />&nbsp;&nbsp;<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
 </table>
 </form>
