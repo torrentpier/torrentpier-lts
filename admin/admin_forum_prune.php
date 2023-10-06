@@ -15,11 +15,11 @@ if (isset($_REQUEST['submit']))
 {
 	if (!$var =& $_REQUEST['f'] OR !$f_selected = get_id_ary($var))
 	{
-		bb_die($lang['SELECT_FORUM']);
+		bb_die($lang['SELECT_FORUM'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_PRUNEADMIN'], '<a href="admin_forum_prune.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 	if (!$var =& $_REQUEST['prunedays'] OR !$prunedays = abs(intval($var)))
 	{
-		bb_die($lang['NOT_DAYS']);
+		bb_die($lang['NOT_DAYS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_PRUNEADMIN'], '<a href="admin_forum_prune.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 
 	$prunetime = TIMENOW - 86400*$prunedays;
@@ -43,11 +43,11 @@ if (isset($_REQUEST['submit']))
 	}
 	if (!$prune_performed)
 	{
-		bb_die($lang['NONE_SELECTED']);
+		bb_die($lang['NONE_SELECTED'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_PRUNEADMIN'], '<a href="admin_forum_prune.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 	if (!$pruned_total)
 	{
-		bb_die($lang['NO_SEARCH_MATCH']);
+		bb_die($lang['NO_SEARCH_MATCH'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_PRUNEADMIN'], '<a href="admin_forum_prune.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 }
 
