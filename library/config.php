@@ -4,10 +4,15 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 $bb_cfg = $tr_cfg = $page_cfg = array();
 
-// Основные настройки сервера
-$domain_name = 'torrentpier.com'; // укажите здесь название вашего домена
+// Increase number after changing js or css
+$bb_cfg['js_ver'] = $bb_cfg['css_ver'] = 1;
+
+// Primary domain name
+$domain_name = 'torrentpier.com'; // enter here your primary domain name of your site
 $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_NAME']) : $domain_name;
-$domain_ssl = false; // используется ли SSL сертификат (HTTPS) на сервере
+
+// Domain secure (HTTPS)
+$domain_ssl = false;
 
 // Информация о версии
 $bb_cfg['tp_version'] = '2.1.5-2023.10';
@@ -15,17 +20,16 @@ $bb_cfg['tp_release_date'] = '04-11-2023';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
-// Версии скриптов и стилей (можете изменить при желании, например при редактировании и правках)
-$bb_cfg['js_ver'] = $bb_cfg['css_ver'] = 1;
-
 // Основные настройки базы данных
 $charset  = 'utf8'; // кодировка базы данных
 $pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
-// порядок параметров (хост:порт, название базы, пользователь, пароль, кодировка, постоянное соединение с сервером);
+// порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, pconnect);
 $bb_cfg['db'] = array(
 	'db1' => array('localhost:3306', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
+	//'db2' => array('localhost2:3306', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
+	//'db3' => array('localhost3:3306', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
 
 // Алясы для базы данных
@@ -46,10 +50,9 @@ $bb_cfg['db_alias'] = array(
 );
 
 // Кэширование
-$bb_cfg['cache']['pconnect'] = true; // TODO: постоянное соединение с сервером
-$bb_cfg['cache']['db_dir']   = realpath(BB_ROOT) .'/internal_data/cache/filecache/'; // путь к папке кэша для методов filecache и sqlite
+$bb_cfg['cache']['pconnect'] = true;
+$bb_cfg['cache']['db_dir']   = realpath(BB_ROOT) .'/internal_data/cache/filecache/';
 $bb_cfg['cache']['prefix']   = 'tp_';  // Префикс кеша ('tp_')
-
 $bb_cfg['cache']['memcache'] = array(
 	'host'         => '127.0.0.1', // хост
 	'port'         => 11211, // порт
@@ -64,6 +67,7 @@ $bb_cfg['cache']['redis']  = array(
 );
 
 // Доступные методы кэширования: filecache, memcache, sqlite, redis, apc, xcache (по умолчанию: filecache)
+# name => array( (string) type, (array) cfg )
 $bb_cfg['cache']['engines'] = array(
 	'bb_cache'      => array('filecache', array()),
 	'bb_config'     => array('filecache', array()),
@@ -73,7 +77,7 @@ $bb_cfg['cache']['engines'] = array(
 	'bb_login_err'  => array('filecache', array()),
 	'bb_poll_data'  => array('filecache', array()),
 );
-// Файловое хранилище (На основе кэша)
+// Датастор
 // Доступные методы кэширования: filecache, memcache, sqlite, redis, apc, xcache (по умолчанию: filecache)
 $bb_cfg['datastore_type'] = 'filecache';
 
