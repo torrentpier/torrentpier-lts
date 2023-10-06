@@ -1,7 +1,7 @@
 <?php
 
-define('BB_SCRIPT', 'ajax');
 define('IN_AJAX', true);
+define('BB_SCRIPT', 'ajax');
 
 $ajax = new ajax_common();
 

@@ -1,7 +1,8 @@
 <?php
 
 define('BB_SCRIPT', 'vote');
-require('./common.php');
+define('BB_ROOT', './');
+require(BB_ROOT ."common.php");
 
 $user->session_start(array('req_login' => true));
 

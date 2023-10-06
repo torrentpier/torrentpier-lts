@@ -1,8 +1,8 @@
 <?php
 
 define('IN_FORUM',   true);
-define('BB_SCRIPT', 'pm');
 define('IN_PM',     true);
+define('BB_SCRIPT', 'pm');
 define('BB_ROOT', './');
 require(BB_ROOT .'common.php');
 require(INC_DIR .'bbcode.php');
