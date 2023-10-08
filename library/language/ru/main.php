@@ -51,6 +51,7 @@ $lang['ENABLED'] = 'Включено';
 $lang['DISABLED'] = 'Выключено';
 $lang['ERROR'] = 'Ошибка';
 $lang['SELECT_ACTION'] = 'Выберите действие';
+$lang['CLEAR'] = 'Очистить';
 
 $lang['NEXT_PAGE'] = 'След.';
 $lang['PREVIOUS_PAGE'] = 'Пред.';
