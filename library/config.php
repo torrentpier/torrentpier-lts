@@ -214,7 +214,7 @@ $bb_cfg['posting_url'] = 'posting.php';  #  "http://{$domain_name}/posting.php"
 $bb_cfg['pm_url']      = 'privmsg.php';  #  "http://{$domain_name}/privmsg.php"
 
 // Language
-$bb_cfg['charset']     = 'utf8'; // page charset
+$bb_cfg['charset']     = 'utf-8'; // page charset
 
 if (isset($bb_cfg['default_lang']) && file_exists(LANG_ROOT_DIR . $bb_cfg['default_lang'] .'/'))
 {

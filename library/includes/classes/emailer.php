@@ -176,12 +176,12 @@ class emailer
 
 		if (preg_match('#^(Charset:(.*?))$#m', $this->msg, $match))
 		{
-			$this->encoding = (trim($match[2]) != '') ? trim($match[2]) : trim($bb_cfg['lang'][$userdata['user_lang']]['encoding']);
+			$this->encoding = (trim($match[2]) != '') ? trim($match[2]) : isset($bb_cfg['lang'][$userdata['user_lang']]['encoding']) ? trim($bb_cfg['lang'][$userdata['user_lang']]['encoding']) : 'utf-8';
 			$drop_header .= '[\r\n]*?' . preg_quote($match[1], '#');
 		}
 		else
 		{
-			$this->encoding = trim($bb_cfg['lang'][$userdata['user_lang']]['encoding']);
+			$this->encoding = isset($bb_cfg['lang'][$userdata['user_lang']]['encoding']) ? trim($bb_cfg['lang'][$userdata['user_lang']]['encoding']) : 'utf-8';
 		}
 		$this->subject = $this->encode($this->subject);
 
