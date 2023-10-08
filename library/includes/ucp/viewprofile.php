@@ -82,8 +82,8 @@ else if ($signature)
 	$signature = bbcode2html($signature);
 }
 
-$this_date = bb_date(TIMENOW ,'md', false);
-$poster_birthday  = ($profiledata['user_id'] != GUEST_UID && !empty($profiledata['user_birthday']) && $profiledata['user_birthday'] != '1900-01-01') ? bb_date(strtotime($profiledata['user_birthday']), 'md', false) : '';
+$this_date = bb_date(TIMENOW, 'md', false);
+$poster_birthday = ($profiledata['user_id'] != GUEST_UID && !empty($profiledata['user_birthday']) && $profiledata['user_birthday'] != '1900-01-01') ? bb_date(strtotime($profiledata['user_birthday']), 'md', false) : '';
 
 $template->assign_vars(array(
 	'PAGE_TITLE'           => sprintf($lang['VIEWING_USER_PROFILE'], $profiledata['username']),

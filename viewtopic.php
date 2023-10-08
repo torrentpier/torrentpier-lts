@@ -648,7 +648,7 @@ if ($topic_has_poll)
 
 $prev_post_time = $max_post_time = 0;
 
-$this_date = bb_date(TIMENOW ,'md', false);
+$this_date = bb_date(TIMENOW, 'md', false);
 
 for($i = 0; $i < $total_posts; $i++)
 {
