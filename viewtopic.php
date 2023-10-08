@@ -815,7 +815,7 @@ for($i = 0; $i < $total_posts; $i++)
 		'DELETE'             => $delpost_btn,
 		'IP'                 => $ip_btn,
 
-		'POSTER_BIRTHDAY'    => ($bb_cfg['birthday_enabled'] && $this_date == $poster_birthday) ? '<img src="'. $images['icon_birthday'] .'" alt="" title="'. $lang['HAPPY_BIRTHDAY'] .'" border="0" />' : '',
+		'POSTER_BIRTHDAY'    => ($bb_cfg['birthday_enabled'] && $this_date == $poster_birthday) ? '<img src="'. $images['icon_birthday'] .'" alt="'. $lang['HAPPY_BIRTHDAY'] .'" title="'. $lang['HAPPY_BIRTHDAY'] .'" border="0" />' : '',
 
 		'MC_COMMENT'         => ($mc_type) ? bbcode2html($mc_comment) : '',
 		'MC_BBCODE'          => ($mc_type) ? $mc_comment : '',

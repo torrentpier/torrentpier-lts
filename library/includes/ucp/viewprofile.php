@@ -82,6 +82,9 @@ else if ($signature)
 	$signature = bbcode2html($signature);
 }
 
+$this_date = bb_date(TIMENOW ,'md', false);
+$poster_birthday  = ($profiledata['user_id'] != GUEST_UID && !empty($profiledata['user_birthday']) && $profiledata['user_birthday'] != '1900-01-01') ? bb_date(strtotime($profiledata['user_birthday']), 'md', false) : '';
+
 $template->assign_vars(array(
 	'PAGE_TITLE'           => sprintf($lang['VIEWING_USER_PROFILE'], $profiledata['username']),
 	'USERNAME'             => $profiledata['username'],
@@ -108,6 +111,7 @@ $template->assign_vars(array(
 	'USER_POINTS'          => $profiledata['user_points'],
 	'GENDER'               => ($bb_cfg['gender']) ? $lang['GENDER_SELECT'][$profiledata['user_gender']] : '',
 	'BIRTHDAY'             => ($bb_cfg['birthday_enabled'] && !empty($profiledata['user_birthday']) && $profiledata['user_birthday'] != '1900-01-01') ? $profiledata['user_birthday'] : '',
+	'BIRTHDAY_ICON'        => ($bb_cfg['birthday_enabled'] && $this_date == $poster_birthday) ? '<img src="'. $images['icon_birthday'] .'" alt="'. $lang['HAPPY_BIRTHDAY'] .'" title="'. $lang['HAPPY_BIRTHDAY'] .'" border="0" />' : '',
 	'AGE'                  => ($bb_cfg['birthday_enabled'] && !empty($profiledata['user_birthday']) && $profiledata['user_birthday'] != '1900-01-01') ? birthday_age($profiledata['user_birthday']) : '',
 
 	'L_VIEWING_PROFILE'    => sprintf($lang['VIEWING_USER_PROFILE'], $profiledata['username']),
