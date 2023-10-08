@@ -39,7 +39,7 @@
 <!-- BEGIN memberrow -->
 <tr class="{memberrow.ROW_CLASS} tCenter">
 	<td>{memberrow.ROW_NUMBER}</td>
-	<td><b>{memberrow.USER}</b></td>
+	<td><div class="mrg_2">{memberrow.AVATAR_IMG}</div><b>{memberrow.USER}</b></td>
 	<td>{memberrow.PM}</td>
 	<!-- IF IS_ADMIN --><td>{memberrow.EMAIL}</td><!-- ENDIF -->
 	<td>{memberrow.FROM}</td>
