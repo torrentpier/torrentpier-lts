@@ -367,7 +367,7 @@ if ($t_data['topic_show_first_post'] && $start)
 			u.user_regdate, u.user_sig,
 			u.avatar_ext_id,
 			u.user_opt, u.user_gender, u.user_birthday,
-			p.*, g.group_name, g.group_id, g.group_signature, g.avatar_ext_id as rg_avatar_id,
+			p.*, g.group_name, g.group_id, g.group_description, g.group_signature, g.avatar_ext_id as rg_avatar_id,
 			u2.username as mc_username, u2.user_rank as mc_user_rank,
 			h.post_html, IF(h.post_html IS NULL, pt.post_text, NULL) AS post_text
 		FROM      ". BB_POSTS      ." p
@@ -648,7 +648,7 @@ if ($topic_has_poll)
 
 $prev_post_time = $max_post_time = 0;
 
-$this_date = bb_date(TIMENOW ,'md', false);
+$this_date = bb_date(TIMENOW, 'md', false);
 
 for($i = 0; $i < $total_posts; $i++)
 {
@@ -669,6 +669,7 @@ for($i = 0; $i < $total_posts; $i++)
 	$rg_id            = ($postrow[$i]['poster_rg_id']) ? $postrow[$i]['poster_rg_id'] : 0;
 	$rg_avatar        = get_avatar(GROUP_AVATAR_MASK . $rg_id, $postrow[$i]['rg_avatar_id']);
 	$rg_name          = ($postrow[$i]['group_name']) ? htmlCHR($postrow[$i]['group_name']) : '';
+	$rg_desc          = ($postrow[$i]['group_description']) ? bbcode2html(htmlCHR($postrow[$i]['group_description'])) : '';
 	$rg_signature     = ($postrow[$i]['group_signature']) ? bbcode2html(htmlCHR($postrow[$i]['group_signature'])) : '';
 
 	$poster_avatar = '';
@@ -814,7 +815,7 @@ for($i = 0; $i < $total_posts; $i++)
 		'DELETE'             => $delpost_btn,
 		'IP'                 => $ip_btn,
 
-		'POSTER_BIRTHDAY'    => ($bb_cfg['birthday_enabled'] && $this_date == $poster_birthday) ? '<img src="'. $images['icon_birthday'] .'" alt="" title="'. $lang['HAPPY_BIRTHDAY'] .'" border="0" />' : '',
+		'POSTER_BIRTHDAY'    => ($bb_cfg['birthday_enabled'] && $this_date == $poster_birthday) ? '<img src="'. $images['icon_birthday'] .'" alt="'. $lang['HAPPY_BIRTHDAY'] .'" title="'. $lang['HAPPY_BIRTHDAY'] .'" border="0" />' : '',
 
 		'MC_COMMENT'         => ($mc_type) ? bbcode2html($mc_comment) : '',
 		'MC_BBCODE'          => ($mc_type) ? $mc_comment : '',
@@ -824,6 +825,7 @@ for($i = 0; $i < $total_posts; $i++)
 
 		'RG_AVATAR'          => $rg_avatar,
 		'RG_NAME'            => $rg_name,
+		'RG_DESC'            => $rg_desc,
 		'RG_URL'             => GROUP_URL . $rg_id,
 		'RG_FIND_URL'        => 'tracker.php?srg='. $rg_id,
 		'RG_SIG'             => $rg_signature,
