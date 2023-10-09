@@ -5,7 +5,7 @@ define('BB_SCRIPT', 'memberlist');
 define('BB_ROOT', './');
 require(BB_ROOT .'common.php');
 
-$show_avatar_memberlist = false;
+$show_avatars_memberlist = false;
 $page_cfg['use_tablesorter'] = true;
 
 $user->session_start(array('req_login' => true));
@@ -201,7 +201,7 @@ if ($result = DB()->fetch_rowset($sql))
 			'ROW_NUMBER'    => $i + ( $start + 1 ),
 			'ROW_CLASS'     => $row_class,
 			'USER'          => profile_url($row),
-			'AVATAR_IMG'    => $show_avatar_memberlist ? get_avatar($row['user_id'], $row['avatar_ext_id'], !bf($row['user_opt'], 'user_opt', 'dis_avatar'), '', 50, 50) : '',
+			'AVATAR_IMG'    => $show_avatars_memberlist ? get_avatar($row['user_id'], $row['avatar_ext_id'], !bf($row['user_opt'], 'user_opt', 'dis_avatar'), '', 50, 50) : '',
 			'FROM'          => $from,
 			'JOINED_RAW'    => $row['user_regdate'],
 			'JOINED'        => $joined,
