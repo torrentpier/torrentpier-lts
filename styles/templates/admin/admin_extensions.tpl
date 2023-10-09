@@ -132,7 +132,7 @@
   <!-- BEGIN extensionrow -->
   <tr>
 	<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXTENSION}</span></td>
-    <td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXPLANATION}</span></td>
+	<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXPLANATION}</span></td>
 	<td class="row2" align="center">&nbsp;</td>
 	<td class="row2" align="center">&nbsp;</td>
 	<td class="row2" align="center">&nbsp;</td>

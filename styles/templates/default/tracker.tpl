@@ -404,7 +404,7 @@ $(function(){
 	<!-- ENDIF -->
 	<td class="row4 med tLeft">
 		<a class="{tor.DL_CLASS}<!-- IF AJAX_TOPICS --> folded2<!-- ENDIF --> tLink" <!-- IF AJAX_TOPICS -->onclick="ajax.view_post({tor.POST_ID}, this); return false;"<!-- ENDIF --> href="{TOPIC_URL}{tor.TOPIC_ID}"><!-- IF tor.TOR_FROZEN -->{tor.TOPIC_TITLE}<!-- ELSE -->{tor.TOR_TYPE}<b>{tor.TOPIC_TITLE}</b><!-- ENDIF --></a>
-	    <!-- IF SHOW_TIME_TOPICS --><div class="tr_tm">{tor.TOPIC_TIME}</div><!-- ENDIF -->
+		<!-- IF SHOW_TIME_TOPICS --><div class="tr_tm">{tor.TOPIC_TIME}</div><!-- ENDIF -->
 	</td>
 	<!-- IF SHOW_AUTHOR -->
 	<td class="row1"><a class="med" href="{TR_POSTER_URL}{tor.POSTER_ID}">{tor.USERNAME}</a></td>
