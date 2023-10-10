@@ -10,7 +10,7 @@ if (!empty($template))
 
 	$template->assign_vars(array(
 		'SIMPLE_FOOTER'    => !empty($gen_simple_header),
-		'POWERED'          => 'Powered by <a target="_blank" href="https://torrentpier.com">TorrentPier II LTS</a> &copy; 2005-' . date('Y') . $birthday_tp,
+		'POWERED'          => 'Powered by <a target="_blank" href="https://torrentpier.com">TorrentPier II LTS</a> &copy; 2005-' . date('Y') . (isset($birthday_tp) ? $birthday_tp : ''),
 		'SHOW_ADMIN_LINK'  => (IS_ADMIN && !defined('IN_ADMIN')),
 		'ADMIN_LINK_HREF'  => "admin/index.php",
 	));
@@ -30,7 +30,7 @@ if ($show_dbg_info)
 {
 	$gen_time = utime() - TIMESTART;
 	$gen_time_txt = sprintf('%.3f', $gen_time);
-	$gzip_text = (UA_GZIP_SUPPORTED) ? 'GZIP ' : '<s>GZIP</s> ';
+	$gzip_text = (UA_GZIP_SUPPORTED) ? "{$lang['GZIP_COMPRESSION']}: " : "<s>{$lang['GZIP_COMPRESSION']}</s>: ";
 	$gzip_text .= ($bb_cfg['gzip_compress']) ? $lang['ON'] : $lang['OFF'];
 
 	$stat = '[&nbsp; '. $lang['EXECUTION_TIME'] ." $gen_time_txt ". $lang['SEC'];
