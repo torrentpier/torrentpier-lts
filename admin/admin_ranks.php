@@ -114,7 +114,7 @@ if ($mode != '')
 		//
 		if ($rank_image != '')
 		{
-			if (!preg_match('/(\.gif|\.png|\.jpg|\.jpeg|\.bmp|\.webp)$/is', $rank_image))
+			if (!preg_match('/(\.gif|\.png|\.jpg|\.jpeg|\.bmp|\.webp|\.ico)$/is', $rank_image))
 			{
 				$rank_image = '';
 			}
