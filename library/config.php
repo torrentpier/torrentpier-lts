@@ -324,13 +324,13 @@ define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с лог
 define('DBG_LOG',              false);            // включить отладку на форуме (отключите на боевом сервере)
 define('DBG_TRACKER',          false);            // включить отладку на трекере (в анонсера) (отключите на боевом сервере)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
-define('SQL_DEBUG',            true);             // enable forum sql & cache debug
-define('SQL_BB_LOG_NAME',      'sql_error_bb');   // mysql log filename (Board)
-define('SQL_TR_LOG_NAME',      'sql_error_tr');   // mysql log filename (Tracker)
+define('SQL_DEBUG',            true);             // включить отладку для SQL запросов и Cache & Datastore
+define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)
+define('SQL_TR_LOG_NAME',      'sql_error_tr');   // имя лог файла с SQL ошибками (Трекер aka анонсер)
 define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
 define('SQL_CALC_QUERY_TIME',  true);             // for stats
-define('SQL_LOG_SLOW_QUERIES', true);             // log sql slow queries
-define('SQL_SLOW_QUERY_TIME',  10);               // slow query in seconds
+define('SQL_LOG_SLOW_QUERIES', true);             // логировать медленные запросы
+define('SQL_SLOW_QUERY_TIME',  10);               // время после которого запрос считается медленным (в секундах)
 define('SQL_PREPEND_SRC_COMM', false);            // prepend source file comment to sql query
 
 // Special users
