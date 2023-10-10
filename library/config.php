@@ -245,7 +245,7 @@ $bb_cfg['lang'] = array(
 );
 
 // Templates
-define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // папка с шаблонами админ панели
+define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // путь к директории с шаблонами к админ-панели
 
 $bb_cfg['templates'] = array(
 	// Список доступных шаблонов
@@ -318,11 +318,11 @@ $bb_cfg['abuse_email']             = "abuse@$domain_name"; // почта для 
 $bb_cfg['adv_email']               = "adv@$domain_name";   // почта для рекламных предложений
 
 // Debug
-define('SPHINX_LOG_ERRORS',    true);             // log sphinx errors
-define('SPHINX_LOG_NAME',      'sphinx_errors');  // sphinx log filename
+define('SPHINX_LOG_ERRORS',    true);             // логировать ошибки Sphinx
+define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с логами Sphinx
 
-define('DBG_LOG',              false);            // enable forum debug (off on production)
-define('DBG_TRACKER',          false);            // enable tracker debug (off on production)
+define('DBG_LOG',              false);            // включить отладку на форуме (отключите на боевом сервере)
+define('DBG_TRACKER',          false);            // включить отладку на трекере (в анонсера) (отключите на боевом сервере)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // enable forum sql & cache debug
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // mysql log filename (Board)
