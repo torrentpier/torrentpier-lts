@@ -802,7 +802,7 @@ table.topic { width: 100%; }
 			.signature a { text-decoration: underline !important; }
 			.signature img { max-width: 600px; }
 		.last_edited { font-size: 10px; color: #5E5E5E; }
-	.poster_info p       { display: inline-block; margin: 2px 0; color: #444444; }
+	.poster_info p       { margin: 2px 0; color: #444444; }
 	.poster_info .nick   { margin: 0 0 4px; color: #333333; line-height: 110%; }
 	.poster_info .avatar { margin: 5px 0 4px; max-width: 100px; max-height: 100px; overflow: hidden; }
 	.poster_info .birthday { margin: 5px 0; text-align: center !important;}
