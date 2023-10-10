@@ -95,8 +95,8 @@
 		<td colspan="3">&nbsp;
 		<script type="text/javascript">
 		ajax.callback.change_torrent = function(data) {
-		    if(data.title) alert(data.title);
-		    if(data.url) document.location.href = data.url;
+			if(data.title) alert(data.title);
+			if(data.url) document.location.href = data.url;
 		};
 		</script>
 		<!-- IF TOR_CONTROLS -->

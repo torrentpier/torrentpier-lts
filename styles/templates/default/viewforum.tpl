@@ -102,7 +102,7 @@ function tte_submit (mode)
 
 ajax.edit_topic_title = function(topic_id, topic_title) {
 	ajax.exec({
-	    action      : 'mod_action',
+		action      : 'mod_action',
 		mode        : 'edit_topic_title',
 		topic_id    : topic_id,
 		topic_title : topic_title
