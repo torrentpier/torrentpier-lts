@@ -1,6 +1,4 @@
-<?php
-
-if (!defined('BB_ROOT')) die(basename(__FILE__));
+<?php if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 /**
  * A class for validating method parameters to allowed types via reflection.

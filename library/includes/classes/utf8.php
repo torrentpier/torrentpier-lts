@@ -1,6 +1,4 @@
-<?php
-
-if (!defined('BB_ROOT')) die(basename(__FILE__));
+<?php if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 /**
  * UTF8 support in PHP5.
