@@ -30,7 +30,7 @@ if ($show_dbg_info)
 {
 	$gen_time = utime() - TIMESTART;
 	$gen_time_txt = sprintf('%.3f', $gen_time);
-	$gzip_text = (UA_GZIP_SUPPORTED) ? "{$lang['GZIP_COMPRESSION']}: " : "<s>{$lang['GZIP_COMPRESSION']}</s>: ";
+	$gzip_text = (UA_GZIP_SUPPORTED) ? "{$lang['GZIP_COMPRESSION']}: " : "<s>{$lang['GZIP_COMPRESSION']}:</s> ";
 	$gzip_text .= ($bb_cfg['gzip_compress']) ? $lang['ON'] : $lang['OFF'];
 
 	$stat = '[&nbsp; '. $lang['EXECUTION_TIME'] ." $gen_time_txt ". $lang['SEC'];
