@@ -399,9 +399,9 @@ $bb_cfg['user_signature_start']   = '<div class="signature"><br />______________
 $bb_cfg['user_signature_end']     = '</div>';
 
 // Posts
-$bb_cfg['use_posts_cache']       = true;           // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
-$bb_cfg['posts_cache_days_keep'] = 14;
-$bb_cfg['use_ajax_posts']        = true;
+$bb_cfg['use_posts_cache']        = true;          // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
+$bb_cfg['posts_cache_days_keep']  = 14;
+$bb_cfg['use_ajax_posts']         = true;
 
 // Search
 $bb_cfg['search_engine_type']         = 'mysql';   // драйвер для поиска (варианты: none, mysql, sphinx)
@@ -427,8 +427,8 @@ $bb_cfg['autocorrect_wkl']            = true;      // автоматическо
 $bb_cfg['prevent_multiposting']       = true;      // TODO: заменить кнопку "ответить" на "отредактировать последнее сообщение" если автор последнего сообщения не является модератором или админом
 $bb_cfg['prevent_multiposting_time']  = 600;       // TODO: время в течении которого будет отображаться кнопка "отредактировать последнее сообщение" (в минутах, по умолчанию: 10 минут)
 
-$bb_cfg['max_smilies']           = 25;             // Максимальное число смайлов в посте (false - выключено)
-$bb_cfg['max_symbols_post']      = 5000;           // TODO: Максимальное число символов в посте (false - выключено)
+$bb_cfg['max_smilies']          = 25;              // Максимальное число смайлов в посте (false - выключено)
+$bb_cfg['max_symbols_post']     = 5000;            // TODO: Максимальное число символов в посте (false - выключено)
 
 // PM
 $bb_cfg['privmsg_disable']      = false;           // отключить систему личных сообщений на форуме
