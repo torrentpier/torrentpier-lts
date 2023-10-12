@@ -362,22 +362,6 @@ ini_set('display_startup_errors', 0); // показывать ли ошибки 
 ini_set('log_errors',      1); // логировать ли ошибки
 ini_set('error_log',       LOG_DIR .'php_err.log'); // имя лог файла (нативный лог)
 
-// Check some variable
-// Magic quotes
-if (@get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
-// MySQL
-if (!extension_loaded('mysql')) die('MySQL extension not installed');
-// JSON
-if (!function_exists('json_encode')) die('json_encode() function not exists');
-// getmypid
-if (!function_exists('getmypid') || !getmypid()) die('getmypid() function is disabled');
-// Mbstring
-if (!extension_loaded('mbstring')) die('Mbstring extension not installed');
-// BCMath
-if (!extension_loaded('bcmath')) die('BCMath extension not installed');
-// Intl
-if (!extension_loaded('intl')) die('Intl extension not installed');
-
 // Triggers
 define('BB_ENABLED',   TRIGGERS_DIR .'$on');
 define('BB_DISABLED',  TRIGGERS_DIR .'$off');
