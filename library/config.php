@@ -22,7 +22,7 @@ $bb_cfg['tp_zf_version'] = '2.4.13';
 
 // Database
 $charset  = 'utf8'; // кодировка базы данных
-$pconnect = false; // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
+$pconnect = false;  // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, pconnect);
@@ -253,7 +253,7 @@ $bb_cfg['templates'] = array(
 	'default' => 'Стандартный',
 );
 
-$bb_cfg['tpl_name']   = 'default'; // шаблон по умолчанию
+$bb_cfg['tpl_name']   = 'default';  // шаблон по умолчанию
 $bb_cfg['stylesheet'] = 'main.css'; // указать основной файл стилей используемый в шаблоне
 
 $bb_cfg['show_sidebar1_on_every_page'] = false; // показывать левый сайд-бар на каждой странице
@@ -352,7 +352,7 @@ $bb_cfg['super_admins'] = array( // Супер админы (разработч�
 // Log options
 define('LOG_EXT',      'log'); // расширение лог файла
 define('LOG_SEPR',     ' | '); // разделить в лог файле
-define('LOG_LF',       "\n"); // символ переноса строки
+define('LOG_LF',       "\n");  // символ переноса строки
 define('LOG_MAX_SIZE', 1048576); // максимальный размер лог файла (в байтах)
 
 // Error reporting
@@ -481,7 +481,7 @@ $bb_cfg['mem_on_start'] = (MEM_USAGE) ? memory_get_usage() : 0;
 
 $bb_cfg['translate_dates'] = true; // in displaying time
 $bb_cfg['use_word_censor'] = true; // использовать цензор слов
-$bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox
+$bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox (на viewtopic.php и viewforum.php)
 $bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
 
 $bb_cfg['allow_change'] = array(
@@ -573,8 +573,9 @@ $bb_cfg['captcha'] = array(
 
 // Atom feed
 $bb_cfg['atom'] = array(
-	'path' => INT_DATA_DIR .'atom',                   // without ending slash
-	'url'  => './internal_data/atom',                 // without ending slash
+	// Примечание: Без слэша в конце
+	'path' => INT_DATA_DIR .'atom',
+	'url'  => './internal_data/atom',
 );
 
 // Nofollow
