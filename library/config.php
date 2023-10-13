@@ -508,9 +508,9 @@ $bb_cfg['user_agreement_url']       = 'info.php?show=user_agreement';
 $bb_cfg['copyright_holders_url']    = 'info.php?show=copyright_holders';
 $bb_cfg['advert_url']               = 'info.php?show=advert';
 
-$bb_cfg['sitemap_sending'] = array(
-#   'Source name'   => 'http://ping_url'
-	'Google'        => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
+$bb_cfg['sitemap_sending'] = array( // Список URL адресов на которые производить отправку карты сайта для индексации поисковым роботом.
+	// Формат: 'Название ресурса' => 'ссылка на endpoint'
+	'Google' => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
 // Extensions [расширения разрешенные для загрузки через upload_common() класс]
@@ -563,7 +563,7 @@ $bb_cfg['group_avatars'] = array(
 );
 
 // Captcha
-// Get a Google reCAPTCHA API Key: https://www.google.com/recaptcha/admin
+// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
 $bb_cfg['captcha'] = array(
 	'disabled'   => true, // отключить капчу
 	'public_key' => '',   // ключ сайта
