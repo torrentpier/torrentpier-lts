@@ -485,8 +485,8 @@ $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox (на vi
 $bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
 
 $bb_cfg['allow_change'] = array(
-	'language'   => true,
-	'dateformat' => true,
+	'language'   => true, // разрешить смену языка пользователем
+	'dateformat' => true, // TODO: разрешить смену формата даты и времени
 );
 
 define('GZIP_OUTPUT_ALLOWED', (extension_loaded('zlib') && !ini_get('zlib.output_compression')));
@@ -510,7 +510,7 @@ $bb_cfg['advert_url']               = 'info.php?show=advert';
 
 $bb_cfg['sitemap_sending'] = array( // Список URL адресов на которые производить отправку карты сайта для индексации поисковым роботом.
 	// Формат: 'Название ресурса' => 'ссылка на endpoint'
-	'Google' => 'http://google.com/webmasters/sitemaps/ping?sitemap=',
+	'Google' => 'https://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
 // Extensions [расширения разрешенные для загрузки через upload_common() класс]
