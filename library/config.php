@@ -580,8 +580,8 @@ $bb_cfg['atom'] = array(
 
 // Nofollow
 $bb_cfg['nofollow'] = array(
-	'disabled'    => false,
-	'allowed_url' => array($domain_name),             // 'allowed.site', 'www.allowed.site'
+	'disabled'    => false, // отключить добавление атрибута rel="nofollow" к ссылкам | https://ru.wikipedia.org/wiki/Nofollow
+	'allowed_url' => array($domain_name), // список разрешённых сайтов (на которые не действует добавление rel="nofollow")
 );
 
 define('BB_CFG_LOADED', true);
