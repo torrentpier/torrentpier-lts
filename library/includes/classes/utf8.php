@@ -3,35 +3,42 @@
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 /**
- * PHP5 UTF-8 is a UTF-8 aware library of functions mirroring PHP's own string functions.
+ * UTF8 support in PHP5.
+ * PHP5 UTF8 is a UTF8 aware library of functions mirroring PHP's own string functions.
  *
  * The powerful solution/contribution for UTF-8 support in your framework/CMS, written on PHP.
  * This library is advance of http://sourceforge.net/projects/phputf8 (last updated in 2007).
  *
- * UTF-8 support in PHP 5.
- *
- * Features and benefits of using this class
+ * Features and benefits
  *   * Compatibility with the interface standard PHP functions that deal with single-byte encodings
  *   * Ability to work without PHP extensions ICONV and MBSTRING, if any, that are actively used!
+ *     Uses the fastest available method between MBSTRING, ICONV, native on PHP and hacks.
  *   * Useful features are missing from the ICONV and MBSTRING
- *   * The methods that take and return a string, are able to take and return null (useful for selects from a database)
- *   * Several methods are able to process arrays recursively
- *   * A single interface and encapsulation (you can inherit and override)
- *   * High performance, reliability and quality code
- *   * PHP> = 5.3.x
+ *   * The methods that take and return a string, are able to take and return null.
+ *     This useful for selects from a database.
+ *   * Several methods are able to process arrays recursively:
+ *     array_change_key_case(), convert_from(), convert_to(), strict(), is_utf8(), blocks_check(), convert_case(), lowercase(), uppercase(), unescape()
+ *   * Validating method parameters to allowed types via reflection (You can disable it)
+ *   * A single interface and encapsulation, You can inherit and override
+ *   * Test coverage
+ *   * PHP >= 5.3.x
  *
  * In Russian:
  *
  * Поддержка UTF-8 в PHP 5.
  *
- * Возможности и преимущества использования этого класса
+ * Возможности и преимущества
  *   * Совместимость с интерфейсом стандартных PHP функций, работающих с однобайтовыми кодировками
  *   * Возможность работы без PHP расширений ICONV и MBSTRING, если они есть, то активно используются!
+ *     Используется наиболее быстрый из доступных методов между MBSTRING, ICONV, родной реализацией на PHP и хаками.
  *   * Полезные функции, отсутствующие в ICONV и MBSTRING
- *   * Методы, которые принимают и возвращают строку, умеют принимать и возвращать null (удобно при выборках значений из базы данных)
- *   * Несколько методов умеют обрабатывать массивы рекурсивно
- *   * Единый интерфейс и инкапсуляция (можно унаследоваться и переопределить методы)
- *   * Высокая производительность, надёжность и качественный код
+ *   * Методы, которые принимают и возвращают строку, умеют принимать и возвращать null.
+ *     Это удобно при выборках значений из базы данных.
+ *   * Несколько методов умеют обрабатывать массивы рекурсивно:
+ *     array_change_key_case(), convert_from(), convert_to(), strict(), is_utf8(), blocks_check(), convert_case(), lowercase(), uppercase(), unescape()
+ *   * Проверка у методов входных параметров на допустимые типы через рефлексию (можно отключить)
+ *   * Единый интерфейс и инкапсуляция, можно унаследоваться и переопределить методы
+ *   * Покрытие тестами
  *   * PHP >= 5.3.x
  *
  * Example:
@@ -60,32 +67,47 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
  * @link     http://code.google.com/p/php5-utf8/
  * @license  http://creativecommons.org/licenses/by-sa/3.0/
  * @author   Nasibullin Rinat
- * @version  2.2.2
+ * @version  2.3.1
  */
-
 class UTF8
 {
-	#REPLACEMENT CHARACTER (for broken char)
+	/**
+	 * REPLACEMENT CHARACTER (for broken char)
+	 *
+	 * @var string
+	 */
 	const REPLACEMENT_CHAR = "\xEF\xBF\xBD"; #U+FFFD
 
 	/**
-	 * Regular expression for a character in UTF-8 without the use of a flag /u
-	 * @deprecated  Instead, use a dot (".") and the flag /u, it works faster!
+	 * Byte order mark, http://en.wikipedia.org/wiki/Byte_Order_Mark
+	 *
 	 * @var string
 	 */
-	public static $char_re = '  [\x09\x0A\x0D\x20-\x7E]           # ASCII strict
-                              # [\x00-\x7F]                       # ASCII non-strict (including control chars)
-                              | [\xC2-\xDF][\x80-\xBF]            # non-overlong 2-byte
-                              |  \xE0[\xA0-\xBF][\x80-\xBF]       # excluding overlongs
-                              | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2} # straight 3-byte
-                              |  \xED[\x80-\x9F][\x80-\xBF]       # excluding surrogates
-                              |  \xF0[\x90-\xBF][\x80-\xBF]{2}    # planes 1-3
-                              | [\xF1-\xF3][\x80-\xBF]{3}         # planes 4-15
-                              |  \xF4[\x80-\x8F][\x80-\xBF]{2}    # plane 16
-                             ';
+	const BOM = "\xEF\xBB\xBF";
+
+	/**
+	 * Regular expression for a character in UTF-8.
+	 * For engines, which don't support UTF8 mode.
+	 * In PCRE use a dot (".") and the flag /u, it works much faster!
+	 *
+	 * @var string
+	 */
+	const CHAR_RE =
+		'[\x09\x0A\x0D\x20-\x7E]            # ASCII strict
+		# [\x00-\x7F]                       # ASCII non-strict (including control chars)
+		| [\xC2-\xDF][\x80-\xBF]            # non-overlong 2-byte
+		|  \xE0[\xA0-\xBF][\x80-\xBF]       # excluding overlongs
+		| [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2} # straight 3-byte
+		|  \xED[\x80-\x9F][\x80-\xBF]       # excluding surrogates
+		|  \xF0[\x90-\xBF][\x80-\xBF]{2}    # planes 1-3
+		| [\xF1-\xF3][\x80-\xBF]{3}         # planes 4-15
+		|  \xF4[\x80-\x8F][\x80-\xBF]{2}    # plane 16
+		';
 
 	/**
 	 * Combining diactrical marks (Unicode 5.1).
+	 * \p{M} in PCRE terms.
+	 * For engines, which don't support UTF8 mode.
 	 *
 	 * For example, russian letters in composed form: "Ё" (U+0401), "Й" (U+0419),
 	 * decomposed form: (U+0415 U+0308), (U+0418 U+0306)
@@ -95,21 +117,126 @@ class UTF8
 	 * @link http://www.unicode.org/charts/PDF/UFE20.pdf
 	 * @var  string
 	 */
-	#public static $diactrical_re = '\p{M}'; #alternative, but only with /u flag
-	public static $diactrical_re = '  \xcc[\x80-\xb9]|\xcd[\x80-\xaf]  #UNICODE range: U+0300 — U+036F (for letters)
-                                    | \xe2\x83[\x90-\xbf]              #UNICODE range: U+20D0 — U+20FF (for symbols)
-                                    | \xe1\xb7[\x80-\xbf]              #UNICODE range: U+1DC0 — U+1DFF (supplement)
-                                    | \xef\xb8[\xa0-\xaf]              #UNICODE range: U+FE20 — U+FE2F (combining half marks)
-                                   ';
+	const DIACTRICAL_RE =
+		'   \xcc[\x80-\xb9]|\xcd[\x80-\xaf]  #UNICODE range: U+0300 — U+036F (for letters)
+		  | \xe2\x83[\x90-\xbf]              #UNICODE range: U+20D0 — U+20FF (for symbols)
+		  | \xe1\xb7[\x80-\xbf]              #UNICODE range: U+1DC0 — U+1DFF (supplement)
+		  | \xef\xb8[\xa0-\xaf]              #UNICODE range: U+FE20 — U+FE2F (combining half marks)
+		';
 
 	/**
-	 * @var  array
+	 * \p{Lu} in PCRE terms.
+	 * For engines, which don't support UTF8 mode.
+	 *
+	 * @var string
+	 */
+	const CHAR_UPPER_RE = '[\x41-\x5a]
+							| \xc3[\x80-\x9e]
+							| \xc4[\x80-\xbf]
+							| \xc5[\x81-\xbd]
+							| \xc6[\x81-\xbc]
+							| \xc7[\x85-\xbe]
+							| \xc8[\x80-\xb2]
+							| \xce[\x86-\xab]
+							| \xcf[\x98-\xae]
+							| \xd0[\x80-\xaf]
+							| \xd1[\xa0-\xbe]
+							| \xd2[\x80-\xbe]
+							| \xd3[\x81-\xb8]
+							| \xd4[\x80-\xbf]
+							| \xd5[\x80-\x96]
+							| \xe1[\xb8\xb9\xba][\x80-\xbe]
+							| \xe1\xbb[\x80-\xb8]
+							| \xe1\xbc[\x88-\xbf]
+							| \xe1\xbd[\x88-\xaf]
+							| \xe1[\xbe\xbf][\x88-\xbc]
+							| \xef\xbc[\xa1-\xba]
+							';
+
+	/**
+	 * \p{Ll} in PCRE terms.
+	 * For engines, which don't support UTF8 mode.
+	 *
+	 * @var string
+	 */
+	const CHAR_LOWER_RE = '[\x61-\x7a]
+							| \xc2\xb5
+							| \xc3[\xa0-\xbf]
+							| \xc4[\x81-\xbe]
+							| \xc5[\x80-\xbe]
+							| \xc6[\x83-\xbf]
+							| \xc7[\x86-\xbf]
+							| \xc8[\x81-\xb3]
+							| \xc9[\x93-\xb5]
+							| \xca[\x80-\x92]
+							| \xce[\xac-\xbf]
+							| \xcf[\x80-\xaf]
+							| \xd0[\xb0-\xbf]
+							| \xd1[\x80-\xbf]
+							| \xd2[\x81-\xbf]
+							| \xd3[\x82-\xb9]
+							| \xd4[\x81-\x8f]
+							| \xd5[\xa1-\xbf]
+							| \xd6[\x80-\x86]
+							| \xe1[\xb8\xb9\xba][\x81-\xbf]
+							| \xe1\xbb[\x81-\xb9]
+							| \xe1\xbc[\x80-\xb7]
+							| \xe1\xbd[\x80-\xbd]
+							| \xe1\xbe[\x80-\xb3]
+							| \xe1\xbf[\x83-\xb3]
+							| \xef\xbd[\x81-\x9a]
+							';
+
+	/**
+	 * HTML entities, examples: &gt; &Ouml; &#x02DC; &#34;
+	 *
+	 * @var string
+	 */
+	const HTML_ENTITY_RE = '&(?> [a-zA-Z][a-zA-Z\d]++
+							   | \#(?> \d{1,4}+
+									 | x[\da-fA-F]{2,4}+
+								   )
+							 );
+							';
+
+	/**
+	 * Quotation marks.
+	 * For engines, which don't support UTF8 mode.
+	 *
+	 * @var string
+	 */
+	const QUOTATION_MARK_RE = '\x22|\xc2[\xab\xbb]|\xe2\x80[\x98\x99\x9a\x9c\x9d\x9e\xb9\xba]';
+
+	/**
+	 *
+	 * @var array
+	 */
+	public static $html_quotation_mark_table = array(
+		'&quot;'   => "\x22",          #U+0022 ["] &#34; quotation mark = APL quote
+		'&laquo;'  => "\xc2\xab",      #U+00AB [«] left-pointing double angle quotation mark = left pointing guillemet
+		'&raquo;'  => "\xc2\xbb",      #U+00BB [»] right-pointing double angle quotation mark = right pointing guillemet
+		'&lsquo;'  => "\xe2\x80\x98",  #U+2018 [‘] left single quotation mark
+		'&rsquo;'  => "\xe2\x80\x99",  #U+2019 [’] right single quotation mark (and apostrophe!)
+		'&sbquo;'  => "\xe2\x80\x9a",  #U+201A [‚] single low-9 quotation mark
+		'&ldquo;'  => "\xe2\x80\x9c",  #U+201C [“] left double quotation mark
+		'&rdquo;'  => "\xe2\x80\x9d",  #U+201D [”] right double quotation mark
+		'&bdquo;'  => "\xe2\x80\x9e",  #U+201E [„] double low-9 quotation mark
+		'&lsaquo;' => "\xe2\x80\xb9",  #U+2039 [‹] single left-pointing angle quotation mark
+		'&rsaquo;' => "\xe2\x80\xba",  #U+203A [›] single right-pointing angle quotation mark
+	);
+
+	/**
+	 * HTML special chars table
+	 *
+	 * @var array
 	 */
 	public static $html_special_chars_table = array(
 		'&quot;' => "\x22",  #U+0022 ["] &#34; quotation mark = APL quote
 		'&amp;'  => "\x26",  #U+0026 [&] &#38; ampersand
 		'&lt;'   => "\x3c",  #U+003C [<] &#60; less-than sign
 		'&gt;'   => "\x3e",  #U+003E [>] &#62; greater-than sign
+		#&apos; entity is only available in XHTML/HTML5 and not in plain HTML, see http://www.w3.org/TR/xhtml1/#C_16
+		#'&apos;' => "\x27",  #U+0027 ['] &#39; apostrophe
 	);
 
 	/**
@@ -381,6 +508,7 @@ class UTF8
 	 *
 	 * @link  http://search.cpan.org/CPAN/authors/id/A/AM/AMICHAUER/Lingua-TT-Yanalif-0.08.tar.gz
 	 * @link  http://www.unicode.org/charts/PDF/U0400.pdf
+	 * @var   array
 	 */
 	public static $cp1259_table = array(
 		#bytes from 0x00 to 0x7F (ASCII) saved as is
@@ -521,6 +649,7 @@ class UTF8
 	 * lower case letter in UTF-8
 	 *
 	 * @author Andreas Gohr <andi@splitbrain.org>
+	 * @var array
 	 */
 	public static $convert_case_table = array(
 		#CASE_UPPER => case_lower
@@ -1181,8 +1310,12 @@ class UTF8
 		"\xef\xbc\xba" => "\xef\xbd\x9a",
 	);
 
-	#Unicode Character Database 6.0.0 (2010-06-04)
-	#autogenerated by unicode_blocks_txt2php() PHP function at 2011-06-04 00:19:39, 209 blocks total
+	/**
+	 * Unicode Character Database 6.0.0 (2010-06-04)
+	 * Autogenerated by unicode_blocks_txt2php() PHP function at 2011-06-04 00:19:39, 209 blocks total
+	 *
+	 * @var array
+	 */
 	public static $unicode_blocks = array(
 		'Basic Latin' => array(
 			0 => 0x0000,
@@ -2247,14 +2380,14 @@ class UTF8
 	public static function diactrical_remove($s, $additional_chars = null, $is_can_restored = false, &$restore_table = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		if ($additional_chars)
 		{
 			foreach ($additional_chars as $k => &$v) $v = preg_quote($v, '/');
-			$re = '/((?>' . self::$diactrical_re . '|' . implode('|', $additional_chars) . ')+)/sxSX';
+			$re = '/((?>' . self::DIACTRICAL_RE . '|' . implode('|', $additional_chars) . ')+)/sxSX';
 		}
-		else $re = '/((?>' . self::$diactrical_re . ')+)/sxSX';
+		else $re = '/((?>' . self::DIACTRICAL_RE . ')+)/sxSX';
 		if (! $is_can_restored) return preg_replace($re, '', $s);
 
 		$restore_table = array();
@@ -2287,7 +2420,7 @@ class UTF8
 	public static function diactrical_restore($s, array $restore_table)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		if (! $restore_table) return $s;
 		if (! is_int(@$restore_table['length']) ||
@@ -2315,6 +2448,7 @@ class UTF8
 	public static function convert_from($data, $charset = 'cp1251')
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
+		$charset = strtoupper($charset);
 		return self::_convert($data, $charset, 'UTF-8');
 	}
 
@@ -2328,6 +2462,7 @@ class UTF8
 	public static function convert_to($data, $charset = 'cp1251')
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
+		$charset = strtoupper($charset);
 		return self::_convert($data, 'UTF-8', $charset);
 	}
 
@@ -2344,14 +2479,17 @@ class UTF8
 	private static function _convert($data, $charset_from, $charset_to)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;  #for recursive calls
-		if ($charset_from === $charset_to) return $data;
+		if ($charset_from === $charset_to) return $data; #speed improve
 		if (is_array($data))
 		{
 			$d = array();
 			foreach ($data as $k => &$v)
 			{
-				$k = self::_convert($k, $charset_from, $charset_to);
-				if ($k === false) return false;
+				if (is_string($k))
+				{
+					$k = self::_convert($k, $charset_from, $charset_to);
+					if (! is_string($k)) return false;
+				}
 				$d[$k] = self::_convert($v, $charset_from, $charset_to);
 				if ($d[$k] === false && ! is_bool($v)) return false;
 			}
@@ -2368,15 +2506,17 @@ class UTF8
 			if (function_exists('mb_convert_encoding')) return mb_convert_encoding($data, $charset_to, $charset_from);
 
 			#charset_from
-			if ($charset_from === 'UTF-16' || $charset_from === 'UCS-2')  return self::_convert_from_utf16($data);
-			if ($charset_from === 'cp1251' || $charset_from === 'cp1259') return strtr($data, self::$cp1259_table);
-			if ($charset_from === 'koi8-r' || $charset_from === 'KOI8-R') return strtr(convert_cyr_string($data, 'k', 'w'), self::$cp1259_table);
-			if ($charset_from === 'iso8859-5') return strtr(convert_cyr_string($data, 'i', 'w'), self::$cp1259_table);
-			if ($charset_from === 'cp866') return strtr(convert_cyr_string($data, 'a', 'w'), self::$cp1259_table);
-			if ($charset_from === 'mac-cyrillic') return strtr(convert_cyr_string($data, 'm', 'w'), self::$cp1259_table);
+			if ($charset_from === 'ISO-8859-1') return utf8_encode($data);
+			if ($charset_from === 'UTF-16' || $charset_from === 'UCS-2') return self::_convert_from_utf16($data);
+			if ($charset_from === 'CP1251' || $charset_from === 'CP1259') return strtr($data, self::$cp1259_table);
+			if ($charset_from === 'KOI8-R') return strtr(convert_cyr_string($data, 'k', 'w'), self::$cp1259_table);
+			if ($charset_from === 'ISO-8859-5') return strtr(convert_cyr_string($data, 'i', 'w'), self::$cp1259_table);
+			if ($charset_from === 'CP866') return strtr(convert_cyr_string($data, 'a', 'w'), self::$cp1259_table);
+			if ($charset_from === 'MAC-CYRILLIC') return strtr(convert_cyr_string($data, 'm', 'w'), self::$cp1259_table);
 
 			#charset_to
-			if ($charset_to === 'cp1251' || $charset_to === 'cp1259') return strtr($data, array_flip(self::$cp1259_table));
+			if ($charset_to === 'ISO-8859-1') return utf8_decode($data);
+			if ($charset_to === 'CP1251' || $charset_to === 'CP1259') return strtr($data, array_flip(self::$cp1259_table));
 
 			#last trying
 			if (function_exists('recode_string'))
@@ -2388,7 +2528,8 @@ class UTF8
 			trigger_error('Convert "' . $charset_from . '" --> "' . $charset_to . '" is not supported native, "iconv" or "mbstring" extension required', E_USER_WARNING);
 			return false;
 		}
-		return $data;
+		if (is_scalar($data) || is_null($data)) return $data;  #~ null, integer, float, boolean
+		return false; #object or resource
 	}
 
 	/**
@@ -2426,34 +2567,34 @@ class UTF8
 		}
 
 		/*
-        http://en.wikipedia.org/wiki/UTF-16
+		http://en.wikipedia.org/wiki/UTF-16
 
-        The improvement that UTF-16 made over UCS-2 is its ability to encode
-        characters in planes 1-16, not just those in plane 0 (BMP).
+		The improvement that UTF-16 made over UCS-2 is its ability to encode
+		characters in planes 1-16, not just those in plane 0 (BMP).
 
-        UTF-16 represents non-BMP characters (those from U+10000 through U+10FFFF)
-        using a pair of 16-bit words, known as a surrogate pair.
-        First 1000016 is subtracted from the code point to give a 20-bit value.
-        This is then split into two separate 10-bit values each of which is represented
-        as a surrogate with the most significant half placed in the first surrogate.
-        To allow safe use of simple word-oriented string processing, separate ranges
-        of values are used for the two surrogates: 0xD800-0xDBFF for the first, most
-        significant surrogate and 0xDC00-0xDFFF for the second, least significant surrogate.
+		UTF-16 represents non-BMP characters (those from U+10000 through U+10FFFF)
+		using a pair of 16-bit words, known as a surrogate pair.
+		First 1000016 is subtracted from the code point to give a 20-bit value.
+		This is then split into two separate 10-bit values each of which is represented
+		as a surrogate with the most significant half placed in the first surrogate.
+		To allow safe use of simple word-oriented string processing, separate ranges
+		of values are used for the two surrogates: 0xD800-0xDBFF for the first, most
+		significant surrogate and 0xDC00-0xDFFF for the second, least significant surrogate.
 
-        For example, the character at code point U+10000 becomes the code unit sequence 0xD800 0xDC00,
-        and the character at U+10FFFD, the upper limit of Unicode, becomes the sequence 0xDBFF 0xDFFD.
-        Unicode and ISO/IEC 10646 do not, and will never, assign characters to any of the code points
-        in the U+D800-U+DFFF range, so an individual code value from a surrogate pair does not ever
-        represent a character.
+		For example, the character at code point U+10000 becomes the code unit sequence 0xD800 0xDC00,
+		and the character at U+10FFFD, the upper limit of Unicode, becomes the sequence 0xDBFF 0xDFFD.
+		Unicode and ISO/IEC 10646 do not, and will never, assign characters to any of the code points
+		in the U+D800-U+DFFF range, so an individual code value from a surrogate pair does not ever
+		represent a character.
 
-        http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm
-        http://www.russellcottrell.com/greek/utilities/UnicodeRanges.htm
+		http://www.russellcottrell.com/greek/utilities/SurrogatePairCalculator.htm
+		http://www.russellcottrell.com/greek/utilities/UnicodeRanges.htm
 
-        Conversion of a Unicode scalar value S to a surrogate pair <H, L>:
-          H = Math.floor((S - 0x10000) / 0x400) + 0xD800;
-          L = ((S - 0x10000) % 0x400) + 0xDC00;
-        The conversion of a surrogate pair <H, L> to a scalar value:
-          N = ((H - 0xD800) * 0x400) + (L - 0xDC00) + 0x10000;
+		Conversion of a Unicode scalar value S to a surrogate pair <H, L>:
+		  H = Math.floor((S - 0x10000) / 0x400) + 0xD800;
+		  L = ((S - 0x10000) % 0x400) + 0xDC00;
+		The conversion of a surrogate pair <H, L> to a scalar value:
+		  N = ((H - 0xD800) * 0x400) + (L - 0xDC00) + 0x10000;
 		*/
 		$a = array();
 		$hi = false;
@@ -2480,42 +2621,71 @@ class UTF8
 	/**
 	 * Strips out device control codes in the ASCII range.
 	 *
-	 * @param   string|null       String to clean
-	 * @return  string|bool|null  Returns FALSE if error occurred
+	 * @param   array|scalar|null  Data to clean
+	 * @return  array|scalar|null  Returns FALSE if error occurred
 	 */
-	public static function strict($s)
-	{
-		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
-		return preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F]+/sSX', '', $s);
-	}
-
-	/**
-	 * Check the data accessory to the class of characters ASCII.
-	 * For null, integer, float, boolean returns TRUE.
-	 *
-	 * Массивы обходятся рекурсивно, если в хотябы одном элементе массива
-	 * его значение не ASCII, возвращается FALSE.
-	 *
-	 * @param   array|scalar|null  $data
-	 * @return  bool
-	 */
-	public static function is_ascii($data)
+	public static function strict($data)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
 		if (is_array($data))
 		{
+			$d = array();
 			foreach ($data as $k => &$v)
 			{
-				if (! self::is_ascii($k) || ! self::is_ascii($v)) return false;
+				if (is_string($k))
+				{
+					$k = self::strict($k);
+					if (! is_string($k)) return false;
+				}
+				$d[$k] = self::strict($v);
+				if ($d[$k] === false && ! is_bool($v)) return false;
 			}
-			return true;
+			return $d;
 		}
-		#ltrim() little faster then preg_match()
-		#if (is_string($data)) return preg_match('/^[\x00-\x7f]*$/sSX', $data); #deprecated
-		if (is_string($data)) return ltrim($data, "\x00..\x7f") === '';
-		if (is_scalar($data) || is_null($data)) return true;  #~ null, integer, float, boolean
+		if (is_string($data)) return preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F]+/sSX', '', $data);
+		if (is_scalar($data) || is_null($data)) return $data;  #int/float/bool/null
 		return false; #object or resource
+	}
+
+	/**
+	 * Check the data accessory to the class of control characters in ASCII.
+	 * For non string always returns FALSE.
+	 *
+	 * @param   scalar|null  $data
+	 * @param   int|null     $found_char_offset  Returns the offset for the first found binary symbol
+	 * @return  bool
+	 */
+	public static function has_binary($data, &$found_char_offset = null)
+	{
+		if (! ReflectionTypeHint::isValid()) return false;
+		#[\t\n\r] = [\x09\x0a\x0d]
+		#[\x00-\x1f\x7f](?<![\t\n\r]) = [\x00-\x08\x0b\x0c\x0e-\x1f\x7f] = [^\x09\x0a\x0d\x20-\x7e\x80-\xff]
+		if (! is_string($data) ||
+			#search a binary char
+			! preg_match('~[\x00-\x1f\x7f](?<![\t\n\r])~sSX', $data, $m, PREG_OFFSET_CAPTURE)) return false;
+		$found_char_offset = self::strlen(substr($data, 0, $m[0][1]));
+		return true;
+	}
+
+	/**
+	 * Check the data accessory to the class of characters ASCII.
+	 * For non string/int/float always returns FALSE
+	 *
+	 * @param   scalar|null  $data
+	 * @param   int|null     $error_char_offset  Returns the offset for the first found non ASCII symbol
+	 * @return  bool
+	 */
+	public static function is_ascii($data, &$error_char_offset = null)
+	{
+		if (! ReflectionTypeHint::isValid()) return false;
+		if (is_string($data))
+		{
+			if (! preg_match('~[\x80-\xff]~sSX', $data, $m, PREG_OFFSET_CAPTURE)) return true;
+			$error_char_offset = $m[0][1];
+			return false;
+		}
+		if (is_int($data) || is_float($data)) return true;
+		return false;
 	}
 
 	/**
@@ -2536,6 +2706,27 @@ class UTF8
 	public static function is_utf8($data, $is_strict = true)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
+		if (is_string($data))
+		{
+			if (preg_match('~~suSX', $data) !== 1) return false;
+			//if (function_exists('preg_last_error') && preg_last_error() !== PREG_NO_ERROR) return false;
+			//preg_match('~~suSX') much faster (up to 4 times), then mb_check_encoding($data, 'UTF-8')!
+			//if (function_exists('mb_check_encoding') && ! mb_check_encoding($data, 'UTF-8')) return false; #DEPRECATED
+			/**
+			 * Специальные символы по спецификации JSON (http://json.org/)
+			 *   \b represents the backspace character (U+0008)
+			 *   \t represents the character tabulation character (U+0009)
+			 *   \n represents the line feed character (U+000A)
+			 *   \f represents the form feed character (U+000C)
+			 *   \r represents the carriage return character (U+000D)
+			 */
+			//с данным регулярным выражением preg_match() работает в 2 раза быстрее, чем strpbrk()
+			if ($is_strict && preg_match('/[^\x08\x09\x0A\x0C\x0D\x20-\xBF\xC2-\xF7]/sSX', $data)) {
+				return false;
+			}
+			return true;
+		}
+		if (is_scalar($data) || is_null($data)) return true;  #int/float/bool/null
 		if (is_array($data))
 		{
 			foreach ($data as $k => &$v)
@@ -2544,16 +2735,6 @@ class UTF8
 			}
 			return true;
 		}
-		if (is_string($data))
-		{
-			if (! preg_match('~~suSX', $data)) return false;
-			if (function_exists('preg_last_error') && preg_last_error() !== PREG_NO_ERROR) return false;
-			#preg_match('~~suSX') much faster (up to 4 times), then mb_check_encoding($data, 'UTF-8')!
-			#if (function_exists('mb_check_encoding') && ! mb_check_encoding($data, 'UTF-8')) return false; #DEPRECATED
-			if ($is_strict && preg_match('/[^\x09\x0A\x0D\x20-\xBF\xC2-\xF7]/sSX', $data)) return false;
-			return true;
-		}
-		if (is_scalar($data) || is_null($data)) return true;  #~ null, integer, float, boolean
 		return false; #object or resource
 	}
 
@@ -2631,140 +2812,45 @@ class UTF8
 			return true;
 		}
 
-		if (is_string($data))
-		{
-			$chars = self::str_split($data);
-			if ($chars === false) return false; #broken UTF-8
-			unset($data); #memory free
-			$skip = array(); #save to cache already checked symbols
-			foreach ($chars as $i => $char)
-			{
-				if (array_key_exists($char, $skip)) continue; #speed improve
-				$codepoint = self::ord($char);
-				if ($codepoint === false) return false; #broken UTF-8
-				$is_valid = false;
-				$blocks = (array)$blocks;
-				foreach ($blocks as $j => $block)
-				{
-					if (is_string($block))
-					{
-						if (! array_key_exists($block, self::$unicode_blocks))
-						{
-							trigger_error('Unknown block "' . $block . '"!', E_USER_WARNING);
-							return false;
-						}
-						list ($min, $max) = self::$unicode_blocks[$block];
-					}
-					elseif (is_array($block)) list ($min, $max) = $block;
-					elseif (is_int($block)) $min = $max = $block;
-					else trigger_error('A string/array/int type expected for block[' . $j . ']!', E_USER_ERROR);
-					if ($codepoint >= $min && $codepoint <= $max)
-					{
-						$is_valid = true;
-						break;
-					}
-				}#foreach
-				if (! $is_valid) return false;
-				$skip[$char] = null;
-			}#foreach
-			return true;
-		}
-		if (is_scalar($data) || is_null($data)) return true;  #~ null, integer, float, boolean
-		return false; #object or resource
-	}
+		if (is_int($data)) $data = strval($data);
+		elseif (is_float($data)) $data = str_replace(',', '.', strval($data));
+		elseif (! is_string($data)) return false;
 
-	/**
-	 * Recode $_GET, $_POST, $_COOKIE, $_REQUEST, $_FILES from $charset encoding to UTF-8, if necessary.
-	 * A side effect is a positive protection against XSS attacks with non-printable characters on the vulnerable PHP function.
-	 * Thus web forms can be sent to the server in 2-encoding: $charset and UTF-8.
-	 * For example: ?тест[тест]=тест
-	 *
-	 * Алгоритм работы:
-	 * 1) Функция проверяет массивы $_GET, $_POST, $_COOKIE, $_REQUEST, $_FILES
-	 *    на корректность значений элементов кодировке UTF-8.
-	 * 2) Значения не в UTF-8 принимаются как $charset и конвертируется в UTF-8,
-	 *    при этом байты от 0x00 до 0x7F (ASCII) сохраняются как есть.
-	 * 3) Сконвертированные значения снова проверяются.
-	 *    Если данные опять не в кодировке UTF-8, то они считаются разбитыми и функция возвращает FALSE.
-	 *
-	 * NOTICE
-	 *   Функция должна вызываться после self::unescape_request()!
-	 *
-	 * @see     self::unescape_request()
-	 * @param   bool    $is_hex2bin  Декодировать HEX-данные?
-	 *                               Пример: 0xd09ec2a0d0bad0bed0bcd0bfd0b0d0bdd0b8d0b8 => О компании
-	 *                               Параметры в URL адресах иногда бывает удобно кодировать не функцией rawurlencode(),
-	 *                               а использовать следующий механизм (к тому же кодирующий данные более компактно):
-	 *                               '0x' . bin2hex($string)
-	 * @param   string  $charset
-	 * @return  bool                 Возвращает TRUE, если все значения элементов массивов в кодировке UTF-8
-	 *                               и FALSE + E_USER_WARNING в противном случае.
-	 */
-	public static function autoconvert_request($is_hex2bin = false, $charset = 'cp1251')
-	{
-		if (! ReflectionTypeHint::isValid()) return false;
-		$is_converted = false;
-		$is_broken = false;
-		foreach (array('_GET', '_POST', '_COOKIE', '_FILES') as $k => $v)
+		$chars = self::str_split($data);
+		if ($chars === false) return false; #broken UTF-8
+		unset($data); #memory free
+		$skip = array(); #save to cache already checked symbols
+		foreach ($chars as $i => $char)
 		{
-			if (! array_key_exists($v, $GLOBALS)) continue;
-			#использовать array_walk_recursive() не предоставляется возможным,
-			#т.к. его callback функция не поддерживает передачу ключа по ссылке
-			$GLOBALS[$v] = self::_autoconvert_request_recursive($GLOBALS[$v], $is_converted, $is_broken, $is_hex2bin, $charset);
-			if ($is_broken)
+			if (array_key_exists($char, $skip)) continue; #speed improve
+			$codepoint = self::ord($char);
+			if (! is_int($codepoint)) return false; #broken UTF-8?
+			$is_valid = false;
+			$blocks = (array)$blocks;
+			foreach ($blocks as $j => $block)
 			{
-				trigger_error('Array $' . $v . ' does not have keys/values in UTF-8 charset!', E_USER_WARNING);
-				return false;
+				if (is_string($block))
+				{
+					if (! array_key_exists($block, self::$unicode_blocks))
+					{
+						trigger_error('Unknown block "' . $block . '"!', E_USER_WARNING);
+						return false;
+					}
+					list ($min, $max) = self::$unicode_blocks[$block];
+				}
+				elseif (is_array($block)) list ($min, $max) = $block;
+				elseif (is_int($block)) $min = $max = $block;
+				else trigger_error('A string/array/int type expected for block[' . $j . ']!', E_USER_ERROR);
+				if ($codepoint >= $min && $codepoint <= $max)
+				{
+					$is_valid = true;
+					break;
+				}
 			}
-		}
-		if ($is_converted)
-		{
-			$_REQUEST =
-				(isset($_COOKIE) ? $_COOKIE : array()) +
-				(isset($_POST) ? $_POST : array()) +
-				(isset($_GET) ? $_GET : array());
+			if (! $is_valid) return false;
+			$skip[$char] = null;
 		}
 		return true;
-	}
-
-	private static function _autoconvert_request_recursive(&$data, &$is_converted, &$is_broken, $is_hex2bin, $charset)
-	{
-		if ($is_broken) return $data;  #speed improve
-		if (is_array($data))
-		{
-			$d = array();
-			foreach ($data as $k => &$v)
-			{
-				$k = self::_autoconvert_request($k, $is_converted, $is_broken, $is_hex2bin, $charset);
-				if ($is_broken) return $data;  #speed improve
-				$d[$k] = self::_autoconvert_request_recursive($v, $is_converted, $is_broken, $is_hex2bin, $charset);
-				if ($is_broken) return $data;  #speed improve
-			}
-			return $d;
-		}
-		return self::_autoconvert_request($data, $is_converted, $is_broken, $is_hex2bin, $charset);
-	}
-
-	private static function _autoconvert_request(&$s, &$is_converted, &$is_broken, $is_hex2bin, $charset)
-	{
-		#regexp speed improve by using strpos()
-		if ($is_hex2bin && strpos($s, '0x') === 0 && preg_match('/^0x((?:[\da-fA-F]{2})+)$/sSX', $s, $m))
-		{
-			$s = pack('H' . strlen($m[1]), $m[1]); #hex2bin()
-			$is_converted = true;
-		}
-		if (! self::is_utf8($s))
-		{
-			$s = self::convert_from($s, $charset);
-			if ($s === false) $is_broken = true;
-			elseif (! self::is_utf8($s))
-			{
-				trigger_error('String 0x ' . substr(bin2hex($s), 0, 100) . '... is not UTF-8!', E_USER_WARNING);
-				$is_broken = true;
-			}
-			else $is_converted = true;
-		}
-		return $s;
 	}
 
 	/**
@@ -2781,7 +2867,7 @@ class UTF8
 	public static function strcmp($s1, $s2, $locale = '')
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s1) || is_null($s2)) return null;
+		if (! is_string($s1) || ! is_string($s2)) return null;
 		if (! function_exists('collator_create')) return strcmp($s1, $s2);
 		# PHP 5 >= 5.3.0, PECL intl >= 1.0.0
 		# If empty string ("") or "root" are passed, UCA rules will be used.
@@ -2809,7 +2895,7 @@ class UTF8
 	public static function strncmp($s1, $s2, $length)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s1) || is_null($s2)) return null;
+		if (! is_string($s1) || ! is_string($s2)) return null;
 		return self::strcmp(self::substr($s1, 0, $length), self::substr($s2, 0, $length));
 	}
 
@@ -2826,7 +2912,7 @@ class UTF8
 	public static function strcasecmp($s1, $s2)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s1) || is_null($s2)) return null;
+		if (! is_string($s1) || ! is_string($s2)) return null;
 		return self::strcmp(self::lowercase($s1), self::lowercase($s2));
 	}
 
@@ -2840,7 +2926,7 @@ class UTF8
 	public static function to_unicode($s)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		$s2 = null;
 		#since PHP-5.3.x iconv() little faster then mb_convert_encoding()
@@ -2850,7 +2936,7 @@ class UTF8
 		if ($s2 !== null) return false;
 
 		$a = self::str_split($s);
-		if ($a === false) return false;
+		if (! is_array($a)) return false;
 		return array_map(array(__CLASS__, 'ord'), $a);
 	}
 
@@ -2864,7 +2950,7 @@ class UTF8
 	public static function from_unicode($a)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($a)) return $a;
+		if (! is_array($a)) return $a;
 
 		#since PHP-5.3.x iconv() little faster then mb_convert_encoding()
 		if (function_exists('iconv'))
@@ -2895,7 +2981,7 @@ class UTF8
 	public static function ord($char)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($char)) return $char;
+		if (! is_string($char)) return $char;
 
 		static $cache = array();
 		if (array_key_exists($char, $cache)) return $cache[$char]; #speed improve
@@ -2928,7 +3014,7 @@ class UTF8
 	public static function chr($cp)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($cp)) return $cp;
+		if (! is_int($cp) && ! ctype_digit($cp)) return $cp;
 
 		static $cache = array();
 		if (array_key_exists($cp, $cache)) return $cache[$cp]; #speed improve
@@ -2958,13 +3044,14 @@ class UTF8
 	public static function chunk_split($s, $length = null, $glue = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		$length = intval($length);
 		$glue   = strval($glue);
 		if ($length < 1) $length = 76;
 		if ($glue === '') $glue = "\r\n";
-		if (! is_array($a = self::str_split($s, $length))) return false;
+		$a = self::str_split($s, $length);
+		if (! is_array($a)) return false;
 		return implode($glue, $a);
 	}
 
@@ -2973,12 +3060,14 @@ class UTF8
 	 *
 	 * @param   array|null       $a
 	 * @param   int              $mode  {CASE_LOWER|CASE_UPPER}
+	 * @param   bool             $is_recursive
 	 * @return  array|bool|null  Returns FALSE if error occurred
 	 */
-	public static function array_change_key_case($a, $mode)
+	public static function array_change_key_case($a, $mode, $is_recursive = false)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
 		if (! is_array($a)) return $a;
+
 		$a2 = array();
 		foreach ($a as $k => $v)
 		{
@@ -2986,6 +3075,11 @@ class UTF8
 			{
 				$k = self::convert_case($k, $mode);
 				if ($k === false) return false;
+			}
+			if ($is_recursive && is_array($v)) #recursive support
+			{
+				$v = self::array_change_key_case($v, $mode, $is_recursive);
+				if (! is_array($v)) return false;
 			}
 			$a2[$k] = $v;
 		}
@@ -3010,9 +3104,13 @@ class UTF8
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
 
-		if (is_array($data))
+		if (is_array($data)) #recursive support
 		{
-			foreach ($data as $k => &$v) $v = self::convert_case($v, $mode);
+			foreach ($data as $k => $v)
+			{
+				$data[$k] = self::convert_case($v, $mode);
+				if ($data[$k] === false && ! is_bool($v)) return false;
+			}
 			return $data;
 		}
 		if (! is_string($data) || ! $data) return $data;
@@ -3082,6 +3180,7 @@ class UTF8
 		return self::convert_case($data, CASE_UPPER);
 	}
 
+
 	/**
 	 * Convert all HTML entities to native UTF-8 characters
 	 * Функция декодирует гораздо больше именованных сущностей, чем стандартная html_entity_decode()
@@ -3089,28 +3188,34 @@ class UTF8
 	 *
 	 * Example: '&quot;' or '&#34;' or '&#x22;' will be converted to '"'.
 	 *
-	 * @link    http://www.htmlhelp.com/reference/html40/entities/
-	 * @link    http://www.alanwood.net/demos/ent4_frame.html (HTML 4.01 Character Entity References)
-	 * @link    http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset1.asp?frame=true
-	 * @link    http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset2.asp?frame=true
-	 * @link    http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset3.asp?frame=true
+	 * @link  http://www.htmlhelp.com/reference/html40/entities/
+	 * @link  http://www.alanwood.net/demos/ent4_frame.html (HTML 4.01 Character Entity References)
+	 * @link  http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset1.asp?frame=true
+	 * @link  http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset2.asp?frame=true
+	 * @link  http://msdn.microsoft.com/workshop/author/dhtml/reference/charsets/charset3.asp?frame=true
 	 *
 	 * @param   scalar|null  $s
-	 * @param   bool         $is_special_chars   Дополнительно обрабатывать специальные html сущности? (&lt; &gt; &amp; &quot;)
+	 * @param   bool         $is_special_chars   Дополнительно обрабатывать специальные html сущности? (&lt; &gt; &amp; &quot; &apos;)
 	 * @return  scalar|null  Returns FALSE if error occurred
 	 */
 	public static function html_entity_decode($s, $is_special_chars = false)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (! is_string($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		#speed improve
 		if (strlen($s) < 4  #по минимальной длине сущности - 4 байта: &#d; &xx;
 			|| ($pos = strpos($s, '&') === false) || strpos($s, ';', $pos) === false) return $s;
 
 		$table = self::$html_entity_table;
-		if ($is_special_chars) $table += self::$html_special_chars_table;
-
+		if ($is_special_chars)
+		{
+			$table += self::$html_special_chars_table
+					+ array(
+						#&apos; entity is only available in XHTML/HTML5 and not in plain HTML, see http://www.w3.org/TR/xhtml1/#C_16
+						'&apos;' => "\x27",  #U+0027 ['] &#39; apostrophe
+					);  
+		}
 		#replace named entities
 		$s = strtr($s, $table);
 		#block below deprecated, since PHP-5.3.x strtr() 1.5 times faster
@@ -3159,13 +3264,14 @@ class UTF8
 	public static function html_entity_encode($s, $is_special_chars_only = false)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (! is_string($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
-		#if ($is_special_chars_only) return strtr($s, array_flip(self::$html_special_chars_table));
-		if ($is_special_chars_only) return htmlspecialchars($s);
+		if ($is_special_chars_only) return strtr($s, array_flip(self::$html_special_chars_table));  #binary support
+		#if ($is_special_chars_only) return htmlspecialchars($s);  #DEPRECATED, charset dependent
 
 		#replace UTF-8 chars to named entities:
 		$s = strtr($s, array_flip(self::$html_entity_table));
+
 		#block below deprecated, since PHP-5.3.x strtr() 3 times faster
 		if (0 && preg_match_all('~(?>	[\xc2\xc3\xc5\xc6\xcb\xce\xcf][\x80-\xbf]  #2 bytes
 									|	\xe2[\x80-\x99][\x82-\xac]                 #3 bytes
@@ -3184,10 +3290,11 @@ class UTF8
 
 	/**
 	 * Make regular expression for case insensitive match
-	 * Example (non ASCII): "123_слово_test" => "123_(с|С)(л|Л)(о|О)(в|В)(о|О)_[tT][eE][sS][tT]"
-	 * Example (only ASCII): "123_test" => "(?i:123_test)"
+	 * Example (only digits): "123" => "123"
+	 * Example (only ASCII):  "123_test" => "(?i:123_test)"
+	 * Example (upper ASCII): "123_слово_test" => "123_(с|С)(л|Л)(о|О)(в|В)(о|О)_[tT][eE][sS][tT]"
 	 *
-	 * @param  string $s
+	 * @param  string|null $s
 	 * @param  string|null $delimiter  If the optional delimiter is specified, it will also be escaped.
 	 *                                 This is useful for escaping the delimiter that is required by the PCRE functions.
 	 *                                 The / is the most commonly used delimiter.
@@ -3196,24 +3303,27 @@ class UTF8
 	public static function preg_quote_case_insensitive($s, $delimiter = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
+		if (ctype_digit($s)) return preg_quote($s, $delimiter); #speed improve
 		if (self::is_ascii($s)) return '(?i:' . preg_quote($s, $delimiter) . ')'; #speed improve
 
+		$s_lc = self::convert_case($s, CASE_LOWER, false); if ($s_lc === false) return false;
+		$s_uc = self::convert_case($s, CASE_UPPER, false); if ($s_uc === false) return false;
+		if ($s_lc === $s_uc) return preg_quote($s, $delimiter); #speed improve
+
+		$chars_lc = self::str_split($s_lc); if ($chars_lc === false) return false;
+		$chars_uc = self::str_split($s_uc); if ($chars_uc === false) return false;
+
 		$s_re = '';
-		$s_lc = UTF8::lowercase($s); if ($s_lc === false) return false;
-		$s_uc = UTF8::uppercase($s); if ($s_uc === false) return false;
-
-		$chars_lc = UTF8::str_split($s_lc); if ($chars_lc === false) return false;
-		$chars_uc = UTF8::str_split($s_uc); if ($chars_uc === false) return false;
-
 		foreach ($chars_lc as $i => $char)
 		{
 			if ($chars_lc[$i] === $chars_uc[$i])
 				$s_re .= preg_quote($chars_lc[$i], $delimiter);
-			elseif (self::is_ascii($chars_lc[$i]))
-				$s_re .= '[' . preg_quote($chars_lc[$i] . $chars_uc[$i], $delimiter) . ']';
+			elseif (strlen($chars_lc[$i]) === 1 /*self::is_ascii($chars_lc[$i])*/)
+				$s_re .= '[' . self::_preg_quote_class($chars_lc[$i] . $chars_uc[$i], $delimiter) . ']';
 			else
+				#для русских и др. букв, т. к. флаг /u и (?i:слово) не помогают :(
 				$s_re .= '(' . preg_quote($chars_lc[$i], $delimiter) . '|'
 							 . preg_quote($chars_uc[$i], $delimiter) . ')';
 		}
@@ -3236,7 +3346,7 @@ class UTF8
 	public static function preg_match_all($pattern, $subject, &$matches, $flags = PREG_PATTERN_ORDER, $char_offset = 0)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($subject)) return null;
+		if (! is_string($subject)) return $subject;
 
 		$byte_offset = ($char_offset > 0) ? strlen(self::substr($subject, 0, $char_offset)) : $char_offset;
 
@@ -3276,7 +3386,7 @@ class UTF8
 	public static function str_limit($s, $maxlength = null, $continue = "\xe2\x80\xa6", &$is_cutted = null, $tail_min_length = 20) #"\xe2\x80\xa6" = "&hellip;"
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		$is_cutted = false;
 		if ($continue === null) $continue = "\xe2\x80\xa6";
@@ -3286,24 +3396,15 @@ class UTF8
 		#{{{
 		if (strlen($s) <= $maxlength) return $s;
 		$s2 = str_replace("\r\n", '?', $s);
-		$s2 = preg_replace('/&(?> [a-zA-Z][a-zA-Z\d]+
-                                | \#(?> \d{1,4}
-                                      | x[\da-fA-F]{2,4}
-                                    )
-                              );  # html сущности (&lt; &gt; &amp; &quot;)
-                            /sxSX', '?', $s2);
+		$s2 = preg_replace('~' . self::HTML_ENTITY_RE . '~sxSX', '?', $s2);
 		if (strlen($s2) <= $maxlength || self::strlen($s2) <= $maxlength) return $s;
 		#}}}
 
-		$r = preg_match_all('/(?> \r\n   # переносы строк
-								   | &(?> [a-zA-Z][a-zA-Z\d]+
-										| \#(?> \d{1,4}
-											  | x[\da-fA-F]{2,4}
-											)
-									  );  # html сущности (&lt; &gt; &amp; &quot;)
+		$r = preg_match_all('~(?> \r\n   # next line
+								   | ' . self::HTML_ENTITY_RE . '
 								   | .
 								 )
-								/sxuSX', $s, $m);
+								~sxuSX', $s, $m);
 		if ($r === false) return false;
 
 		#d($m);
@@ -3318,14 +3419,15 @@ class UTF8
 		{
 			#добавляем остаток к обрезанному слову
 			$right = implode('', array_slice($m[0], $maxlength));
-			preg_match('/^(?> [\d\)\]\}\-\.:]+  #цифры, закрывающие парные символы, дефис для составных слов, дата, время, IP-адреса, URL типа www.ya.ru:80!
-                            | \p{L}+        #буквы
-                            | \xe2\x80\x9d  #закрывающие кавычки
-                            | \xe2\x80\x99  #закрывающие кавычки
-							| \xe2\x80\x9c  #закрывающие кавычки
-							| \xc2\xbb      #закрывающие кавычки
-                          )+
-                        /suxSX', $right, $m);
+			preg_match('/^(?>
+							#цифры, закрывающие парные символы, дефис для составных слов, дата, время, IP-адреса, URL типа www.ya.ru:80!
+								[\d\)\]\}\-\.:]+
+							#letters
+							|	\p{L}+
+							#quotation marks
+							|	[' . implode('', self::$html_quotation_mark_table) . ']+
+						  )+
+						/suxSX', $right, $m);
 			#d($m);
 			$right = isset($m[0]) ? rtrim($m[0], '.-') : '';
 			$return = $left . $right;
@@ -3347,7 +3449,7 @@ class UTF8
 	public static function str_split($s, $length = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		$length = ($length === null) ? 1 : intval($length);
 		if ($length < 1) return false;
@@ -3372,38 +3474,38 @@ class UTF8
 	public static function strlen($s)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		//since PHP-5.3.x mb_strlen() faster then strlen(utf8_decode())
 		if (function_exists('mb_strlen')) return mb_strlen($s, 'utf-8');
 
 		/*
-          utf8_decode() converts characters that are not in ISO-8859-1 to '?', which, for the purpose of counting, is quite alright.
-          It's much faster than iconv_strlen()
-          Note: this function does not count bad UTF-8 bytes in the string - these are simply ignored
+		  utf8_decode() converts characters that are not in ISO-8859-1 to '?', which, for the purpose of counting, is quite alright.
+		  It's much faster than iconv_strlen()
+		  Note: this function does not count bad UTF-8 bytes in the string - these are simply ignored
 		*/
 		return strlen(utf8_decode($s));
 
 		/*
-        #slowly then strlen(utf8_decode())
-        if (function_exists('iconv_strlen')) return iconv_strlen($s, 'utf-8');
+		#iconv_strlen() slowly then strlen(utf8_decode())
+		if (function_exists('iconv_strlen')) return iconv_strlen($s, 'utf-8');
 
-        #Do not count UTF-8 continuation bytes
-        #return strlen(preg_replace('/[\x80-\xBF]/sSX', '', $s));
+		#Do not count UTF-8 continuation bytes
+		#return strlen(preg_replace('/[\x80-\xBF]/sSX', '', $s));
 
-        #slowly then strlen(utf8_decode())
-        preg_match_all('~.~suSX', $str, $m);
-        return count($m[0]);
+		#slowly then strlen(utf8_decode())
+		preg_match_all('~.~suSX', $str, $m);
+		return count($m[0]);
 
-        #slowly then preg_match_all() + count()
-        $n = 0;
-        for ($i = 0, $len = strlen($s); $i < $len; $i++)
-        {
-            $c = ord(substr($s, $i, 1));
-            if ($c < 0x80) $n++;                 #single-byte (0xxxxxx)
-            elseif (($c & 0xC0) == 0xC0) $n++;   #multi-byte starting byte (11xxxxxx)
-        }
-        return $n;
+		#slowly then preg_match_all() + count()
+		$n = 0;
+		for ($i = 0, $len = strlen($s); $i < $len; $i++)
+		{
+			$c = ord(substr($s, $i, 1));
+			if ($c < 0x80) $n++;                 #single-byte (0xxxxxx)
+			elseif (($c & 0xC0) == 0xC0) $n++;   #multi-byte starting byte (11xxxxxx)
+		}
+		return $n;
 		*/
 	}
 
@@ -3419,9 +3521,10 @@ class UTF8
 	public static function strpos($s, $needle, $offset = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		if ($offset === null || $offset < 0) $offset = 0;
+		#mb_strpos() faster then iconv_strpos()
 		if (function_exists('mb_strpos')) return mb_strpos($s, $needle, $offset, 'utf-8');
 		#iconv_strpos() deprecated, because slowly than self::strlen(substr())
 		#if (function_exists('iconv_strpos')) return iconv_strpos($s, $needle, $offset, 'utf-8');
@@ -3443,7 +3546,7 @@ class UTF8
 	public static function stripos($s, $needle, $offset = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		if ($offset === null || $offset < 0) $offset = 0;
 		if (function_exists('mb_stripos')) return mb_stripos($s, $needle, $offset, 'utf-8');
@@ -3471,7 +3574,7 @@ class UTF8
 	public static function strrev($s)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
 		if (0) #TODO test speed
 		{
@@ -3497,7 +3600,7 @@ class UTF8
 	public static function substr($s, $offset, $length = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		#since PHP-5.3.x mb_substr() faster then iconv_substr()
 		if (function_exists('mb_substr'))
@@ -3533,9 +3636,10 @@ class UTF8
 	public static function substr_replace($s, $replacement, $start, $length = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 
-		if (! is_array($a = self::str_split($s))) return false;
+		$a = self::str_split($s);
+		if (! is_array($a)) return false;
 		array_splice($a, $start, $length, $replacement);
 		return implode('', $a);
 	}
@@ -3543,6 +3647,7 @@ class UTF8
 	/**
 	 * Implementation ucfirst() function for UTF-8 encoding string.
 	 * Преобразует первый символ строки в кодировке UTF-8 в верхний регистр.
+	 * Корректно обрабатывает слова в кавычках, например: «северный поток» --> «Северный поток»
 	 *
 	 * @param   string|null       $s
 	 * @param   bool              $is_other_to_lowercase  остальные символы преобразуются в нижний регистр?
@@ -3551,11 +3656,13 @@ class UTF8
 	public static function ucfirst($s, $is_other_to_lowercase = true)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
-
 		if ($s === '' || ! is_string($s)) return $s;
-		if (! preg_match('/^(.)(.*)$/suSX', $s, $m)) return false;
-		return self::uppercase($m[1]) . ($is_other_to_lowercase ? self::lowercase($m[2]) : $m[2]);
+
+		if (! preg_match('/^([' . implode('', self::$html_quotation_mark_table) . ']{1,2}+)  #1 quotation marks
+							(\p{L})     #2 first letter
+							(.*+)       #3 next letters
+							$/sxuSX', $s, $m)) return $s; #letters not found
+		return $m[1] . self::uppercase($m[2]) . ($is_other_to_lowercase ? self::lowercase($m[3]) : $m[3]);
 	}
 
 	/**
@@ -3568,35 +3675,44 @@ class UTF8
 	 * @param   string            $spaces_re
 	 * @return  string|bool|null  Returns FALSE if error occurred
 	 */
-	public static function ucwords($s, $is_other_to_lowercase = true, $spaces_re = '~([\pZ\s]+)~suSX') #\pXps is POSIX space: property Z or tab, NL, VT, FF, CR
+	public static function ucwords($s, $is_other_to_lowercase = true, $spaces_re = '~([\p{Z}\s]+)~suSX')
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if ($s === '' || ! is_string($s)) return $s;
 
 		$words = preg_split($spaces_re, $s, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 		foreach ($words as $k => $word)
 		{
-			$words[$k] = self::ucfirst($word, $is_other_to_lowercase = true);
+			$words[$k] = self::ucfirst($word, $is_other_to_lowercase);
 			if ($words[$k] === false) return false;
 		}
 		return implode('', $words);
 	}
 
 	/**
-	 * Decodes a string in the format %uXXXX or %u{XXXXXX} in the UTF-8 string.
+	 * Decodes a string to UTF-8 string from some formats (can be mixed)
+	 * Examples
+	 *   '%D1%82%D0%B5%D1%81%D1%82'        => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"  #binary (regular)
+	 *   '0xD182D0B5D181D182'              => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"  #binary (compact)
+	 *   '%u0442%u0435%u0441%u0442'        => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"  #UCS-2  (U+0 — U+FFFF)
+	 *   '%u{442}%u{435}%u{0441}%u{00442}' => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"  #UTF-8  (U+0 — U+FFFFFF)
 	 *
-	 * Используется для декодирования данных типа "%u0442%u0435%u0441%u0442",
-	 * закодированных устаревшей функцией javascript://encode().
-	 * Рекомендуется использовать функцию javascript://encodeURIComponent().
+	 * It is used to decode the data in the format %uXXXX, encoded deprecated
+	 * javascript's function encode(). Recommended to use encodeURIComponent().
+	 * Obsolete format %uXXXX allows unicode only in the range of UCS-2, ie, U+0 to U+FFFF.
 	 *
-	 * NOTICE
-	 * Устаревший формат %uXXXX позволяет использовать юникод только из диапазона UCS-2, т.е. от U+0 до U+FFFF
-	 *
-	 * @param   scalar|array|null  $data
-	 * @param   bool               $is_rawurlencode
-	 * @return  scalar|array|null  Returns FALSE if error occurred
+	 * @see     urldecode()
+	 * @param   array|scalar|null  $data
+	 * @param   bool               $is_hex2bin  Decode the HEX-data?
+	 *                                          Example: '0xD182D0B5D181D182' => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"
+	 *                                          Hint: parameters in the URL address is sometimes
+	 *                                          convenient to encode not function rawurlencode($string),
+	 *                                          and use the following mechanism (encoded data is more compact):
+	 *                                          '0x' . bin2hex($string)
+	 * @param   bool               $is_urldecode
+	 * @return  array|scalar|null  Returns FALSE if error occurred
 	 */
-	public static function unescape($data, $is_rawurlencode = false)
+	public static function unescape($data, $is_hex2bin = false, $is_urldecode = true)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
 		if (is_array($data))
@@ -3604,52 +3720,85 @@ class UTF8
 			$d = array();
 			foreach ($data as $k => &$v)
 			{
-				$k = self::unescape($k, $is_rawurlencode);
-				if ($k === false) return false;
-				$d[$k] = self::unescape($v, $is_rawurlencode);
+				if (is_string($k))
+				{
+					$k = self::unescape($k, $is_hex2bin, $is_urldecode);
+					if (! is_string($k)) return false;
+				}
+				$d[$k] = self::unescape($v, $is_hex2bin, $is_urldecode);
 				if ($d[$k] === false && ! is_bool($v)) return false;
 			}
 			return $d;
 		}
 		if (is_string($data))
 		{
-			if (strpos($data, '%u') === false) return $data; #use strpos() for speed improving
-			return preg_replace_callback('/%u(  [\da-fA-F]{4}+          #%uXXXX     only UCS-2
-                                              | \{ [\da-fA-F]{1,6}+ \}  #%u{XXXXXX} extended form for all UNICODE charts
-                                             )
-                                          /sxSX',
-											function (array $m) use ($is_rawurlencode)
-											{
-												$codepoint = hexdec(trim($m[1], '{}'));
-												$char = self::chr($codepoint);
-												return $is_rawurlencode ? rawurlencode($char) : $char;
-											},
-											$data);
+			#use strpos() for speed improving of regexp
+			if ($is_hex2bin && strpos($data, '0x') !== false)
+			{
+				$data = preg_replace_callback(
+							'~0x((?:[\da-fA-F]{2})+)~sSX',
+							function (array $m)
+							{
+								$s = pack('H' . strlen($m[1]), $m[1]); #hex2bin()
+								return rawurlencode($s);
+							},
+							$data);
+			}
+			if (strpos($data, '%u') !== false)
+			{
+				$class = __CLASS__;
+				$data = preg_replace_callback(
+							'~%u(   [\da-fA-F]{4}+          #%uXXXX     only UCS-2
+								  | \{ [\da-fA-F]{1,6}+ \}  #%u{XXXXXX} extended form for all UNICODE charts
+								)
+							 ~sxSX',
+							function (array $m) use ($class)
+							{
+								$codepoint = hexdec(trim($m[1], '{}'));
+								$char = $class::chr($codepoint);
+								return rawurlencode($char);
+							},
+							$data);
+			}
+			return $is_urldecode ? urldecode($data) : $data;
 		}
 		if (is_scalar($data) || is_null($data)) return $data;  #~ null, integer, float, boolean
 		return false; #object or resource
 	}
 
 	/**
-	 * 1) Corrects the global arrays $_GET, $_POST, $_COOKIE, $_REQUEST
-	 *    decoded values ​​in the format %uXXXX and %u{XXXXXX}, encoded,
+	 * 1) Corrects the global arrays $_GET, $_POST, $_COOKIE, $_REQUEST, $_FILES
+	 *    decoded values ​​from %XX and extended %uXXXX / %u{XXXXXX} format,
 	 *    for example, through an outdated javascript function escape().
 	 *    Standard PHP5 cannot do it.
-	 * 2) If in the HTTP_COOKIE there are parameters with the same name,
-	 *    takes the last value, not the first, as in the QUERY_STRING.
-	 * 3) Creates an array of $_POST for non-standard Content-Type, for example, "Content-Type: application/octet-stream".
-	 *    Standard PHP5 creates an array for "Content-Type: application/x-www-form-urlencoded" and "Content-Type: multipart/form-data".
+	 * 2) Recode $_GET, $_POST, $_COOKIE, $_REQUEST, $_FILES from $charset
+	 *    encoding to UTF-8, if necessary.
+	 *    A side effect is a positive protection against XSS attacks with
+	 *    non-printable characters on the vulnerable PHP function.
+	 *    Thus web forms can be sent to the server in 2-encoding: $charset and UTF-8.
+	 *    For example: ?тест[тест]=тест
+	 * 3) If in the HTTP_COOKIE there are parameters with the same name,
+	 *    takes the last value (as in the QUERY_STRING), not the first.
+	 * 4) Creates an array of $_POST for non-standard Content-Type, for example,
+	 *    "Content-Type: application/octet-stream". Standard PHP5 creates
+	 *    an array for "Content-Type: application/x-www-form-urlencoded"
+	 *    and "Content-Type: multipart/form-data".
+	 *
+	 * Examples
+	 *   '%F2%E5%F1%F2'                    => 'тест'  #CP1251 (regular)
+	 *   '0xF2E5F1F2'                      => 'тест'  #CP1251 (compact)
+	 *   '%D1%82%D0%B5%D1%81%D1%82'        => 'тест'  #UTF-8 (regular)
+	 *   '0xD182D0B5D181D182'              => 'тест'  #UTF-8 (compact)
+	 *   '%u0442%u0435%u0441%u0442'        => 'тест'  #UCS-2 (U+0 — U+FFFF)
+	 *   '%u{442}%u{435}%u{0441}%u{00442}' => 'тест'  #UTF-8 (U+0 — U+FFFFFF)
 	 *
 	 * Сессии, куки и независимая авторизация на поддоменах.
 	 *
 	 * ПРИМЕР 1
 	 * У рабочего сайта http://domain.com появились поддомены.
 	 * Для кроссдоменной авторизации через механизм сессий имя хоста для COOKIE было изменено с "domain.com" на ".domain.com"
-	 * В результате авторизация не работает.
-	 * Помогает очистка COOKIE, но их принудительная очистка на тысячах пользовательских компьютеров проблематична.
-	 * Проблема в следующем: если в HTTP_COOKIE есть параметры с одинаковым именем, то берётся последнее значение,
-	 * а не первое, как в QUERY_STRING.
-	 * Более подробное описание:
+	 * В результате авторизация не работает. Решение: поменять имя сессии.
+	 * Ещё помогает очистка COOKIE, но их принудительная очистка на тысячах пользовательских компьютеров проблематична.
 	 * PHP не правильно (?) обрабатывает заголовок HTTP_COOKIE, если там встречаются параметры с одинаковым именем, но разными значениями.
 	 * Пример запроса HTTP-заголовка клиентом: "Cookie: sid=chpgs2fiak-330mzqza; sid=cmz5tnp5zz-xlbbgqp"
 	 * В этом случае сервер берёт первое значение, а не последнее.
@@ -3657,7 +3806,6 @@ class UTF8
 	 * В HTTP_COOKIE два параметра с одинаковым именем могут появиться, если отправить клиенту следующие HTTP-заголовки:
 	 * "Set-Cookie: sid=chpgs2fiak-330mzqza; expires=Thu, 15 Oct 2009 14:23:42 GMT; path=/; domain=domain.com"  (только domain.com)
 	 * "Set-Cookie: sid=cmz6uqorzv-1bn35110; expires=Thu, 15 Oct 2009 14:23:42 GMT; path=/; domain=.domain.com" (domain.com и все его поддомены)
-	 * Решение: поменять имя сессии.
 	 *
 	 * ПРИМЕР 2
 	 * Есть рабочие сайты: http://domain.com (основной), http://admin.domain.com (админка),
@@ -3666,39 +3814,52 @@ class UTF8
 	 * Требуется сделать независимую кросс-доменную авторизацию для http://*.domain.com и http://*.dev.domain.com.
 	 * Для сохранения статуса авторизации будем использовать сессию, имя и значение которой пишется в COOKIE.
 	 * Т. к. домены http://*.dev.domain.com имеют пересечение с доменами http://*.domain.com,
-	 * для независимой авторизации	нужно использовать разные имена сессий.
+	 * для независимой авторизации	нужно использовать разные имена сессий!
 	 * Пример HTTP заголовков ответа сервера:
 	 * "Set-Cookie: sid=chpgs2fiak-330mzqza; expires=Thu, 15 Oct 2009 14:23:42 GMT; path=/; domain=.domain.com" (.domain.com и все его поддомены)
 	 * "Set-Cookie: sid.dev=cmz6uqorzv-1bn35110; expires=Thu, 15 Oct 2009 14:23:42 GMT; path=/; domain=.dev.domain.com" (dev.domain.com и все его поддомены)
 	 *
 	 * @link    http://tools.ietf.org/html/rfc2965  RFC 2965 - HTTP State Management Mechanism
-	 * @return  void
+	 * @param   bool               $is_hex2bin  Decode the HEX-data?
+	 *                                          Example: '0xD182D0B5D181D182' => "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"
+	 *                                          Hint: parameters in the URL address is sometimes
+	 *                                          convenient to encode not function rawurlencode($string),
+	 *                                          and use the following mechanism (encoded data is more compact):
+	 *                                          '0x' . bin2hex($string)
+	 * @param   string  $charset
+	 * @return  bool
 	 */
-	public static function unescape_request()
+	public static function unescape_request($is_hex2bin = false, $charset = 'ISO-8859-1')
 	{
 		$fixed = false;
-        #ATTENTION! HTTP_RAW_POST_DATA is only accessible when Content-Type of POST request is NOT default "application/x-www-form-urlencoded"!
+		#ATTENTION! HTTP_RAW_POST_DATA is only accessible when Content-Type of POST request is NOT default "application/x-www-form-urlencoded"!
 		$HTTP_RAW_POST_DATA = isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST' ? (isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : @file_get_contents('php://input')) : null;
 		if (ini_get('always_populate_raw_post_data')) $GLOBALS['HTTP_RAW_POST_DATA'] = $HTTP_RAW_POST_DATA;
 		foreach (array( '_GET'    => isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null,
 						'_POST'   => $HTTP_RAW_POST_DATA,
 						'_COOKIE' => isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : null,
+						'_FILES'  => isset($_FILES) ? $_FILES : null,
 						) as $k => $v)
 		{
 			if (! is_string($v)) continue;
+
 			if ($k === '_COOKIE')
 			{
 				$v = preg_replace('/; *+/sSX', '&', $v);
 				unset($_COOKIE); #будем парсить HTTP_COOKIE сами, чтобы сделать обработку как у QUERY_STRING
 			}
-			if (strpos($v, '%u') !== false)
-			{
-				parse_str(self::unescape($v, $is_rawurlencode = true), $GLOBALS[$k]);
-				$fixed = true;
-				continue;
-			}
-			if (array_key_exists($k, $GLOBALS)) continue;
+
+			$v = self::unescape($v, $is_hex2bin, false);
+			if ($v === false) return false;
 			parse_str($v, $GLOBALS[$k]);
+
+			$GLOBALS[$k] = self::convert_from($GLOBALS[$k], $charset);
+			if ($GLOBALS[$k] === false)
+			{
+				trigger_error('Array $' . $k . ' does not have keys/values in UTF-8 charset!', E_USER_WARNING);
+				return false;
+			}
+
 			$fixed = true;
 		}
 		if ($fixed)
@@ -3708,6 +3869,7 @@ class UTF8
 				(isset($_POST) ? $_POST : array()) +
 				(isset($_GET) ? $_GET : array());
 		}
+		return true;
 	}
 
 	/**
@@ -3727,7 +3889,7 @@ class UTF8
 	public static function textarea_rows($s, $cols, $min_rows = 3, $max_rows = 32)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		if (strlen($s) == 0) return $min_rows;  #speed improve
 		$rows = 0;
@@ -3748,7 +3910,7 @@ class UTF8
 	public static function ltrim($s, $charlist = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 		if ($charlist === null || self::is_ascii($charlist)) return ltrim($s);
 		return preg_replace('~^[' . self::_preg_quote_class($charlist, '~') . ']+~suSX', '', $s);
 	}
@@ -3761,7 +3923,7 @@ class UTF8
 	public static function rtrim($s, $charlist = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 		if ($charlist === null || self::is_ascii($charlist)) return rtrim($s);
 		return preg_replace('~[' . self::_preg_quote_class($charlist, '~') . ']+$~suSX', '', $s);
 	}
@@ -3774,13 +3936,18 @@ class UTF8
 	public static function trim($s, $charlist = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 		if ($charlist === null || self::is_ascii($charlist)) return trim($s);
 		$charlist_re = self::_preg_quote_class($charlist, '~');
 		$s = preg_replace('~^[' . $charlist_re . ']+~suSX', '', $s);
 		return preg_replace('~[' . $charlist_re . ']+$~suSX', '', $s);
 	}
 
+	/**
+	 * @param  string      $charlist
+	 * @param  string|null $delimiter
+	 * @return string
+	 */
 	private static function _preg_quote_class($charlist, $delimiter = null)
 	{
 		#return preg_quote($charlist, $delimiter); #DEPRECATED
@@ -3803,7 +3970,7 @@ class UTF8
 	public static function str_pad($s, $length, $pad_str = ' ', $type = STR_PAD_RIGHT)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s)) return $s;
 
 		$input_len = self::strlen($s);
 		if ($length <= $input_len) return $s;
@@ -3878,7 +4045,7 @@ class UTF8
 		$dir,
 		$files_re = null,
 		$is_recursive = true,
-		$charset = 'cp1251',
+		$charset = 'CP1251',
 		$dirs_ignore_re = null,
 		$is_echo = false,
 		$is_simulate = false)
@@ -3896,38 +4063,50 @@ class UTF8
 			{
 				if (is_string($files_re) && ! preg_match($files_re, $name)) continue;
 				if ($is_echo) echo $file;
+
 				$s = @file_get_contents($file);
 				if (! is_string($s))
 				{
 					if ($is_echo) echo '  Error to reading' . PHP_EOL;
 					return false;
 				}
+
 				if (self::is_utf8($s))
 				{
-					if ($is_echo) echo '  UTF-8' . PHP_EOL;
+					if ($is_echo) echo '  Already UTF-8, skipped' . PHP_EOL;
 					continue;
 				}
-				$s = self::_convert($s, $charset, 'UTF-8');
-				#игнорируем ошибки при попытке перекодировать бинарные файлы
+
+				if (self::has_binary($s))
+				{
+					if ($is_echo) echo '  Вinary file, skipped' . PHP_EOL;
+					continue;
+				}
+
+				$s = self::convert_from($s, $charset);
 				if (! is_string($s) || ! self::is_utf8($s))
 				{
-					if ($is_echo) echo '  Binary' . PHP_EOL;
+					if ($is_echo) echo '  Error to converting (source file not in ' . $charset . '?)' . PHP_EOL;
 					continue;
 				}
 
 				$ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 				if ($ext === 'htm' || $ext === 'html' || $ext === 'xhtml' || $ext === 'phtml' || $ext === 'tpl')
 				{
-					$s = preg_replace('~(<meta .+? content="text/html; [\x00-\x20]+ charset=) #1
-											[-a-zA-Z\d]+
-											(" [^>]* >)  #2
+					$s = preg_replace('~(<meta  [\x00-\x20]++
+												(?:  content="text/html; [\x00-\x20]++ charset= #HTML4
+												  |  charset="                                  #HTML5
+												)
+										)               #1
+											[-a-z\d]++  #charset name
+										(" [^>]* >)     #2
 										~sixSX', '$1utf-8$2', $s);
 				}
 				if ($ext === 'xml' || $ext === 'xsl' || $ext === 'tpl')
 				{
-					$s = preg_replace('~(<\?xml .+? encoding=") #1
-											[-a-zA-Z\d]+
-											(" .*? \?>)         #2
+					$s = preg_replace('~(<\?xml [\x00-\x20]++ encoding=") #1
+											[-a-z\d]++                    #charset name
+										(" .*? \?>)                       #2
 										~sixSX', '$1utf-8$2', $s);
 				}
 
@@ -3940,7 +4119,7 @@ class UTF8
 						return false;
 					}
 				}
-				if ($is_echo) echo '  ' . $charset . ' -> UTF-8' . PHP_EOL;
+				if ($is_echo) echo '  ' . $charset . ' to UTF-8 converted' . PHP_EOL;
 				$counter++;
 			}
 			elseif ($is_recursive && is_dir($file))
@@ -3970,7 +4149,7 @@ class UTF8
 		if (is_int($low) || is_int($high)) return range($low, $high, $step);  #speed improve
 		$low_cp  = self::ord($low);
 		$high_cp = self::ord($high);
-		if ($low_cp === false || $high_cp === false) return false;
+		if (! is_int($low_cp) || ! is_int($high_cp)) return false;
 		$a = range($low_cp, $high_cp, $step);
 		return array_map(array('self', 'chr'), $a);
 	}
@@ -3985,11 +4164,11 @@ class UTF8
 	public static function strtr($s, $from, $to = null)
 	{
 		if (! ReflectionTypeHint::isValid()) return false;
-		if (is_null($s)) return $s;
+		if (! is_string($s) || $s === '') return $s;
 		if (is_array($from)) return strtr($s, $from); #speed improve
 		$keys   = self::str_split($from);
 		$values = self::str_split($to);
-		if ($keys === false || $values === false) return false;
+		if (! is_array($keys) || ! is_array($values)) return false;
 		$table = array_combine($keys, $values);
 		if (! is_array($table)) return false;
 		return strtr($s, $table);
@@ -4043,6 +4222,9 @@ class UTF8
 			'self::is_utf8(file_get_contents(' . var_export(__FILE__, true) . ', true)) === true',
 			'self::is_utf8(file_get_contents(' . var_export(__FILE__, true) . ', false)) === true',
 			'self::is_ascii(file_get_contents(' . var_export(__FILE__, true) . ')) === false',
+			'self::is_ascii("_\x01\x02абв", $error_char_offset) === false && $error_char_offset === 3',
+			'self::has_binary(file_get_contents(' . var_export(__FILE__, true) . ')) === false',
+			'self::has_binary("_аб\x01вг", $found_char_offset) === true && $found_char_offset === 3',
 
 			#range() uses ord() and chr()
 			'self::range("A", "D") === array("A", "B", "C", "D")',
@@ -4058,6 +4240,18 @@ class UTF8
 
 			'self::preg_quote_case_insensitive("123_слово_test") === "123_(с|С)(л|Л)(о|О)(в|В)(о|О)_[tT][eE][sS][tT]"',
 			'self::preg_quote_case_insensitive("123_test") === "(?i:123_test)"',
+			'self::preg_quote_case_insensitive("123") === "123"',
+
+			'self::unescape("%D1%82%D0%B5%D1%81%D1%82")        === "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"',
+			'self::unescape("0xD182D0B5D181D182", true)        === "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"',
+			'self::unescape("%u0442%u0435%u0441%u0442")        === "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"',
+			'self::unescape("%u{442}%u{435}%u{0441}%u{00442}") === "\xD1\x82\xD0\xB5\xD1\x81\xD1\x82"',
+			'self::unescape("%u0025%u0032%u0035+%25%75%30%30%32%35") === "%25 %u0025"',
+
+			'self::ucfirst("!@#$", true)      === "!@#$"',
+			'self::ucfirst("!@#$ test", true) === "!@#$ test"',
+			'self::ucfirst("«северный Поток»", true)  === "«Северный поток»"',
+			'self::ucfirst("«северный Поток»", false) === "«Северный Поток»"',
 
 			//'self::strlen(file_get_contents(' . var_export(__FILE__, true) . ', true))'
 		);
