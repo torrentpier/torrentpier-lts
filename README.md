@@ -10,7 +10,7 @@ TorrentPier II - движок торрент-трекера, написанны�
 
 > Подробнее про LTS версию: https://torrentpier.com/threads/predstavlenie-torrentpier-lts.42114/
 
-> Список изменений: [CHANGELOG.md](CHANGELOG.md)
+> Список изменений: [CHANGELOG.md](./CHANGELOG.md)
 
 ## 🚧️ Предупреждение
 
