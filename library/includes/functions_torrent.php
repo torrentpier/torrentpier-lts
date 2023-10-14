@@ -261,9 +261,9 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	$filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
-	if (!is_file($filename)) return torrent_error_exit('File name error');
-	if (!file_exists($filename)) return torrent_error_exit('File not exists');
-	if (!$tor = bdecode_file($filename)) return torrent_error_exit('This is not a bencoded file');
+	if (!is_file($filename)) return torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
+	if (!file_exists($filename)) return torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
+	if (!$tor = bdecode_file($filename)) return torrent_error_exit($lang['TORFILE_INVALID']);
 
 	if ($bb_cfg['bt_disable_dht'])
 	{
