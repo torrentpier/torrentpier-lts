@@ -172,7 +172,7 @@ if ($result = DB()->fetch_rowset($sql))
 		$posts    = '<a href="search.php?search_author=1&amp;uid='.$user_id.'" target="_blank">'. $row['user_posts'] .'</a>';
 		$pm       = ($bb_cfg['text_buttons']) ? '<a class="txtb" href="'. (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=$user_id") .'">'. $lang['SEND_PM_TXTB'] .'</a>' : '<a href="' . (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=$user_id") .'"><img src="' . $images['icon_pm'] . '" alt="' . $lang['SEND_PRIVATE_MESSAGE'] . '" title="' . $lang['SEND_PRIVATE_MESSAGE'] . '" border="0" /></a>';
 
-		if (bf($row['user_opt'], 'user_opt', 'user_viewemail') || IS_ADMIN)
+		if (bf($row['user_opt'], 'user_opt', 'user_viewemail') || $row['user_id'] == $userdata['user_id'] || IS_ADMIN)
 		{
 			$email_uri = ($bb_cfg['board_email_form']) ? ("profile.php?mode=email&amp;". POST_USERS_URL ."=$user_id") : 'mailto:'. $row['user_email'];
 			$email = '<a class="editable" href="'. $email_uri .'">'. $row['user_email'] .'</a>';
