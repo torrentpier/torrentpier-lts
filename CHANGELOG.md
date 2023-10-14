@@ -8,7 +8,6 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.10 🎉
-- Updated UTF8 & ReflectionTypeHint classes [\#318](https://github.com/torrentpier/torrentpier-lts/pull/318) ([belomaxorka](https://github.com/belomaxorka))
 - Updated Text_LangCorrect class [\#309](https://github.com/torrentpier/torrentpier-lts/pull/309) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#297](https://github.com/torrentpier/torrentpier-lts/pull/297), [\#298](https://github.com/torrentpier/torrentpier-lts/pull/298), [\#300](https://github.com/torrentpier/torrentpier-lts/pull/300), [\#301](https://github.com/torrentpier/torrentpier-lts/pull/301), [\#302](https://github.com/torrentpier/torrentpier-lts/pull/302), [\#303](https://github.com/torrentpier/torrentpier-lts/pull/303), [\#305](https://github.com/torrentpier/torrentpier-lts/pull/305), [\#306](https://github.com/torrentpier/torrentpier-lts/pull/306), [\#307](https://github.com/torrentpier/torrentpier-lts/pull/307), [\#310](https://github.com/torrentpier/torrentpier-lts/pull/310), [\#312](https://github.com/torrentpier/torrentpier-lts/pull/312), [\#313](https://github.com/torrentpier/torrentpier-lts/pull/313), [\#315](https://github.com/torrentpier/torrentpier-lts/pull/315), [\#316](https://github.com/torrentpier/torrentpier-lts/pull/316), [\#317](https://github.com/torrentpier/torrentpier-lts/pull/317), [\#319](https://github.com/torrentpier/torrentpier-lts/pull/319) ([belomaxorka](https://github.com/belomaxorka))
 
