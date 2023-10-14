@@ -24,7 +24,7 @@
 	<th class="{sorter: 'digit'}" ><b class="tbs-text">#</b></th>
 	<th class="{sorter: 'text'}" ><b class="tbs-text">{L_USERNAME}</b></th>
 	<th class="{sorter: false}" ><b class="tbs-text">{L_PM}</b></th>
-	<!-- IF IS_ADMIN --><th class="{sorter: 'text'}" ><b class="tbs-text">{L_EMAIL}</b></th><!-- ENDIF -->
+	<th class="{sorter: 'text'}" ><b class="tbs-text">{L_EMAIL}</b></th>
 	<th class="{sorter: 'text'}" ><b class="tbs-text">{L_LOCATION}</b></th>
 	<th class="{sorter: 'digit'}" ><b class="tbs-text">{L_JOINED}</b></th>
 	<th class="{sorter: 'digit'}" ><b class="tbs-text">{L_POSTS_SHORT}</b></th>
@@ -41,7 +41,7 @@
 	<td>{memberrow.ROW_NUMBER}</td>
 	<td><!-- IF memberrow.AVATAR_IMG --><div class="mrg_2">{memberrow.AVATAR_IMG}</div><!-- ENDIF --><b>{memberrow.USER}</b></td>
 	<td>{memberrow.PM}</td>
-	<!-- IF IS_ADMIN --><td>{memberrow.EMAIL}</td><!-- ENDIF -->
+	<td>{memberrow.EMAIL}</td>
 	<td>{memberrow.FROM}</td>
 	<td class="small">
 		<u>{memberrow.JOINED_RAW}</u>
