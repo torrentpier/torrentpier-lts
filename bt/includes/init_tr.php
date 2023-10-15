@@ -465,7 +465,6 @@ class sql_db
 	function log_error ()
 	{
 		if (!SQL_LOG_ERRORS) return;
-		if (!error_reporting()) return;
 
 		$msg = array();
 		$err = $this->sql_error();
