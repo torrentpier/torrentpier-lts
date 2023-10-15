@@ -321,7 +321,7 @@ $bb_cfg['adv_email']               = "adv@$domain_name";   // почта для 
 define('SPHINX_LOG_ERRORS',    true);             // логировать ошибки Sphinx
 define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с логами Sphinx
 
-define('DBG_LOG',              false);            // включить логирование событий движка (отключите на боевом сервере)
+define('DBG_LOG',              true);             // включить логирование событий движка (отключите на боевом сервере)
 define('DBG_LOG_TRACKER',      false);            // включить логирование событий анонсера (отключите на боевом сервере)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // включить отладку для SQL запросов и Cache & Datastore
