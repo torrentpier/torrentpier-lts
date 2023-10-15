@@ -322,7 +322,7 @@ define('SPHINX_LOG_ERRORS',    true);             // логировать оши
 define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с логами Sphinx
 
 define('DBG_LOG',              false);            // включить логирование событий движка (отключите на боевом сервере)
-define('DBG_TRACKER',          false);            // включить логирование событий анонсера (отключите на боевом сервере)
+define('DBG_LOG_TRACKER',      false);            // включить логирование событий анонсера (отключите на боевом сервере)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // включить отладку для SQL запросов и Cache & Datastore
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)

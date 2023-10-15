@@ -12,7 +12,7 @@ function tracker_exit ()
 {
 	global $DBS;
 
-	if (DBG_LOG && DBG_TRACKER)
+	if (DBG_LOG_TRACKER)
 	{
 		if ($gen_time = utime() - TIMESTART)
 		{
@@ -42,7 +42,7 @@ function silent_exit ()
 
 function error_exit ($msg = '')
 {
-	if (DBG_LOG) dbg_log(' ', '!err-'. clean_filename($msg));
+	if (DBG_LOG_TRACKER) dbg_log(' ', '!err-'. clean_filename($msg));
 
 	silent_exit();
 
@@ -138,7 +138,7 @@ class sql_db
 		$this->debug('end');
 		$this->cur_query = null;
 
-#		if (DBG_LOG) dbg_log(' ', 'DB-connect'. ($link ? '' : '-FAIL'));
+#		if (DBG_LOG_TRACKER) dbg_log(' ', 'DB-connect'. ($link ? '' : '-FAIL'));
 
 		if (!$link)
 		{
@@ -353,7 +353,7 @@ class sql_db
 
 		$this->link = $this->selected_db = null;
 
-		if (DBG_LOG) dbg_log(str_repeat(' ', $this->num_queries), 'DB-num_queries-'. php_sapi_name());
+		if (DBG_LOG_TRACKER) dbg_log(str_repeat(' ', $this->num_queries), 'DB-num_queries-'. php_sapi_name());
 	}
 
 	/**
@@ -389,7 +389,7 @@ class sql_db
 
 		if ($mode == 'start')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG || SQL_LOG_SLOW_QUERIES)
+			if (SQL_CALC_QUERY_TIME || DBG_LOG_TRACKER || SQL_LOG_SLOW_QUERIES)
 			{
 				$this->sql_starttime = utime();
 				$this->sql_last_time = 0;
@@ -397,7 +397,7 @@ class sql_db
 		}
 		elseif ($mode == 'end')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG || SQL_LOG_SLOW_QUERIES)
+			if (SQL_CALC_QUERY_TIME || DBG_LOG_TRACKER || SQL_LOG_SLOW_QUERIES)
 			{
 				$this->sql_last_time = utime() - $this->sql_starttime;
 				$this->sql_timetotal += $this->sql_last_time;
@@ -421,13 +421,11 @@ class sql_db
 	/**
 	* Trigger error
 	*/
-	function trigger_error ($msg = '')
+	function trigger_error ($msg = 'DB Error')
 	{
 		if (error_reporting())
 		{
-			if (!$msg) $msg = 'DB Error';
-
-			if (DBG_TRACKER === true)
+			if (DBG_LOG_TRACKER === true)
 			{
 				$err = $this->sql_error();
 				$msg .= trim(sprintf(' #%06d %s', $err['code'], $err['message']));
