@@ -251,19 +251,19 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	$poster_id = $torrent['poster_id'];
 	$info_hash = null;
 
-	if ($torrent['extension'] !== TORRENT_EXT) return torrent_error_exit($lang['NOT_TORRENT']);
-	if (!$torrent['allow_reg_tracker']) return torrent_error_exit($lang['REG_NOT_ALLOWED_IN_THIS_FORUM']);
-	if ($post_id != $torrent['topic_first_post_id']) return torrent_error_exit($lang['ALLOWED_ONLY_1ST_POST_REG']);
-	if ($torrent['tracker_status']) return torrent_error_exit($lang['ALREADY_REG']);
-	if ($this_topic_torrents = get_registered_torrents($topic_id, 'topic')) return torrent_error_exit($lang['ONLY_1_TOR_PER_TOPIC']);
+	if ($torrent['extension'] !== TORRENT_EXT) torrent_error_exit($lang['NOT_TORRENT']);
+	if (!$torrent['allow_reg_tracker']) torrent_error_exit($lang['REG_NOT_ALLOWED_IN_THIS_FORUM']);
+	if ($post_id != $torrent['topic_first_post_id']) torrent_error_exit($lang['ALLOWED_ONLY_1ST_POST_REG']);
+	if ($torrent['tracker_status']) torrent_error_exit($lang['ALREADY_REG']);
+	if ($this_topic_torrents = get_registered_torrents($topic_id, 'topic')) torrent_error_exit($lang['ONLY_1_TOR_PER_TOPIC']);
 
 	torrent_auth_check($forum_id, $torrent['poster_id']);
 
 	$filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
-	if (!is_file($filename)) return torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
-	if (!file_exists($filename)) return torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
-	if (!$tor = bdecode_file($filename)) return torrent_error_exit($lang['TORFILE_INVALID']);
+	if (!is_file($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
+	if (!file_exists($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
+	if (!$tor = bdecode_file($filename)) torrent_error_exit($lang['TORFILE_INVALID']);
 
 	if ($bb_cfg['bt_disable_dht'])
 	{
@@ -283,7 +283,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 		if (!$ann || !in_array($ann, $announce_urls))
 		{
 			$msg = sprintf($lang['INVALID_ANN_URL'], htmlspecialchars($ann), $announce_urls['main_url']);
-			return torrent_error_exit($msg);
+			torrent_error_exit($msg);
 		}
 	}
 
@@ -291,7 +291,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	if (!isset($info['name']) || !isset($info['piece length']) || !isset($info['pieces']) || strlen($info['pieces']) % 20 != 0)
 	{
-		return torrent_error_exit($lang['TORFILE_INVALID']);
+		torrent_error_exit($lang['TORFILE_INVALID']);
 	}
 
 	$info_hash     = pack('H*', sha1(bencode($info)));
@@ -330,7 +330,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 	}
 	else
 	{
-		return torrent_error_exit($lang['TORFILE_INVALID']);
+		torrent_error_exit($lang['TORFILE_INVALID']);
 	}
 
 	$size = sprintf('%.0f', (float) $totallen);
@@ -346,7 +346,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 		if ($sql_error['code'] == 1062) // Duplicate entry
 		{
-			return torrent_error_exit($lang['BT_REG_FAIL_SAME_HASH']);
+			torrent_error_exit($lang['BT_REG_FAIL_SAME_HASH']);
 		}
 		bb_die('Could not register torrent on tracker');
 	}
