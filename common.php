@@ -474,7 +474,7 @@ function ver_compare ($version1, $operator, $version2)
 function dbg_log ($str, $file)
 {
 	$dir = LOG_DIR . (defined('IN_TRACKER') ? 'dbg_tr/' : 'dbg_bb/') . date('m-d_H') .'/';
-	return file_write($str, $dir . $file, false, false);
+	return file_write($str, $dir . clean_filename($file), false, false);
 }
 
 function log_get ($file = '', $prepend_str = false)
