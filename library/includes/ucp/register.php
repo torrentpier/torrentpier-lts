@@ -167,10 +167,6 @@ foreach ($profile_fields as $field => $can_edit)
 	// Проверка на возможность редактирования
 	if ((bool)$can_edit === false)
 	{
-		if ($field == 'username')
-		{
-			$tp_data['CAN_EDIT_USERNAME'] = $can_edit;
-		}
 		continue;
 	}
 
@@ -207,6 +203,7 @@ foreach ($profile_fields as $field => $can_edit)
 					$db_data['username'] = $username;
 				}
 			}
+			$tp_data['CAN_EDIT_USERNAME'] = $can_edit;
 			$tp_data['USERNAME'] = $pr_data['username'];
 			break;
 
