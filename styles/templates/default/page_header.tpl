@@ -286,7 +286,7 @@ if ( (typeof(window.opera) != "undefined" && window.opera.version() < 12) || (wi
 <div id="logo">
 	<!--<h1>{SITENAME}</h1>
 	<h6>{SITE_DESCRIPTION}</h6> -->
-	<a href="{U_INDEX}"><img src="styles/images/logo/logo.png" alt="{SITENAME}" /></a>
+	<a href="{U_INDEX}"><img src="styles/images/logo/logo.png" title="{SITENAME}" alt="{SITENAME}" /></a>
 </div>
 <!--/logo-->
 
