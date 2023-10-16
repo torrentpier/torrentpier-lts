@@ -76,7 +76,6 @@ switch ($mode)
 			'user_opt'         => true,
 		);
 
-		// Значения полей по умолчанию при начале процесса регистрации
 		$pr_data = array(
 			'user_id'          => GUEST_UID,
 			'username'         => '',
