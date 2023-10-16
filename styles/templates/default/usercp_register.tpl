@@ -40,12 +40,14 @@ ajax.callback.user_register = function(data){
 <!-- IF ADM_EDIT -->
 <input type="hidden" name="u" value="{PR_USER_ID}" />
 <!-- ENDIF -->
-<!-- IF not EDIT_PROFILE -->
+<!-- IF not ADM_EDIT -->
 <script type="text/javascript">
 x = new Date();
 tz = -x.getTimezoneOffset()/60;
 document.write('<input type="hidden" name="user_timezone" value="'+tz+'" />');
 </script>
+<!-- ELSE -->
+<input type="hidden" name="user_timezone" value="{USER_TIMEZONE}" />
 <!-- ENDIF -->
 
 <table class="forumline prof-tbl">
@@ -154,10 +156,6 @@ document.write('<input type="hidden" name="user_timezone" value="'+tz+'" />');
 </tr>
 <!-- ENDIF -->
 <!-- IF EDIT_PROFILE -->
-<tr>
-	<td class="prof-title">{L_SYSTEM_TIMEZONE}:</td>
-	<td>{TIMEZONE_SELECT}</td>
-</tr>
 <tr>
 	<th colspan="2">{L_PREFERENCES}</th>
 </tr>
