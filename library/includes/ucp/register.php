@@ -164,6 +164,16 @@ $cur_pass_valid = $adm_edit;
 
 foreach ($profile_fields as $field => $can_edit)
 {
+	// Проверка на возможность редактирования
+	if ((bool)$can_edit === false)
+	{
+		if ($field == 'username')
+		{
+			$tp_data['CAN_EDIT_USERNAME'] = $can_edit;
+		}
+		continue;
+	}
+
 	switch ($field)
 	{
 		/**
@@ -191,13 +201,12 @@ foreach ($profile_fields as $field => $can_edit)
 				{
 					$errors[] = $err;
 				}
-				if ($can_edit && $username != $pr_data['username'] || $mode == 'register')
+				if ($username != $pr_data['username'] || $mode == 'register')
 				{
 					$pr_data['username'] = $username;
 					$db_data['username'] = $username;
 				}
 			}
-			$tp_data['CAN_EDIT_USERNAME'] = $can_edit;
 			$tp_data['USERNAME'] = $pr_data['username'];
 			break;
 
