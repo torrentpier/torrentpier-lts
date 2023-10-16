@@ -101,8 +101,8 @@ switch ($mode)
 			'user_password'    => true,
 			'user_email'       => true, // должен быть после user_password
 			'user_lang'        => true,
-			'user_gender'      => true,
-			'user_birthday'    => true,
+			'user_gender'      => $bb_cfg['gender'],
+			'user_birthday'    => $bb_cfg['birthday_enabled'],
 			'user_timezone'    => true,
 			'user_opt'         => true,
 			'avatar_ext_id'    => true,
