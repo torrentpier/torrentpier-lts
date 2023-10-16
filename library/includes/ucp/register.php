@@ -173,7 +173,7 @@ foreach ($profile_fields as $field => $can_edit)
 	switch ($field)
 	{
 		/**
-		*  Активация (edit, reg)
+		*  Активация (edit)
 		*/
 		case 'user_active':
 			$active = isset($_POST['user_active']) ? (int) $_POST['user_active'] : $pr_data['user_active'];
@@ -328,7 +328,7 @@ foreach ($profile_fields as $field => $can_edit)
 			break;
 
 		/**
-		*  Пол (edit, reg)
+		*  Пол (edit)
 		*/
 		case 'user_gender':
 			$user_gender = isset($_POST['user_gender']) ? (int) $_POST['user_gender'] : $pr_data['user_gender'];
@@ -372,7 +372,7 @@ foreach ($profile_fields as $field => $can_edit)
 			break;
 
 		/**
-		*  opt (edit)
+		*  opt (edit, reg)
 		*/
 		case 'user_opt':
 			$user_opt = $pr_data['user_opt'];
@@ -533,7 +533,7 @@ foreach ($profile_fields as $field => $can_edit)
 			break;
 
 		/**
-		*  Интересы
+		*  Интересы (edit)
 		*/
 		case 'user_interests':
 			$interests = isset($_POST['user_interests']) ? (string) $_POST['user_interests'] : $pr_data['user_interests'];
@@ -547,7 +547,7 @@ foreach ($profile_fields as $field => $can_edit)
 			break;
 
 		/**
-		*  Skype
+		*  Skype (edit)
 		*/
 		case 'user_skype':
 			$skype = isset($_POST['user_skype']) ? (string) $_POST['user_skype'] : $pr_data['user_skype'];
@@ -564,7 +564,7 @@ foreach ($profile_fields as $field => $can_edit)
 			break;
 
 		/**
-		*  Twitter
+		*  Twitter (edit)
 		*/
 		case 'user_twitter':
 			$twitter = isset($_POST['user_twitter']) ? (string) $_POST['user_twitter'] : $pr_data['user_twitter'];
