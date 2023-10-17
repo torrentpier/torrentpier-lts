@@ -114,7 +114,8 @@
 	<tr>
 		<td class="row1" colspan="2" align="right"><span class="gen">{L_SORT_BY}:&nbsp;</span></td>
 		<td class="row2" colspan="2">{S_SORT_OPTIONS}</td>
-		<tr>
+	</tr>
+	<tr>
 		<td class="row1" colspan="2" align="right"><span class="gen">{L_SORT}:&nbsp;</span></td>
 		<td class="row2" colspan="2">{S_SORT_ORDER}</td>
 	</tr>
