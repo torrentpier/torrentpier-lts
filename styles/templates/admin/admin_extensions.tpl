@@ -66,87 +66,87 @@
 <form method="post" action="{S_ATTACH_ACTION}">
 <table class="forumline">
 	<tr>
-	  <td class="catTitle" colspan="8">{L_MANAGE_EXTENSION_GROUPS}
-	  </td>
+		<td class="catTitle" colspan="8">{L_MANAGE_EXTENSION_GROUPS}</td>
 	</tr>
 	<tr>
-	  <th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
-	  <th>&nbsp;{L_SPECIAL_CATEGORY}&nbsp;</th>
-	  <th>&nbsp;{L_ALLOWED}&nbsp;</th>
-	  <th>&nbsp;{L_DOWNLOAD_MODE}&nbsp;</th>
-	  <th>&nbsp;{L_UPLOAD_ICON}&nbsp;</th>
-	  <th>&nbsp;{L_MAX_FILESIZE_ATTACH}&nbsp;</th>
-	  <th>&nbsp;{L_ALLOWED_FORUMS}&nbsp;</th>
-	  <th>&nbsp;{L_ADD_NEW}&nbsp;</th>
+		<th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
+		<th>&nbsp;{L_SPECIAL_CATEGORY}&nbsp;</th>
+		<th>&nbsp;{L_ALLOWED}&nbsp;</th>
+		<th>&nbsp;{L_DOWNLOAD_MODE}&nbsp;</th>
+		<th>&nbsp;{L_UPLOAD_ICON}&nbsp;</th>
+		<th>&nbsp;{L_MAX_FILESIZE_ATTACH}&nbsp;</th>
+		<th>&nbsp;{L_ALLOWED_FORUMS}&nbsp;</th>
+		<th>&nbsp;{L_ADD_NEW}&nbsp;</th>
 	</tr>
 	<tr>
-	  <td class="row1" align="center">
-	  <table width="100%" class="borderless">
-	  <tr>
-  	  <td class="row1" align="center" width="10%" wrap="nowrap">&nbsp;</td>
-	  <td class="row1"><input type="text" size="20" maxlength="100" name="add_extension_group" class="post" value="{ADD_GROUP_NAME}" /></td>
-	  </tr>
-	  </table>
-	  </td>
-	  <td class="row2" align="center">{S_SELECT_CAT}</td>
-	  <td class="row1" align="center"><input type="checkbox" name="add_allowed" /></td>
-	  <td class="row2" align="center">{S_ADD_DOWNLOAD_MODE}</td>
-	  <td class="row1" align="center"><input type="text" size="15" maxlength="100" name="add_upload_icon" class="post" value="{UPLOAD_ICON}" /></td>
-	  <td class="row2" align="center"><input type="text" size="3" maxlength="15" name="add_max_filesize" class="post" value="{MAX_FILESIZE}" /> {S_FILESIZE}</td>
-	  <td class="row1" align="center">&nbsp;</td>
-	  <td class="row2" align="center"><input type="checkbox" name="add_extension_group_check" /></td>
+		<td class="row1" align="center">
+			<table width="100%" class="borderless">
+				<tr>
+					<td class="row1" align="center" width="10%" wrap="nowrap">&nbsp;</td>
+					<td class="row1"><input type="text" size="20" maxlength="100" name="add_extension_group" class="post" value="{ADD_GROUP_NAME}" /></td>
+				</tr>
+			</table>
+		</td>
+		<td class="row2" align="center">{S_SELECT_CAT}</td>
+		<td class="row1" align="center"><input type="checkbox" name="add_allowed" /></td>
+		<td class="row2" align="center">{S_ADD_DOWNLOAD_MODE}</td>
+		<td class="row1" align="center"><input type="text" size="15" maxlength="100" name="add_upload_icon" class="post" value="{UPLOAD_ICON}" /></td>
+		<td class="row2" align="center"><input type="text" size="3" maxlength="15" name="add_max_filesize" class="post" value="{MAX_FILESIZE}" /> {S_FILESIZE}</td>
+		<td class="row1" align="center">&nbsp;</td>
+		<td class="row2" align="center"><input type="checkbox" name="add_extension_group_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="8"><input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
-  </tr>
-  <tr>
-	  <th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
-	  <th>&nbsp;{L_SPECIAL_CATEGORY}&nbsp;</th>
-	  <th>&nbsp;{L_ALLOWED}&nbsp;</th>
-	  <th>&nbsp;{L_DOWNLOAD_MODE}&nbsp;</th>
-	  <th>&nbsp;{L_UPLOAD_ICON}&nbsp;</th>
-	  <th>&nbsp;{L_MAX_GROUPS_FILESIZE}&nbsp;</th>
-	  <th>&nbsp;{L_ALLOWED_FORUMS}&nbsp;</th>
-	  <th>&nbsp;{L_DELETE}&nbsp;</th>
+		<td class="catBottom" colspan="8"><input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
-  <!-- BEGIN grouprow -->
-  <tr>
-	  <input type="hidden" name="group_change_list[]" value="{grouprow.GROUP_ID}" />
-	  <td class="row1" align="center">
-	  <table width="100%" class="borderless">
-	  <tr>
-		<td class="row1" align="center" width="10%" wrap="nowrap"><b><span class="small"><a href="{grouprow.U_VIEWGROUP}" class="small">{grouprow.CAT_BOX}</a></span></b></td>
-		<td class="row1"><input type="text" size="20" maxlength="100" name="extension_group_list[]" class="post" value="{grouprow.EXTENSION_GROUP}" /></td>
-	  </tr>
-	  </table>
-	  </td>
-	  <td class="row2" align="center">{grouprow.S_SELECT_CAT}</td>
-	  <td class="row1" align="center"><input type="checkbox" name="allowed_list[]" value="{grouprow.GROUP_ID}" {grouprow.S_ALLOW_SELECTED} /></td>
-	  <td class="row2" align="center">{grouprow.S_DOWNLOAD_MODE}</td>
-	  <td class="row1" align="center"><input type="text" size="15" maxlength="100" name="upload_icon_list[]" class="post" value="{grouprow.UPLOAD_ICON}" /></td>
-	  <td class="row2" align="center"><input type="text" size="3" maxlength="15" name="max_filesize_list[]" class="post" value="{grouprow.MAX_FILESIZE}" /> {grouprow.S_FILESIZE}</td>
-	  <td class="row1" align="center"><span class="small"><a href="{grouprow.U_FORUM_PERMISSIONS}" class="small">{L_EXT_GROUP_PERMISSIONS}</a></span></td>
-	  <td class="row2" align="center"><input type="checkbox" name="group_id_list[]" value="{grouprow.GROUP_ID}" /></td>
+	<tr>
+		<th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
+		<th>&nbsp;{L_SPECIAL_CATEGORY}&nbsp;</th>
+		<th>&nbsp;{L_ALLOWED}&nbsp;</th>
+		<th>&nbsp;{L_DOWNLOAD_MODE}&nbsp;</th>
+		<th>&nbsp;{L_UPLOAD_ICON}&nbsp;</th>
+		<th>&nbsp;{L_MAX_GROUPS_FILESIZE}&nbsp;</th>
+		<th>&nbsp;{L_ALLOWED_FORUMS}&nbsp;</th>
+		<th>&nbsp;{L_DELETE}&nbsp;</th>
 	</tr>
-  <!-- BEGIN extensionrow -->
-  <tr>
-	<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXTENSION}</span></td>
-	<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXPLANATION}</span></td>
-	<td class="row2" align="center">&nbsp;</td>
-	<td class="row2" align="center">&nbsp;</td>
-	<td class="row2" align="center">&nbsp;</td>
-	<td class="row2" align="center">&nbsp;</td>
-	<td class="row2" align="center">&nbsp;</td>
-	<td class="row2" align="center">&nbsp;</td>
-  </tr>
+	<!-- BEGIN grouprow -->
+	<tr>
+		<input type="hidden" name="group_change_list[]" value="{grouprow.GROUP_ID}" />
+		<td class="row1" align="center">
+			<table width="100%" class="borderless">
+	  			<tr>
+					<td class="row1" align="center" width="10%" wrap="nowrap"><b><span class="small"><a href="{grouprow.U_VIEWGROUP}" class="small">{grouprow.CAT_BOX}</a></span></b></td>
+					<td class="row1"><input type="text" size="20" maxlength="100" name="extension_group_list[]" class="post" value="{grouprow.EXTENSION_GROUP}" /></td>
+				</tr>
+			</table>
+		</td>
+		<td class="row2" align="center">{grouprow.S_SELECT_CAT}</td>
+		<td class="row1" align="center"><input type="checkbox" name="allowed_list[]" value="{grouprow.GROUP_ID}" {grouprow.S_ALLOW_SELECTED} /></td>
+		<td class="row2" align="center">{grouprow.S_DOWNLOAD_MODE}</td>
+		<td class="row1" align="center"><input type="text" size="15" maxlength="100" name="upload_icon_list[]" class="post" value="{grouprow.UPLOAD_ICON}" /></td>
+		<td class="row2" align="center"><input type="text" size="3" maxlength="15" name="max_filesize_list[]" class="post" value="{grouprow.MAX_FILESIZE}" /> {grouprow.S_FILESIZE}</td>
+		<td class="row1" align="center"><span class="small"><a href="{grouprow.U_FORUM_PERMISSIONS}" class="small">{L_EXT_GROUP_PERMISSIONS}</a></span></td>
+		<td class="row2" align="center"><input type="checkbox" name="group_id_list[]" value="{grouprow.GROUP_ID}" /></td>
+	</tr>
+	<!-- BEGIN extensionrow -->
+	<tr>
+		<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXTENSION}</span></td>
+		<td class="row2" align="center"><span class="small">{grouprow.extensionrow.EXPLANATION}</span></td>
+		<td class="row2" align="center">&nbsp;</td>
+		<td class="row2" align="center">&nbsp;</td>
+		<td class="row2" align="center">&nbsp;</td>
+		<td class="row2" align="center">&nbsp;</td>
+		<td class="row2" align="center">&nbsp;</td>
+		<td class="row2" align="center">&nbsp;</td>
+	</tr>
 
-  <!-- END extensionrow -->
-  <!-- END grouprow -->
+	<!-- END extensionrow -->
+	<!-- END grouprow -->
 
 	<tr align="right">
-	  <td class="catBottom" colspan="8">
-	  <input type="submit" name="{L_CANCEL}" class="liteoption" value="{L_CANCEL}" onClick="self.location.href='{S_CANCEL_ACTION}'" />
-	  <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+		<td class="catBottom" colspan="8">
+			<input type="submit" name="{L_CANCEL}" class="liteoption" value="{L_CANCEL}" onClick="self.location.href='{S_CANCEL_ACTION}'" />
+			<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" />
+		</td>
 	</tr>
 </table>
 
