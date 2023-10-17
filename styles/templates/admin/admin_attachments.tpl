@@ -195,7 +195,7 @@
 	</tr>
 <!-- END limit_row -->
 	<tr align="right">
-	  <td class="catBottom" colspan="3"> <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+		<td class="catBottom" colspan="3"> <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
 </table>
 </form>
