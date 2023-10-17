@@ -131,30 +131,28 @@
 
 <form method="post" action="{S_MODE_ACTION}">
 	<table width="100%">
-	<tr>
-	  <td align="right" nowrap="nowrap">
-		<span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SORT_BY}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
-		<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
-		</span>
-	  </td>
-	</tr>
-  </table>
+		<tr>
+			<td align="right" nowrap="nowrap">
+				<span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SORT_BY}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}:&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" /></span>
+			</td>
+		</tr>
+	</table>
 	<table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
 		<tr>
-	  <th>#</th>
-	  <th>{L_USERNAME}</th>
-	  <th>{L_ATTACHMENTS}</th>
-	  <th>{L_SIZE_IN_KB}</th>
-	</tr>
-	<!-- BEGIN memberrow -->
-	<tr>
-	  <td class="{memberrow.ROW_CLASS}" align="center"><span class="gen">&nbsp;{memberrow.ROW_NUMBER}&nbsp;</span></td>
-	  <td class="{memberrow.ROW_CLASS}" align="center"><span class="gen"><a href="{memberrow.U_VIEW_MEMBER}" class="gen">{memberrow.USERNAME}</a></span></td>
-	  <td class="{memberrow.ROW_CLASS}" align="center">&nbsp;<b>{memberrow.TOTAL_ATTACHMENTS}</b>&nbsp;</td>
-	  <td class="{memberrow.ROW_CLASS}" align="center">&nbsp;<b>{memberrow.TOTAL_SIZE}</b>&nbsp;</td>
-	</tr>
-	<!-- END memberrow -->
-  </table>
+			<th>#</th>
+			<th>{L_USERNAME}</th>
+			<th>{L_ATTACHMENTS}</th>
+			<th>{L_SIZE_IN_KB}</th>
+		</tr>
+		<!-- BEGIN memberrow -->
+		<tr>
+			<td class="{memberrow.ROW_CLASS}" align="center"><span class="gen">&nbsp;{memberrow.ROW_NUMBER}&nbsp;</span></td>
+			<td class="{memberrow.ROW_CLASS}" align="center"><span class="gen"><a href="{memberrow.U_VIEW_MEMBER}" class="gen">{memberrow.USERNAME}</a></span></td>
+			<td class="{memberrow.ROW_CLASS}" align="center">&nbsp;<b>{memberrow.TOTAL_ATTACHMENTS}</b>&nbsp;</td>
+			<td class="{memberrow.ROW_CLASS}" align="center">&nbsp;<b>{memberrow.TOTAL_SIZE}</b>&nbsp;</td>
+		</tr>
+		<!-- END memberrow -->
+	</table>
 
 <table width="100%">
 	<tr>
@@ -191,7 +189,7 @@
 <table width="100%">
 	<tr>
 		<td align="right" nowrap="nowrap">
-			<span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SORT_BY}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
+			<span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SORT_BY}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}:&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
 				<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
 			</span>
 		</td>
