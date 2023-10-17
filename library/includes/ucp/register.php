@@ -57,7 +57,7 @@ switch ($mode)
 				bb_die($lang['NEW_USER_REG_DISABLED']);
 			}
 			// Ограничение по времени
-			else if ($bb_cfg['new_user_reg_restricted'])
+			else if ($bb_cfg['new_user_reg_restricted'] !== false && !empty($bb_cfg['new_user_reg_restricted']['from']) && !empty($bb_cfg['new_user_reg_restricted']['to']))
 			{
 				if (in_array(bb_date(TIMENOW, 'H', false), $bb_cfg['new_user_reg_restricted']))
 				{
