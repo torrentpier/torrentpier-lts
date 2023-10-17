@@ -191,6 +191,7 @@ else if ($delete && sizeof($delete_id_list) > 0)
 	}
 
 	print_confirmation(array(
+		'QUESTION'      => $lang['QUESTION'],
 		'FORM_ACTION'   => "admin_attach_cp.php",
 		'HIDDEN_FIELDS' => $hidden_fields,
 	));
