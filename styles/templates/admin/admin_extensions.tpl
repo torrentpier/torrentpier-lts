@@ -113,7 +113,7 @@
 		<input type="hidden" name="group_change_list[]" value="{grouprow.GROUP_ID}" />
 		<td class="row1" align="center">
 			<table width="100%" class="borderless">
-	  			<tr>
+				<tr>
 					<td class="row1" align="center" width="10%" wrap="nowrap"><b><span class="small"><a href="{grouprow.U_VIEWGROUP}" class="small">{grouprow.CAT_BOX}</a></span></b></td>
 					<td class="row1"><input type="text" size="20" maxlength="100" name="extension_group_list[]" class="post" value="{grouprow.EXTENSION_GROUP}" /></td>
 				</tr>
