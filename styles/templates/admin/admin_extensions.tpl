@@ -9,43 +9,42 @@
 <form method="post" action="{S_ATTACH_ACTION}">
 <table class="forumline">
 	<tr>
-	  <td class="catTitle" colspan="4">{L_MANAGE_EXTENSIONS}
-	  </td>
+		<td class="catTitle" colspan="4">{L_MANAGE_EXTENSIONS}</td>
 	</tr>
 	<tr>
-	  <th>&nbsp;{L_EXPLANATION}&nbsp;</th>
-	  <th>&nbsp;{L_EXTENSION}&nbsp;</th>
-	  <th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
-	  <th>&nbsp;{L_ADD_NEW}&nbsp;</th>
+		<th>&nbsp;{L_EXPLANATION}&nbsp;</th>
+		<th>&nbsp;{L_EXTENSION}&nbsp;</th>
+		<th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
+		<th>&nbsp;{L_ADD_NEW}&nbsp;</th>
 	</tr>
 	<tr>
-	  <td class="row1" align="center"><input type="text" size="30" maxlength="100" name="add_extension_explain" class="post" value="{ADD_EXTENSION_EXPLAIN}" /></td>
-	  <td class="row2" align="center"><input type="text" size="20" maxlength="100" name="add_extension" class="post" value="{ADD_EXTENSION}" /></td>
-	  <td class="row1" align="center">{S_ADD_GROUP_SELECT}</td>
-	  <td class="row2" align="center"><input type="checkbox" name="add_extension_check" /></td>
+		<td class="row1" align="center"><input type="text" size="30" maxlength="100" name="add_extension_explain" class="post" value="{ADD_EXTENSION_EXPLAIN}" /></td>
+		<td class="row2" align="center"><input type="text" size="20" maxlength="100" name="add_extension" class="post" value="{ADD_EXTENSION}" /></td>
+		<td class="row1" align="center">{S_ADD_GROUP_SELECT}</td>
+		<td class="row2" align="center"><input type="checkbox" name="add_extension_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="4"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
-  </tr>
-  <tr>
-	  <th>&nbsp;{L_EXPLANATION}&nbsp;</th>
-	  <th>&nbsp;{L_EXTENSION}&nbsp;</th>
-	  <th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
-	  <th>&nbsp;{L_DELETE}&nbsp;</th>
+		<td class="catBottom" colspan="4"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
-<!-- BEGIN extension_row -->
 	<tr>
-	  <input type="hidden" name="extension_change_list[]" value="{extension_row.EXT_ID}" />
-	  <td class="row1" align="center"><input type="text" size="30" maxlength="100" name="extension_explain_list[]" class="post" value="{extension_row.EXTENSION_EXPLAIN}" /></td>
-	  <td class="row2" align="center"><b><span class="gen">{extension_row.EXTENSION}</span></b></td>
-	  <td class="row1" align="center">{extension_row.S_GROUP_SELECT}</td>
-	  <td class="row2" align="center"><input type="checkbox" name="extension_id_list[]" value="{extension_row.EXT_ID}" /></td>
+		<th>&nbsp;{L_EXPLANATION}&nbsp;</th>
+		<th>&nbsp;{L_EXTENSION}&nbsp;</th>
+		<th>&nbsp;{L_EXTENSION_GROUP}&nbsp;</th>
+		<th>&nbsp;{L_DELETE}&nbsp;</th>
 	</tr>
-<!-- END extension_row -->
+	<!-- BEGIN extension_row -->
+	<tr>
+		<input type="hidden" name="extension_change_list[]" value="{extension_row.EXT_ID}" />
+		<td class="row1" align="center"><input type="text" size="30" maxlength="100" name="extension_explain_list[]" class="post" value="{extension_row.EXTENSION_EXPLAIN}" /></td>
+		<td class="row2" align="center"><b><span class="gen">{extension_row.EXTENSION}</span></b></td>
+		<td class="row1" align="center">{extension_row.S_GROUP_SELECT}</td>
+		<td class="row2" align="center"><input type="checkbox" name="extension_id_list[]" value="{extension_row.EXT_ID}" /></td>
+	</tr>
+	<!-- END extension_row -->
 	<tr align="right">
-	  <td class="catBottom" colspan="4">
-	  <input type="submit" name="{L_CANCEL}" class="liteoption" value="{L_CANCEL}" onClick="self.location.href='{S_CANCEL_ACTION}'" />
-	  <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+		<td class="catBottom" colspan="4">
+		<input type="submit" name="{L_CANCEL}" class="liteoption" value="{L_CANCEL}" onClick="self.location.href='{S_CANCEL_ACTION}'" />
+		<input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
 </table>
 
