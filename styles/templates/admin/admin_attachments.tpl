@@ -78,14 +78,15 @@
 	<tr>
 		<td class="row1" width="80%">{L_ATTACH_DISPLAY_ORDER}<br /><span class="small">{L_ATTACH_DISPLAY_ORDER_EXPLAIN}</span></td>
 		<td class="row2">
-		<table class="borderless">
-			<tr>
-				<td><input type="radio" name="display_order" value="0" {DISPLAY_ORDER_DESC} /> {L_DESC}</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="display_order" value="1" {DISPLAY_ORDER_ASC} /> {L_ASC}</td>
-       </tr>
-		</table></td>
+			<table class="borderless">
+				<tr>
+					<td><input type="radio" name="display_order" value="0" {DISPLAY_ORDER_DESC} /> {L_DESC}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="display_order" value="1" {DISPLAY_ORDER_ASC} /> {L_ASC}</td>
+				</tr>
+			</table>
+		</td>
 	</tr>
 	<tr>
 		<th colspan="2">{L_ATTACH_FILESIZE_SETTINGS}</th>
