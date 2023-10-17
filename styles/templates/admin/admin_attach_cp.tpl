@@ -159,10 +159,10 @@
 </table>
 
 <table width="100%">
-	<tr>
-		<td><span class="nav">{PAGE_NUMBER}</span></td>
-		<td align="right"><span class="nav">{PAGINATION}&nbsp;</span></td>
-	</tr>
+<tr>
+	<td><span class="nav">{PAGE_NUMBER}</span></td>
+	<td align="right"><span class="nav">{PAGINATION}&nbsp;</span></td>
+</tr>
 </table>
 </form>
 
