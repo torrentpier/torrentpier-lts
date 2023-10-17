@@ -9,7 +9,7 @@
 <form action="{S_ATTACH_ACTION}" method="post">
 <table class="forumline">
 	<tr>
-	  <th colspan="2">{L_SETTINGS_CAT_IMAGES}<br />{L_ASSIGNED_GROUP}: {S_ASSIGNED_GROUP_IMAGES}</th>
+		<th colspan="2">{L_SETTINGS_CAT_IMAGES}<br />{L_ASSIGNED_GROUP}: {S_ASSIGNED_GROUP_IMAGES}</th>
 	</tr>
 	<tr>
 		<td class="row1" width="80%">{L_DISPLAY_INLINED}<br /><span class="small">{L_DISPLAY_INLINED_EXPLAIN}</span></td>
@@ -61,7 +61,7 @@
 <form action="{S_ATTACH_ACTION}" method="post">
 <table class="forumline">
 	<tr>
-	  <th colspan="2">{L_ATTACH_SETTINGS}</th>
+		<th colspan="2">{L_ATTACH_SETTINGS}</th>
 	</tr>
 	<tr>
 		<td class="row1" width="80%">{L_UPLOAD_DIRECTORY}<br /><span class="small">{L_UPLOAD_DIRECTORY_EXPLAIN}</span></td>
@@ -88,7 +88,7 @@
 		</table></td>
 	</tr>
 	<tr>
-	  <th colspan="2">{L_ATTACH_FILESIZE_SETTINGS}</th>
+		<th colspan="2">{L_ATTACH_FILESIZE_SETTINGS}</th>
 	</tr>
 	<tr>
 		<td class="row1" width="80%">{L_MAX_FILESIZE_ATTACH}<br /><span class="small">{L_MAX_FILESIZE_ATTACH_EXPLAIN}</span></td>
@@ -118,7 +118,7 @@
 		</td>
 	</tr>
 	<tr>
-	  <th colspan="2">{L_ATTACH_NUMBER_SETTINGS}</th>
+		<th colspan="2">{L_ATTACH_NUMBER_SETTINGS}</th>
 	</tr>
 	<tr>
 		<td class="row1" width="80%">{L_MAX_ATTACHMENTS}<br /><span class="small">{L_MAX_ATTACHMENTS_EXPLAIN}</span></td>
@@ -129,7 +129,7 @@
 		<td class="row2"><input type="text" size="3" maxlength="3" name="max_attachments_pm" class="post" value="{MAX_ATTACHMENTS_PM}" /></td>
 	</tr>
 	<tr>
-	  <th colspan="2">{L_ATTACH_OPTIONS_SETTINGS}</th>
+		<th colspan="2">{L_ATTACH_OPTIONS_SETTINGS}</th>
 	</tr>
 	<tr>
 		<td class="row1" width="80%">{L_DISABLE_MOD}<br /><span class="small">{L_DISABLE_MOD_EXPLAIN}</span></td>
@@ -159,8 +159,7 @@
 <form method="post" action="{S_ATTACH_ACTION}">
 <table class="forumline">
 	<tr>
-	  <td class="catTitle" colspan="3">{L_MANAGE_QUOTAS}
-	  </td>
+		<td class="catTitle" colspan="3">{L_MANAGE_QUOTAS}</td>
 	</tr>
 	<tr>
 		<th>{L_DESCRIPTION}</th>
@@ -173,7 +172,7 @@
 		<td class="row1" align="center"><input type="checkbox" name="add_quota_check" /></td>
 	</tr>
 	<tr align="right">
-	  <td class="catBottom" colspan="3"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
+		<td class="catBottom" colspan="3"> {S_HIDDEN_FIELDS} <input type="submit" name="submit" class="liteoption" value="{L_SUBMIT}" /></td>
 	</tr>
 	<tr>
 		<th>{L_DESCRIPTION}</th>
