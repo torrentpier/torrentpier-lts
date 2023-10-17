@@ -59,12 +59,14 @@
 
 <form method="post" action="{S_MODE_ACTION}">
 	<table width="100%">
-	<tr>
-	  <td align="right" nowrap="nowrap"><span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;
-		<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
-		</span></td>
-	</tr>
-  </table>
+		<tr>
+			<td align="right" nowrap="nowrap">
+				<span class="med">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;
+					<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
+				</span>
+			</td>
+		</tr>
+	</table>
 
   <table class="forumline">
   <tr>
