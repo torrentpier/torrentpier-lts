@@ -106,16 +106,16 @@
 	<tr>
 		<td class="row1" width="80%">{L_DEFAULT_QUOTA_LIMIT}<br /><span class="small">{L_DEFAULT_QUOTA_LIMIT_EXPLAIN}</span></td>
 		<td class="row2">
-		<table class="borderless">
-		<tr>
-			<td nowrap="nowrap">{S_DEFAULT_UPLOAD_LIMIT}</td>
-			<td nowrap="nowrap"><span class="small">&nbsp;{L_UPLOAD_QUOTA}&nbsp;</span></td>
-		</tr>
-		<tr>
-			<td nowrap="nowrap">{S_DEFAULT_PM_LIMIT}</td>
-			<td nowrap="nowrap"><span class="small">&nbsp;{L_PM_QUOTA}&nbsp;</span></td>
-		</tr>
-		</table>
+			<table class="borderless">
+				<tr>
+					<td nowrap="nowrap">{S_DEFAULT_UPLOAD_LIMIT}</td>
+					<td nowrap="nowrap"><span class="small">&nbsp;{L_UPLOAD_QUOTA}&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap">{S_DEFAULT_PM_LIMIT}</td>
+					<td nowrap="nowrap"><span class="small">&nbsp;{L_PM_QUOTA}&nbsp;</span></td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 	<tr>
