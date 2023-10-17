@@ -165,7 +165,7 @@ $cur_pass_valid = $adm_edit;
 foreach ($profile_fields as $field => $can_edit)
 {
 	// Проверка на возможность редактирования
-	if ((bool)$can_edit === false)
+	if ((bool) $can_edit === false)
 	{
 		continue;
 	}
