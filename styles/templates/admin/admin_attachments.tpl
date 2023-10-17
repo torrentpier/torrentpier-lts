@@ -208,8 +208,8 @@
 <table width="99%" align="center">
 	<tr>
 		<td width="49%">
-		<table class="forumline">
-		<tr>
+			<table class="forumline">
+				<tr>
 					<th>{L_ASSIGNED_USERS} - {L_UPLOAD_QUOTA}</th>
 				</tr>
 				<tr>
@@ -229,19 +229,19 @@
 			&nbsp;&nbsp;&nbsp;
 		</td>
 		<td align="right" width="49%">
-		<table class="forumline">
-		<tr>
+			<table class="forumline">
+				<tr>
 					<th>{L_ASSIGNED_GROUPS} - {L_UPLOAD_QUOTA}</th>
 				</tr>
 				<tr>
 					<td class="row1" align="center">
-					<select style="width:99%" name="entries[]" multiple="multiple" size="5">
+						<select style="width:99%" name="entries[]" multiple="multiple" size="5">
 <!-- END switch_quota_limit_desc -->
-						<!-- BEGIN groups_upload_row -->
-						<option value="{groups_upload_row.GROUP_ID}">{groups_upload_row.GROUPNAME}</option>
-						<!-- END groups_upload_row -->
+							<!-- BEGIN groups_upload_row -->
+							<option value="{groups_upload_row.GROUP_ID}">{groups_upload_row.GROUPNAME}</option>
+							<!-- END groups_upload_row -->
 <!-- BEGIN switch_quota_limit_desc -->
-					</select>
+						</select>
 					</td>
 				</tr>
 			</table>
