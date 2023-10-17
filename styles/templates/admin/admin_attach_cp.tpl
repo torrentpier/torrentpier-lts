@@ -68,8 +68,8 @@
 	</tr>
 </table>
 
-  <table class="forumline">
-  <tr>
+<table class="forumline">
+	<tr>
 		<th colspan="4">{L_ATTACH_SEARCH_QUERY}</th>
 	</tr>
 	<tr>
