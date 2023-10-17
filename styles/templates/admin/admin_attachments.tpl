@@ -15,7 +15,7 @@
 		<td class="row1" width="80%">{L_DISPLAY_INLINED}<br /><span class="small">{L_DISPLAY_INLINED_EXPLAIN}</span></td>
 		<td class="row2"><input type="radio" name="img_display_inlined" value="1" {DISPLAY_INLINED_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="img_display_inlined" value="0" {DISPLAY_INLINED_NO} /> {L_NO}</td>
 	</tr>
-<!-- BEGIN switch_thumbnail_support -->
+	<!-- BEGIN switch_thumbnail_support -->
 	<tr>
 		<td class="row1" width="80%">{L_IMAGE_CREATE_THUMBNAIL}<br /><span class="small">{L_IMAGE_CREATE_THUMBNAIL_EXPLAIN}</span></td>
 		<td class="row2"><input type="radio" name="img_create_thumbnail" value="1" {CREATE_THUMBNAIL_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="img_create_thumbnail" value="0" {CREATE_THUMBNAIL_NO} /> {L_NO}</td>
@@ -28,7 +28,7 @@
 		<td class="row1" width="80%">{L_USE_GD2}<br /><span class="small">{L_USE_GD2_EXPLAIN}</span></td>
 		<td class="row2"><input type="radio" name="use_gd2" value="1" {USE_GD2_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="use_gd2" value="0" {USE_GD2_NO} /> {L_NO}</td>
 	</tr>
-<!-- END switch_thumbnail_support -->
+	<!-- END switch_thumbnail_support -->
 	<tr>
 		<td class="row1" width="80%">{L_IMAGE_IMAGICK_PATH}<br /><span class="small">{L_IMAGE_IMAGICK_PATH_EXPLAIN}</span></td>
 		<td class="row2"><input type="text" size="20" maxlength="200" name="img_imagick" value="{IMAGE_IMAGICK_PATH}" class="post" /></td>
@@ -216,9 +216,9 @@
 					<td class="row1" align="center">
 						<select style="width:99%" name="entries[]" multiple="multiple" size="5">
 <!-- END switch_quota_limit_desc -->
-						<!-- BEGIN users_upload_row -->
-						<option value="{users_upload_row.USER_ID}">{users_upload_row.USERNAME}</option>
-						<!-- END users_upload_row -->
+							<!-- BEGIN users_upload_row -->
+							<option value="{users_upload_row.USER_ID}">{users_upload_row.USERNAME}</option>
+							<!-- END users_upload_row -->
 <!-- BEGIN switch_quota_limit_desc -->
 						</select>
 					</td>
@@ -237,9 +237,9 @@
 					<td class="row1" align="center">
 					<select style="width:99%" name="entries[]" multiple="multiple" size="5">
 <!-- END switch_quota_limit_desc -->
-					<!-- BEGIN groups_upload_row -->
-					<option value="{groups_upload_row.GROUP_ID}">{groups_upload_row.GROUPNAME}</option>
-					<!-- END groups_upload_row -->
+						<!-- BEGIN groups_upload_row -->
+						<option value="{groups_upload_row.GROUP_ID}">{groups_upload_row.GROUPNAME}</option>
+						<!-- END groups_upload_row -->
 <!-- BEGIN switch_quota_limit_desc -->
 					</select>
 					</td>
@@ -262,9 +262,9 @@
 					<td class="row1" align="center">
 						<select style="width:99%" name="entries[]" multiple="multiple" size="5">
 <!-- END switch_quota_limit_desc -->
-						<!-- BEGIN users_pm_row -->
-						<option value="{users_pm_row.USER_ID}">{users_pm_row.USERNAME}</option>
-						<!-- END users_pm_row -->
+							<!-- BEGIN users_pm_row -->
+							<option value="{users_pm_row.USER_ID}">{users_pm_row.USERNAME}</option>
+							<!-- END users_pm_row -->
 <!-- BEGIN switch_quota_limit_desc -->
 						</select>
 					</td>
@@ -283,9 +283,9 @@
 					<td class="row1" align="center">
 						<select style="width:99%" name="entries[]" multiple="multiple" size="5">
 <!-- END switch_quota_limit_desc -->
-						<!-- BEGIN groups_pm_row -->
-						<option value="{groups_pm_row.GROUP_ID}">{groups_pm_row.GROUPNAME}</option>
-						<!-- END groups_pm_row -->
+							<!-- BEGIN groups_pm_row -->
+							<option value="{groups_pm_row.GROUP_ID}">{groups_pm_row.GROUPNAME}</option>
+							<!-- END groups_pm_row -->
 <!-- BEGIN switch_quota_limit_desc -->
 						</select>
 					</td>
