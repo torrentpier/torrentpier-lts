@@ -17,7 +17,7 @@ $torrent = DB()->fetch_row("SELECT at.attach_id, at.physical_filename FROM ". BB
 if (!$torrent) $this->ajax_die($lang['EMPTY_ATTACH_ID']);
 $filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
-if (!@file_exists($filename) || (false === ($file_contents = @file_get_contents($filename))))
+if ((($file_contents = @file_get_contents($filename)) === false) || !file_exists($filename))
 {
 	if (IS_AM)
 	{
