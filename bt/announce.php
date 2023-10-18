@@ -37,7 +37,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'scrape') !== false)
 }
 if (!isset($_GET[$passkey_key]) || !is_string($_GET[$passkey_key]) || strlen($_GET[$passkey_key]) != BT_AUTH_KEY_LENGTH)
 {
-	msg_die('Please LOG IN and REDOWNLOAD this torrent (passkey not found)');
+	msg_die('Please LOG IN and RE-DOWNLOAD this torrent (passkey not found)');
 }
 
 // Input var names
@@ -487,8 +487,8 @@ if (!$output)
 			LIMIT 1
 		");
 
-		$seeders  = isset($row['seeders']) ? $row['seeders'] : ($seeder ? 1 : 0);
-		$leechers = isset($row['leechers']) ? $row['leechers'] : (!$seeder ? 1 : 0);
+		$seeders  = $row['seeders'];
+		$leechers = $row['leechers'];
 	}
 
 	$output = array(
