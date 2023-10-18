@@ -102,3 +102,9 @@ ALTER TABLE `bb_privmsgs_text` CHANGE `privmsgs_text` `privmsgs_text` MEDIUMTEXT
 
 // 2.1.5 (LTS 2023.09)
 INSERT INTO `bb_extensions` VALUES ('', '2', '7z', '');
+
+// 2.1.5 (LTS 2023.10)
+DELETE FROM `bb_extensions` WHERE `extension` = 'tif';
+INSERT INTO `bb_extensions` VALUES ('998', '4', 'tif', '');
+DELETE FROM `bb_extensions` WHERE `extension` = 'tga';
+INSERT INTO `bb_extensions` VALUES ('999', '4', 'tga', '');
