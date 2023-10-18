@@ -17,15 +17,18 @@ $torrent = DB()->fetch_row("SELECT at.attach_id, at.physical_filename FROM ". BB
 if (!$torrent) $this->ajax_die($lang['EMPTY_ATTACH_ID']);
 $filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
-if (!@file_exists($filename) || (false === ($file_contents = @file_get_contents($filename))))
+if (($file_contents = @file_get_contents($filename)) === false)
 {
-	if (IS_AM)
+	if (!file_exists($filename))
 	{
-		$this->ajax_die($lang['ERROR_NO_ATTACHMENT'] ."\n\n". htmlCHR($filename));
-	}
-	else
-	{
-		$this->ajax_die($lang['ERROR_NO_ATTACHMENT']);
+		if (IS_AM)
+		{
+			$this->ajax_die($lang['ERROR_NO_ATTACHMENT'] ."\n\n". htmlCHR($filename));
+		}
+		else
+		{
+			$this->ajax_die($lang['ERROR_NO_ATTACHMENT']);
+		}
 	}
 }
 
