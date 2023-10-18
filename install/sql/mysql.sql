@@ -634,6 +634,7 @@ INSERT INTO `bb_extensions` VALUES ('', '3', 'cpp', '');
 INSERT INTO `bb_extensions` VALUES ('', '3', 'hpp', '');
 INSERT INTO `bb_extensions` VALUES ('', '3', 'diz', '');
 INSERT INTO `bb_extensions` VALUES ('', '4', 'tif', '');
+INSERT INTO `bb_extensions` VALUES ('', '4', 'tiff', '');
 INSERT INTO `bb_extensions` VALUES ('', '4', 'tga', '');
 INSERT INTO `bb_extensions` VALUES ('', '4', 'xls', '');
 INSERT INTO `bb_extensions` VALUES ('', '4', 'doc', '');
