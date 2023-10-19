@@ -77,6 +77,8 @@ class sql_db
 
 	var $DBS           = array();
 
+	var $engine			= 'MySQL';
+
 	/**
 	* Constructor
 	*/
