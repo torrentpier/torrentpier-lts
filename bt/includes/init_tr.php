@@ -111,7 +111,12 @@ class sql_db
 		{
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
-				error_exit("Could not set charset {$this->cfg['charset']}");
+				$charset_error = "Could not set charset {$this->cfg['charset']}";
+				if (DBG_LOG)
+				{
+					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
+				}
+				error_exit($charset_error);
 			}
 		}
 
