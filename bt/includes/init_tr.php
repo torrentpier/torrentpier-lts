@@ -325,20 +325,14 @@ class sql_db
 	*/
 	function sql_error ()
 	{
-		$return_ary = array(
-			'code'    => '',
-			'message' => 'not connected',
-		);
-
 		if (is_resource($this->link))
 		{
-			$return_ary = array(
-				'code'    => mysql_errno($this->link),
-				'message' => mysql_error($this->link),
-			);
+			return array('code' => mysql_errno($this->link), 'message' => mysql_error($this->link));
 		}
-
-		return $return_ary;
+		else
+		{
+			return array('code' => '', 'message' => 'not connected');
+		}
 	}
 
 	/**
