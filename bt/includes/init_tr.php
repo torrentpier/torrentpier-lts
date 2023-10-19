@@ -145,8 +145,6 @@ class sql_db
 		$this->debug('end');
 		$this->cur_query = null;
 
-#		if (DBG_LOG_TRACKER) dbg_log(' ', 'DB-connect'. ($link ? '' : '-FAIL'));
-
 		if (!$link)
 		{
 			if (function_exists('dummy_exit'))
