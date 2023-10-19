@@ -137,6 +137,10 @@ class sql_db
 
 		if (!$link = @$connect_type($this->cfg['dbhost'], $this->cfg['dbuser'], $this->cfg['dbpasswd']))
 		{
+			if (DBG_LOG_TRACKER)
+			{
+				dbg_log("Could not connect to {$this->engine} server {$this->cfg['dbhost']}", "{$this->cfg['dbhost']}-DB-connect-FAIL_" . time());
+			}
 			$this->log_error();
 		}
 
