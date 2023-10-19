@@ -472,13 +472,14 @@ class sql_db
 		$msg[] = '';
 		$msg[] = str_compact($this->cur_query);
 		$msg[] = '';
-		$msg[] = 'Source  : '. $this->debug_find_source();
+		$msg[] = 'Source  : '. $this->debug_find_source() ." :: $this->db_server.$this->selected_db";
 		$msg[] = 'IP      : '. @$_SERVER['REMOTE_ADDR'];
 		$msg[] = 'Date    : '. date('Y-m-d H:i:s');
 		$msg[] = 'Agent   : '. @$_SERVER['HTTP_USER_AGENT'];
 		$msg[] = 'Req_URI : '. @$_SERVER['REQUEST_URI'];
 		$msg[] = 'Referer : '. @$_SERVER['HTTP_REFERER'];
 		$msg[] = 'Method  : '. @$_SERVER['REQUEST_METHOD'];
+		$msg[] = 'PID     : '. sprintf('%05d', getmypid());
 		$msg[] = 'Request : '. trim(print_r($_REQUEST, true)) . str_repeat('_', 78) . LOG_LF;
 		$msg[] = '';
 		bb_log($msg, SQL_TR_LOG_NAME);
