@@ -42,7 +42,7 @@ function silent_exit ()
 
 function error_exit ($msg = '')
 {
-	if (DBG_LOG_TRACKER) dbg_log(' ', '!err-'. clean_filename($msg));
+	if (DBG_LOG_TRACKER) dbg_log($msg, '!err-' . $msg . time());
 
 	silent_exit();
 
@@ -111,6 +111,7 @@ class sql_db
 		{
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
+				$this->log_error();
 				error_exit("Could not set charset {$this->cfg['charset']}");
 			}
 		}
