@@ -100,7 +100,7 @@ class sql_db
 
 		if (!$link = @$connect_type($this->cfg['dbhost'], $this->cfg['dbuser'], $this->cfg['dbpasswd']))
 		{
-			$server = (DBG_USER) ? $this->cfg['dbhost'] : '';
+			$server = (DBG_USER) ? "'" . $this->cfg['dbhost'] . "'" : '';
 			header("HTTP/1.0 503 Service Unavailable");
 			$con_error = "Could not connect to {$this->engine} server $server";
 			if (DBG_LOG)
