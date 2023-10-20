@@ -473,6 +473,7 @@ function ver_compare ($version1, $operator, $version2)
 
 function dbg_log ($str, $file)
 {
+	if (!DBG_LOG_TRACKER || !DBG_LOG) return false;
 	$dir = LOG_DIR . (defined('IN_TRACKER') ? 'dbg_tr/' : 'dbg_bb/') . date('m-d_H') .'/';
 	return file_write($str, $dir . clean_filename($file), false, false);
 }
