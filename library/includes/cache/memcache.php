@@ -38,7 +38,9 @@ class cache_memcache extends cache_common
 
 		if (!$this->connected && $this->cfg['con_required'])
 		{
-			$con_error = "Could not connect to {$this->engine} server";
+			$server = (DBG_USER) ? "'" . $this->cfg['host'] . "'" : '';
+			header("HTTP/1.0 503 Service Unavailable");
+			$con_error = "Could not connect to {$this->engine} server $server";
 
 			if (DBG_LOG)
 			{
