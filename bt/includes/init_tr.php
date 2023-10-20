@@ -77,7 +77,7 @@ class sql_db
 
 	var $DBS           = array();
 
-	var $engine			= 'MySQL';
+	var $engine        = 'MySQL';
 
 	/**
 	* Constructor
@@ -112,7 +112,7 @@ class sql_db
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
 				$this->log_error();
-				error_exit("Could not set charset {$this->cfg['charset']}");
+				error_exit("Could not set charset '{$this->cfg['charset']}'");
 			}
 		}
 

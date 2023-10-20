@@ -35,7 +35,7 @@ class sql_db
 
 	var $DBS            = array();
 
-	var $engine			= 'MySQL';
+	var $engine         = 'MySQL';
 
 	/**
 	* Constructor
@@ -73,7 +73,7 @@ class sql_db
 		{
 			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
 			{
-				$charset_error = "Could not set charset {$this->cfg['charset']}";
+				$charset_error = "Could not set charset '{$this->cfg['charset']}'";
 				if (DBG_LOG)
 				{
 					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
@@ -128,7 +128,7 @@ class sql_db
 
 		if (!@mysql_select_db($this->cfg['dbname'], $this->link))
 		{
-			$db_name = (DBG_USER) ? $this->cfg['dbname'] : '';
+			$db_name = (DBG_USER) ? "'" . $this->cfg['dbname'] . "'" : '';
 			$select_error = "Could not select database $db_name";
 			if (DBG_LOG)
 			{
