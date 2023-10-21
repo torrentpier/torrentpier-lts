@@ -264,6 +264,11 @@ class sqlite_common extends cache_common
 		return $result;
 	}
 
+	function insert_id()
+	{
+		return $this->dbh->lastInsertRowID();
+	}
+
 	function fetch_row ($query)
 	{
 		$result = $this->query($query);
