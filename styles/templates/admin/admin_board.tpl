@@ -304,9 +304,6 @@
 		<label><input type="radio" name="seed_bonus_enabled" value="0" <!-- IF not SEED_BONUS_ENABLED -->checked="checked"<!-- ENDIF --> />{L_DISABLED}</label>
 	</td>
 </tr>
-<tr class="row1 med">
-	<td class="bold tCenter warnColor1" colspan="2">{L_SEED_BONUS_WARNING}</td>
-</tr>
 <!-- BEGIN seed_bonus -->
 <tr id="seed_bonus_{seed_bonus.RELEASE}">
 	<td>{L_SEED_BONUS_ADD}</td>
@@ -318,7 +315,7 @@
 </tr>
 <!-- END seed_bonus -->
 <tr id="seed_bonus">
-	<td>{L_SEED_BONUS_ADD}</td>
+	<td>{L_SEED_BONUS_ADD}<span class="small warnColor1">{L_SEED_BONUS_WARNING}</span></td>
 	<td>
 		<input class="post" type="text" size="5" name="seed_bonus_release[]" value="" />&nbsp;{L_SEED_BONUS_RELEASE} <br />
 		<input class="post" type="text" size="5" name="seed_bonus_points[]" value="" />&nbsp;{L_SEED_BONUS_POINTS}
