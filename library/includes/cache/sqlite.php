@@ -175,6 +175,7 @@ class sqlite_common extends cache_common
 
 		if (!$this->connected && $this->cfg['con_required'])
 		{
+			header("HTTP/1.0 503 Service Unavailable");
 			$con_error = "Could not connect to {$this->engine}";
 
 			if (DBG_LOG)
