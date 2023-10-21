@@ -317,7 +317,6 @@
 	</td>
 </tr>
 <!-- END seed_bonus -->
-<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="seed_bonus">
 	<td>{L_SEED_BONUS_ADD}</td>
 	<td>
@@ -328,7 +327,6 @@
 	</td>
 </tr>
 <tbody class="seed_bonus"></tbody>
-<tr class="row3 med"><td colspan="2"></td></tr>
 <tr>
 	<td>{L_SEED_BONUS_TOR_SIZE}</td>
 	<td><input class="post" type="text" size="25" maxlength="100" name="seed_bonus_tor_size" value="{SEED_BONUS_TOR_SIZE}" />&nbsp;{L_GB}</td>
@@ -342,7 +340,7 @@
 </tr>
 <!-- BEGIN bonus_upload -->
 <tr id="bonus_upload_{bonus_upload.UP}">
-	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
+	<td><h4>{L_SEED_BONUS_ROPORTION}</h4></td>
 	<td>
 		<input class="post" type="text" size="5" name="bonus_upload[]" value="{bonus_upload.UP}" />&nbsp;{L_GB} <br />
 		<input class="post" type="text" size="5" name="bonus_upload_price[]" value="{bonus_upload.PRICE}" />&nbsp;{L_PRICE}
@@ -350,9 +348,8 @@
 	</td>
 </tr>
 <!-- END bonus -->
-<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="bonus_upload">
-	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
+	<td><h4>{L_SEED_BONUS_ROPORTION}</h4></td>
 	<td>
 		<input class="post" type="text" size="5" name="bonus_upload[]" value="" />&nbsp;{L_GB} <br />
 		<input class="post" type="text" size="5" name="bonus_upload_price[]" value="" />&nbsp;{L_PRICE}
@@ -361,7 +358,6 @@
 	</td>
 </tr>
 <tbody class="bonus_upload"></tbody>
-<tr class="row3 med"><td colspan="2"></td></tr>
 <!-- ENDIF / CONFIG_MODS -->
 <tr>
 	<td class="catBottom" colspan="2">
