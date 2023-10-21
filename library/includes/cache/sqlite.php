@@ -4,6 +4,7 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 class cache_sqlite extends cache_common
 {
+	var $engine = 'SQLite';
 	var $used   = true;
 	var $db     = null;
 	var $prefix = null;
@@ -298,39 +299,9 @@ class sqlite_common extends cache_common
 		return SQLite3::escapeString($str);
 	}
 
-	function close ()
-	{
-		@$this->dbh->close();
-	}
-
-	function busy ($timeout)
-	{
-		@$this->dbh->busyTimeout($timeout);
-	}
-
 	function get_error_msg ()
 	{
 		return 'SQLite error #'. ($err_code = $this->dbh->lastErrorCode()) .': '. $this->dbh->lastErrorMsg();
-	}
-
-	function rm ($name = '')
-	{
-		if ($name)
-		{
-			$this->db->shard($this->prefix . $name);
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". sqlite3_escape_string($this->prefix . $name) ."'");
-		}
-		else
-		{
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name']);
-		}
-		return (bool) $result;
-	}
-
-	function gc ($expire_time = TIMENOW)
-	{
-		$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_expire_time < $expire_time");
-		return ($result) ? sqlite_changes($this->db->dbh) : 0;
 	}
 
 	function trigger_error ($msg = 'DB Error')
