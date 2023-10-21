@@ -272,8 +272,7 @@ class sqlite_common extends cache_common
 	function fetch_row ($query)
 	{
 		$result = $this->query($query);
-		$row = $result->fetchArray(SQLITE3_ASSOC);
-		return is_resource($result) ? $row : false;
+		return is_resource($result) ? $result->fetchArray(SQLITE3_ASSOC) : false;
 	}
 
 	function fetch_rowset ($query)
