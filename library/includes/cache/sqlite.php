@@ -296,6 +296,16 @@ class sqlite_common extends cache_common
 		return SQLite3::escapeString($str);
 	}
 
+	function close ()
+	{
+		return @$this->dbh->close();
+	}
+
+	function busy ($timeout)
+	{
+		return @$this->dbh->busyTimeout($timeout);
+	}
+
 	function get_error_msg ()
 	{
 		return 'SQLite error #'. ($err_code = $this->dbh->lastErrorCode()) .': '. $this->dbh->lastErrorMsg();
