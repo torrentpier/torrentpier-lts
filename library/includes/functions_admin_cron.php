@@ -70,7 +70,9 @@ function validate_cron_post($cron_arr) {
 		$errnum++;
 	}
 	if ($errnum > 0){
-		$result = $errors . ' total ' . $errnum . ' errors <br/> <a href="javascript:history.back(-1)">Back</a>';
+		global $lang;
+
+		$result = $errors . ' total ' . $errnum . ' errors ' . "<br /><br />" . sprintf($lang['CLICK_RETURN_JOBS_ADDED'], "<a href=\"javascript:history.back(-1)\">", "</a>") . "<br /><br />" . sprintf($lang['CLICK_RETURN_JOBS'], "<a href=\"admin_cron.php?mode=list\">", "</a>") . "<br /><br />" . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], "<a href=\"index.php?pane=right\">", "</a>");
 	}
 	else {
 		$result = 1;
