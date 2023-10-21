@@ -225,8 +225,8 @@
 	</td>
 </tr>
 
-<tr class="row3 med">
-	<td class="bold tCenter" colspan="2">{L_LATEST_NEWS}</td>
+<tr>
+	<th colspan="2">{L_LATEST_NEWS}</th>
 </tr>
 <tr>
 	<td><h4>{L_LATEST_NEWS}</h4></td>
@@ -248,8 +248,8 @@
 	<td><input class="post" type="text" size="25" maxlength="100" name="latest_news_forum_id" value="{LATEST_NEWS_FORUM_ID}" /></td>
 </tr>
 
-<tr class="row3 med">
-	<td class="bold tCenter" colspan="2">{L_NETWORK_NEWS}</td>
+<tr>
+	<th colspan="2">{L_NETWORK_NEWS}</th>
 </tr>
 <tr>
 	<td><h4>{L_NETWORK_NEWS}</h4></td>
@@ -271,8 +271,8 @@
 	<td><input class="post" type="text" size="25" maxlength="100" name="network_news_forum_id" value="{NETWORK_NEWS_FORUM_ID}" /></td>
 </tr>
 
-<tr class="row3 med">
-	<td class="bold tCenter" colspan="2">{L_BIRTHDAY}</td>
+<tr>
+	<th colspan="2">{L_BIRTHDAY}</th>
 </tr>
 <tr>
 	<td><h4>{L_BIRTHDAY_ENABLE}</h4></td>
@@ -294,8 +294,8 @@
 	<td><input class="post" type="text" size="25" maxlength="100" name="birthday_check_day" value="{BIRTHDAY_CHECK_DAY}" />&nbsp;{L_DAYS}</td>
 </tr>
 
-<tr class="row3 med">
-	<td class="bold tCenter" colspan="2">{L_SEED_BONUS}</td>
+<tr>
+	<th colspan="2">{L_SEED_BONUS}</th>
 </tr>
 <tr>
 	<td><h4>{L_SEED_BONUS}</h4></td>
@@ -304,7 +304,7 @@
 		<label><input type="radio" name="seed_bonus_enabled" value="0" <!-- IF not SEED_BONUS_ENABLED -->checked="checked"<!-- ENDIF --> />{L_DISABLED}</label>
 	</td>
 </tr>
-<tr class="row3 med">
+<tr class="row1 med">
 	<td class="bold tCenter warnColor1" colspan="2">{L_SEED_BONUS_WARNING}</td>
 </tr>
 <!-- BEGIN seed_bonus -->
@@ -335,8 +335,9 @@
 	<td>{L_SEED_BONUS_USER_REGDATA}</td>
 	<td><input class="post" type="text" size="25" maxlength="100" name="seed_bonus_user_regdate" value="{SEED_BONUS_USER_REGDATE}" />&nbsp;{L_DAYS}</td>
 </tr>
-<tr class="row3 med">
-	<td class="bold tCenter" colspan="2">{L_SEED_BONUS_EXCHANGE}</td>
+
+<tr>
+	<th colspan="2">{L_SEED_BONUS_EXCHANGE}</th>
 </tr>
 <!-- BEGIN bonus_upload -->
 <tr id="bonus_upload_{bonus_upload.UP}">
