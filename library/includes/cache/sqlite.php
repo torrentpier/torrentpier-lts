@@ -289,8 +289,7 @@ class sqlite_common extends cache_common
 
 	function changes ()
 	{
-		$changes = $this->dbh->changes();
-		return is_resource($this->dbh) ? $changes : 0;
+		return is_resource($this->dbh) ? $this->dbh->changes() : 0;
 	}
 
 	function escape ($str)
