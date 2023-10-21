@@ -298,26 +298,6 @@ class sqlite_common extends cache_common
 		return 'SQLite error #'. ($err_code = $this->dbh->lastErrorCode()) .': '. $this->dbh->lastErrorMsg();
 	}
 
-	function rm ($name = '')
-	{
-		if ($name)
-		{
-			$this->db->shard($this->prefix . $name);
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_name = '". sqlite3_escape_string($this->prefix . $name) ."'");
-		}
-		else
-		{
-			$result = $this->db->query("DELETE FROM ". $this->cfg['table_name']);
-		}
-		return (bool) $result;
-	}
-
-	function gc ($expire_time = TIMENOW)
-	{
-		$result = $this->db->query("DELETE FROM ". $this->cfg['table_name'] ." WHERE cache_expire_time < $expire_time");
-		return ($result) ? sqlite_changes($this->db->dbh) : 0;
-	}
-
 	function trigger_error ($msg = 'DB Error')
 	{
 		if (error_reporting()) trigger_error($msg, E_USER_ERROR);
