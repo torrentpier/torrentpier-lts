@@ -300,12 +300,12 @@ class sqlite_common extends cache_common
 
 	function close ()
 	{
-		return @$this->dbh->close();
+		@$this->dbh->close();
 	}
 
 	function busy ($timeout)
 	{
-		return @$this->dbh->busyTimeout($timeout);
+		@$this->dbh->busyTimeout($timeout);
 	}
 
 	function get_error_msg ()
