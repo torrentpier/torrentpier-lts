@@ -17,7 +17,7 @@ if (isset($_POST['add_name']))
 
 	if ($disallowed_user == '')
 	{
-		bb_die($lang['FIELDS_EMPTY'] . '<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') . '<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
+		bb_die($lang['FIELDS_EMPTY'] .'<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') .'<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 	if( validate_username($disallowed_user) )
 	{
@@ -34,7 +34,7 @@ if (isset($_POST['add_name']))
 		$message = $lang['DISALLOW_SUCCESSFUL'];
 	}
 
-	$message .= '<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') . '<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+	$message .= '<br /><br />'. sprintf($lang['CLICK_RETURN_DISALLOWADMIN'], '<a href="admin_disallow.php">', '</a>') .'<br /><br />'. sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 	bb_die($message);
 }
