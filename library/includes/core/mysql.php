@@ -956,7 +956,7 @@ class sql_db
 				if (!$this->explain_hold) break;
 
 				$id   = $this->dbg_id-1;
-				$htid = 'expl-'. spl_object_hash($this->link) .'-'. $id;
+				$htid = 'expl-'. intval($this->link) .'-'. $id;
 				$dbg  = $this->dbg[$id];
 
 				$this->explain_out .= '
