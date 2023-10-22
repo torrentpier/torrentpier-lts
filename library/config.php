@@ -331,7 +331,7 @@ define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled
 define('SQL_CALC_QUERY_TIME',  true);             // for stats
 define('SQL_LOG_SLOW_QUERIES', true);             // логировать медленные запросы
 define('SQL_SLOW_QUERY_TIME',  10);               // время после которого запрос считается медленным (в секундах)
-define('SQL_PREPEND_SRC_COMM', false);            // prepend source file comment to sql query
+define('SQL_PREPEND_SRC_COMM', true);             // отображать файл:строку в которой происходит выполнение текущего запроса (для SQL запросов и Cache & Datastore)
 
 // Special users
 $bb_cfg['dbg_users'] = array( // Пользователи которым доступна дебаг панель / отладка (тех. админы например)
