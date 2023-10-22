@@ -443,7 +443,7 @@ class sql_db
 	*/
 	function debug_find_source ($mode = '')
 	{
-		if (!SQL_PREPEND_SRC_COMM) return '';
+		if (!SQL_PREPEND_SRC_COMM) return 'src disabled';
 		foreach (debug_backtrace() as $trace)
 		{
 			if ($trace['file'] !== __FILE__)
