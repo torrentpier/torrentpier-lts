@@ -2,10 +2,11 @@
 
 define('IN_AJAX', true);
 define('BB_SCRIPT', 'ajax');
+define('BB_ROOT', './');
 
 $ajax = new ajax_common();
 
-require('./common.php');
+require(BB_ROOT .'common.php');
 
 $ajax->init();
 
