@@ -69,6 +69,9 @@ class cache_common
 		}
 	}
 
+	/**
+	* Find caller source
+	*/
 	function debug_find_source ($mode = '')
 	{
 		foreach (debug_backtrace() as $trace)

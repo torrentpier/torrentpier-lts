@@ -441,21 +441,21 @@ class sql_db
 	/**
 	* Find caller source
 	*/
-	function debug_find_source ()
+	function debug_find_source ($mode = '')
 	{
-		$source = '';
-		$backtrace = debug_backtrace();
-
-		foreach ($backtrace as $trace)
+		foreach (debug_backtrace() as $trace)
 		{
 			if ($trace['file'] !== __FILE__)
 			{
-				$source = str_replace(BB_PATH, '', $trace['file']) .'('. $trace['line'] .')';
-				break;
+				switch ($mode)
+				{
+					case 'file': return $trace['file'];
+					case 'line': return $trace['line'];
+					default: return hide_bb_path($trace['file']) .'('. $trace['line'] .')';
+				}
 			}
 		}
-
-		return $source;
+		return 'src not found';
 	}
 
 	/**

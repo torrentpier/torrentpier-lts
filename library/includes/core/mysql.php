@@ -831,7 +831,7 @@ class sql_db
 	{
 		foreach (debug_backtrace() as $trace)
 		{
-			if (!empty($trace['file']) && $trace['file'] !== __FILE__)
+			if ($trace['file'] !== __FILE__)
 			{
 				switch ($mode)
 				{
@@ -841,7 +841,7 @@ class sql_db
 				}
 			}
 		}
-		return '';
+		return 'src not found';
 	}
 
 	/**
