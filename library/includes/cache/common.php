@@ -77,7 +77,7 @@ class cache_common
 		if (!SQL_PREPEND_SRC_COMM) return 'src disabled';
 		foreach (debug_backtrace() as $trace)
 		{
-			if (empty($trace['file']) || empty($trace['line'])) break;
+			if (empty($trace['file']) || empty($trace['line'])) continue;
 			if ($trace['file'] !== __FILE__)
 			{
 				switch ($mode)
