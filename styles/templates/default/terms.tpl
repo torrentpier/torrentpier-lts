@@ -13,7 +13,7 @@
 	<!-- ENDIF -->
 	<!-- IF IS_ADMIN -->
 	<tr>
-		<td class="row2">
+		<td class="row1">
 			{TERMS_EDIT}
 		</td>
 	</tr>
