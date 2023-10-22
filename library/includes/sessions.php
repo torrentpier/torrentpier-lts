@@ -60,6 +60,13 @@ class user_common
 	*  Shortcuts
 	*/
 	var $id = null;
+	var $ip;
+	var $lastvisit;
+	var $regdate;
+	var $opt;
+	var $name;
+	var $active;
+	var $level;
 
 	/**
 	*  Misc
