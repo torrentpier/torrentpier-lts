@@ -27,7 +27,7 @@ ajax.avatar = function (mode, uid) {
 		user_id : uid
 	});
 };
-ajax.callback.avatar = function(data) {
+ajax.callback.avatar = function (data) {
 	$('#avatar-img').html(data.avatar_html);
 	$('#avatar-adm').hide();
 };
@@ -41,7 +41,7 @@ ajax.change_user_rank = function (uid, rank_id) {
 		rank_id : rank_id
 	});
 };
-ajax.callback.change_user_rank = function(data) {
+ajax.callback.change_user_rank = function (data) {
 	$('#rank-msg').html(data.html);
 	$('#rank-name').html(data.rank_name);
 };
@@ -56,7 +56,7 @@ ajax.change_user_opt = function() {
 		user_opt : $.toJSON(ajax.user_opt)
 	});
 };
-ajax.callback.change_user_opt = function(data) {
+ajax.callback.change_user_opt = function (data) {
 	$('#user-opt-resp').html(data.resp_html);
 	$('#user-opt-save-btn').removeAttr('disabled');
 };
