@@ -156,10 +156,7 @@ class sql_db
 		{
 			$query = $this->build_sql($query);
 		}
-		if (SQL_PREPEND_SRC_COMM)
-		{
-			$query = '/* '. $this->debug_find_source() .' */ '. $query;
-		}
+		$query = '/* '. $this->debug_find_source() .' */ '. $query;
 		$this->cur_query = $query;
 		$this->debug('start');
 
