@@ -695,9 +695,9 @@ function get_select ($select, $selected = null, $return_as = 'html', $first_opt 
 class html_common
 {
 	var $options    = '';
-	var $out        = '';
 	var $attr       = array();
 	var $cur_attr   = null;
+	var $out        = null;
 	var $max_length = HTML_SELECT_MAX_LENGTH;
 	var $selected   = array();
 
