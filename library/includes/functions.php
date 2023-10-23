@@ -2579,6 +2579,11 @@ function create_magnet ($infohash, $auth_key, $name)
 {
 	global $bb_cfg, $images, $lang, $userdata;
 
+	if (!$bb_cfg['magnet_links_enabled'])
+	{
+		return false;
+	}
+
 	if (IS_GUEST && $bb_cfg['bt_tor_browse_only_reg'])
 	{
 		$passkey = '';
