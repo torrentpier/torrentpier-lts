@@ -93,7 +93,7 @@ class sql_db
 	*/
 	function connect ()
 	{
-		$this->cur_query = ($this->dbg_enabled) ? ($this->cfg['persist'] ? 'p' : '') . "connect to: {$this->cfg['dbhost']}" : 'connect';
+		$this->cur_query = ($this->dbg_enabled) ? ($this->cfg['persist'] ? 'p' : '') . "connect to: '{$this->cfg['dbhost']}'" : 'connect';
 		$this->debug('start');
 
 		$connect_type = ($this->cfg['persist']) ? 'mysql_pconnect' : 'mysql_connect';
@@ -748,10 +748,7 @@ class sql_db
 
 		if ($mode == 'start')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG || SQL_LOG_SLOW_QUERIES)
-			{
-				$this->sql_starttime = utime();
-			}
+			$this->sql_starttime = utime();
 			if ($this->dbg_enabled)
 			{
 				$dbg['sql']  = preg_replace('#^(\s*)(/\*)(.*)(\*/)(\s*)#', '', $this->cur_query);
@@ -769,16 +766,13 @@ class sql_db
 		}
 		else if ($mode == 'stop')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG || SQL_LOG_SLOW_QUERIES)
-			{
-				$this->cur_query_time = utime() - $this->sql_starttime;
-				$this->sql_timetotal += $this->cur_query_time;
-				$this->DBS['sql_timetotal'] += $this->cur_query_time;
+			$this->cur_query_time = utime() - $this->sql_starttime;
+			$this->sql_timetotal += $this->cur_query_time;
+			$this->DBS['sql_timetotal'] += $this->cur_query_time;
 
-				if (SQL_LOG_SLOW_QUERIES && $this->cur_query_time > $this->slow_time)
-				{
-					$this->log_slow_query();
-				}
+			if (SQL_LOG_SLOW_QUERIES && $this->cur_query_time > $this->slow_time)
+			{
+				$this->log_slow_query();
 			}
 			if ($this->dbg_enabled)
 			{

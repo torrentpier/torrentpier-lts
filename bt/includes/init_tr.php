@@ -123,7 +123,7 @@ class sql_db
 	*/
 	function connect ()
 	{
-		$this->cur_query = 'connect';
+		$this->cur_query = "connect to: '{$this->cfg['dbhost']}'";
 		$this->debug('start');
 
 		$connect_type = ($this->cfg['persist']) ? 'mysql_pconnect' : 'mysql_connect';
@@ -402,30 +402,24 @@ class sql_db
 
 		if ($mode == 'start')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG_TRACKER || SQL_LOG_SLOW_QUERIES)
-			{
-				$this->sql_starttime = utime();
-				$this->sql_last_time = 0;
-			}
+			$this->sql_starttime = utime();
+			$this->sql_last_time = 0;
 		}
 		elseif ($mode == 'end')
 		{
-			if (SQL_CALC_QUERY_TIME || DBG_LOG_TRACKER || SQL_LOG_SLOW_QUERIES)
-			{
-				$this->sql_last_time = utime() - $this->sql_starttime;
-				$this->sql_timetotal += $this->sql_last_time;
-				$this->DBS['sql_timetotal'] += $this->sql_last_time;
+			$this->sql_last_time = utime() - $this->sql_starttime;
+			$this->sql_timetotal += $this->sql_last_time;
+			$this->DBS['sql_timetotal'] += $this->sql_last_time;
 
-				if (SQL_LOG_SLOW_QUERIES && $this->sql_last_time > $this->slow_time)
-				{
-					$msg  = date('m-d H:i:s') . LOG_SEPR;
-					$msg .= sprintf('%03d', round($this->sql_last_time));
-					$msg .= LOG_SEPR . sprintf('%.1f', sys('la'));
-					$msg .= LOG_SEPR . str_compact($this->cur_query);
-					$msg .= LOG_SEPR .' # '. $this->query_info();
-					$msg .= LOG_SEPR . $this->debug_find_source();
-					bb_log($msg . LOG_LF, 'sql_slow_tr');
-				}
+			if (SQL_LOG_SLOW_QUERIES && $this->sql_last_time > $this->slow_time)
+			{
+				$msg  = date('m-d H:i:s') . LOG_SEPR;
+				$msg .= sprintf('%03d', round($this->sql_last_time));
+				$msg .= LOG_SEPR . sprintf('%.1f', sys('la'));
+				$msg .= LOG_SEPR . str_compact($this->cur_query);
+				$msg .= LOG_SEPR .' # '. $this->query_info();
+				$msg .= LOG_SEPR . $this->debug_find_source();
+				bb_log($msg . LOG_LF, 'sql_slow_tr');
 			}
 		}
 	}
