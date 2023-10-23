@@ -86,6 +86,7 @@ class sql_db
 		$this->cfg         = array_combine($this->cfg_keys, $cfg_values);
 		$this->slow_time   = SQL_SLOW_QUERY_TIME;
 
+		// ссылки на глобальные переменные (для включения логов сразу на всех серверах, подсчета общего количества запросов и т.д.)
 		$this->DBS['num_queries']   =& $DBS->num_queries;
 		$this->DBS['sql_inittime']  =& $DBS->sql_inittime;
 		$this->DBS['sql_timetotal'] =& $DBS->sql_timetotal;
