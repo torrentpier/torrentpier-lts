@@ -1128,7 +1128,7 @@ $lang['BT_SEEDER_LAST_SEEN'] = 'Последний сид';
 $lang['BT_SORT_FORUM'] = 'Форум';
 $lang['SIZE'] = 'Размер';
 $lang['PIECE_LENGTH'] = 'Размер блока';
-$lang['COMPLETED'] = 'Полных скачиваний';
+$lang['COMPLETED'] = 'Завершенных загрузок';
 $lang['ADDED'] = 'Добавлен';
 $lang['DELETE_TORRENT'] = 'Удалить торрент';
 $lang['DELETE_MOVE_TORRENT'] = 'Удалить и перенести топик';
@@ -2240,7 +2240,7 @@ $lang['SORT_SIZE'] = 'Размер';
 $lang['SORT_FILENAME'] = 'Название файла';
 $lang['SORT_COMMENT'] = 'Комментарий';
 $lang['SORT_EXTENSION'] = 'Расширение';
-$lang['SORT_DOWNLOADS'] = 'Скачено';
+$lang['SORT_DOWNLOADS'] = 'Скачано';
 $lang['SORT_POSTTIME'] = 'Дата сообщения';
 
 // View Types
