@@ -328,7 +328,7 @@ define('SQL_DEBUG',            true);             // включить отлад
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)
 define('SQL_TR_LOG_NAME',      'sql_error_tr');   // имя лог файла с SQL ошибками (Трекер aka анонсер)
 define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
-define('SQL_CALC_QUERY_TIME',  true);             // for stats
+define('SQL_CALC_QUERY_TIME',  true);             // отображать время выполнения запросов (для SQL запросов и Cache & Datastore)
 define('SQL_LOG_SLOW_QUERIES', true);             // логировать медленные запросы
 define('SQL_SLOW_QUERY_TIME',  10);               // время после которого запрос считается медленным (в секундах)
 define('SQL_PREPEND_SRC_COMM', true);             // отображать файл:строку в которой происходит выполнение текущего запроса (для SQL запросов и Cache & Datastore, так же в логах и сообщениях об ошибке)
