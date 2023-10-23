@@ -956,7 +956,7 @@ class sql_db
 				$this->explain_out .= '
 					<table width="98%" cellpadding="0" cellspacing="0" class="bodyline row2 bCenter" style="border-bottom: 0px;">
 						<tr>
-							<th style="height: 22px; cursor: pointer;" align="left">&nbsp;'. $dbg['src'] . $query_time .'<i>'. $dbg['info'] .'</i></th>
+							<th title="'.$dbg['src'].'" style="height: 22px; cursor: pointer;" align="left">&nbsp;'. $dbg['src'] . $query_time .'<i>'. $dbg['info'] .'</i></th>
 							<th style="height: 22px; cursor: pointer;" align="right" title="Copy to clipboard" onclick="$(\'#'. $htid .'\').CopyToClipboard();">'. "[$this->engine] $this->db_server.$this->selected_db" .' :: Query #'. ($this->num_queries+1) .'&nbsp;</th>
 						</tr>
 						<tr><td colspan="2">'. $this->explain_hold .'</td></tr>
