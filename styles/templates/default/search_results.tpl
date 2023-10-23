@@ -147,11 +147,11 @@ function show_edit_options ()
 <col class="row1">
 <tr>
 	<th>&nbsp;</th>
-	<th>{L_FORUM}</th>
-	<th>{L_TOPICS}</th>
-	<th>{L_AUTHOR}</th>
-	<th>{L_REPLIES_SHORT}</th>
-	<th>{L_LASTPOST}</th>
+	<th title="{L_FORUM}">{L_FORUM}</th>
+	<th title="{L_TOPICS}">{L_TOPICS}</th>
+	<th title="{L_AUTHOR}">{L_AUTHOR}</th>
+	<th title="{L_REPLIES}">{L_REPLIES_SHORT}</th>
+	<th title="{L_LASTPOST}">{L_LASTPOST}</th>
 </tr>
 <!-- BEGIN t -->
 <tr id="tr-{t.TOPIC_ID}" class="tCenter">
