@@ -42,8 +42,8 @@ class cache_sqlite extends cache_common
 		}
 		$this->db->shard($name);
 		$cached_items = array();
-		$prefix_len = strlen($this->prefix);
-		$prefix_sql = sqlite3_escape_string($this->prefix);
+		$this->prefix_len = strlen($this->prefix);
+		$this->prefix_sql = sqlite3_escape_string($this->prefix);
 
 		$name_ary = $name_sql = (array) $name;
 		array_deep($name_sql, 'sqlite3_escape_string');
@@ -52,14 +52,14 @@ class cache_sqlite extends cache_common
 		$rowset = $this->db->fetch_rowset("
 			SELECT cache_name, cache_value
 			FROM ". $this->cfg['table_name'] ."
-			WHERE cache_name IN('$prefix_sql". join("','$prefix_sql", $name_sql) ."') AND cache_expire_time > ". TIMENOW ."
+			WHERE cache_name IN('$this->prefix_sql". join("','$this->prefix_sql", $name_sql) ."') AND cache_expire_time > ". TIMENOW ."
 			LIMIT ". count($name) ."
 		");
 
 		$this->db->debug('start', 'unserialize()');
 		foreach ($rowset as $row)
 		{
-			$cached_items[substr($row['cache_name'], $prefix_len)] = unserialize($row['cache_value']);
+			$cached_items[substr($row['cache_name'], $this->prefix_len)] = unserialize($row['cache_value']);
 		}
 		$this->db->debug('stop');
 
