@@ -36,7 +36,7 @@
 .sqlExplain {
 	color: #B50000;
 	font-size: 13px;
-	cursor: inherit;
+	cursor: inherit !important;
 }
 .sqlHover {
 	border-color: #8B0000;
