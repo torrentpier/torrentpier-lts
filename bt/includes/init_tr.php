@@ -161,7 +161,7 @@ class sql_db
 	*/
 	function select_db ()
 	{
-		$this->cur_query = 'select db';
+		$this->cur_query = "select db: '{$this->cfg['dbname']}'";
 		$this->debug('start');
 
 		if (!@mysql_select_db($this->cfg['dbname'], $this->link))
