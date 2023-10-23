@@ -8,6 +8,8 @@ class cache_sqlite extends cache_common
 	var $used   = true;
 	var $db     = null;
 	var $prefix = null;
+	var $prefix_len = null;
+	var $prefix_sql = null;
 	var $cfg    = array(
 		'db_file_path' => '/path/to/cache.db.sqlite',
 		'table_name'   => 'cache',
