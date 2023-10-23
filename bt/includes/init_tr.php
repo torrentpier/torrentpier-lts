@@ -70,7 +70,6 @@ class sql_db
 	var $sql_last_time = 0;
 	var $slow_time     = 0;
 
-	var $dbg_enabled   = false;
 	var $cur_query     = null;
 
 	var $DBS           = array();
@@ -85,7 +84,6 @@ class sql_db
 		global $DBS;
 
 		$this->cfg         = array_combine($this->cfg_keys, $cfg_values);
-		$this->dbg_enabled = sql_dbg_enabled();
 		$this->slow_time   = SQL_SLOW_QUERY_TIME;
 
 		$this->DBS['num_queries']   =& $DBS->num_queries;
@@ -187,6 +185,7 @@ class sql_db
 		{
 			$this->init();
 		}
+		$query = '/* '. $this->debug_find_source() .' */ '. $query;
 		$this->cur_query = $query;
 		$this->debug('start');
 
@@ -243,9 +242,18 @@ class sql_db
 	/**
 	* Fetch current row
 	*/
-	function sql_fetchrow ($result)
+	function sql_fetchrow ($result, $field_name = '')
 	{
-		return is_resource($result) ? mysql_fetch_assoc($result) : false;
+		$row = mysql_fetch_assoc($result);
+
+		if ($field_name)
+		{
+			return isset($row[$field_name]) ? $row[$field_name] : false;
+		}
+		else
+		{
+			return $row;
+		}
 	}
 
 	/**
@@ -259,26 +267,26 @@ class sql_db
 	/**
 	* Fetch row WRAPPER (with error handling)
 	*/
-	function fetch_row ($query)
+	function fetch_row ($query, $field_name = '')
 	{
 		if (!$result = $this->sql_query($query))
 		{
 			$this->trigger_error();
 		}
 
-		return $this->sql_fetchrow($result);
+		return $this->sql_fetchrow($result, $field_name);
 	}
 
 	/**
 	* Fetch all rows
 	*/
-	function sql_fetchrowset ($result)
+	function sql_fetchrowset ($result, $field_name = '')
 	{
 		$rowset = array();
 
 		while ($row = mysql_fetch_assoc($result))
 		{
-			$rowset[] = $row;
+			$rowset[] = ($field_name) ? $row[$field_name] : $row;
 		}
 
 		return $rowset;
@@ -287,33 +295,27 @@ class sql_db
 	/**
 	* Fetch all rows WRAPPER (with error handling)
 	*/
-	function fetch_rowset ($query)
+	function fetch_rowset ($query, $field_name = '')
 	{
 		if (!$result = $this->sql_query($query))
 		{
 			$this->trigger_error();
 		}
 
-		return $this->sql_fetchrowset($result);
+		return $this->sql_fetchrowset($result, $field_name);
 	}
 
 	/**
-	* Escape string used in sql query
+	* Escape data used in sql query
 	*/
-	function escape ($v, $check_type = false)
+	function escape ($v, $check_type = false, $dont_escape = false)
 	{
-		if (!is_resource($this->link))
-		{
-			$this->init();
-		}
-		if (!$check_type)
-		{
-			return mysql_real_escape_string($v);
-		}
+		if ($dont_escape) return $v;
+		if (!$check_type) return $this->escape_string($v);
 
 		switch (true)
 		{
-			case is_string ($v): return "'". mysql_real_escape_string($v) ."'";
+			case is_string ($v): return "'". $this->escape_string($v) ."'";
 			case is_int    ($v): return "$v";
 			case is_bool   ($v): return ($v) ? '1' : '0';
 			case is_float  ($v): return "'$v'";
@@ -321,6 +323,19 @@ class sql_db
 		}
 		// if $v has unsuitable type
 		$this->trigger_error(__FUNCTION__ .' - wrong params');
+	}
+
+	/**
+	* Escape string
+	*/
+	function escape_string ($str)
+	{
+		if (!is_resource($this->link))
+		{
+			$this->init();
+		}
+
+		return mysql_real_escape_string($str, $this->link);
 	}
 
 	/**
@@ -369,12 +384,12 @@ class sql_db
 		{
 			$info[] = "$ext";
 		}
-		elseif (!$num && ($aff = $this->affected_rows($this->result) AND $aff != -1))
+		else if (!$num && ($aff = $this->affected_rows($this->result) AND $aff != -1))
 		{
 			$info[] = "$aff rows";
 		}
 
-		return join(', ', $info);
+		return str_compact(join(', ', $info));
 	}
 
 	/**
