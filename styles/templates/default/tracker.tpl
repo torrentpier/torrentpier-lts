@@ -412,7 +412,7 @@ $(function(){
 	<!-- ENDIF -->
 	<td class="row4 small nowrap">
 		<u>{tor.TOR_SIZE_RAW}</u>
-		<!-- IF not tor.TOR_FROZEN --><a class="small tr-dl" title="{L_DOWNLOAD}" href="{DOWNLOAD_URL}{tor.ATTACH_ID}">{tor.TOR_SIZE}</a> <!-- IF MAGNET_LINKS --><span title="{L_MAGNET}">{tor.MAGNET}</span><!-- ENDIF --><!-- ELSE -->
+		<!-- IF not tor.TOR_FROZEN --><a class="small tr-dl" title="{L_DOWNLOAD}" href="{DOWNLOAD_URL}{tor.ATTACH_ID}">{tor.TOR_SIZE}</a> <!-- IF MAGNET_LINKS -->{tor.MAGNET}<!-- ENDIF --><!-- ELSE -->
 		{tor.TOR_SIZE}<!-- ENDIF -->
 	</td>
 	<td class="row4 small" title="{L_REPLIES}: {tor.REPLIES}">{tor.REPLIES}</td>

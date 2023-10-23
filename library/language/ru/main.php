@@ -1076,7 +1076,7 @@ $lang['RELEASING'] = 'Свои';
 $lang['SEEDING'] = 'Сидер';
 $lang['LEECHING'] = 'Личер';
 $lang['IS_REGISTERED'] = 'Зарегистрирован';
-$lang['MAGNET'] = 'Magnet';
+$lang['MAGNET'] = 'Magnet-ссылка';
 $lang['DC_MAGNET'] = 'Поиск в DC++ по имени файла';
 $lang['DC_MAGNET_EXT'] = 'Поиск в DC++ по расширению';
 
