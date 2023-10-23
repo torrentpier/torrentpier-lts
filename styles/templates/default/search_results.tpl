@@ -177,7 +177,7 @@ function show_edit_options ()
 		</div>
 	</td>
 	<td class="med nowrap">{t.TOPIC_AUTHOR}</td>
-	<td class="small">{t.REPLIES}</td>
+	<td title="{L_REPLIES}: {t.REPLIES}" class="small">{t.REPLIES}</td>
 	<td class="small nowrap" style="padding: 1px 4px 3px 4px;">
 		<p>{t.LAST_POST_TIME}</p>
 		<p>
