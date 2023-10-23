@@ -53,7 +53,7 @@ function get_sql_log_html ($db_obj, $log_name)
 
 		$log .= ''
 		. '<div onmouseout="$(this).removeClass(\'sqlHover\');" onmouseover="$(this).addClass(\'sqlHover\');" onclick="$(this).toggleClass(\'sqlHighlight\');" class="sqlLogRow" title="'. $info .'">'
-		.  '<span style="letter-spacing: -1px;">'. $time .' </span>'
+		.  '<span style="letter-spacing: -1px;">'. $time .'s </span>'
 		.  '<span title="Copy to clipboard" onclick="$(\'#'. $id .'\').CopyToClipboard();" style="color: gray; letter-spacing: -1px;">'. $perc .'</span>'
 		.  ' '
 		.  '<span style="letter-spacing: 0px;" id="'. $id .'">'. $sql .'</span>'
