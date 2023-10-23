@@ -105,7 +105,7 @@ class sql_db
 		// Set charset
 		if ($this->cfg['charset'] && !@mysql_set_charset($this->cfg['charset'], $this->link))
 		{
-			if (!$this->sql_query("SET NAMES {$this->cfg['charset']}"))
+			if (!$this->sql_query("SET NAMES '{$this->cfg['charset']}'"))
 			{
 				$this->log_error();
 				error_exit("Could not set charset '{$this->cfg['charset']}'");
