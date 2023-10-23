@@ -43,12 +43,7 @@ $(document).ready(function(){
 
 <!-- IF SHOW_DL_LIST_TOR_INFO -->
 <tr>
-	<td colspan="2" class="borderless bCenter pad_8">
-			{L_SIZE}:&nbsp; <b>{TOR_SIZE}</b>&nbsp;|&nbsp;
-			{L_IS_REGISTERED}:&nbsp; <b>{TOR_LONGEVITY}</b>&nbsp;|&nbsp;
-			{L_DOWNLOADED}:&nbsp; <b title="{L_DOWNLOADED}: {TOR_DOWNLOAD_COUNT}">{TOR_DOWNLOAD_COUNT}</b>&nbsp;|&nbsp;
-			{L_COMPLETED}:&nbsp; <b title="{L_COMPLETED}: {TOR_COMPLETED}">{TOR_COMPLETED}</b>
-	</td>
+	<td colspan="2" class="borderless bCenter pad_8">{L_SIZE}:&nbsp;<b>{TOR_SIZE}</b>&nbsp;&nbsp;|&nbsp;&nbsp;{L_IS_REGISTERED}:&nbsp;<b>{TOR_LONGEVITY}</b>&nbsp;&nbsp;|&nbsp;&nbsp;{L_DOWNLOADED}:&nbsp;<b title="{L_DOWNLOADED}: {TOR_DOWNLOAD_COUNT}">{TOR_DOWNLOAD_COUNT}</b>&nbsp;&nbsp;|&nbsp;&nbsp;{L_COMPLETED}:&nbsp;<b title="{L_COMPLETED}: {TOR_COMPLETED}">{TOR_COMPLETED}</b></td>
 </tr>
 <!-- ENDIF / SHOW_DL_LIST_TOR_INFO -->
 
