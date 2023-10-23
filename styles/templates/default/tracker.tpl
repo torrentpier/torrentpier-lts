@@ -386,7 +386,7 @@ $(function(){
 	<th class="{sorter: 'digit'}" title="{L_REPLIES}"><b class="tbs-text">{L_REPLIES_SHORT}</b></th>
 	<th class="{sorter: 'digit'}" title="{L_SEEDERS}"><b class="tbs-text">S</b></th>
 	<th class="{sorter: 'digit'}" title="{L_LEECHERS}"><b class="tbs-text">L</b></th>
-	<th class="{sorter: 'digit'}" title="{L_COMPLETED}"><b class="tbs-text">{L_COMPLETED}</b></th>
+	<th class="{sorter: 'digit'}" title="{L_COMPLETED}"><b class="tbs-text">{L_DOWNLOADED}</b></th>
 	<!-- IF SHOW_SPEED -->
 	<th class="{sorter: false }" title="{L_DL_SPEED}"><b class="tbs-text">SP</b></th>
 	<!-- ENDIF -->
