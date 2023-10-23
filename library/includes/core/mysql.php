@@ -1000,5 +1000,6 @@ class sql_db
 				die("Invalid {$this->engine} explain mode");
 				break;
 		}
+		return false;
 	}
 }

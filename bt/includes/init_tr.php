@@ -412,7 +412,6 @@ class sql_db
 				}
 			}
 		}
-		return;
 	}
 
 	/**
