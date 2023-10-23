@@ -70,8 +70,6 @@ class sql_db
 	var $sql_last_time = 0;
 	var $slow_time     = 0;
 
-	var $dbg           = array();
-	var $dbg_id        = 0;
 	var $dbg_enabled   = false;
 	var $cur_query     = null;
 
