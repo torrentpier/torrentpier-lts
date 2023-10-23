@@ -418,7 +418,7 @@ $(function(){
 	<td class="row4 small" title="{L_REPLIES}: {tor.REPLIES}">{tor.REPLIES}</td>
 	<td class="row4 seedmed" title="{tor.SEEDS_TITLE}"><b>{tor.SEEDS}</b></td>
 	<td class="row4 leechmed" title="{L_LEECHERS}"><b>{tor.LEECHS}</b></td>
-	<td class="row4 small" title="{L_REPLIES}: {tor.REPLIES}">{tor.COMPLETED}</td>
+	<td class="row4 small" title="{L_COMPLETED}: {tor.COMPLETED}">{tor.COMPLETED}</td>
 	<!-- IF SHOW_SPEED -->
 	<td class="row4 nowrap">
 		<p class="seedmed">{tor.UL_SPEED}</p>
