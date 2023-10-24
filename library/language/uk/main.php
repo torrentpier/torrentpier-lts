@@ -1056,7 +1056,7 @@ $lang['BT_REG_FAIL_SAME_HASH'] = 'Інший торрент з таким же i
 $lang['BT_UNREG_FROM_TRACKER'] = 'Разреєструвати торрент';
 $lang['BT_UNREGISTERED'] = 'Торрент разреєстрован';
 $lang['BT_REGISTERED'] = 'Торрент зареєстрований на трекері<br /><br />Тепер вам <a href="%s"><b>потрібно його завантажити</b></a> і поставити на закачку у самого себе, в ту папку, де лежать оригінальні файли';
-$lang['INVALID_ANN_URL'] = 'Неправильний Announce URL [%s]<br /><br />має <b>%s</b>';
+$lang['INVALID_ANN_URL'] = 'Неправильний Announce URL [%s]<br /><br />має <b>%s</b>, або один із зазначених у списку дозволених';
 $lang['PASSKEY_ERR_TOR_NOT_REG'] = 'Неможливо додати passkey<br /><br />Торрент не зареєстрований на трекері';
 $lang['PASSKEY_ERR_EMPTY'] = 'Неможливо додати passkey<br /><br />Вам необхідно <a href="%s" target="_blank"><b>зайти у ваш форумний профіль</b></a> і згенерувати passkey';
 $lang['BT_PASSKEY'] = 'Passkey';
