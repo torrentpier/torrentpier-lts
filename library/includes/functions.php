@@ -1805,7 +1805,7 @@ function bb_die ($msg_text)
 
 	if (defined('IN_AJAX'))
 	{
-		$ajax->ajax_die($msg_text);
+		$ajax->ajax_die(strip_tags(preg_replace('#<br\s*/?>#i', "\n", $msg_text)));
 	}
 
 	// Check
