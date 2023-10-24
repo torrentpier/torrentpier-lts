@@ -490,6 +490,17 @@ function send_torrent_with_passkey ($filename)
 		$tor['announce'] = $announce;
 	}
 
+	// Get additional announce urls
+	$announce_urls = array();
+	include(INC_DIR .'torrent_announce_urls.php');
+
+	$announce_urls_add = array();
+	foreach ($announce_urls as $announce_url)
+	{
+		$announce_urls_add[] = array($announce_url);
+	}
+	unset($announce_urls);
+
 	// Delete all additional urls
 	if ($bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
 	{
@@ -497,7 +508,7 @@ function send_torrent_with_passkey ($filename)
 	}
 	elseif (isset($tor['announce-list']))
 	{
-		$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
+		$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)), $announce_urls_add);
 	}
 
 	// Add retracker
@@ -509,6 +520,7 @@ function send_torrent_with_passkey ($filename)
 			{
 				$tor['announce-list'] = array(
 					array($announce),
+					$announce_urls_add,
 					array($tr_cfg['retracker_host'])
 				);
 			}
