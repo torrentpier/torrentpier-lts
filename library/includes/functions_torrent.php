@@ -275,9 +275,10 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	if ($bb_cfg['bt_check_announce_url'])
 	{
+		$announce_urls = array();
 		include(INC_DIR .'torrent_announce_urls.php');
 
-		$ann = (@$tor['announce']) ? $tor['announce'] : '';
+		$ann = (@$tor['announce']) ? strtok($tor['announce'], '?') : '';
 		$announce_urls['main_url'] = $bb_cfg['bt_announce_url'];
 
 		if (!$ann || !in_array($ann, $announce_urls))
@@ -285,6 +286,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 			$msg = sprintf($lang['INVALID_ANN_URL'], htmlspecialchars($ann), $announce_urls['main_url']);
 			torrent_error_exit($msg);
 		}
+		unset($announce_urls);
 	}
 
 	$info = (@$tor['info']) ? $tor['info'] : array();
