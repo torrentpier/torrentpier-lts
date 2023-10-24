@@ -9,7 +9,7 @@ $announce_urls = array();
 // Примечание:
 // - Добавляйте URL-адреса без GET параметров в конце
 // - Для работы этого файла нужно в админ-панели в "Настройки форумов" включить опцию "Проверять announce url"
-
+//
 // Примеры:
 // $announce_urls[] = 'http://demo.torrentpier.com/bt/announce.php';
 // $announce_urls[] = 'http://tracker.openbittorrent.com:80/announce';

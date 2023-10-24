@@ -491,15 +491,15 @@ function send_torrent_with_passkey ($filename)
 	}
 
 	// Get additional announce urls
-	$announce_urls = array();
-	include(INC_DIR .'torrent_announce_urls.php');
+	$additional_announce_urls = array();
+	include(INC_DIR .'torrent_announce_urls_additional.php');
 
 	$announce_urls_add = array();
-	foreach ($announce_urls as $announce_url)
+	foreach ($additional_announce_urls as $additional_announce_url)
 	{
-		$announce_urls_add[] = array($announce_url);
+		$announce_urls_add[] = array($additional_announce_url);
 	}
-	unset($announce_urls);
+	unset($additional_announce_urls);
 
 	// Delete all additional urls
 	if ($bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
