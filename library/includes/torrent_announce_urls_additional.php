@@ -8,6 +8,7 @@ $additional_announce_urls = array();
 //
 // Примечание:
 // - Анонсеры с GET параметрами (например passkey или иной аутентификатор доступа) лучше не указывать
+// - Для работы этого файла нужно в админ-панели в "Настройки форумов" отключить опцию "Удалять все дополнительные announce urls"
 //
 // Примеры:
 // $additional_announce_urls[] = 'http://tracker.openbittorrent.com:80/announce';
