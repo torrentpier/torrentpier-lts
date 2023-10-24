@@ -9,5 +9,6 @@ $announce_urls = array();
 // добавьте эту строку: $announce_urls[] = 'http://demo.torrentpier.com/bt/announce.php';
 //
 // Важно, добавляйте URL-адреса без GET параметров в конце
+// Примечание: для работы этого файла нужно в админ-панели в "Настройки форумов" включить опцию "Проверять announce url"
 
 // $announce_urls[] = 'http://demo.torrentpier.com/bt/announce.php';
