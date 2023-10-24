@@ -109,3 +109,7 @@ INSERT INTO `bb_extensions` VALUES ('997', '4', 'tif', '');
 DELETE FROM `bb_extensions` WHERE `extension` = 'tga';
 INSERT INTO `bb_extensions` VALUES ('998', '4', 'tga', '');
 INSERT INTO `bb_extensions` VALUES ('999', '4', 'tiff', '');
+ALTER TABLE `bb_bt_tracker` CHANGE `speed_up` `speed_up` int(11) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `bb_bt_tracker` CHANGE `speed_down` `speed_down` int(11) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `bb_bt_tracker_snap` CHANGE `speed_up` `speed_up` int(11) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `bb_bt_tracker_snap` CHANGE `speed_down` `speed_down` int(11) unsigned NOT NULL DEFAULT '0';

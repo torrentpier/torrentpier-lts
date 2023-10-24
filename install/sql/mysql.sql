@@ -337,8 +337,8 @@ CREATE TABLE IF NOT EXISTS `bb_bt_tracker` (
   `uploaded` bigint(20) unsigned NOT NULL DEFAULT '0',
   `downloaded` bigint(20) unsigned NOT NULL DEFAULT '0',
   `remain` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `speed_up` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `speed_down` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `speed_up` int(11) unsigned NOT NULL DEFAULT '0',
+  `speed_down` int(11) unsigned NOT NULL DEFAULT '0',
   `up_add` bigint(20) unsigned NOT NULL DEFAULT '0',
   `down_add` bigint(20) unsigned NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
@@ -361,8 +361,8 @@ CREATE TABLE IF NOT EXISTS `bb_bt_tracker_snap` (
   `topic_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `seeders` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `leechers` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `speed_up` int(10) unsigned NOT NULL DEFAULT '0',
-  `speed_down` int(10) unsigned NOT NULL DEFAULT '0',
+  `speed_up` int(11) unsigned NOT NULL DEFAULT '0',
+  `speed_down` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`topic_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
