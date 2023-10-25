@@ -66,7 +66,7 @@ switch ($mode)
 			}
 		}
 
-		// field => can_edit
+		// field => can_edit (dont change)
 		$profile_fields = array(
 			'username'         => true,
 			'user_password'    => true,
