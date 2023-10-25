@@ -492,7 +492,7 @@ function send_torrent_with_passkey ($filename)
 
 	// Get additional announce urls
 	$additional_announce_urls = array();
-	include(INC_DIR .'torrent_announce_urls_additional.php');
+	include(INC_DIR .'torrent_announce_urls.php');
 
 	$announce_urls_add = array();
 	foreach ($additional_announce_urls as $additional_announce_url)
