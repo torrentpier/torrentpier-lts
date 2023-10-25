@@ -101,7 +101,7 @@ else
 	$time_limit_explain = $lang['TIME_LIMIT_EXPLAIN'];
 
 	// check for safe mode timeout
-	/*if ( ini_get('safe_mode') )
+	if ( ini_get('safe_mode') )
 	{
 		// get execution time
 		$max_execution_time = ini_get('max_execution_time');
@@ -111,7 +111,7 @@ else
 		{
 			$time_limit = $max_execution_time;
 		}
-	}*/
+	}
 
 	// check for webserver timeout (IE returns null)
 	if ( isset($_SERVER["HTTP_KEEP_ALIVE"]) )
