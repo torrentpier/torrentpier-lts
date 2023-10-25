@@ -69,8 +69,8 @@ if (isset($_POST['submit']))
 			$emailer->use_template('admin_send_email');
 
 			$emailer->assign_vars(array(
-				'SUBJECT'    => html_entity_decode($subject),
-				'MESSAGE'    => html_entity_decode($message),
+				'SUBJECT'    => trim(html_entity_decode($subject)),
+				'MESSAGE'    => trim(html_entity_decode($message)),
 			));
 
 			$emailer->send();
