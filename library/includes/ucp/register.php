@@ -100,7 +100,7 @@ switch ($mode)
 			'username'         => (IS_ADMIN || $bb_cfg['allow_namechange']),
 			'user_password'    => true,
 			'user_email'       => true, // должен быть после user_password
-			'user_lang'        => true,
+			'user_lang'        => $bb_cfg['allow_change']['language'],
 			'user_gender'      => $bb_cfg['gender'],
 			'user_birthday'    => $bb_cfg['birthday_enabled'],
 			'user_timezone'    => true,
