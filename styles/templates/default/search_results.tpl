@@ -152,7 +152,7 @@ function show_edit_options ()
 	<th class="{sorter: 'text'}" title="{L_TOPICS}"><b class="tbs-text">{L_TOPICS}</b></th>
 	<th class="{sorter: 'text'}" title="{L_AUTHOR}"><b class="tbs-text">{L_AUTHOR}</b></th>
 	<th class="{sorter: 'digit'}" title="{L_REPLIES}"><b class="tbs-text">{L_REPLIES_SHORT}</b></th>
-	<th class="{sorter: false}" title="{L_LASTPOST}"><b class="tbs-text">{L_LASTPOST}</b></th>
+	<th class="{sorter: 'text'}" title="{L_LASTPOST}"><b class="tbs-text">{L_LASTPOST}</b></th>
 </tr>
 </thead>
 <!-- BEGIN t -->
