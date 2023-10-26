@@ -148,11 +148,11 @@ function show_edit_options ()
 <thead>
 <tr>
 	<th>&nbsp;</th>
-	<th title="{L_FORUM}">{L_FORUM}</th>
-	<th title="{L_TOPICS}">{L_TOPICS}</th>
-	<th title="{L_AUTHOR}">{L_AUTHOR}</th>
-	<th title="{L_REPLIES}">{L_REPLIES_SHORT}</th>
-	<th title="{L_LASTPOST}">{L_LASTPOST}</th>
+	<th class="{sorter: 'text'}" title="{L_FORUM}">{L_FORUM}</th>
+	<th class="{sorter: 'text'}" title="{L_TOPICS}">{L_TOPICS}</th>
+	<th class="{sorter: 'text'}" title="{L_AUTHOR}">{L_AUTHOR}</th>
+	<th class="{sorter: 'digit'}" title="{L_REPLIES}">{L_REPLIES_SHORT}</th>
+	<th class="{sorter: false}" title="{L_LASTPOST}">{L_LASTPOST}</th>
 </tr>
 </thead>
 <!-- BEGIN t -->
