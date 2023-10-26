@@ -1244,7 +1244,10 @@ function show_bt_userdata ($user_id)
 	if (!$btu = get_bt_userdata($user_id))
 	{
 		require_once(INC_DIR .'functions_torrent.php');
-		generate_passkey($user_id, true);
+		if (!generate_passkey($user_id, true))
+		{
+			bb_die($lang['PASSKEY_ERR_EMPTY']);
+		}
 		$btu = get_bt_userdata($user_id);
 	}
 

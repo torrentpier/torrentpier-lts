@@ -444,7 +444,7 @@ function send_torrent_with_passkey ($filename)
 	{
 		if (!$passkey_val = generate_passkey($user_id))
 		{
-			bb_simple_die('Could not generate passkey');
+			bb_die($lang['PASSKEY_ERR_EMPTY']);
 		}
 		elseif ($bb_cfg['ocelot']['enabled'])
 		{

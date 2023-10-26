@@ -142,7 +142,10 @@ switch ($field)
 		if (!$btu = get_bt_userdata($user_id))
 		{
 			require(INC_DIR .'functions_torrent.php');
-			generate_passkey($user_id, true);
+			if (!generate_passkey($user_id, true))
+			{
+				$this->ajax_die($lang['PASSKEY_ERR_EMPTY']);
+			}
 			$btu = get_bt_userdata($user_id);
 		}
 		$btu[$field] = $value;

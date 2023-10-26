@@ -21,7 +21,10 @@ if (isset($_POST['bonus_id']))
 	if (empty($btu))
 	{
 		require(INC_DIR .'functions_torrent.php');
-		generate_passkey($user_id, true);
+		if (!generate_passkey($user_id, true))
+		{
+			bb_die($lang['PASSKEY_ERR_EMPTY']);
+		}
 		$btu = get_bt_userdata($user_id);
 	}
 
