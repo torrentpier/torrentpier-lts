@@ -508,7 +508,7 @@ function insert_post ($mode, $topic_id, $forum_id = '', $old_forum_id = '', $new
 
 function topic_review ($topic_id)
 {
-	global $bb_cfg, $template;
+	global $bb_cfg, $template, $lang;
 
 	// Fetch posts data
 	$review_posts = DB()->fetch_rowset("
@@ -531,7 +531,7 @@ function topic_review ($topic_id)
 			'ROW_CLASS'      => !($i % 2) ? 'row1' : 'row2',
 			'POSTER'         => profile_url($post),
 			'POSTER_NAME_JS' => addslashes($post['username']),
-			'POST_DATE'      => bb_date($post['post_time'], $bb_cfg['post_date_format']),
+			'POST_DATE'      => '<a class="small" href="' . POST_URL . $post['post_id'] . '#' . $post['post_id'] . '" title="' . $lang['POST_LINK'] . '">' . bb_date($post['post_time'], $bb_cfg['post_date_format']) . '</a>',
 			'MESSAGE'        => get_parsed_post($post),
 		));
 	}
