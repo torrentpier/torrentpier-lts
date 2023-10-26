@@ -144,7 +144,7 @@ switch ($field)
 			require(INC_DIR .'functions_torrent.php');
 			if (!generate_passkey($user_id, true))
 			{
-				$this->ajax_die($lang['PASSKEY_ERR_EMPTY']);
+				$this->ajax_die(sprintf($lang['PASSKEY_ERR_EMPTY'], PROFILE_URL . $user_id));
 			}
 			$btu = get_bt_userdata($user_id);
 		}

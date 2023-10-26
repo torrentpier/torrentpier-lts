@@ -1246,7 +1246,7 @@ function show_bt_userdata ($user_id)
 		require_once(INC_DIR .'functions_torrent.php');
 		if (!generate_passkey($user_id, true))
 		{
-			bb_die($lang['PASSKEY_ERR_EMPTY']);
+			bb_die(sprintf($lang['PASSKEY_ERR_EMPTY'], PROFILE_URL . $user_id));
 		}
 		$btu = get_bt_userdata($user_id);
 	}
@@ -2596,7 +2596,7 @@ function create_magnet ($infohash, $auth_key, $name)
 		require_once(INC_DIR .'functions_torrent.php');
 		if (!$passkey = generate_passkey($userdata['user_id'], true))
 		{
-			bb_die($lang['PASSKEY_ERR_EMPTY']);
+			bb_die(sprintf($lang['PASSKEY_ERR_EMPTY'], PROFILE_URL . $userdata['user_id']));
 		}
 		$auth_key = $passkey;
 	}
