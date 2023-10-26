@@ -138,13 +138,14 @@ function show_edit_options ()
 </div>
 <!-- ENDIF -->
 
-<table class="forumline forum">
+<table class="forumline tablesorter forum">
 <col class="row1">
 <col class="row1" width="25%">
 <col class="row4" width="75%">
 <col class="row1">
 <col class="row4">
 <col class="row1">
+<thead>
 <tr>
 	<th>&nbsp;</th>
 	<th title="{L_FORUM}">{L_FORUM}</th>
@@ -153,6 +154,7 @@ function show_edit_options ()
 	<th title="{L_REPLIES}">{L_REPLIES_SHORT}</th>
 	<th title="{L_LASTPOST}">{L_LASTPOST}</th>
 </tr>
+</thead>
 <!-- BEGIN t -->
 <tr id="tr-{t.TOPIC_ID}" class="tCenter">
 	<td id="{t.TOPIC_ID}" class="topic_id">
@@ -187,6 +189,7 @@ function show_edit_options ()
 	</td>
 </tr>
 <!-- END t -->
+<tfoot>
 <!-- IF MY_POSTS -->
 <tr id="mod-action-row">
 	<td colspan="6" id="mod-action-cell" class="row2">
@@ -208,6 +211,7 @@ function show_edit_options ()
 		<!-- ENDIF -->
 	</td>
 </tr>
+</tfoot>
 </table>
 
 <!-- IF DL_CONTROLS -->

@@ -8,6 +8,7 @@ require(CLASS_DIR . 'utf8.php');
 require(CLASS_DIR . 'correct.php');
 require(CLASS_DIR . 'reflection.php');
 
+$page_cfg['use_tablesorter'] = true;
 $page_cfg['load_tpl_vars'] = array(
 	'post_buttons',
 	'post_icons',
