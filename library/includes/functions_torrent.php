@@ -479,7 +479,7 @@ function send_torrent_with_passkey ($filename)
 
 	if (!$tor = bdecode_file($filename))
 	{
-		bb_die('This is not a bencoded file');
+		bb_die($lang['TORFILE_INVALID']);
 	}
 
 	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] .$passkey_val. "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
