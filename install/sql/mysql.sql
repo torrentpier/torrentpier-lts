@@ -1131,6 +1131,7 @@ CREATE TABLE IF NOT EXISTS `bb_topics_watch` (
 -- ----------------------------
 -- Records of bb_topics_watch
 -- ----------------------------
+INSERT INTO `bb_topics_watch` VALUES ('1', '2', '1');
 
 -- ----------------------------
 -- Table structure for `bb_topic_tpl`
