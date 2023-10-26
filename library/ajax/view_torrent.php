@@ -19,14 +19,7 @@ $filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
 if (($file_contents = @file_get_contents($filename)) === false)
 {
-	if (IS_AM)
-	{
-		$this->ajax_die($lang['ERROR_NO_ATTACHMENT'] ."\n\n". htmlCHR($filename));
-	}
-	else
-	{
-		$this->ajax_die($lang['ERROR_NO_ATTACHMENT']);
-	}
+	$this->ajax_die($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename. "<br /><br />" .$lang['TOR_NOT_FOUND']);
 }
 
 // Построение списка

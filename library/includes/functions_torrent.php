@@ -261,8 +261,8 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 
 	$filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
 
-	if (!is_file($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
-	if (!file_exists($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT']);
+	if (!is_file($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename. "<br /><br />" .$lang['TOR_NOT_FOUND']);
+	if (!file_exists($filename)) torrent_error_exit($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename. "<br /><br />" .$lang['TOR_NOT_FOUND']);
 	if (!$tor = bdecode_file($filename)) torrent_error_exit($lang['TORFILE_INVALID']);
 
 	if ($bb_cfg['bt_disable_dht'])
