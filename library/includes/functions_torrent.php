@@ -79,7 +79,7 @@ function tracker_unregister ($attach_id, $mode = '')
 		}
 		if (!$torrent['tracker_status'])
 		{
-			bb_die('Torrent already unregistered');
+			bb_die($lang['BT_UNREGISTERED_ALREADY']);
 		}
 		torrent_auth_check($forum_id, $torrent['poster_id']);
 	}
@@ -350,7 +350,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 		{
 			torrent_error_exit($lang['BT_REG_FAIL_SAME_HASH']);
 		}
-		bb_die('Could not register torrent on tracker');
+		bb_die($lang['BT_REG_FAIL']);
 	}
 
 	// update tracker status for this attachment
