@@ -29,11 +29,6 @@
 	<th class="{sorter: 'digit'}" ><b class="tbs-text">{L_JOINED}</b></th>
 	<th class="{sorter: 'digit'}" ><b class="tbs-text">{L_POSTS_SHORT}</b></th>
 	<th class="{sorter: false}" ><b class="tbs-text">{L_WEBSITE}</b></th>
-	<!-- BEGIN no_username -->
-	<tr>
-		<td class="row1" align="center" colspan="9"><span class="gen">&nbsp;{no_username.NO_USER_ID_SPECIFIED}&nbsp;</span></td>
-	</tr>
-	<!-- END no_username -->
 </tr>
 </thead>
 <!-- BEGIN memberrow -->
@@ -51,6 +46,13 @@
 	<td>{memberrow.WWW}</td>
 </tr>
 <!-- END memberrow -->
+<!-- BEGIN no_username -->
+<tbody>
+<tr>
+	<td class="row1 tCenter pad_8" colspan="9">{no_username.NO_USER_ID_SPECIFIED}</td>
+</tr>
+</tbody>
+<!-- END no_username -->
 <tfoot>
 <tr>
 	<td class="catBottom" colspan="9">&nbsp;</td>
