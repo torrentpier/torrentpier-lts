@@ -15,7 +15,10 @@ switch ($mode)
 
 		foreach ($bb_cfg['cache']['engines'] as $cache_name => $cache_val)
 		{
-			CACHE($cache_name)->rm();
+			if (!in_array('sqlite', $cache_val) && !in_array('filecache', $cache_val))
+			{
+				CACHE($cache_name)->rm();
+			}
 		}
 
 		$this->response['cache_html'] = '<span class="seed bold">'. $lang['ALL_CACHE_CLEARED'] .'</span>';
