@@ -504,6 +504,9 @@ function insert_post ($mode, $topic_id, $forum_id = '', $old_forum_id = '', $new
 	$post_text_values = "$post_id, '$post_text'";
 
 	DB()->query("INSERT INTO ". BB_POSTS_TEXT ." ($post_text_columns) VALUES ($post_text_values)");
+
+	// Update user_posts counter for bot
+	DB()->query("UPDATE " . BB_USERS . " SET user_posts = user_posts + WHERE user_id = $poster_id");
 }
 
 function topic_review ($topic_id)
