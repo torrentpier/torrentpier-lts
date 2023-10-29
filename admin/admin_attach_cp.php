@@ -131,15 +131,19 @@ else if ($view == 'attachments')
 // Set select fields
 $view_types_text = array($lang['VIEW_STATISTIC'], $lang['VIEW_SEARCH']);
 $view_types = array('stats', 'search');
+$select_view = '';
 
-$select_view = '<select name="view">';
-
-for($i = 0; $i < count($view_types_text); $i++)
+if (in_array($view, $view_types))
 {
-	$selected = ($view == $view_types[$i]) ? ' selected="selected"' : '';
-	$select_view .= '<option value="' . $view_types[$i] . '"' . $selected . '>' . $view_types_text[$i] . '</option>';
+	$select_view = '<select name="view">';
+
+	for($i = 0; $i < count($view_types_text); $i++)
+	{
+		$selected = ($view == $view_types[$i]) ? ' selected="selected"' : '';
+		$select_view .= '<option value="' . $view_types[$i] . '"' . $selected . '>' . $view_types_text[$i] . '</option>';
+	}
+	$select_view .= '</select>';
 }
-$select_view .= '</select>';
 
 if (count($mode_types_text) > 0)
 {
