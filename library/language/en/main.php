@@ -2212,11 +2212,11 @@ $lang['FILECOMMENT'] = 'File Comment';
 
 // Control Panel -> Search
 $lang['SEARCH_WILDCARD_EXPLAIN'] = 'Use * as a wildcard for partial matches';
-$lang['SIZE_SMALLER_THAN'] = 'Attachment size smaller than (bytes)';
-$lang['SIZE_GREATER_THAN'] = 'Attachment size greater than (bytes)';
-$lang['COUNT_SMALLER_THAN'] = 'Download count is smaller than';
-$lang['COUNT_GREATER_THAN'] = 'Download count is greater than';
-$lang['MORE_DAYS_OLD'] = 'More than this many days old';
+$lang['SIZE_SMALLER_THAN'] = 'Attachment size smaller than (or equal) (in bytes)';
+$lang['SIZE_GREATER_THAN'] = 'Attachment size greater than (or equal) (in bytes)';
+$lang['COUNT_SMALLER_THAN'] = 'Download count is smaller than (or equal)';
+$lang['COUNT_GREATER_THAN'] = 'Download count is greater than (or equal)';
+$lang['MORE_DAYS_OLD'] = 'More than (or equal) this many days old';
 $lang['NO_ATTACH_SEARCH_MATCH'] = 'No Attachments met your search criteria';
 
 // Control Panel -> Statistics

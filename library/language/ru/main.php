@@ -2212,11 +2212,11 @@ $lang['FILECOMMENT'] = 'Комментарий к файлу';
 
 // Control Panel -> Search
 $lang['SEARCH_WILDCARD_EXPLAIN'] = 'Используйте *, если не знаете точного названия';
-$lang['SIZE_SMALLER_THAN'] = 'Приложение меньше чем (в байтах)';
-$lang['SIZE_GREATER_THAN'] = 'Приложение больше чем (в байтах)';
-$lang['COUNT_SMALLER_THAN'] = 'Количество скачиваний меньше чем';
-$lang['COUNT_GREATER_THAN'] = 'Количество скачиваний больше чем';
-$lang['MORE_DAYS_OLD'] = 'Старее, чем это количество дней';
+$lang['SIZE_SMALLER_THAN'] = 'Приложение меньше чем (либо равно) (в байтах)';
+$lang['SIZE_GREATER_THAN'] = 'Приложение больше чем (либо равно) (в байтах)';
+$lang['COUNT_SMALLER_THAN'] = 'Количество скачиваний меньше чем (либо равно)';
+$lang['COUNT_GREATER_THAN'] = 'Количество скачиваний больше чем (либо равно)';
+$lang['MORE_DAYS_OLD'] = 'Старее, чем (либо равно) это количество дней';
 $lang['NO_ATTACH_SEARCH_MATCH'] = 'Не найдено ни одного приложения, которое бы отвечало Вашему поиску';
 
 // Control Panel -> Statistics
