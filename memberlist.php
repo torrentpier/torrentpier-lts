@@ -62,16 +62,6 @@ else
 }
 $select_sort_order .= '</select>';
 
-//
-// Generate page
-//
-$template->assign_vars(array(
-	'S_MODE_SELECT'  => $select_sort_mode,
-	'S_ORDER_SELECT' => $select_sort_order,
-	'S_MODE_ACTION'  => "memberlist.php",
-	'S_USERNAME'     => $paginationusername,
-));
-
 switch( $mode )
 {
 	case 'joined':
@@ -146,11 +136,6 @@ $select_letter .= ':&nbsp;';
 $select_letter .= ($by_letter == 'others') ? '<b>'. $lang['OTHERS'] .'</b>&nbsp;' : '<a class="genmed" href="'. ("memberlist.php?letter=others&amp;mode=$mode&amp;order=$sort_order") .'">'. $lang['OTHERS'] .'</a>&nbsp;';
 $select_letter .= ':&nbsp;';
 $select_letter .= ($by_letter == 'all') ? '<b>'. $lang['ALL'] .'</b>' : '<a class="genmed" href="'. ("memberlist.php?letter=all&amp;mode=$mode&amp;order=$sort_order") .'">'. $lang['ALL'] .'</a>';
-
-$template->assign_vars(array(
-	'S_LETTER_SELECT' => $select_letter,
-	'S_LETTER_HIDDEN' => '<input type="hidden" name="letter" value="'. $by_letter .'">',
-));
 
 // per-letter selection end
 $sql = "SELECT username, user_id, user_rank, user_opt, user_posts, user_regdate, user_from, user_website, user_email, avatar_ext_id FROM ". BB_USERS ." WHERE user_id NOT IN(". EXCLUDED_USERS_CSV .")";
@@ -237,6 +222,21 @@ if ( $mode != 'topten' || $bb_cfg['topics_per_page'] < 10 )
 	}
 	DB()->sql_freeresult($result);
 }
+
+//
+// Generate page
+//
+$template->assign_vars(array(
+	'S_MODE_SELECT'  => $select_sort_mode,
+	'S_ORDER_SELECT' => $select_sort_order,
+	'S_MODE_ACTION'  => "memberlist.php?mode=$mode&amp;order=$sort_order&amp;letter=$by_letter",
+	'S_USERNAME'     => $paginationusername,
+));
+
+$template->assign_vars(array(
+	'S_LETTER_SELECT' => $select_letter,
+	'S_LETTER_HIDDEN' => '<input type="hidden" name="letter" value="'. $by_letter .'">',
+));
 
 $template->assign_vars(array(
 	'PAGE_TITLE' => $lang['MEMBERLIST'],
