@@ -145,7 +145,7 @@ if (in_array($view, $view_types))
 	$select_view .= '</select>';
 }
 
-if (count($mode_types_text) > 0)
+if (count($mode_types_text) > 0 && !empty($mode_types))
 {
 	$select_sort_mode = '<select name="mode">';
 
