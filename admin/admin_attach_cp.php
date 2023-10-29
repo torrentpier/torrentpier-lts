@@ -200,7 +200,7 @@ else if ($delete && sizeof($delete_id_list) > 0)
 // Assign Default Template Vars
 $template->assign_vars(array(
 	'S_VIEW_SELECT' => $select_view,
-	'S_MODE_ACTION' => 'admin_attach_cp.php',
+	'S_MODE_ACTION' => 'admin_attach_cp.php?view=' . $view . '&amp;mode=' . $mode . '&amp;order=' . $sort_order . '&amp;uid=' . $uid,
 ));
 
 if ($submit_change && $view == 'attachments')
