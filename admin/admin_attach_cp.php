@@ -69,6 +69,7 @@ else
 {
 	$view = 'stats';
 	$mode_types_text = array();
+	$mode_types = array();
 	$sort_order = 'ASC';
 }
 
