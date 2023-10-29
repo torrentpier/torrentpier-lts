@@ -973,7 +973,7 @@ else
 
 	if ($page > 1)
 	{
-		$pagination .= '<a href="'.$base_url.'&sort='.$sort.'&order='.$order.'&page='.($page - 1).'">'. $lang['PREVIOUS'] .'</a>';
+		$pagination .= '<a href="'.$base_url.'&sort='.$sort.'&order='.$order.'&page='.($page - 1).'">'. $lang['BACK'] .'</a>';
 	}
 	if ($page < $num_pages)
 	{
