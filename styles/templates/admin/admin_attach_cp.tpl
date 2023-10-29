@@ -195,6 +195,9 @@
 <form method="post" name="attach_list" action="{S_MODE_ACTION}">
 <table width="100%">
 	<tr>
+		<td align="left" nowrap="nowrap">
+			<a class="med bold" href="javascript:history.back(-1)">{L_BACK}</a>
+		</td>
 		<td align="right" nowrap="nowrap">
 			<span class="med"><!-- IF S_VIEW_SELECT -->{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;<!-- ENDIF -->{L_SORT_BY}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}:&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
 				<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
