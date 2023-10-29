@@ -102,7 +102,7 @@ else if ($view == 'attachments')
 {
 	switch($mode)
 	{
-		case 'filename':
+		case 'real_filename':
 			$order_by = 'ORDER BY a.real_filename ' . $sort_order . ' LIMIT ' . $start . ', ' . $bb_cfg['topics_per_page'];
 			break;
 		case 'comment':
