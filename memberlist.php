@@ -205,7 +205,7 @@ else
 	));
 }
 
-$paginationurl = "memberlist.php?letter=$by_letter&amp;mode=$mode&amp;order=$sort_order";
+$paginationurl = "memberlist.php?mode=$mode&amp;order=$sort_order&amp;letter=$by_letter";
 if ($paginationusername) $paginationurl .= "&amp;username=$paginationusername";
 if ( $mode != 'topten' || $bb_cfg['topics_per_page'] < 10 )
 {
@@ -229,7 +229,7 @@ if ( $mode != 'topten' || $bb_cfg['topics_per_page'] < 10 )
 $template->assign_vars(array(
 	'S_MODE_SELECT'  => $select_sort_mode,
 	'S_ORDER_SELECT' => $select_sort_order,
-	'S_MODE_ACTION'  => "memberlist.php?letter=$by_letter&amp;mode=$mode&amp;order=$sort_order",
+	'S_MODE_ACTION'  => "memberlist.php?mode=$mode&amp;order=$sort_order&amp;letter=$by_letter",
 	'S_USERNAME'     => $paginationusername,
 ));
 
