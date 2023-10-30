@@ -8,6 +8,19 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.10 🎉
+- Check $tpl_vars['QUESTION'] in print_confirmation()
+- Some fixes in admin_attach_cp.php
+- Fixed undefined $lang['PREVIOUS']
+- Fixed broken letter marking in memberlist.php [6be1eb9](https://github.com/torrentpier/torrentpier-lts/commit/6be1eb994a377e75ae8a901e47ae41ecacec98c8) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed error while trying to delete posts by bot [8ee06f8](https://github.com/torrentpier/torrentpier-lts/commit/8ee06f87ed5b31ad327b6e159789fa016a6c4a72), [df5ed81](https://github.com/torrentpier/torrentpier-lts/commit/df5ed816bfee5d68d87c7c34e5f14045e87e1b9d) ([belomaxorka](https://github.com/belomaxorka))
+- Added the ability to add additional announce URLs into torrent files
+- Added check $bb_cfg['magnet_links_enabled'] in create_magnet()
+- Added $lang['BT_UNREGISTERED_ALREADY'] lang key
+- SQL: Increase speed_up & speed_down type limits
+- Use strip_tags() for message in prompt_for_confirm()
+- Use strip_tags() for error message in ajax_die()
+- Use lang variable $lang['BT_REG_FAIL'] instead of text
+- Fixed percentage calculation for SQL debug
 - Updated UTF8 & ReflectionTypeHint classes [\#320](https://github.com/torrentpier/torrentpier-lts/pull/320) ([belomaxorka](https://github.com/belomaxorka))
 - Updated Text_LangCorrect class [\#309](https://github.com/torrentpier/torrentpier-lts/pull/309) ([belomaxorka](https://github.com/belomaxorka))
 - Minor improvements [\#297](https://github.com/torrentpier/torrentpier-lts/pull/297), [\#298](https://github.com/torrentpier/torrentpier-lts/pull/298), [\#300](https://github.com/torrentpier/torrentpier-lts/pull/300), [\#301](https://github.com/torrentpier/torrentpier-lts/pull/301), [\#302](https://github.com/torrentpier/torrentpier-lts/pull/302), [\#303](https://github.com/torrentpier/torrentpier-lts/pull/303), [\#305](https://github.com/torrentpier/torrentpier-lts/pull/305), [\#306](https://github.com/torrentpier/torrentpier-lts/pull/306), [\#307](https://github.com/torrentpier/torrentpier-lts/pull/307), [\#310](https://github.com/torrentpier/torrentpier-lts/pull/310), [\#312](https://github.com/torrentpier/torrentpier-lts/pull/312), [\#313](https://github.com/torrentpier/torrentpier-lts/pull/313), [\#315](https://github.com/torrentpier/torrentpier-lts/pull/315), [\#316](https://github.com/torrentpier/torrentpier-lts/pull/316), [\#317](https://github.com/torrentpier/torrentpier-lts/pull/317), [\#319](https://github.com/torrentpier/torrentpier-lts/pull/319), [\#321](https://github.com/torrentpier/torrentpier-lts/pull/321), [\#322](https://github.com/torrentpier/torrentpier-lts/pull/322), [\#323](https://github.com/torrentpier/torrentpier-lts/pull/323), [\#324](https://github.com/torrentpier/torrentpier-lts/pull/324) ([belomaxorka](https://github.com/belomaxorka))
