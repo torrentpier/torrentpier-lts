@@ -59,13 +59,10 @@ switch ($mode)
 			// Ограничение по времени
 			else if (is_array($bb_cfg['new_user_reg_restricted']) && (!empty($bb_cfg['new_user_reg_restricted']['from']) && !empty($bb_cfg['new_user_reg_restricted']['to'])))
 			{
-				$time_start = $bb_cfg['new_user_reg_restricted']['from'];
-				$time_end = $bb_cfg['new_user_reg_restricted']['to'];
 				if (in_array(bb_date(TIMENOW, 'H', false), $bb_cfg['new_user_reg_restricted']))
 				{
 					bb_die($lang['REGISTERED_IN_TIME']);
 				}
-				unset($time_start, $time_end);
 			}
 		}
 
