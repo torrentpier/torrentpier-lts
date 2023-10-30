@@ -60,7 +60,7 @@ if ($show_dbg_info)
 		$stat .= " &nbsp;|&nbsp; ". $lang['LIMIT'] ." $l[0] $l[1] $l[2]";
 	}
 
-	$stat .= ' &nbsp;]';
+	$stat .= ' &nbsp;]&nbsp;|';
 	$stat .= !empty($_COOKIE['sql_log']) ? '&nbsp;[ <a href="#" class="med" onclick="$p(\'sqlLog\').className=\'sqlLog sqlLogWrapped\'; return false;">wrap</a> &middot; <a href="#sqlLog" class="med" onclick="$(\'#sqlLog\').css({ height: $(window).height()-50 }); return false;">max</a> ]&nbsp;|' : '';
 	$stat .= '
 		<label title="'. $lang['SHOW_LOG'] .'"><input type="checkbox" onclick="setCookie(\'sql_log\', this.checked ? 1 : 0); window.location.reload();" '. (!empty($_COOKIE['sql_log']) ? HTML_CHECKED : '') .' />'. $lang['SHOW_LOG'] .'</label>&nbsp;|
