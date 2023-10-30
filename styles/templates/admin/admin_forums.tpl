@@ -107,7 +107,8 @@ function toggle_cat_list (val)
 	<td class="pad_12 tCenter">
 		{L_CATEGORY}:
 		<input type="text" name="cat_title" size="60" value="{CAT_TITLE}" />&nbsp;
-		<input type="submit" name="submit" value="{S_SUBMIT_VALUE}" class="bold" />
+		<input type="submit" name="submit" value="{S_SUBMIT_VALUE}" class="bold" />&nbsp;
+		<input type="button" value="{L_BACK}" onclick="history.back(-1);" class="bold" />
 	</td>
 </tr>
 </table>
