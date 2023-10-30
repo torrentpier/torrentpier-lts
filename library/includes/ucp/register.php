@@ -57,9 +57,9 @@ switch ($mode)
 				bb_die($lang['NEW_USER_REG_DISABLED']);
 			}
 			// Ограничение по времени
-			else if (is_array($bb_cfg['new_user_reg_restricted']) && (!empty($bb_cfg['new_user_reg_restricted']['from']) && !empty($bb_cfg['new_user_reg_restricted']['to'])))
+			else if ($bb_cfg['new_user_reg_restricted'])
 			{
-				if (in_array(bb_date(TIMENOW, 'H', false), $bb_cfg['new_user_reg_restricted']))
+				if (in_array(date('G'), array(0,/*1,2,3,4,5,6,7,8,11,12,13,14,15,16,*/17,18,19,20,21,22,23)))
 				{
 					bb_die($lang['REGISTERED_IN_TIME']);
 				}
