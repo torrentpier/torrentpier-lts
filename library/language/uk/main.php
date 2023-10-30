@@ -1830,6 +1830,7 @@ $lang['MOVE_CONTENTS'] = 'Перенести весь вміст';
 $lang['FORUM_DELETE'] = 'Видалити форум';
 $lang['FORUM_DELETE_EXPLAIN'] = 'Тут ви зможете видалити форум (або категорії) і вирішити, куди перенести всі теми (або форуми), які там утримувалися.';
 $lang['CATEGORY_DELETE'] = 'Видалити Категорію';
+$lang['CATEGORY_NAME_EMPTY'] = 'Не задано назву категорії';
 
 $lang['STATUS_LOCKED'] = 'Закритий';
 $lang['STATUS_UNLOCKED'] = 'Відкритий';

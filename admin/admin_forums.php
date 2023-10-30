@@ -340,7 +340,7 @@ if ($mode)
 			//
 			if (!$new_cat_title = trim($_POST['categoryname']))
 			{
-				bb_die('Category name is empty');
+				bb_die($lang['CATEGORY_NAME_EMPTY'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_FORUMADMIN'], '<a href="admin_forums.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			check_name_dup('cat', $new_cat_title);
@@ -389,7 +389,7 @@ if ($mode)
 			//
 			if (!$new_cat_title = trim($_POST['cat_title']))
 			{
-				bb_die('Category name is empty');
+				bb_die($lang['CATEGORY_NAME_EMPTY'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_FORUMADMIN'], '<a href="admin_forums.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			$cat_id = (int) $_POST['c'];
