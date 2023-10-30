@@ -79,6 +79,7 @@ function toggle_cat_list (val)
 	<tr>
 		<td class="catBottom" colspan="2">
 			<input type="submit" name="submit" value="{S_SUBMIT_VALUE}" class="mainoption" />
+			<input type="reset" value="{L_RESET}" class="liteoption" />
 		</td>
 	</tr>
 </table>

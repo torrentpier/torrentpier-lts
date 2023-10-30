@@ -102,6 +102,7 @@ function swap_values()
 	<td class="catBottom" colspan="2">
 		<input type="hidden" name="sid" value="{SESSION_ID}" />
 		<input class="mainoption" type="submit" name="submit" value="{L_REBUILD_SEARCH}" />
+		<input type="reset" value="{L_RESET}" class="liteoption" />
 	</td>
 </tr>
 </table>

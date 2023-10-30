@@ -90,7 +90,7 @@ table.log_filters td {
 	</tr>
 	<tr>
 		<td class="catBottom" style="padding: 0; height: 26px">
-			<span class="med"><input type="submit" class="liteoption" value="&nbsp;{L_SEARCH}&nbsp;" name="submit" /></span>
+			<span class="med"><input type="submit" class="liteoption" value="&nbsp;{L_SEARCH}&nbsp;" name="submit" />&nbsp;&nbsp;<input type="reset" value="{L_RESET}" class="liteoption" /></span>
 		</td>
 	</tr>
 </table>
