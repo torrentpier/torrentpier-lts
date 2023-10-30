@@ -260,11 +260,11 @@ function search_attachments($order_by, &$total_rows)
 	{
 		if ($search_count_smaller != '')
 		{
-			$where_sql[] = ' (a.download_count <= ' . (int) $search_count_smaller . ') ';
+			$where_sql[] = ' (a.download_count < ' . (int) $search_count_smaller . ') ';
 		}
 		else if ($search_count_greater != '')
 		{
-			$where_sql[] = ' (a.download_count >= ' . (int) $search_count_greater . ') ';
+			$where_sql[] = ' (a.download_count > ' . (int) $search_count_greater . ') ';
 		}
 	}
 
@@ -273,18 +273,18 @@ function search_attachments($order_by, &$total_rows)
 	{
 		if ($search_size_smaller != '')
 		{
-			$where_sql[] = ' (a.filesize <= ' . (int) $search_size_smaller . ') ';
+			$where_sql[] = ' (a.filesize < ' . (int) $search_size_smaller . ') ';
 		}
 		else if ($search_size_greater != '')
 		{
-			$where_sql[] = ' (a.filesize >= ' . (int) $search_size_greater . ') ';
+			$where_sql[] = ' (a.filesize > ' . (int) $search_size_greater . ') ';
 		}
 	}
 
 	// Search Attachment Time
 	if ($search_days_greater != '')
 	{
-		$where_sql[] = ' (a.filetime <= ' . ( TIMENOW - ((int) $search_days_greater * 86400)) . ') ';
+		$where_sql[] = ' (a.filetime < ' . ( TIMENOW - ((int) $search_days_greater * 86400)) . ') ';
 	}
 
 	// Search Forum

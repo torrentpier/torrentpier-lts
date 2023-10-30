@@ -2212,11 +2212,11 @@ $lang['FILECOMMENT'] = 'Коментар до файлу';
 
 // Control Panel -> Search
 $lang['SEARCH_WILDCARD_EXPLAIN'] = 'Використовуйте *, якщо не знаєте точної назви';
-$lang['SIZE_SMALLER_THAN'] = 'Додаток менше ніж (або дорівнює) (в байтах)';
-$lang['SIZE_GREATER_THAN'] = 'Додаток більше ніж (або дорівнює) (в байтах)';
-$lang['COUNT_SMALLER_THAN'] = 'Кількість скачувань менше ніж (або дорівнює)';
-$lang['COUNT_GREATER_THAN'] = 'Кількість скачувань більше ніж (або дорівнює)';
-$lang['MORE_DAYS_OLD'] = 'Старіше, ніж (або дорівнює) ця кількість днів';
+$lang['SIZE_SMALLER_THAN'] = 'Додаток менше ніж (в байтах)';
+$lang['SIZE_GREATER_THAN'] = 'Додаток більше ніж (в байтах)';
+$lang['COUNT_SMALLER_THAN'] = 'Кількість скачувань менше ніж';
+$lang['COUNT_GREATER_THAN'] = 'Кількість скачувань більше ніж';
+$lang['MORE_DAYS_OLD'] = 'Старіше, ніж ця кількість днів';
 $lang['NO_ATTACH_SEARCH_MATCH'] = 'Не знайдено жодного додатка, яке б відповідало Вашому пошуку';
 
 // Control Panel -> Statistics
