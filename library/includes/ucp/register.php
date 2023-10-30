@@ -316,10 +316,10 @@ foreach ($profile_fields as $field => $can_edit)
 		*  Часовой пояс (edit, reg)
 		*/
 		case 'user_timezone':
-			$user_timezone = isset($_POST['user_timezone']) ? (int) $_POST['user_timezone'] : $pr_data['user_timezone'];
+			$user_timezone = isset($_POST['user_timezone']) ? (float) $_POST['user_timezone'] : $pr_data['user_timezone'];
 			if ($submit && ($user_timezone != $pr_data['user_timezone'] || $mode == 'register'))
 			{
-				if (isset($lang['TZ'][$user_timezone]))
+				if (isset($lang['TZ'][str_replace(',', '.', floatval($user_timezone))]))
 				{
 					$pr_data['user_timezone'] = $user_timezone;
 					$db_data['user_timezone'] = $user_timezone;
