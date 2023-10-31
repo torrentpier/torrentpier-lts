@@ -2326,6 +2326,12 @@ function print_confirmation ($tpl_vars)
 		'CONFIRM_TITLE' => $lang['CONFIRM'],
 		'FORM_METHOD'   => 'post',
 	));
+
+	if (empty($tpl_vars['QUESTION']))
+	{
+		$tpl_vars['QUESTION'] = $lang['QUESTION'];
+	}
+
 	$template->assign_vars($tpl_vars);
 
 	print_page('common.tpl');

@@ -2381,7 +2381,7 @@ $lang['TEMPLATE_DISABLE'] = 'Шаблон отключен';
 $lang['FOR_NEW_TEMPLATE'] = 'для новых шаблонов!';
 $lang['CHANGED'] = 'Изменено';
 $lang['REMOVED'] = 'Удалено';
-$lang['QUESTION'] = 'Вы уверены, что хотите удалить?';
+$lang['QUESTION'] = 'Подтвердите, что вы уверены, что хотите выполнить это действие';
 
 $lang['CRON_LIST'] = 'Список задач';
 $lang['CRON_ID'] = 'ID';
