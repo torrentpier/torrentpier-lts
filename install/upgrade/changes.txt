@@ -101,7 +101,7 @@ ALTER TABLE `bb_posts_text` CHANGE `post_text` `post_text` MEDIUMTEXT NOT NULL;
 ALTER TABLE `bb_privmsgs_text` CHANGE `privmsgs_text` `privmsgs_text` MEDIUMTEXT NOT NULL;
 
 // 2.1.5 (LTS 2023.09)
-INSERT INTO `bb_extensions` VALUES ('', '2', '7z', '');
+INSERT INTO `bb_extensions` VALUES ('996', '2', '7z', '');
 
 // 2.1.5 (LTS 2023.10)
 DELETE FROM `bb_extensions` WHERE `extension` = 'tif';
