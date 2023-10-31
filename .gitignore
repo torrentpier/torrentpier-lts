@@ -13,8 +13,8 @@ internal_data/sitemap/*.xml
 internal_data/triggers/
 library/config.local.php
 spam_filter_words.txt
-r*-*.php
-lts-*.php
+/r*-*.php
+/lts-*.php
 
 ### Archives ###
 *.log
