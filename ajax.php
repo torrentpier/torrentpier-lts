@@ -142,7 +142,7 @@ class ajax_common
 		// Exit if board is disabled via ON/OFF trigger or by admin
 		if ($bb_cfg['board_disable'] || file_exists(BB_DISABLED))
 		{
-			if (isset($action_params[AJAX_ALWAYS_ACTIVE]) && $action_params[AJAX_ALWAYS_ACTIVE] === false)
+			if ($action_params[AJAX_ALWAYS_ACTIVE] !== true)
 			{
 				if ($bb_cfg['board_disable'])
 				{
