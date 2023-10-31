@@ -831,7 +831,7 @@ CREATE TABLE IF NOT EXISTS `bb_posts` (
 -- ----------------------------
 -- Records of bb_posts
 -- ----------------------------
-INSERT INTO `bb_posts` VALUES ('1', '1', '1', '2', UNIX_TIMESTAMP(), '', '0', '0', '', '0', '0', '0', '1', '', '0', '0');
+INSERT INTO `bb_posts` VALUES ('1', '1', '1', '2', UNIX_TIMESTAMP(), '0', '0', '0', '', '0', '0', '0', '1', '', '0', '0');
 
 -- ----------------------------
 -- Table structure for `bb_posts_html`
