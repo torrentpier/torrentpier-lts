@@ -8,9 +8,9 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.10 🎉
-- Check $tpl_vars['QUESTION'] in print_confirmation()
+- Check $tpl_vars['QUESTION'] in print_confirmation() [5bff794](https://github.com/torrentpier/torrentpier-lts/commit/5bff794ac21035768e2b5f4ece716ec5d897aa94) ([belomaxorka](https://github.com/belomaxorka))
 - Some fixes in admin_attach_cp.php
-- Fixed undefined $lang['PREVIOUS']
+- Fixed undefined $lang['PREVIOUS'] [c0769be](https://github.com/torrentpier/torrentpier-lts/commit/c0769be368aaac27f9e7e26b49980d1b25fbab84) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed broken letter marking in memberlist.php [6be1eb9](https://github.com/torrentpier/torrentpier-lts/commit/6be1eb994a377e75ae8a901e47ae41ecacec98c8) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed error while trying to delete posts by bot [8ee06f8](https://github.com/torrentpier/torrentpier-lts/commit/8ee06f87ed5b31ad327b6e159789fa016a6c4a72), [df5ed81](https://github.com/torrentpier/torrentpier-lts/commit/df5ed816bfee5d68d87c7c34e5f14045e87e1b9d) ([belomaxorka](https://github.com/belomaxorka))
 - Added the ability to add additional announce URLs into torrent files
