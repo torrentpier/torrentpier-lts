@@ -16,7 +16,7 @@ if ($confirm) {
 
 	foreach (DB()->fetch_rowset($sql) as $row)
 	{
-		DB()->query("UPDATE ". BB_USERS ." SET user_birthday = '1900-01-01' WHERE user_id = ". $row['user_id'] ."");
+		DB()->query("UPDATE ". BB_USERS ." SET user_birthday = '1900-01-01' WHERE user_id = ". $row['user_id']);
 	}
 
 	bb_die('<h1 style="color: green">База данных обновлена</h1>');
