@@ -24,7 +24,7 @@ if ($confirm) {
 } else {
 	$msg = '<form method="POST">';
 	$msg .= '<h1 style="color: red">!!! Перед тем как нажать на кнопку, сделайте бекап базы данных !!!</h1><br />';
-	$msg .= '<input type="submit" name="confirm" value="Начать обновление Базы Данных (v2.1.5-LTS)" style="height: 30px; font:bold 14px Arial, Helvetica, sans-serif;" />';
+	$msg .= '<input type="submit" name="confirm" value="Начать обновление Базы Данных (v2.1.5 LTS 2023.03)" style="height: 30px; font:bold 14px Arial, Helvetica, sans-serif;" />';
 	$msg .= '</form>';
 
 	bb_die($msg);
