@@ -16,7 +16,7 @@ spam_filter_words.txt
 
 ### Migration scripts ###
 /r*-*.php
-/lts-*.php
+/lts*-*.php
 
 ### Archives ###
 *.log
