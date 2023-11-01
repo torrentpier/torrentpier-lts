@@ -12,12 +12,11 @@ if (!IS_SUPER_ADMIN) bb_die($lang['ONLY_FOR_SUPER_ADMIN']);
 $confirm = request_var('confirm', '');
 
 if ($confirm) {
-	$sql = "SELECT user_id, user_birthday FROM ". BB_USERS ." WHERE user_birthday == '0000-00-00' AND user_id NOT IN ('". EXCLUDED_USERS_CSV ."')";
+	$sql = "SELECT user_id, user_birthday FROM ". BB_USERS ." WHERE user_birthday = '0000-00-00'";
 
 	foreach (DB()->fetch_rowset($sql) as $row)
 	{
-		$birthday = bb_date(($row['user_birthday'] * 86400 + 1), 'Y-m-d', false);
-		DB()->query("UPDATE ". BB_USERS ." SET user_birthday = '". $birthday ."' WHERE user_id = ". $row['user_id'] ."");
+		DB()->query("UPDATE ". BB_USERS ." SET user_birthday = '1900-01-01' WHERE user_id = ". $row['user_id'] ."");
 	}
 
 	bb_die('<h1 style="color: green">База данных обновлена</h1>');
