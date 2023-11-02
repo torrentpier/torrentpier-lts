@@ -191,7 +191,7 @@ function get_formatted_dirsize()
 /*
 * Build SQL-Statement for the search feature
 */
-function search_attachments($order_by, &$total_rows)
+function search_attachments($order_by, &$total_rows, $back_links = '')
 {
 	global $lang;
 
@@ -236,7 +236,7 @@ function search_attachments($order_by, &$total_rows)
 		}
 		else
 		{
-			bb_die($lang['NO_ATTACH_SEARCH_MATCH']);
+			bb_die($lang['NO_ATTACH_SEARCH_MATCH'] . $back_links);
 		}
 
 		$where_sql[] = ' (t.user_id_1 IN (' . $matching_userids . ')) ';
@@ -320,7 +320,7 @@ function search_attachments($order_by, &$total_rows)
 
 	if ($num_attach == 0)
 	{
-		bb_die($lang['NO_ATTACH_SEARCH_MATCH']);
+		bb_die($lang['NO_ATTACH_SEARCH_MATCH'] . $back_links);
 	}
 
 	if (!($result = DB()->sql_query($total_rows_sql)))

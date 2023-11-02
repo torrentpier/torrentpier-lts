@@ -441,7 +441,7 @@ if ($view == 'attachments')
 	else
 	{
 		// we are called from search
-		$attachments = search_attachments($order_by, $total_rows);
+		$attachments = search_attachments($order_by, $total_rows, '<br /><br />' . sprintf($lang['CLICK_RETURN_ATTACH_CONFIG'], '<a href="javascript:history.back(-1)">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 	}
 
 	if (sizeof($attachments) > 0)
