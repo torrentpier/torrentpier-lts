@@ -217,7 +217,9 @@ class ajax_common
 		$this->response['error_msg'] = strip_tags(preg_replace('#<br\s*/?>#i', "\n", $error_msg));
 		if (DEBUG_AJAX_DIE)
 		{
-			$this->response['console_log'] = 'ajax die: ' . $this->debug_find_source();
+			$ajax_debug = 'ajax die: ' . $this->debug_find_source();
+			$this->response['error_msg'] .= "\n\n" . $ajax_debug;
+			$this->response['console_log'] = $ajax_debug;
 		}
 
 		$this->send();
