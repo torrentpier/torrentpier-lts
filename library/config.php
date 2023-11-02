@@ -323,7 +323,6 @@ define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с лог
 
 define('DBG_LOG',              true);             // включить логирование событий движка (отключите на боевом сервере)
 define('DBG_LOG_TRACKER',      false);            // включить логирование событий анонсера (отключите на боевом сервере)
-define('DEBUG_AJAX_DIE',       true);             // отображать в консоли браузера и в alert окне файл:строку в которой происходит вызов ajax_die()
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 define('SQL_DEBUG',            true);             // включить отладку для SQL запросов и Cache & Datastore
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)
