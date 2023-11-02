@@ -3040,7 +3040,7 @@ class Text_LangCorrect
 		if (0) #DEBUG
 		{
 			//$suggestions['?'] = $word;
-			//var_export($suggestions);
+			var_export($suggestions);
 		}
 		#не д. б. несуществующих N-грамм
 		foreach ($suggestions as $type => $w)
@@ -3051,7 +3051,7 @@ class Text_LangCorrect
 		if (0) #DEBUG
 		{
 			//$suggestions['?'] = $word;
-			//var_export($suggestions);
+			var_export($suggestions);
 		}
 		if (count($suggestions) === 0) return $word;
 

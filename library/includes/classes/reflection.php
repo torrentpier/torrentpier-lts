@@ -6,33 +6,16 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
  * A class for validating method parameters to allowed types via reflection.
  *
  * Purpose
- *   * Used as a more convenient mechanism than a big code for checking types,
- *     standing after the declaration of the methods.
- *   * Requires write correct phpDoc
+ *   Used as a more convenient multiple assert(), standing after the declaration of the methods.
  *
- * Features
+ * Features and advantage
  *   * Very easy to use
  *   * Ability to turn off on the production server
- *
- * Understanding
- *   All built-in PHP functions check the type of input variables and the "swearing", if not given.
- *   ReflectionTypeHint does too.
- *   Previously, I wrote this (the correct way, but a lot of code):
- *   if (! is_bool($b)) {
- *       trigger_error('A bool type expected in 1-st parameter, ' . gettype($b)   . ' type given!', E_USER_WARNING);
- *       return false;
- *   }
- *   if (! is_string($s)) {
- *       trigger_error('A string type expected in 2-nd parameter, ' . gettype($s)   . ' type given!', E_USER_WARNING);
- *       return false;
- *   }
- *   Now I'm doing this one line of code:
- *   if (! ReflectionTypeHint::isValid()) return false;
  *
  * WARNING
  *   On a production server, it is important to disable assert, that would save server resources.
  *   For this, use the assert_options(ASSERT_ACTIVE, false) or INI setting "assert.active 0".
- *   In this case ReflectionTypeHint::isValid() always immediately returns TRUE!
+ *   In this case ReflectionTypeHint::isValid() always returns TRUE!
  *
  * Useful links
  *   http://www.ilia.ws/archives/205-Type-hinting-for-PHP-5.3.html
@@ -44,6 +27,7 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
  * @author   Nasibullin Rinat
  * @version  1.1.0
  */
+
 class ReflectionTypeHint
 {
 	protected static $hints = array(
