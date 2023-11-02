@@ -8,6 +8,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2023.10 🎉
+- Added ability to debug ajax_die() calls
 - Added missing migration file (lts03-user_birthday.php)
 - Check $tpl_vars['QUESTION'] in print_confirmation() [5bff794](https://github.com/torrentpier/torrentpier-lts/commit/5bff794ac21035768e2b5f4ece716ec5d897aa94) ([belomaxorka](https://github.com/belomaxorka))
 - Some fixes in admin_attach_cp.php
