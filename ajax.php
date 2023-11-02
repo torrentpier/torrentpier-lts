@@ -215,7 +215,10 @@ class ajax_common
 	{
 		$this->response['error_code'] = $error_code;
 		$this->response['error_msg'] = strip_tags(preg_replace('#<br\s*/?>#i', "\n", $error_msg));
-		$this->response['console_log'] = 'ajax die: ' . $this->debug_find_source();
+		if (DEBUG_AJAX_DIE)
+		{
+			$this->response['console_log'] = 'ajax die: ' . $this->debug_find_source();
+		}
 
 		$this->send();
 	}
@@ -340,7 +343,7 @@ class ajax_common
 	 */
 	function debug_find_source ($mode = '')
 	{
-		if (!SQL_PREPEND_SRC_COMM) return 'src disabled';
+		if (!DEBUG_AJAX_DIE) return 'src disabled';
 		foreach (debug_backtrace() as $trace)
 		{
 			if (!empty($trace['file']) && $trace['file'] !== __FILE__)
