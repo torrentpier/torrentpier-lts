@@ -47,8 +47,6 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
  * @license  http://creativecommons.org/licenses/by-nc-sa/3.0/
  * @author   Nasibullin Rinat
  * @version  1.4.3
- *
- * Fork: https://github.com/b1rdex/text-lang-correct | Aug 4 2023 | 0.1.8
  */
 
 class Text_LangCorrect
@@ -2656,15 +2654,12 @@ class Text_LangCorrect
 		'qz ' => 0,
 		'rq ' => 0,
 		'rz ' => 0,
-		'rf ' => 0,
-		'rb ' => 0,
 		'sg ' => 0,
 		'sj ' => 0,
 		'sx' => 0,
 		'sx ' => 0,
 		'sz' => 0,
 		'sz ' => 0,
-		'tc ' => 0,
 		'tg ' => 0,
 		'tj ' => 0,
 		'tq' => 0,
@@ -2910,12 +2905,6 @@ class Text_LangCorrect
 	{
 		$word = $a[0];
 		#var_export($a);
-
-		// todo: add skip list
-		if ($word === 'блэкаут')
-		{
-			return $word;
-		}
 
 		$suggestions = array();
 
