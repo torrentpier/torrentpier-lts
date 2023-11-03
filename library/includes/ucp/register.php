@@ -167,7 +167,8 @@ foreach ($profile_fields as $field => $can_edit)
 	// Проверка на возможность редактирования
 	if ((bool) $can_edit === false)
 	{
-		continue;
+		// TODO: При continue; не устанавливаются переменные шаблона прописанные в case
+		// continue;
 	}
 
 	switch ($field)
