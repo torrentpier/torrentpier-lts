@@ -220,7 +220,7 @@ function search_attachments($order_by, &$total_rows, $back_links = '')
 
 		if (!($result = DB()->sql_query($sql)))
 		{
-			bb_die('Could not obtain list of matching users (searching for: ' . $search_author . ')');
+			bb_die('Could not obtain list of matching users (searching for: ' . $search_author . ')' . $back_links);
 		}
 
 		$matching_userids = '';
@@ -311,7 +311,7 @@ function search_attachments($order_by, &$total_rows, $back_links = '')
 
 	if (!($result = DB()->sql_query($sql)))
 	{
-		bb_die('Could not query attachments #1');
+		bb_die('Could not query attachments #1' . $back_links);
 	}
 
 	$attachments = DB()->sql_fetchrowset($result);
@@ -325,7 +325,7 @@ function search_attachments($order_by, &$total_rows, $back_links = '')
 
 	if (!($result = DB()->sql_query($total_rows_sql)))
 	{
-		bb_die('Could not query attachments #2');
+		bb_die('Could not query attachments #2' . $back_links);
 	}
 
 	$total_rows = DB()->num_rows($result);
