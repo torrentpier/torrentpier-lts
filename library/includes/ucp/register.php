@@ -167,7 +167,7 @@ foreach ($profile_fields as $field => $can_edit)
 	// Проверка на возможность редактирования
 	if ((bool) $can_edit === false)
 	{
-		// TODO: При continue; не устанавливаются переменные шаблона прописанные в case
+		// TODO: При continue; не устанавливаются переменные ($tp_data) шаблона прописанные в case
 		// continue;
 	}
 
@@ -198,7 +198,7 @@ foreach ($profile_fields as $field => $can_edit)
 				{
 					$errors[] = $err;
 				}
-				if ($username != $pr_data['username'] || $mode == 'register')
+				if ($can_edit && $username != $pr_data['username'] || $mode == 'register')
 				{
 					$pr_data['username'] = $username;
 					$db_data['username'] = $username;
