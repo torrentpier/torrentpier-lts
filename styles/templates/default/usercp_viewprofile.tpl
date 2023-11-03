@@ -193,6 +193,10 @@ ajax.callback.gen_passkey = function(data){
 		<a href="{U_MANAGE}">{L_PROFILE}</a> &middot;
 		<a href="{U_PERMISSIONS}">{L_PERMISSIONS}</a>
 	</p>
+	<!-- ELSE -->
+	<p class="floatR">
+		<a href="{U_OPTIONS}">{L_PROFILE}</a>
+	</p>
 	<!-- ENDIF -->
 	<div class="clear"></div>
 </div>
