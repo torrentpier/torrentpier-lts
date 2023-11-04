@@ -928,6 +928,19 @@ class attach_parent
 			}
 
 			//bt
+			// Block uploading more than one torrent file
+			$uploaded_torrents = isset(array_count_values($this->attachment_extension_list)[TORRENT_EXT]) ? array_count_values($this->attachment_extension_list)[TORRENT_EXT] : 0;
+			if (!$error && $this->extension === TORRENT_EXT && ($uploaded_torrents >= 1))
+			{
+				$error = TRUE;
+				if (!empty($error_msg))
+				{
+					$error_msg .= '<br />';
+				}
+				$error_msg .= $lang['ONLY_1_TOR_PER_TOPIC'];
+			}
+			unset($uploaded_torrents);
+
 			// Check if user can post torrent
 			global $post_data;
 
