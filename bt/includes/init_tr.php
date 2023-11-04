@@ -42,7 +42,7 @@ function silent_exit ()
 
 function error_exit ($msg = '')
 {
-	if (DBG_LOG_TRACKER) dbg_log($msg, '!err-' . $msg . '_' . time());
+	if (DBG_LOG_TRACKER) dbg_log(' ', '!err-'. clean_filename($msg));
 
 	silent_exit();
 

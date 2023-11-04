@@ -169,7 +169,7 @@ function drop_fast_announce ($lp_info)
 
 function msg_die ($msg)
 {
-	if (DBG_LOG_TRACKER) dbg_log($msg, '!die-' . $msg . '_' . time());
+	if (DBG_LOG_TRACKER) dbg_log(' ', '!die-'. clean_filename($msg));
 
 	$output = bencode(array(
 #		'interval'        => (int) 1800,

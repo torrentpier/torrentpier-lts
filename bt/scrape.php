@@ -21,7 +21,7 @@ $info_hash = $_GET['info_hash'];
 
 function msg_die ($msg)
 {
-	if (DBG_LOG_TRACKER) dbg_log($msg, '!die-' . $msg . '_' . time());
+	if (DBG_LOG_TRACKER) dbg_log(' ', '!die-'. clean_filename($msg));
 
 	$output = bencode(array(
 		'min interval'    => (int) 1800,
