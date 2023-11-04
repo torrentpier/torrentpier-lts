@@ -221,7 +221,7 @@
 	</tr>
 	<tr class="row1">
 		<td>{L_DOWNLOADED}:</td>
-		<td><span title="{L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED}">{postrow.attach.tor_reged.DOWNLOAD_COUNT} <span class="posted_since">({L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED})</span></span></td>
+		<td><span>{postrow.attach.tor_reged.DOWNLOAD_COUNT}</span>&nbsp;<span title="{L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED}" class="posted_since">({L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED})</span></td>
 	</tr>
 	<tr class="row1">
 		<td>{L_SIZE}:</td>
