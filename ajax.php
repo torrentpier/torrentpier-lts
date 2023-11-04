@@ -215,6 +215,8 @@ class ajax_common
 	{
 		$this->response['error_code'] = $error_code;
 		$this->response['error_msg'] = strip_tags(preg_replace('#<br\s*/?>#i', "\n", $error_msg));
+
+		// Get caller info
 		if (!empty($_COOKIE['explain']))
 		{
 			$ajax_debug = 'ajax die: ' . $this->debug_find_source();
