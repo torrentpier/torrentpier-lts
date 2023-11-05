@@ -45,7 +45,7 @@ function validate_username ($username, $check_ban_and_taken = true)
 
 		if ($row = DB()->fetch_row("SELECT username FROM ". BB_USERS ." WHERE username = '$username_sql' LIMIT 1"))
 		{
-			if ((!IS_GUEST && $row['username'] != $user->name) || IS_GUEST)
+			if ((!IS_GUEST && $row['username'] != $user->name) || IS_GUEST || (request_var('admin', '') && IS_ADMIN))
 			{
 				return $lang['USERNAME_TAKEN'];
 			}
