@@ -76,7 +76,7 @@ if ($submit && $mode == 'user')
 		if ($userdata['user_id'] == $user_id || $user_id == GUEST_UID || $user_id == BOT_UID)
 		{
 			$message = $lang['AUTH_GENERAL_ERROR'] .'<br /><br />';
-			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'&u='. $user_id .'">', '</a>') .'<br /><br />';
 			$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 			bb_die($message);
@@ -89,7 +89,7 @@ if ($submit && $mode == 'user')
 		delete_permissions($group_id, $user_id);
 
 		$message = $lang['AUTH_UPDATED'] .'<br /><br />';
-		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'&u='. $user_id .'">', '</a>') .'<br /><br />';
 		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 		bb_die($message);
@@ -101,7 +101,7 @@ if ($submit && $mode == 'user')
 		if ($userdata['user_id'] == $user_id)
 		{
 			$message = $lang['AUTH_SELF_ERROR'] .'<br /><br />';
-			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+			$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'&u='. $user_id .'">', '</a>') .'<br /><br />';
 			$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 			bb_die($message);
@@ -113,7 +113,7 @@ if ($submit && $mode == 'user')
 		delete_permissions($group_id, $user_id);
 
 		$message = $lang['AUTH_UPDATED'] .'<br /><br />';
-		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'&u='. $user_id .'">', '</a>') .'<br /><br />';
 		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 		bb_die($message);
@@ -144,7 +144,7 @@ if ($submit && $mode == 'user')
 
 	$l_auth_return = ($mode == 'user') ? $lang['CLICK_RETURN_USERAUTH'] : $lang['CLICK_RETURN_GROUPAUTH'];
 	$message = $lang['AUTH_UPDATED'] .'<br /><br />';
-	$message .= sprintf($l_auth_return, '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+	$message .= sprintf($l_auth_return, '<a href="admin_ug_auth.php?mode='. $mode .'&u='. $user_id .'">', '</a>') .'<br /><br />';
 	$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 	bb_die($message);
@@ -177,7 +177,7 @@ else if ($submit && $mode == 'group' && is_array(@$_POST['auth']))
 
 	$l_auth_return = $lang['CLICK_RETURN_GROUPAUTH'];
 	$message = $lang['AUTH_UPDATED'] .'<br /><br />';
-	$message .= sprintf($l_auth_return, '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+	$message .= sprintf($l_auth_return, '<a href="admin_ug_auth.php?mode='. $mode .'&g='. $group_id .'">', '</a>') .'<br /><br />';
 	$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
 
 	bb_die($message);
