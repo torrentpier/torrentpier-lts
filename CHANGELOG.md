@@ -1,5 +1,13 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.05 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05) (2024-06-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10...v2.1.5-2024.05)
+
+**Merged pull requests:**
+
+- Release v2.1.5-2024.05 🎉
+- Block uploading more than one torrent file [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
+
 ## [v2.1.5-2023.10 [Final]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.09...v2.1.5-2023.10)
 
