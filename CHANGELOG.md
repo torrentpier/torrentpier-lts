@@ -7,6 +7,7 @@
 
 - Release v2.1.5-2024.05 🎉
 - Block uploading more than one torrent file [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed: Moderators can't see self IP addresses [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
 - Some other changes / improvements
 
 ## [v2.1.5-2023.10 [Final]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04)

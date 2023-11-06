@@ -117,7 +117,7 @@ switch ($mode)
 		}
 
 		if ($profiledata['user_level'] == ADMIN && !IS_ADMIN) $reg_ip = $last_ip = $lang['HIDDEN'];
-		elseif ($profiledata['user_level'] == MOD && IS_MOD)  $reg_ip = $last_ip = $lang['HIDDEN'];
+		elseif ($profiledata['user_level'] == MOD && !IS_AM)  $reg_ip = $last_ip = $lang['HIDDEN'];
 		else
 		{
 			$user_reg_ip  = decode_ip($profiledata['user_reg_ip']);
