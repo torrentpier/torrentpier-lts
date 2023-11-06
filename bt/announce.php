@@ -496,7 +496,7 @@ if (!$output)
 		'min interval' => (int) $announce_interval,
 		'complete'     => (int) $seeders,
 		'incomplete'   => (int) $leechers,
-	#	'downloaded'   => (int) $client_completed,
+#		'downloaded'   => (int) $client_completed,
 		'peers'        => $peers,
 	);
 
