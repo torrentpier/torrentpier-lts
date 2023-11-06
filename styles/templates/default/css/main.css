@@ -967,7 +967,7 @@ var.ajax-params { display: none; }
 #ajax-loading {
 	display: none;
 	background: rgba(0,0,0, 0.5) url(../images/loading_1.gif) no-repeat center center;
-	float: right;
+	right: 0 !important;
 	width: 85px;
 	height: 30px;
 	border-bottom-left-radius: 10px;
@@ -976,7 +976,7 @@ var.ajax-params { display: none; }
 }
 #ajax-error {
 	background: #d32031 url(../images/loading_1.gif) no-repeat center center;
-	float: right;
+	right: 0 !important;
 	min-width: 200px;
 	height: 30px;
 	border-bottom-left-radius: 10px;
