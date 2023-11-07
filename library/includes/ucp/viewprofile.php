@@ -172,7 +172,7 @@ if (IS_ADMIN)
 else if (IS_MOD)
 {
 	$template->assign_vars(array(
-		'SHOW_GROUP_MEMBERSHIP' => ($profiledata['user_level'] != USER),
+		'GROUP_MEMBERSHIP' => ($profiledata['user_level'] != ADMIN),
 	));
 }
 
