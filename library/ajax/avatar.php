@@ -14,7 +14,7 @@ if (!$user_id OR !$u_data = get_userdata($user_id))
 
 if (!IS_ADMIN && $user_id != $user->id)
 {
-	$this->ajax_die($lang['NOT_ADMIN']);
+	$this->ajax_die($lang['NOT_AUTHORISED']);
 }
 
 switch ($mode)
