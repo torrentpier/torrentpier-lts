@@ -1,5 +1,6 @@
 <!-- IF IS_ADMIN -->
 <script type="text/javascript">
+// edit_user_profile
 ajax.init.edit_user_profile = function(params){
 	if (params.submit) {
 		ajax.exec({
