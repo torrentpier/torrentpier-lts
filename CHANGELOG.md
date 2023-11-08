@@ -9,6 +9,7 @@
 - Block uploading more than one torrent file [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed: Moderators can't see self IP addresses [39d4b14](https://github.com/torrentpier/torrentpier-lts/commit/39d4b14f7a118223b952a98eecf7fe1625fc20b2) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed undefined tpl variable SHOW_GROUP_MEMBERSHIP [8e96648](https://github.com/torrentpier/torrentpier-lts/commit/8e9664822c0a4daa514192cdaefa361425d86b29) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed broken avatar ajax action for users [48ea82e](https://github.com/torrentpier/torrentpier-lts/commit/48ea82e4ce706026dc4fd63e8f9153da21d38071) ([belomaxorka](https://github.com/belomaxorka))
 - Some other changes / improvements
 
 ## [v2.1.5-2023.10 [Final]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04)
