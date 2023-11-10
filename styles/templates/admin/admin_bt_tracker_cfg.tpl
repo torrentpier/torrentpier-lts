@@ -114,6 +114,13 @@
 	</td>
 </tr>
 <tr>
+	<td><h4>{L_GOLD} / {L_SILVER}</h4></td>
+	<td>
+		<label><input type="radio" name="freeleech" value="1" <!-- IF FREELEECH_ENABLED -->checked="checked"<!-- ENDIF --> />{L_ENABLED}</label>
+		<label><input type="radio" name="freeleech" value="0" <!-- IF not FREELEECH_ENABLED -->checked="checked"<!-- ENDIF --> />{L_DISABLED}</label>
+	</td>
+</tr>
+<tr>
 	<td><h4>{L_IGNORE_GIVEN_IP}</h4><h5>$bb_cfg['ignore_reported_ip']</h5><h6><!-- IF L_IGNOR_GIVEN_IP_EXPL -->{L_IGNOR_GIVEN_IP_EXPL}<!-- ENDIF --></h6></td>
 	<td>&nbsp; <!-- IF IGNORE_REPORTED_IP -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></td>
 </tr>
