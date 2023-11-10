@@ -7,6 +7,7 @@
 
 - Release v2.1.5-2024.05 🎉
 - Added missing translations
+- Updated UTF8 class up to v2.3.1 [ed2220e](https://github.com/torrentpier/torrentpier-lts/commit/ed2220e6f37e7bf98ab17c46c7ec4422a36ad387) ([belomaxorka](https://github.com/belomaxorka))
 - Block uploading more than one torrent file [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed: Moderators can't see self IP addresses [39d4b14](https://github.com/torrentpier/torrentpier-lts/commit/39d4b14f7a118223b952a98eecf7fe1625fc20b2) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed undefined tpl variable SHOW_GROUP_MEMBERSHIP [8e96648](https://github.com/torrentpier/torrentpier-lts/commit/8e9664822c0a4daa514192cdaefa361425d86b29) ([belomaxorka](https://github.com/belomaxorka))
