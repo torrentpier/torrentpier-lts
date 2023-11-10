@@ -2360,7 +2360,7 @@ $lang['BT_SHOW_DL_BUT_COMPL'] = $lang['DLCOMPLETE'];
 $lang['BT_SHOW_DL_BUT_CANCEL'] = $lang['DLCANCEL'];
 
 $lang['BT_ADD_AUTH_KEY_HEAD'] = 'Passkey';
-$lang['BT_ADD_AUTH_KEY'] = 'Aвтодобавление passkey к торрент-файлам перед их скачиванием';
+$lang['BT_ADD_AUTH_KEY'] = 'Автодобавление passkey к торрент-файлам перед их скачиванием';
 
 $lang['BT_TOR_BROWSE_ONLY_REG_HEAD'] = 'Torrent browser (трекер)';
 $lang['BT_TOR_BROWSE_ONLY_REG'] = 'Torrent browser (tracker.php) не доступен для гостей';
