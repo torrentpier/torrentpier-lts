@@ -1509,7 +1509,7 @@ $lang['STRIKEOUT'] = 'Зачеркнутый текст: [s]текст[/s] (Ctrl
 $lang['QUOTE_TITLE'] = 'Цитата: [quote]текст[/quote] (Ctrl+Q)';
 $lang['IMG_TITLE'] = 'Вставить картинку: [img]http://image_url[/img] (Ctrl+R)';
 $lang['URL'] = 'Ссылка';
-$lang['URL_TITLE'] = 'Вставьте URL: [url]https://url[/url] или [url=https://url]URL текст[/url] (Ctrl+W)';
+$lang['URL_TITLE'] = 'Вставьте URL: [url]http://url[/url] или [url=http://url]URL текст[/url] (Ctrl+W)';
 $lang['CODE_TITLE'] = 'Код: [code]код[/code] (Ctrl+K)';
 $lang['LIST'] = 'Список';
 $lang['LIST_TITLE'] = 'Список: [list]текст[/list] (Ctrl+L)';
