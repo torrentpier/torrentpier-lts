@@ -114,7 +114,7 @@
 	</td>
 </tr>
 <tr>
-	<td><h4>{L_GOLD} / {L_SILVER}</h4></td>
+	<td><h4>{L_FREELEECH}</h4></td>
 	<td>
 		<label><input type="radio" name="freeleech" value="1" <!-- IF FREELEECH_ENABLED -->checked="checked"<!-- ENDIF --> />{L_ENABLED}</label>
 		<label><input type="radio" name="freeleech" value="0" <!-- IF not FREELEECH_ENABLED -->checked="checked"<!-- ENDIF --> />{L_DISABLED}</label>

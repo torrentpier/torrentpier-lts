@@ -2288,6 +2288,7 @@ $lang['EXPIRE_FACTOR'] = 'Фактор смерти peer\'ов';
 $lang['EXPIRE_FACTOR_EXPL'] = "время жизни peer'а рассчитывается как announce интервал умноженный на фактор смерти peer'а<br />должен быть не меньше 1";
 $lang['IGNORE_GIVEN_IP'] = 'Игнорировать указанный клиентом IP';
 $lang['UPDATE_DLSTAT'] = 'Вести учет скачанного/отданного юзером';
+$lang['FREELEECH'] = 'Фрилич';
 
 $lang['LIMIT_ACTIVE_TOR_HEAD'] = 'Ограничения';
 $lang['LIMIT_ACTIVE_TOR'] = 'Ограничить количество одновременных закачек';

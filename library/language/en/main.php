@@ -2288,6 +2288,7 @@ $lang['EXPIRE_FACTOR'] = 'Peer expire factor';
 $lang['EXPIRE_FACTOR_EXPL'] = 'Consider a peer dead if it has not announced in a number of seconds equal to this many times the calculated announce interval at the time of its last announcement (must be greater than 1)';
 $lang['IGNORE_GIVEN_IP'] = 'Ignore IP reported by client';
 $lang['UPDATE_DLSTAT'] = 'Store users up/down statistics';
+$lang['FREELEECH'] = 'Freeleech';
 
 $lang['LIMIT_ACTIVE_TOR_HEAD'] = 'Limits';
 $lang['LIMIT_ACTIVE_TOR'] = 'Limit active torrents';
