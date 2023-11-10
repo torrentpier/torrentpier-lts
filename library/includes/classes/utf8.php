@@ -1,4 +1,4 @@
-<?php
+<?php if (!defined('BB_ROOT')) die(basename(__FILE__));
 /**
  * UTF8 support in PHP5.
  * PHP5 UTF8 is a UTF8 aware library of functions mirroring PHP's own string functions.
@@ -3211,7 +3211,7 @@ class UTF8
 					+ array(
 						#&apos; entity is only available in XHTML/HTML5 and not in plain HTML, see http://www.w3.org/TR/xhtml1/#C_16
 						'&apos;' => "\x27",  #U+0027 ['] &#39; apostrophe
-					);  
+					);
 		}
 		#replace named entities
 		$s = strtr($s, $table);
