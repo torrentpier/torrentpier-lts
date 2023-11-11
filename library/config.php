@@ -372,10 +372,10 @@ define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 $bb_cfg['date_format']             = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости)
 
 // Subforums
-$bb_cfg['sf_on_first_page_only']   = true;
+$bb_cfg['sf_on_first_page_only']   = true; // показывать подфорумы только на первой странице форума
 
 // Forums
-$bb_cfg['allowed_topics_per_page'] = array(50, 100, 150, 200, 250, 300);
+$bb_cfg['allowed_topics_per_page'] = array(50, 100, 150, 200, 250, 300); // разрешенное количество топиков на страницу
 $bb_cfg['last_post_date_format']   = 'd-M-y H:i'; // формат даты последнего поста (на странице просмотра форума и на главной)
 
 // Topics
@@ -393,7 +393,7 @@ $bb_cfg['ext_link_new_win']       = true;          // открывать вне�
 
 $bb_cfg['topic_moved_days_keep']  = 7;             // remove topic moved links after xx days (or FALSE to disable)
 
-$bb_cfg['allowed_posts_per_page'] = array(15, 30, 50, 100);
+$bb_cfg['allowed_posts_per_page'] = array(15, 30, 50, 100); // разрешенное количество постов на страницу
 
 $bb_cfg['user_signature_start']   = '<div class="signature"><br />_________________<br />';
 $bb_cfg['user_signature_end']     = '</div>';
