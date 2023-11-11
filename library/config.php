@@ -410,7 +410,7 @@ $bb_cfg['sphinx_topic_titles_host']   = '127.0.0.1';
 $bb_cfg['sphinx_topic_titles_port']   = 3312;
 $bb_cfg['sphinx_config_path']         = realpath("../install/sphinx/sphinx.conf");
 
-$bb_cfg['disable_ft_search_in_posts'] = false;     // disable searching in post bodies
+$bb_cfg['disable_ft_search_in_posts'] = false;     // отключить поиск слов в теле сообщения
 $bb_cfg['disable_search_for_guest']   = true;      // отключить поиск для гостей
 $bb_cfg['allow_search_in_bool_mode']  = true;
 $bb_cfg['max_search_words_per_post']  = 200;       // максимальное число слов в рамках одного поста
