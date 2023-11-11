@@ -387,7 +387,7 @@ $bb_cfg['show_poster_posts']      = true;          // показывать ко�
 $bb_cfg['show_poster_from']       = true;          // показывать страну пользователя
 $bb_cfg['show_bot_nick']          = false;         // показывать ник бота
 $bb_cfg['text_buttons']           = false;         // использоваться текстовые кнопки вместо иконок
-$bb_cfg['parse_ed2k_links']       = true;          // make ed2k links clickable
+$bb_cfg['parse_ed2k_links']       = true;          // TODO: make ed2k links clickable
 $bb_cfg['post_date_format']       = 'd-M-Y H:i';   // формат даты публикации в топиках
 $bb_cfg['ext_link_new_win']       = true;          // открывать внешние (сторонние) ссылки в отдельном окне
 
