@@ -448,8 +448,8 @@ $bb_cfg['poll_max_days'] = 180;                    // сколько дней с
 
 // Users
 $bb_cfg['color_nick']                   = true;    // Окраска ников пользователей по user_rank
-$bb_cfg['user_not_activated_days_keep'] = 7;       // "not activated" == "not finished registration"
-$bb_cfg['user_not_active_days_keep']    = 180;     // inactive users but only with no posts
+$bb_cfg['user_not_activated_days_keep'] = 7;       // Спустя сколько дней удалять пользователей которые не завершили регистрацию (то-есть аккаунт не активирован)
+$bb_cfg['user_not_active_days_keep']    = 180;     // Спустя сколько дней удалять пользователей которые были неактивны и при этом не имеют ни одного сообщения
 
 // Groups
 $bb_cfg['group_members_per_page']       = 50;      // количество групп отображаемых на одной странице
