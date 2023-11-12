@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2024.05-alpha2 🎉
+- Fixed a bug causing inability to view file contents for some torrents [\#328](https://github.com/torrentpier/torrentpier-lts/pull/328) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Some other changes / improvements
 
 ## [v2.1.5-2024.05-alpha1 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha1) (2024-06-04)
