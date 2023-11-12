@@ -34,9 +34,9 @@ ajax.callback.change_user_rank = function (data) {
 	$('#rank-name').html(data.rank_name);
 };
 
-// change_user_opt
 ajax.user_opt = {AJAX_USER_OPT};
 
+// change_user_opt
 ajax.change_user_opt = function() {
 	ajax.exec({
 		action   : 'change_user_opt',
