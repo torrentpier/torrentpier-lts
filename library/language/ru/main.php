@@ -1035,9 +1035,9 @@ $lang['PM_QUOTA'] = 'Квота ЛС';
 
 // Common Variables
 $lang['BYTES'] = 'Байт';
-$lang['KB'] = 'KB';
-$lang['MB'] = 'MB';
-$lang['GB'] = 'GB';
+$lang['KB'] = 'КБ';
+$lang['MB'] = 'МБ';
+$lang['GB'] = 'ГБ';
 $lang['ATTACH_SEARCH_QUERY'] = 'Поиск вложений';
 $lang['TEST_SETTINGS'] = 'Проверить настройки';
 $lang['NOT_ASSIGNED'] = 'Не назначено';
