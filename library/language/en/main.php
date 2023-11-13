@@ -2565,7 +2565,7 @@ $lang['LOG_ACTION']['LOG_TYPE'] = array(
 	'adm_user_unban'   => 'User:<br /> <b>unban</b>',
 );
 
-$lang['ACTS_LOG_ALL_ACTIONS']  = 'All actions';
+$lang['ACTS_LOG_ALL_ACTIONS'] = 'All actions';
 $lang['ACTS_LOG_SEARCH_OPTIONS'] = 'Actions Log: Search options';
 $lang['ACTS_LOG_FORUM'] = 'Forum';
 $lang['ACTS_LOG_ACTION'] = 'Action';
