@@ -1034,10 +1034,10 @@ $lang['UPLOAD_QUOTA'] = 'Розмір';
 $lang['PM_QUOTA'] = 'Квота ОП';
 
 // Common Variables
-$lang['BYTES'] = 'Байт';
-$lang['KB'] = 'KB';
-$lang['MB'] = 'MB';
-$lang['GB'] = 'GB';
+$lang['BYTES'] = 'Байтів';
+$lang['KB'] = 'Кб';
+$lang['MB'] = 'Мб';
+$lang['GB'] = 'Гб';
 $lang['ATTACH_SEARCH_QUERY'] = 'Пошук вкладень';
 $lang['TEST_SETTINGS'] = 'Перевірити налаштування';
 $lang['NOT_ASSIGNED'] = 'Не призначено';
