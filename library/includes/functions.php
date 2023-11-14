@@ -2811,7 +2811,7 @@ function hash_search ($hash)
 
 	$hash = htmlCHR(trim($hash));
 
-	if (!isset($hash) || mb_strlen($hash, 'UTF-8') != 40)
+	if (!isset($hash) || mb_strlen($hash, 'UTF-8') != 40 || !ctype_xdigit($hash))
 	{
 		bb_die(sprintf($lang['HASH_INVALID'], $hash));
 	}
