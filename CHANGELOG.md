@@ -6,6 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2024.05-alpha2 🎉
+- Fix for html entities being displayed in magnet links [\#329](https://github.com/torrentpier/torrentpier-lts/pull/329) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Fixed a bug causing inability to view file contents for some torrents [\#328](https://github.com/torrentpier/torrentpier-lts/pull/328) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Updated translations
 - Some other changes / improvements
