@@ -89,7 +89,7 @@ if ($tor_auth_reg || $tor_auth_del)
 
 if ($bb_cfg['torrent_name_style'])
 {
-	$display_name = '['.$bb_cfg['server_name'].'].t' . $bt_topic_id . '.torrent';
+	$display_name = '['.$bb_cfg['server_name'].'].t' . $bt_topic_id . '.' . TORRENT_EXT;
 }
 
 if (!$tor_reged)
