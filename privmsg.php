@@ -33,7 +33,7 @@ $confirmed = ( isset($_POST['confirm']) ) ? TRUE : 0;
 $delete = ( isset($_POST['delete']) ) ? TRUE : 0;
 $delete_all = ( isset($_POST['deleteall']) ) ? TRUE : 0;
 $save = ( isset($_POST['save']) ) ? TRUE : 0;
-$mode = isset($_REQUEST['mode']) ? (string) $_REQUEST['mode'] : '';
+$mode = isset($_REQUEST['mode']) ? htmlCHR($_REQUEST['mode']) : '';
 
 $refresh = $preview || $submit_search;
 
