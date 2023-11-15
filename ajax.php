@@ -214,7 +214,7 @@ class ajax_common
 	function ajax_die($error_msg, $error_code = E_AJAX_GENERAL_ERROR)
 	{
 		$this->response['error_code'] = $error_code;
-		$this->response['error_msg'] = strip_tags(preg_replace('#<br\s*/?>#i', "\n", $error_msg));
+		$this->response['error_msg'] = strip_tags(br2nl($error_msg));
 
 		// Get caller info
 		if (!empty($_COOKIE['explain']))
@@ -323,7 +323,7 @@ class ajax_common
 		if (empty($confirm_msg)) $this->ajax_die('false');
 
 		$this->response['prompt_confirm'] = 1;
-		$this->response['confirm_msg'] = strip_tags(preg_replace('#<br\s*/?>#i', "\n", $confirm_msg));
+		$this->response['confirm_msg'] = strip_tags(br2nl($confirm_msg));
 		$this->send();
 	}
 

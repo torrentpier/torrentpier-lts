@@ -421,6 +421,11 @@ function htmlCHR ($txt, $double_encode = false, $quote_style = ENT_QUOTES, $char
 	return (string) htmlspecialchars($txt, $quote_style, $charset, $double_encode);
 }
 
+function br2nl ($txt)
+{
+	return preg_replace('#<br\s*/?>#i', "\n", $txt);
+}
+
 function html_ent_decode ($txt, $quote_style = ENT_QUOTES, $charset = 'UTF-8')
 {
 	return (string) html_entity_decode($txt, $quote_style, $charset);
