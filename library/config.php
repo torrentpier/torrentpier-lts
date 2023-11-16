@@ -22,7 +22,7 @@ $bb_cfg['tp_zf_version'] = '2.4.13';
 
 // Database
 $charset  = 'utf8'; // кодировка базы данных
-$pconnect = false;  // постоянное соединение с сервером | https://www.php.net/manual/ru/function.mysql-pconnect.php
+$pconnect = false;  // постоянное соединение с сервером MySQL | https://www.php.net/manual/ru/function.mysql-pconnect.php
 
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, постоянное соединение);
