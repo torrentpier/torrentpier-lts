@@ -513,7 +513,7 @@ $bb_cfg['sitemap_sending'] = array( // Список URL адресов на ко
 	'Google' => 'https://google.com/webmasters/sitemaps/ping?sitemap=',
 );
 
-// Extensions [расширения разрешенные для загрузки через upload_common() класс]
+// Extensions [расширения разрешенные для загрузки через upload_common() класс только!]
 $bb_cfg['file_id_ext'] = array(
 	// Images
 	1 => 'gif',
