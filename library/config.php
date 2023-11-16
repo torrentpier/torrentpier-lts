@@ -247,8 +247,7 @@ $bb_cfg['lang'] = array(
 // Templates
 define('ADMIN_TPL_DIR', TEMPLATES_DIR .'/admin/'); // путь к директории с шаблонами к админ-панели
 
-$bb_cfg['templates'] = array(
-	// Список доступных шаблонов
+$bb_cfg['templates'] = array( // Список доступных шаблонов
 	// Формат: 'папка_шаблона' => 'Название шаблона'
 	'default' => 'Стандартный',
 );
