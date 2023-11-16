@@ -96,11 +96,11 @@ $bb_cfg['verify_reported_ip'] = true;              // Verify IP reported by clie
 $bb_cfg['allow_internal_ip']  = false;             // Allow internal IP (10.xx.. etc.)
 
 // Ocelot
+$bb_cfg['ocelot']['port'] = 34000; // Порт для Ocelot анонсера
 $bb_cfg['ocelot'] = array(
 	'enabled' => false,
 	'host'    => $domain_name,
-	'port'    => 34000,
-	'url'     => "http://$domain_name:34000/", // with '/'
+	'url'     => "http://$domain_name:{$bb_cfg['ocelot']['port']}/", // with '/'
 	'secret'  => 'some_10_chars',              // 10 chars
 	'stats'   => 'some_10_chars',              // 10 chars
 );
