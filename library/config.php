@@ -105,7 +105,7 @@ $bb_cfg['ocelot'] = array(
 	'stats'   => 'some_10_chars',              // 10 chars
 );
 
-// FAQ url help link
+// FAQ url help link (Полезные ссылки / ЧаВо)
 $bb_cfg['how_to_download_url_help']  = 'viewtopic.php?t=1'; // Как скачивать?
 $bb_cfg['what_is_torrent_url_help']  = 'viewtopic.php?t=2'; // Что такое торрент?
 $bb_cfg['ratio_url_help']            = 'viewtopic.php?t=3'; // Рейтинг и ограничения
