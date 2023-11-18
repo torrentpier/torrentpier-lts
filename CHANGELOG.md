@@ -1,5 +1,15 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.05-alpha5 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha5) (2024-06-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha4...v2.1.5-2024.05-alpha5)
+
+**Merged pull requests:**
+
+- Release v2.1.5-2024.05-alpha5 🎉
+- Don't check for announce-list while adding new urls
+- Don't use main announce url inside announce-list
+- Some other changes / improvements
+
 ## [v2.1.5-2024.05-alpha4 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha4) (2024-06-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha3...v2.1.5-2024.05-alpha4)
 
