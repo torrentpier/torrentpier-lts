@@ -668,6 +668,7 @@ if ($userdata['user_level'] == GROUP_MEMBER || IS_AM)
 	}
 }
 
+// Assign posting title & hidden fields
 $page_title = '';
 $hidden_form_fields = '<input type="hidden" name="mode" value="' . $mode . '" />';
 

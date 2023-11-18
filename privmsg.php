@@ -1285,6 +1285,9 @@ else if ( $submit || $refresh || $mode != '' )
 	$template->assign_block_vars('switch_privmsg', array());
 	$template->assign_var('POSTING_USERNAME');
 
+	//
+	// Assign posting title & hidden fields
+	//
 	$post_a = false;
 	if ( $mode == 'post' )
 	{
