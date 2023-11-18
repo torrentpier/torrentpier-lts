@@ -62,6 +62,7 @@ if ($show_dbg_info)
 
 	$stat .= ' &nbsp;]';
 
+	// Show sql debug buttons
 	if (SQL_DEBUG)
 	{
 		$stat .= '&nbsp;|';
