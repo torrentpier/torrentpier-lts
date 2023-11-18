@@ -176,7 +176,7 @@ for ($i = 0; $i < $num_rows; $i++)
 // Disallowed
 if (!in_array($attachment['extension'], $allowed_extensions))
 {
-	bb_die(sprintf($lang['EXTENSION_DISABLED_AFTER_POSTING'], $attachment['extension']) . "<br /><br />" . $attachment['physical_filename']);
+	bb_die(sprintf($lang['EXTENSION_DISABLED_AFTER_POSTING'], $attachment['extension']) . "<br /><br />" . $lang['FILENAME'] . ":&nbsp;" . $attachment['physical_filename']);
 }
 
 $download_mode = intval($download_mode[$attachment['extension']]);
