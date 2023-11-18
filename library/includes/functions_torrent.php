@@ -506,7 +506,7 @@ function send_torrent_with_passkey ($filename)
 	{
 		unset($tor['announce-list']);
 	}
-	else if (!empty($announce_urls_add))
+	elseif (!empty($announce_urls_add))
 	{
 		$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), $announce_urls_add);
 	}
