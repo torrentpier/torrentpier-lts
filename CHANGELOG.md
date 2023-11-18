@@ -6,6 +6,8 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2024.05-alpha4 🎉
+- Unset debug cookies if SQL_DEBUG disabled
+- Unset debug cookie if user not in dbg_users array
 - Security measures [\#331](https://github.com/torrentpier/torrentpier-lts/pull/331) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Some other changes / improvements
 
