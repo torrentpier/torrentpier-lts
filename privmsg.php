@@ -1285,7 +1285,7 @@ else if ( $submit || $refresh || $mode != '' )
 	$template->assign_block_vars('switch_privmsg', array());
 	$template->assign_var('POSTING_USERNAME');
 
-	$post_a = '&nbsp;';
+	$post_a = false;
 	if ( $mode == 'post' )
 	{
 		$post_a = $lang['SEND_A_NEW_MESSAGE'];
@@ -1298,6 +1298,10 @@ else if ( $submit || $refresh || $mode != '' )
 	else if ( $mode == 'edit' )
 	{
 		$post_a = $lang['EDIT_MESSAGE'];
+	}
+	else
+	{
+		pm_die($lang['NONE_SELECTED']);
 	}
 
 	$s_hidden_fields = '<input type="hidden" name="folder" value="' . $folder . '" />';
