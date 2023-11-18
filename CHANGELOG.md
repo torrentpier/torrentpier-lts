@@ -1,5 +1,13 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.05-beta1 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-beta1) (2024-06-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha5...v2.1.5-2024.05-beta1)
+
+**Merged pull requests:**
+
+- Release v2.1.5-2024.05-beta1 🎉
+- Some other changes / improvements
+
 ## [v2.1.5-2024.05-alpha5 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha5) (2024-06-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha4...v2.1.5-2024.05-alpha5)
 
