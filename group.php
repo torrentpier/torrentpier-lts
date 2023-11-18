@@ -18,7 +18,7 @@ function generate_user_info(&$row, $date_format, $group_mod, &$from, &$posts, &$
 
 	$from      = (!empty($row['user_from'])) ? $row['user_from'] : $lang['NOSELECT'];
 	$joined    = bb_date($row['user_regdate'], $date_format);
-	$user_time = (!empty($row['user_time'])) ? sprintf('%s <span class="posted_since">(%s)</span>', bb_date($row['user_time'], $date_format), delta_time($row['user_time'])) : $lang['NONE'];
+	$user_time = (!empty($row['user_time'])) ? sprintf('%s <span class="signature">(%s)</span>', bb_date($row['user_time'], $date_format), delta_time($row['user_time'])) : $lang['NONE'];
 	$posts     = '<a href="search.php?search_author=1&amp;uid='.$row['user_id'].'" target="_blank">'. $row['user_posts'] .'</a>';
 	$pm        = ($bb_cfg['text_buttons']) ? '<a class="txtb" href="'. (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'">'. $lang['SEND_PM_TXTB'] .'</a>' : '<a href="' . (PM_URL . "?mode=post&amp;". POST_USERS_URL ."=".$row['user_id']) .'"><img src="' . $images['icon_pm'] . '" alt="' . $lang['SEND_PRIVATE_MESSAGE'] . '" title="' . $lang['SEND_PRIVATE_MESSAGE'] . '" border="0" /></a>';
 	$avatar    = get_avatar($row['user_id'], $row['avatar_ext_id'], !bf($row['user_opt'], 'user_opt', 'dis_avatar'), '', 50, 50);
@@ -485,7 +485,7 @@ else
 		'GROUP_SIGNATURE'        => bbcode2html($group_info['group_signature']),
 		'GROUP_AVATAR'           => get_avatar(GROUP_AVATAR_MASK . $group_id, $group_info['avatar_ext_id'], true),
 		'GROUP_DETAILS'          => $group_details,
-		'GROUP_TIME'             => (!empty($group_info['group_time'])) ? sprintf('%s <span class="posted_since">(%s)</span>', bb_date($group_info['group_time'], $bb_cfg['reg_date_format']), delta_time($group_info['group_time'])) : $lang['NONE'],
+		'GROUP_TIME'             => (!empty($group_info['group_time'])) ? sprintf('%s <span class="signature">(%s)</span>', bb_date($group_info['group_time'], $bb_cfg['reg_date_format']), delta_time($group_info['group_time'])) : $lang['NONE'],
 		'MOD_USER'               => profile_url($group_moderator),
 		'MOD_AVATAR'             => $avatar,
 		'MOD_FROM'               => $from,
@@ -494,7 +494,7 @@ else
 		'MOD_PM'                 => $pm,
 		'MOD_EMAIL'              => $email,
 		'MOD_WWW'                => $www,
-		'MOD_TIME'               => (!empty($group_info['mod_time'])) ? sprintf('%s <span class="posted_since">(%s)</span>', bb_date($group_info['mod_time'], $bb_cfg['reg_date_format']), delta_time($group_info['mod_time'])) : $lang['NONE'],
+		'MOD_TIME'               => (!empty($group_info['mod_time'])) ? sprintf('%s <span class="signature">(%s)</span>', bb_date($group_info['mod_time'], $bb_cfg['reg_date_format']), delta_time($group_info['mod_time'])) : $lang['NONE'],
 		'U_SEARCH_USER'          => "search.php?mode=searchuser",
 		'U_SEARCH_RELEASES'      => "tracker.php?srg=$group_id",
 		'U_GROUP_RELEASES'       => GROUP_URL . $group_id . "&view=releases",
