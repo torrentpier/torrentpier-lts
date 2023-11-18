@@ -506,7 +506,7 @@ function send_torrent_with_passkey ($filename)
 	{
 		unset($tor['announce-list']);
 	}
-	else
+	else if (!empty($announce_urls_add))
 	{
 		$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), $announce_urls_add);
 	}
@@ -516,7 +516,7 @@ function send_torrent_with_passkey ($filename)
 	{
 		if (bf($userdata['user_opt'], 'user_opt', 'user_retracker') || IS_GUEST)
 		{
-			$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), [$bb_cfg['tracker']['retracker_host']]);
+			$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), array(array($bb_cfg['tracker']['retracker_host'])));
 		}
 	}
 
