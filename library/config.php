@@ -325,9 +325,9 @@ define('DBG_LOG_TRACKER',      false);            // включить логир
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 
 define('SQL_DEBUG',            true);             // включить отладку (дебаг панель) для SQL запросов и Cache & Datastore
+define('SQL_LOG_ERRORS',       true);             // логировать ошибки MySQL
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)
 define('SQL_TR_LOG_NAME',      'sql_error_tr');   // имя лог файла с SQL ошибками (Трекер aka анонсер)
-define('SQL_LOG_ERRORS',       true);             // all SQL_xxx options enabled only if SQL_DEBUG == TRUE
 define('SQL_CALC_QUERY_TIME',  true);             // отображать время выполнения запросов (для SQL запросов и Cache & Datastore)
 define('SQL_LOG_SLOW_QUERIES', true);             // логировать медленные запросы
 define('SQL_SLOW_QUERY_TIME',  10);               // время после которого запрос считается медленным (в секундах)
