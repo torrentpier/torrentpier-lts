@@ -509,6 +509,12 @@ class user_common
 				bb_setcookie(COOKIE_DBG, 1, COOKIE_SESSION);
 			}
 
+			// Unset debug cookie if user not in dbg_users array
+			if (!isset($bb_cfg['dbg_users'][$this->data['user_id']]) && DBG_USER)
+			{
+				bb_setcookie(COOKIE_DBG, '', COOKIE_EXPIRED);
+			}
+
 			// Unset sql debug cookies
 			if (!SQL_DEBUG || !DBG_USER)
 			{
