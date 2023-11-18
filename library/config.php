@@ -324,7 +324,7 @@ define('DBG_LOG',              true);             // включить логир
 define('DBG_LOG_TRACKER',      false);            // включить логирование событий анонсера (отключите на боевом сервере)
 define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 
-define('SQL_DEBUG',            true);             // включить отладку (дебаг панель) для SQL запросов и Cache & Datastore
+define('SQL_DEBUG',            true);             // включить SQL отладку (в дебаг панели) для SQL запросов и Cache & Datastore
 define('SQL_LOG_ERRORS',       true);             // логировать ошибки MySQL
 define('SQL_BB_LOG_NAME',      'sql_error_bb');   // имя лог файла с SQL ошибками (Форум)
 define('SQL_TR_LOG_NAME',      'sql_error_tr');   // имя лог файла с SQL ошибками (Трекер aka анонсер)
