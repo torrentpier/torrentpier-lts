@@ -508,6 +508,18 @@ class user_common
 			{
 				bb_setcookie(COOKIE_DBG, 1, COOKIE_SESSION);
 			}
+
+			// Unset sql debug cookies
+			if (!SQL_DEBUG || !DBG_USER)
+			{
+				foreach (array('explain', 'sql_log', 'sql_log_full') as $cookie)
+				{
+					if (isset($_COOKIE[$cookie]))
+					{
+						bb_setcookie($cookie, '', COOKIE_EXPIRED);
+					}
+				}
+			}
 		}
 	}
 
