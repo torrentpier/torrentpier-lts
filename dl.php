@@ -164,6 +164,8 @@ $datastore->rm('cat_forums');
 $rows = get_extension_informations();
 $num_rows = count($rows);
 
+$allowed_extensions = array();
+$download_mode = array();
 for ($i = 0; $i < $num_rows; $i++)
 {
 	$extension = strtolower(trim($rows[$i]['extension']));
