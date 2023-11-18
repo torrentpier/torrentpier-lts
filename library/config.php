@@ -368,7 +368,7 @@ define('CRON_ALLOWED', TRIGGERS_DIR .'cron_allowed');
 define('CRON_RUNNING', TRIGGERS_DIR .'cron_running');
 
 // Date format
-$bb_cfg['date_format']             = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости)
+$bb_cfg['date_format']             = 'Y-m-d'; // общий формат даты (оставлено для обратной совместимости!)
 
 // Subforums
 $bb_cfg['sf_on_first_page_only']   = true; // показывать подфорумы только на первой странице форума
@@ -501,7 +501,7 @@ $banned_user_agents = array(
 $bb_cfg['trash_forum_id'] = 0; // (int) 7
 
 $bb_cfg['first_logon_redirect_url'] = 'index.php'; // на какую страницу перекидывать пользователя после завершения регистрации
-$bb_cfg['terms_and_conditions_url'] = 'terms.php';
+$bb_cfg['terms_and_conditions_url'] = 'terms.php'; // ссылка на страницу с правилами форума
 
 $bb_cfg['user_agreement_url']       = 'info.php?show=user_agreement';
 $bb_cfg['copyright_holders_url']    = 'info.php?show=copyright_holders';
