@@ -71,10 +71,6 @@ if (DBG_USER)
 	ini_set('display_errors',  1);
 	ini_set('display_startup_errors', 1);
 }
-else
-{
-	unset($_COOKIE['explain']);
-}
 
 define('DELETED', -1);
 
