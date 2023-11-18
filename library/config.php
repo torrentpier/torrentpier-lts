@@ -140,8 +140,8 @@ $tr_cfg = array(
 	'freeleech'             => false, // при включенном freeleech нужно отключить gold_silver_enabled!
 );
 
-$bb_cfg['show_dl_status_in_search'] = true;
-$bb_cfg['show_dl_status_in_forum']  = true;
+$bb_cfg['show_dl_status_in_search'] = true; // показывать DL-статус раздач в результатах поиска
+$bb_cfg['show_dl_status_in_forum']  = true; // показывать DL-статус раздач при просмотре форума
 $bb_cfg['show_tor_info_in_dl_list'] = true;
 $bb_cfg['allow_dl_list_names_mode'] = true;
 
