@@ -8,8 +8,8 @@
 - Release v2.1.5-2024.05-alpha5 🎉
 - Don't create empty announce-list dict, if ann_urls are empty [\#334](https://github.com/torrentpier/torrentpier-lts/pull/334) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Improve code for retracker addition [\#333](https://github.com/torrentpier/torrentpier-lts/pull/333) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
-- Don't check for announce-list while adding new urls [9db4517](https://github.com/torrentpier/torrentpier-lts/commit/9db45170674b1971203527218826fdc4cbbd72c5) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Don't use main announce url inside announce-list [\#332](https://github.com/torrentpier/torrentpier-lts/pull/332) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
+- Don't check for announce-list while adding new urls [9db4517](https://github.com/torrentpier/torrentpier-lts/commit/9db45170674b1971203527218826fdc4cbbd72c5) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Some other changes / improvements
 
 ## [v2.1.5-2024.05-alpha4 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha4) (2024-06-04)
