@@ -508,7 +508,7 @@ function send_torrent_with_passkey ($filename)
 	}
 	else
 	{
-		$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), array(array($announce)), $announce_urls_add);
+		$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), $announce_urls_add);
 	}
 
 	// Add retracker
