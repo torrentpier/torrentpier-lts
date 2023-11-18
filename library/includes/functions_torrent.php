@@ -512,11 +512,11 @@ function send_torrent_with_passkey ($filename)
 	}
 
 	// Add retracker
-	if (!empty($bb_cfg['tracker']['retracker_host']) && $bb_cfg['tracker']['retracker'])
+	if (!empty($tr_cfg['retracker_host']) && $tr_cfg['retracker'])
 	{
 		if (bf($userdata['user_opt'], 'user_opt', 'user_retracker') || IS_GUEST)
 		{
-			$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), array(array($bb_cfg['tracker']['retracker_host'])));
+			$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), array(array($tr_cfg['retracker_host'])));
 		}
 	}
 
