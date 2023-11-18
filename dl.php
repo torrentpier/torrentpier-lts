@@ -25,7 +25,7 @@ function send_file_to_browser($attachment, $upload_dir)
 
 	if (@!file_exists(@amod_realpath($filename)))
 	{
-		bb_die($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename. "<br /><br />" .$lang['TOR_NOT_FOUND']);
+		bb_die($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename);
 	}
 	else
 	{
@@ -70,7 +70,7 @@ function send_file_to_browser($attachment, $upload_dir)
 	}
 	else
 	{
-		bb_die($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename. "<br /><br />" .$lang['TOR_NOT_FOUND']);
+		bb_die($lang['ERROR_NO_ATTACHMENT'] . "<br /><br />" . $filename);
 	}
 
 	exit;
