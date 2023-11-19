@@ -487,9 +487,21 @@ function send_torrent_with_passkey ($filename)
 	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] . $passkey_val . "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
 
 	// Replace original announce url with tracker default
-	if ($bb_cfg['bt_replace_ann_url'])
+	if ($bb_cfg['bt_replace_ann_url'] || !isset($tor['announce']))
 	{
 		$tor['announce'] = $announce;
+	}
+
+	// Delete all additional urls
+	if ($bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
+	{
+		unset($tor['announce-list']);
+	}
+
+	// Creating announce-list if not exist
+	if (!isset($tor['announce-list']) || !is_array($tor['announce-list']))
+	{
+		$tor['announce-list'] = array();
 	}
 
 	// Get additional announce urls
@@ -503,36 +515,22 @@ function send_torrent_with_passkey ($filename)
 	}
 	unset($additional_announce_urls);
 
-	// Delete all additional urls
-	if ($bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
+	// Adding tracker announcer to announce-list
+	if ($bb_cfg['bt_replace_ann_url'])
 	{
-		unset($tor['announce-list']);
+		// Adding tracker announcer as main announcer (At start)
+		array_unshift($tor['announce-list'], array($announce));
 	}
 	else
 	{
-		// Creating announce-list if not exist
-		if (!isset($tor['announce-list']) || !is_array($tor['announce-list']))
-		{
-			$tor['announce-list'] = array();
-		}
+		// Adding tracker announcer (At end)
+		$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
+	}
 
-		// Adding tracker announcer to announce-list
-		if ($bb_cfg['bt_replace_ann_url'])
-		{
-			// Adding tracker announcer as main announcer (At start)
-			array_unshift($tor['announce-list'], array($announce));
-		}
-		else
-		{
-			// Adding tracker announcer (At end)
-			$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
-		}
-
-		// Adding additional announce urls (If present)
-		if (!empty($announce_urls_add))
-		{
-			$tor['announce-list'] = array_merge($tor['announce-list'], $announce_urls_add);
-		}
+	// Adding additional announce urls (If present)
+	if (!empty($announce_urls_add))
+	{
+		$tor['announce-list'] = array_merge($tor['announce-list'], $announce_urls_add);
 	}
 
 	// Add retracker
