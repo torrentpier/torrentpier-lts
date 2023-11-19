@@ -477,15 +477,17 @@ function send_torrent_with_passkey ($filename)
 	// Announce URL
 	$ann_url = $bb_cfg['bt_announce_url'];
 
+	// Torrent decoding
 	if (!$tor = bdecode_file($filename))
 	{
 		bb_die($lang['TORFILE_INVALID']);
 	}
 
-	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] .$passkey_val. "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
+	// Get tracker announcer
+	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] . $passkey_val . "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
 
 	// Replace original announce url with tracker default
-	if ($bb_cfg['bt_replace_ann_url'] || !isset($tor['announce']))
+	if ($bb_cfg['bt_replace_ann_url'])
 	{
 		$tor['announce'] = $announce;
 	}
@@ -506,9 +508,31 @@ function send_torrent_with_passkey ($filename)
 	{
 		unset($tor['announce-list']);
 	}
-	elseif (!empty($announce_urls_add))
+	else
 	{
-		$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), $announce_urls_add);
+		// Creating announce-list if not exist
+		if (!isset($tor['announce-list']) || !is_array($tor['announce-list']))
+		{
+			$tor['announce-list'] = array();
+		}
+
+		// Adding tracker announcer to announce-list
+		if ($bb_cfg['bt_replace_ann_url'])
+		{
+			// Adding tracker announcer as main announcer (At start)
+			array_unshift($tor['announce-list'], array($announce));
+		}
+		else
+		{
+			// Adding tracker announcer (At end)
+			$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
+		}
+
+		// Adding additional announce urls (If present)
+		if (!empty($announce_urls_add))
+		{
+			$tor['announce-list'] = array_merge($tor['announce-list'], $announce_urls_add);
+		}
 	}
 
 	// Add retracker
@@ -516,7 +540,7 @@ function send_torrent_with_passkey ($filename)
 	{
 		if (bf($userdata['user_opt'], 'user_opt', 'user_retracker') || IS_GUEST)
 		{
-			$tor['announce-list'] = array_merge((isset($tor['announce-list']) ? $tor['announce-list'] : array()), array(array($tr_cfg['retracker_host'])));
+			$tor['announce-list'] = array_merge($tor['announce-list'], array(array($tr_cfg['retracker_host'])));
 		}
 	}
 
