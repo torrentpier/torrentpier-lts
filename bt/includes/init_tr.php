@@ -407,7 +407,7 @@ class sql_db
 		}
 		elseif ($mode == 'end')
 		{
-			$this->sql_last_time = utime() - $this->sql_starttime;
+			$this->sql_last_time = utime() - $this->sql_starttime; // cur_query_time
 			$this->sql_timetotal += $this->sql_last_time;
 			$this->DBS['sql_timetotal'] += $this->sql_last_time;
 
