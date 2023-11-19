@@ -413,12 +413,16 @@ class sql_db
 
 			if (SQL_LOG_SLOW_QUERIES && $this->sql_last_time > $this->slow_time)
 			{
-				$msg  = date('m-d H:i:s') . LOG_SEPR;
-				$msg .= sprintf('%03d', round($this->sql_last_time));
-				$msg .= LOG_SEPR . sprintf('%.1f', sys('la'));
-				$msg .= LOG_SEPR . str_compact($this->cur_query);
-				$msg .= LOG_SEPR .' # '. $this->query_info();
-				$msg .= LOG_SEPR . $this->debug_find_source();
+				$q_time = ($this->sql_last_time >= 10) ? round($this->sql_last_time, 0) : sprintf('%.4f', $this->sql_last_time);
+				$msg  = round($this->sql_starttime);
+				$msg .= date('m-d H:i:s', $this->sql_starttime) . LOG_SEPR;
+				$msg .= sprintf('%-6s', $q_time);
+				$msg .= LOG_SEPR . sprintf('%-4s', round(sys('la'), 1));
+				$msg .= LOG_SEPR . sprintf('%05d', getmypid());
+				$msg .= LOG_SEPR . $this->db_server;
+				$msg .= LOG_SEPR . short_query($this->cur_query);
+				$msg .= LOG_SEPR . ($info = $this->query_info()) ? ' # '. $info : '';
+				$msg .= LOG_SEPR . ' # '. $this->debug_find_source() .' ';
 				bb_log($msg . LOG_LF, 'sql_slow_tr');
 			}
 		}
