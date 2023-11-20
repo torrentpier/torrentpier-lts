@@ -6,7 +6,7 @@
 **Merged pull requests:**
 
 - Release v2.1.5-2024.05-beta1 🎉
-- Fixed announcer-list issue [\#335](https://github.com/torrentpier/torrentpier-lts/pull/335) ([belomaxorka](https://github.com/belomaxorka))
+- Fixed announcer-list issue [\#335](https://github.com/torrentpier/torrentpier-lts/pull/335), [\#336](https://github.com/torrentpier/torrentpier-lts/pull/336) ([belomaxorka](https://github.com/belomaxorka))
 - Some other changes / improvements
 
 ## [v2.1.5-2024.05-alpha5 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha5) (2024-06-04)
