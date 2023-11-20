@@ -1,80 +1,31 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.05-beta2 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-beta2) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-beta1...v2.1.5-2024.05-beta2)
+## [v2.1.5-2023.10-HotFix [Final]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10-HotFix) (2023-11-20)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10...v2.1.5-2023.10-HotFix)
 
 **Merged pull requests:**
 
-- Release v2.1.5-2024.05-beta2 🎉
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-beta1 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-beta1) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha5...v2.1.5-2024.05-beta1)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-beta1 🎉
+- Release v2.1.5-2023.10-HotFix 🎉
 - Fixed announce-list indexes ordering [\#339](https://github.com/torrentpier/torrentpier-lts/pull/339) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed $bb_cfg['file_id_ext'] ordering [\#338](https://github.com/torrentpier/torrentpier-lts/pull/338) ([belomaxorka](https://github.com/belomaxorka))
 - Normalizing announce-list [\#337](https://github.com/torrentpier/torrentpier-lts/pull/337) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed announcer-list issue [\#335](https://github.com/torrentpier/torrentpier-lts/pull/335), [\#336](https://github.com/torrentpier/torrentpier-lts/pull/336) ([belomaxorka](https://github.com/belomaxorka))
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-alpha5 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha5) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha4...v2.1.5-2024.05-alpha5)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-alpha5 🎉
 - Don't create empty announce-list dict, if ann_urls are empty [\#334](https://github.com/torrentpier/torrentpier-lts/pull/334) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Improve code for retracker addition [\#333](https://github.com/torrentpier/torrentpier-lts/pull/333) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Don't use main announce url inside announce-list [\#332](https://github.com/torrentpier/torrentpier-lts/pull/332) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Don't check for announce-list while adding new urls [9db4517](https://github.com/torrentpier/torrentpier-lts/commit/9db45170674b1971203527218826fdc4cbbd72c5) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-alpha4 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha4) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha3...v2.1.5-2024.05-alpha4)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-alpha4 🎉
-- Unset debug cookies if SQL_DEBUG disabled
-- Unset debug cookie if user not in dbg_users array
-- Security measures [\#331](https://github.com/torrentpier/torrentpier-lts/pull/331) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-alpha3 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha3) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha2...v2.1.5-2024.05-alpha3)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-alpha3 🎉
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-alpha2 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha2) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.05-alpha1...v2.1.5-2024.05-alpha2)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-alpha2 🎉
+- Security measures [\#330](https://github.com/torrentpier/torrentpier-lts/pull/330), [\#331](https://github.com/torrentpier/torrentpier-lts/pull/331) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Fix for html entities being displayed in magnet links [\#329](https://github.com/torrentpier/torrentpier-lts/pull/329) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
 - Fixed a bug causing inability to view file contents for some torrents [\#328](https://github.com/torrentpier/torrentpier-lts/pull/328) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
-- Security measures [\#330](https://github.com/torrentpier/torrentpier-lts/pull/330) ([belomaxorka](https://github.com/belomaxorka), [kovalensky](https://github.com/kovalensky))
-- Updated translations
-- Some other changes / improvements
-
-## [v2.1.5-2024.05-alpha1 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.05-alpha1) (2024-06-04)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10...v2.1.5-2024.05-alpha1)
-
-**Merged pull requests:**
-
-- Release v2.1.5-2024.05-alpha1 🎉
-- Added missing translations
 - Updated UTF8 class up to v2.3.1 [ed2220e](https://github.com/torrentpier/torrentpier-lts/commit/ed2220e6f37e7bf98ab17c46c7ec4422a36ad387) ([belomaxorka](https://github.com/belomaxorka))
 - Block uploading more than one torrent file [33bb006](https://github.com/torrentpier/torrentpier-lts/commit/33bb006965cb22350624c6e89c4d5b39fd93c087) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed: Moderators can't see self IP addresses [39d4b14](https://github.com/torrentpier/torrentpier-lts/commit/39d4b14f7a118223b952a98eecf7fe1625fc20b2) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed undefined tpl variable SHOW_GROUP_MEMBERSHIP [8e96648](https://github.com/torrentpier/torrentpier-lts/commit/8e9664822c0a4daa514192cdaefa361425d86b29) ([belomaxorka](https://github.com/belomaxorka))
 - Fixed broken avatar ajax action for users [48ea82e](https://github.com/torrentpier/torrentpier-lts/commit/48ea82e4ce706026dc4fd63e8f9153da21d38071) ([belomaxorka](https://github.com/belomaxorka))
+- Unset debug cookies if SQL_DEBUG disabled
+- Unset debug cookie if user not in dbg_users array
+- Updated translations
+- Added missing translations
 - Some other changes / improvements
 
 ## [v2.1.5-2023.10 [Final]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2023.10) (2023-11-04)
