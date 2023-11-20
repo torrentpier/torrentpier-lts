@@ -515,19 +515,16 @@ $bb_cfg['sitemap_sending'] = array( // Список URL адресов на ко
 
 // Extensions [расширения разрешенные для загрузки через upload_common() класс только!]
 $bb_cfg['file_id_ext'] = array(
-	// Images
 	1 => 'gif',
-	2 => 'jpg',
-	3 => 'png',
-	4 => 'bmp',
-	// Archives
-	5 => 'gz',
-	6 => '7z',
-	7 => 'rar',
-	8 => 'zip',
-	9 => 'tar',
-	// Other
-	10 => 'torrent',
+	2 => 'gz',
+	3 => 'jpg',
+	4 => 'png',
+	5 => 'rar',
+	6 => 'tar',
+	7 => 'tiff',
+	8 => 'torrent',
+	9 => 'zip',
+	10 => '7z'
 );
 
 // Attachments
