@@ -492,14 +492,8 @@ function send_torrent_with_passkey ($filename)
 		$tor['announce'] = $announce;
 	}
 
-	// Delete all additional urls
-	if ($bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
-	{
-		unset($tor['announce-list']);
-	}
-
-	// Creating announce-list if not exist
-	if (!isset($tor['announce-list']) || !is_array($tor['announce-list']))
+	// Creating / cleaning announce-list
+	if (!isset($tor['announce-list']) || !is_array($tor['announce-list']) || $bb_cfg['bt_del_addit_ann_urls'] || $bb_cfg['bt_disable_dht'])
 	{
 		$tor['announce-list'] = array();
 	}
@@ -515,18 +509,6 @@ function send_torrent_with_passkey ($filename)
 	}
 	unset($additional_announce_urls);
 
-	// Adding tracker announcer to announce-list
-	if ($bb_cfg['bt_replace_ann_url'])
-	{
-		// Adding tracker announcer as main announcer (At start)
-		array_unshift($tor['announce-list'], array($announce));
-	}
-	else
-	{
-		// Adding tracker announcer (At end)
-		$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
-	}
-
 	// Adding additional announce urls (If present)
 	if (!empty($announce_urls_add))
 	{
@@ -540,6 +522,33 @@ function send_torrent_with_passkey ($filename)
 		{
 			$tor['announce-list'] = array_merge($tor['announce-list'], array(array($tr_cfg['retracker_host'])));
 		}
+	}
+
+	// Adding tracker announcer to announce-list
+	if (!empty($tor['announce-list']))
+	{
+		if ($bb_cfg['bt_replace_ann_url'])
+		{
+			// Adding tracker announcer as main announcer (At start)
+			array_unshift($tor['announce-list'], array($announce));
+		}
+		else
+		{
+			// Adding torrent announcer (At start)
+			array_unshift($tor['announce-list'], array($tor['announce']));
+
+			// Adding tracker announcer (At end)
+			if ($tor['announce'] != $announce)
+			{
+				$tor['announce-list'] = array_merge($tor['announce-list'], array(array($announce)));
+			}
+		}
+	}
+
+	// Remove announce-list if empty
+	if (empty($tor['announce-list']))
+	{
+		unset($tor['announce-list']);
 	}
 
 	// Add publisher & topic url
