@@ -484,7 +484,7 @@ function send_torrent_with_passkey ($filename)
 	}
 
 	// Get tracker announcer
-	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] . $passkey_val . "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
+	$announce = $bb_cfg['ocelot']['enabled'] ? strval($bb_cfg['ocelot']['url'] .$passkey_val. "/announce") : strval($ann_url . "?$passkey_key=$passkey_val");
 
 	// Replace original announce url with tracker default
 	if ($bb_cfg['bt_replace_ann_url'] || !isset($tor['announce']))
