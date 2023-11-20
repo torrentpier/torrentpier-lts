@@ -554,7 +554,7 @@ function send_torrent_with_passkey ($filename)
 	else
 	{
 		// Normalizing announce-list
-		$tor['announce-list'] = array_unique($tor['announce-list'], SORT_REGULAR);
+		$tor['announce-list'] = array_values(array_unique($tor['announce-list'], SORT_REGULAR));
 	}
 
 	// Add publisher & topic url
