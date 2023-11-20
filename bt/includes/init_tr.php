@@ -420,7 +420,7 @@ class sql_db
 				$msg .= LOG_SEPR . sprintf('%-4s', round(sys('la'), 1));
 				$msg .= LOG_SEPR . sprintf('%05d', getmypid());
 				$msg .= LOG_SEPR . $this->db_server;
-				$msg .= LOG_SEPR . short_query($this->cur_query);
+				$msg .= LOG_SEPR . str_compact($this->cur_query);
 				$msg .= LOG_SEPR . ($info = $this->query_info()) ? ' # '. $info : '';
 				$msg .= LOG_SEPR . ' # '. $this->debug_find_source() .' ';
 				bb_log($msg . LOG_LF, 'sql_slow_tr');
