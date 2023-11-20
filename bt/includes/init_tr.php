@@ -414,7 +414,7 @@ class sql_db
 			if (SQL_LOG_SLOW_QUERIES && $this->sql_last_time > $this->slow_time)
 			{
 				$q_time = ($this->sql_last_time >= 10) ? round($this->sql_last_time, 0) : sprintf('%.4f', $this->sql_last_time);
-				$msg  = round($this->sql_starttime);
+				$msg  = round($this->sql_starttime) . LOG_SEPR;
 				$msg .= date('m-d H:i:s', $this->sql_starttime) . LOG_SEPR;
 				$msg .= sprintf('%-6s', $q_time);
 				$msg .= LOG_SEPR . sprintf('%-4s', round(sys('la'), 1));
