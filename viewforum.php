@@ -76,6 +76,8 @@ if (!$is_auth['auth_view'])
 	bb_die($message);
 }
 
+set_die_append_msg($forum_id);
+
 // Redirect to login page if not admin session
 $mod_redirect_url = '';
 
@@ -116,8 +118,6 @@ $tracking_forums = get_tracks('forum');
 if ($mark_read && !IS_GUEST)
 {
 	set_tracks(COOKIE_FORUM, $tracking_forums, $forum_id);
-
-	set_die_append_msg($forum_id);
 	$message = $lang['TOPICS_MARKED_READ'];
 	bb_die($message);
 }
@@ -196,6 +196,7 @@ if (!$forum_data['forum_parent'] && isset($forums['f'][$forum_id]['subforums']) 
 		$template->assign_block_vars('f',	array(
 			'FORUM_FOLDER_IMG' => $folder_image,
 
+			'FORUM_ID'    => $sf_forum_id,
 			'FORUM_NAME'  => $fname_html,
 			'FORUM_DESC'  => $forums['f'][$sf_forum_id]['forum_desc'],
 			'U_VIEWFORUM' => FORUM_URL . $sf_forum_id,
