@@ -328,7 +328,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 			{
 				if (isset($f['length']) && is_numeric($f['length']))
 				{
-					$totallen += (float) $f['length'];
+					$totallen += $f['length'];
 				}
 				else
 				{
@@ -336,6 +336,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 				}
 			}
 		}
+		$totallen = (float) $totallen;
 	}
 	else
 	{
