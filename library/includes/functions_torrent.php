@@ -326,10 +326,10 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 			// Exclude padding files [Only for hybrid torrents]
 			if ((isset($f['attr']) ? $f['attr'] : null) !== 'p')
 			{
-				$totallen += (isset($f['length']) && is_numeric($f['length'])) ? (float) $f['length'] : 'invalid_length';
+				$totallen += (isset($f['length']) && is_numeric($f['length'])) ? (float) $f['length'] : 'invalid_size';
 			}
 		}
-		if ($totallen === 'invalid_length')
+		if ($totallen === 'invalid_size')
 		{
 			torrent_error_exit($lang['TORFILE_INVALID']);
 		}
