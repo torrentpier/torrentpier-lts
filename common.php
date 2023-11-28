@@ -475,7 +475,7 @@ function dbg_log ($str, $file)
 {
 	if (!DBG_LOG_TRACKER && !DBG_LOG) return false;
 	$dir = (defined('IN_TRACKER') ? 'dbg_tr/' : 'dbg_bb/') . date('m-d_H') .'/';
-	return bb_log($str, $dir . clean_filename($file) . '_' . time());
+	return bb_log($str, $dir . clean_filename($file) . '_' . TIMENOW);
 }
 
 function log_get ($file = '', $prepend_str = false)

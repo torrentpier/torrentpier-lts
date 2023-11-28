@@ -76,7 +76,7 @@ class sql_db
 				$charset_error = "Could not set charset '{$this->cfg['charset']}'";
 				if (DBG_LOG)
 				{
-					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . time());
+					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . TIMENOW);
 				}
 				die($charset_error);
 			}
@@ -105,7 +105,7 @@ class sql_db
 			$con_error = "Could not connect to {$this->engine} server $server";
 			if (DBG_LOG)
 			{
-				dbg_log($con_error, "{$this->cfg['dbhost']}-DB-connect-FAIL_" . time());
+				dbg_log($con_error, "{$this->cfg['dbhost']}-DB-connect-FAIL_" . TIMENOW);
 			}
 			die($con_error);
 		}
@@ -132,7 +132,7 @@ class sql_db
 			$select_error = "Could not select database $db_name";
 			if (DBG_LOG)
 			{
-				dbg_log($select_error, "{$this->cfg['dbname']}-DB-select-FAIL_" . time());
+				dbg_log($select_error, "{$this->cfg['dbname']}-DB-select-FAIL_" . TIMENOW);
 			}
 			die($select_error);
 		}

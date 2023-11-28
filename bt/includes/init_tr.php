@@ -133,7 +133,7 @@ class sql_db
 			$this->log_error();
 			if (DBG_LOG_TRACKER)
 			{
-				dbg_log("Could not connect to {$this->engine} server '{$this->cfg['dbhost']}'", "{$this->cfg['dbhost']}-DB-connect-FAIL_" . time());
+				dbg_log("Could not connect to {$this->engine} server '{$this->cfg['dbhost']}'", "{$this->cfg['dbhost']}-DB-connect-FAIL_" . TIMENOW);
 			}
 		}
 
