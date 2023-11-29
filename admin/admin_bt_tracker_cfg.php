@@ -28,6 +28,7 @@ $default_cfg_bool = array(
 	'limit_active_tor'       => 0,
 	'limit_concurrent_ips'   => 0,
 	'retracker'              => 1,
+	'freeleech'              => 1,
 );
 
 $default_cfg_num = array(
@@ -55,7 +56,6 @@ $template->assign_vars(array(
 	'ANNOUNCE_INTERVAL'  => $bb_cfg['announce_interval'],
 	'PASSKEY_KEY'        => $bb_cfg['passkey_key'],
 	'GOLD_SILVER_ENABLED' => $tr_cfg['gold_silver_enabled'],
-	'FREELEECH_ENABLED'  => $tr_cfg['freeleech'],
 	'DISABLE_SUBMIT'     => true,
 
 	'S_HIDDEN_FIELDS' => '',
