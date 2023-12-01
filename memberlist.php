@@ -74,9 +74,6 @@ $template->assign_vars(array(
 
 switch( $mode )
 {
-	case 'joined':
-		$order_by = "user_id $sort_order LIMIT $start, " . $bb_cfg['topics_per_page'];
-		break;
 	case 'username':
 		$order_by = "username $sort_order LIMIT $start, " . $bb_cfg['topics_per_page'];
 		break;
@@ -95,6 +92,7 @@ switch( $mode )
 	case 'topten':
 		$order_by = "user_posts $sort_order LIMIT 10";
 		break;
+	case 'joined':
 	default:
 		$order_by = "user_regdate $sort_order LIMIT $start, " . $bb_cfg['topics_per_page'];
 		$mode = 'joined';
