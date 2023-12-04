@@ -287,9 +287,11 @@ function mkdir_rec ($path, $mode)
 	}
 }
 
-function verify_id ($id, $length)
+function verify_id ($id, $length = '')
 {
-	return (is_string($id) && preg_match('#^[a-zA-Z0-9]{'. $length .'}$#', $id));
+	// Убрана проверка длинны, поскольку если значение длинны отличиается,
+	// то раннее сгенерированные данные (из базы данных например) становятся недействительными.
+	return (is_string($id) && preg_match('#^[a-zA-Z0-9]+$#', $id));
 }
 
 function clean_filename ($fname)
