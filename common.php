@@ -85,7 +85,7 @@ define('BB_BT_TRACKER',      'bb_bt_tracker');
 define('BB_BT_TRACKER_SNAP', 'bb_bt_tracker_snap');
 define('BB_BT_USERS',        'bb_bt_users');
 
-define('BT_AUTH_KEY_LENGTH', 10); // длинна passkey
+define('BT_AUTH_KEY_LENGTH', 10); // длина passkey
 
 define('PEER_HASH_PREFIX',   'peer_');
 define('PEERS_LIST_PREFIX',  'peers_list_');
@@ -289,7 +289,7 @@ function mkdir_rec ($path, $mode)
 
 function verify_id ($id, $length = '')
 {
-	// Убрана проверка длинны, поскольку если значение длинны отличиается,
+	// Убрана проверка длины $id, поскольку если значение длинны отличиается,
 	// то раннее сгенерированные данные (из базы данных например) становятся недействительными.
 	return (is_string($id) && preg_match('#^[a-zA-Z0-9]+$#', $id));
 }
