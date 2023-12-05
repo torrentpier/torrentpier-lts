@@ -25,7 +25,15 @@ function tracker_exit ()
 			$str[] = sprintf('%.4f'. LOG_SEPR .'%02d%%', $DBS->sql_inittime, $sql_init_perc);
 			$str[] = sprintf('%.4f'. LOG_SEPR .'%02d%%', $DBS->sql_timetotal, $sql_total_perc);
 			$str[] = $DBS->num_queries;
-			$str[] = sprintf('%.1f', sys('la'));
+			if ($l = sys('la'))
+			{
+				$l = explode(' ', $l);
+				for ($i=0; $i < 3; $i++)
+				{
+					$l[$i] = round($l[$i], 1);
+				}
+				$str[] = "loadavg: $l[0] $l[1] $l[2]";
+			}
 			$str = join(LOG_SEPR, $str) . LOG_LF;
 			dbg_log($str, '!!gentime');
 		}
@@ -414,7 +422,15 @@ class sql_db
 				$msg  = round($this->sql_starttime) . LOG_SEPR;
 				$msg .= date('m-d H:i:s', $this->sql_starttime) . LOG_SEPR;
 				$msg .= sprintf('%-6s', $q_time);
-				$msg .= LOG_SEPR . sprintf('%-4s', round(sys('la'), 1));
+				if ($l = sys('la'))
+				{
+					$l = explode(' ', $l);
+					for ($i=0; $i < 3; $i++)
+					{
+						$l[$i] = round($l[$i], 1);
+					}
+					$msg .= LOG_SEPR . "loadavg: $l[0] $l[1] $l[2]";
+				}
 				$msg .= LOG_SEPR . sprintf('%05d', getmypid());
 				$msg .= LOG_SEPR . $this->db_server;
 				$msg .= LOG_SEPR . str_compact($this->cur_query);

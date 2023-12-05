@@ -855,7 +855,15 @@ class sql_db
 		$msg[] = round($this->sql_starttime);
 		$msg[] = date('m-d H:i:s', $this->sql_starttime);
 		$msg[] = sprintf('%-6s', $q_time);
-		$msg[] = sprintf('%-4s', round(sys('la'), 1));
+		if ($l = sys('la'))
+		{
+			$l = explode(' ', $l);
+			for ($i=0; $i < 3; $i++)
+			{
+				$l[$i] = round($l[$i], 1);
+			}
+			$msg[] = "loadavg: $l[0] $l[1] $l[2]";
+		}
 		$msg[] = sprintf('%05d', getmypid());
 		$msg[] = $this->db_server;
 		$msg[] = short_query($this->cur_query);
