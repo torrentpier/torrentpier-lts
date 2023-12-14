@@ -2,9 +2,9 @@
 
 if (isset($_REQUEST['GLOBALS'])) die();
 
+// Check system requirements
 $check_sys_req = true;
 
-// Check system requirements
 if ($check_sys_req)
 {
 	// PHP
