@@ -1864,6 +1864,12 @@ function bb_die ($msg_text)
 	exit;
 }
 
+// Alias for bb_die()
+function message_die ($msg_code, $msg_text = '')
+{
+	bb_die($msg_text);
+}
+
 function bb_simple_die ($txt)
 {
 	global $bb_cfg;
