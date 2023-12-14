@@ -82,7 +82,7 @@ define('FULL_URL', $server_protocol . $bb_cfg['server_name'] . $server_port . $b
 unset($server_protocol, $server_port);
 
 // Debug options
-define('DBG_USER', !empty($_COOKIE[COOKIE_DBG]));
+define('DBG_USER', !empty($_COOKIE[COOKIE_DBG]) && $_COOKIE[COOKIE_DBG] == 1);
 
 // Board/Tracker shared constants and functions
 define('BB_BT_TORRENTS',     'bb_bt_torrents');
