@@ -1864,12 +1864,6 @@ function bb_die ($msg_text)
 	exit;
 }
 
-// Alias for bb_die()
-function message_die ($msg_code, $msg_text = '')
-{
-	bb_die($msg_text);
-}
-
 function bb_simple_die ($txt)
 {
 	global $bb_cfg;
@@ -1881,6 +1875,19 @@ function bb_simple_die ($txt)
 
 	header('Content-Type: text/plain; charset='. $bb_cfg['charset']);
 	die($txt);
+}
+
+// Alias for bb_die()
+function message_die ($msg_code, $msg_text = '')
+{
+	if ($msg_code == CRITICAL_MESSAGE || $msg_code == CRITICAL_ERROR)
+	{
+		bb_simple_die($msg_text);
+	}
+	else
+	{
+		bb_die($msg_text);
+	}
 }
 
 function bb_realpath ($path)

@@ -122,6 +122,12 @@ define('SEARCH_TYPE_TRACKER',  1);
 define('E_AJAX_GENERAL_ERROR', 1000);
 define('E_AJAX_NEED_LOGIN',    1001);
 
+// Error codes (Legacy)
+define('GENERAL_MESSAGE',      200);
+define('GENERAL_ERROR',        202);
+define('CRITICAL_MESSAGE',     203);
+define('CRITICAL_ERROR',       204);
+
 // Private messaging
 define('PRIVMSGS_READ_MAIL',      0);
 define('PRIVMSGS_NEW_MAIL',       1);
