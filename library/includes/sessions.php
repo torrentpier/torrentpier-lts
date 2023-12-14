@@ -478,6 +478,7 @@ class user_common
 
 		if ($user_id == GUEST_UID)
 		{
+			// Delete cookies for guests
 			$delete_cookies = array(
 				COOKIE_DATA,
 				COOKIE_DBG,
@@ -515,6 +516,7 @@ class user_common
 				}
 			}
 
+			// Set session & debug cookies
 			$c_sdata_resv = !empty($_COOKIE[COOKIE_DATA]) ? $_COOKIE[COOKIE_DATA] : null;
 			$c_sdata_curr = ($this->sessiondata) ? serialize($this->sessiondata) : '';
 
