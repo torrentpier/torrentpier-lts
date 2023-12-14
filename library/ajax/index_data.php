@@ -80,9 +80,8 @@ switch($mode)
 	break;
 
 	case 'change_tz':
-		$tz = (int) $this->request['tz'];
-		if ($tz < -12) $tz = -12;
-		if ($tz > 13) $tz = 13;
+		$tz = (float) $this->request['tz'];
+
 		if ($tz != $bb_cfg['board_timezone'])
 		{
 			// Set current user timezone
