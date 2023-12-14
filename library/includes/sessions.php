@@ -506,7 +506,7 @@ class user_common
 			}
 			if (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
 			{
-				bb_setcookie(COOKIE_DBG, 1, COOKIE_SESSION);
+				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION);
 			}
 
 			// Unset debug cookie if user not in dbg_users array
