@@ -497,18 +497,6 @@ class user_common
 		}
 		else
 		{
-			$c_sdata_resv = !empty($_COOKIE[COOKIE_DATA]) ? $_COOKIE[COOKIE_DATA] : null;
-			$c_sdata_curr = ($this->sessiondata) ? serialize($this->sessiondata) : '';
-
-			if ($c_sdata_curr !== $c_sdata_resv)
-			{
-				bb_setcookie(COOKIE_DATA, $c_sdata_curr, COOKIE_PERSIST, true);
-			}
-			if (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
-			{
-				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION);
-			}
-
 			// Unset debug cookie if user not in dbg_users array
 			if (!isset($bb_cfg['dbg_users'][$this->data['user_id']]) && DBG_USER)
 			{
@@ -525,6 +513,18 @@ class user_common
 						bb_setcookie($cookie, '', COOKIE_EXPIRED);
 					}
 				}
+			}
+
+			$c_sdata_resv = !empty($_COOKIE[COOKIE_DATA]) ? $_COOKIE[COOKIE_DATA] : null;
+			$c_sdata_curr = ($this->sessiondata) ? serialize($this->sessiondata) : '';
+
+			if ($c_sdata_curr !== $c_sdata_resv)
+			{
+				bb_setcookie(COOKIE_DATA, $c_sdata_curr, COOKIE_PERSIST, true);
+			}
+			if (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
+			{
+				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION);
 			}
 		}
 	}
