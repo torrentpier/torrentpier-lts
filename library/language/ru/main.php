@@ -1086,6 +1086,7 @@ $lang['TOR_STATUS'] = 'Статус';
 $lang['TOR_STATUS_SELECT_ACTION'] = 'Выберите статус';
 $lang['TOR_STATUS_NOT_SELECT'] = 'Вы не выбрали статус.';
 $lang['TOR_STATUS_SELECT_ALL'] = 'Все статусы';
+$lang['TOR_STATUS_FORBIDDEN'] = 'Статус этой раздачи: ';
 $lang['TOR_STATUS_NAME'] = array(
 	TOR_NOT_APPROVED  => 'не проверено',
 	TOR_CLOSED        => 'закрыто',
