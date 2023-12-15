@@ -164,7 +164,7 @@
 		<td width="70%">
 			{postrow.attach.tor_reged.TRACKER_LINK}
 			[ <span title="{postrow.attach.tor_reged.REGED_DELTA}">{postrow.attach.tor_reged.REGED_TIME}</span> ]
-			&#0183; {postrow.attach.tor_reged.HASH}
+			<!-- IF postrow.attach.tor_reged.TOR_FROZEN -->&#0183; {postrow.attach.tor_reged.HASH}<!-- ENDIF -->
 		</td>
 		<td width="15%" rowspan="4" class="tCenter pad_6">
 			<!-- IF postrow.attach.tor_reged.TOR_FROZEN -->
