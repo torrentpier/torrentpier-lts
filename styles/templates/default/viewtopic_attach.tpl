@@ -148,7 +148,7 @@
 
 <table class="attach bordered med">
 	<tr class="row3">
-		<th colspan="3" class="{postrow.attach.tor_reged.DL_LINK_CLASS}">{postrow.attach.tor_reged.DOWNLOAD_NAME}<!-- IF postrow.attach.tor_reged.TOR_FROZEN == 0 --><!-- IF MAGNET_LINKS -->&nbsp;{postrow.attach.tor_reged.MAGNET}<!-- ENDIF --><!-- ENDIF --></th>
+		<th colspan="3" class="{postrow.attach.tor_reged.DL_LINK_CLASS}">{postrow.attach.tor_reged.DOWNLOAD_NAME}<!-- IF not postrow.attach.tor_reged.TOR_FROZEN --><!-- IF MAGNET_LINKS -->&nbsp;{postrow.attach.tor_reged.MAGNET}<!-- ENDIF --><!-- ENDIF --></th>
 	</tr>
 	<!-- IF postrow.attach.tor_reged.TOR_SILVER_GOLD == 2 && $tr_cfg['gold_silver_enabled'] -->
 	<tr class="row4">
@@ -164,7 +164,7 @@
 		<td width="70%">
 			{postrow.attach.tor_reged.TRACKER_LINK}
 			[ <span title="{postrow.attach.tor_reged.REGED_DELTA}">{postrow.attach.tor_reged.REGED_TIME}</span> ]
-			<!-- IF postrow.attach.tor_reged.TOR_FROZEN -->&#0183; {postrow.attach.tor_reged.HASH}<!-- ENDIF -->
+			<!-- IF not postrow.attach.tor_reged.TOR_FROZEN -->&#0183; {postrow.attach.tor_reged.HASH}<!-- ENDIF -->
 		</td>
 		<td width="15%" rowspan="4" class="tCenter pad_6">
 			<!-- IF postrow.attach.tor_reged.TOR_FROZEN -->
