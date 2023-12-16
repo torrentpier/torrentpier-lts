@@ -122,6 +122,8 @@ function update_user_feed ($user_id, $username)
 function create_atom ($file_path, $mode, $id, $title, $topics)
 {
 	global $lang;
+	$date = null;
+	$time = null;
 	$dir = dirname($file_path);
 	if (!file_exists($dir))
 	{
@@ -135,8 +137,7 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 		$time = bb_date($last_time, 'H:i:s', 0);
 		break;
 	}
-	$atom = "";
-	$atom .= "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
+	$atom = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n";
 	$atom .= "<feed xmlns=\"http://www.w3.org/2005/Atom\" xml:base=\"" . FULL_URL . "\">\n";
 	$atom .= "<title>$title</title>\n";
 	$atom .= "<updated>". $date ."T$time+00:00</updated>\n";
@@ -149,6 +150,11 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 		if (isset($topic['tor_size']))
 		{
 			$tor_size = str_replace('&nbsp;', ' ', ' ['. humn_size($topic['tor_size']) .']');
+		}
+		$tor_status = '';
+		if (isset($topic['tor_status']))
+		{
+			$tor_status = " ({$lang['TOR_STATUS_NAME'][$topic['tor_status']]})";
 		}
 		$topic_title = $topic['topic_title'];
 		$orig_word = array();
@@ -168,7 +174,7 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 		$checktime = TIMENOW - 604800; // неделя (week)
 		if ($topic['topic_first_post_edit_time'] && $topic['topic_first_post_edit_time'] > $checktime) $updated = '[' . $lang['ATOM_UPDATED'] . '] ';
 		$atom .= "<entry>\n";
-		$atom .= "	<title type=\"html\"><![CDATA[$updated$topic_title$tor_size]]></title>\n";
+		$atom .= "	<title type=\"html\"><![CDATA[$updated$topic_title$tor_status$tor_size]]></title>\n";
 		$atom .= "	<author>\n";
 		$atom .= "		<name>$author_name</name>\n";
 		$atom .= "	</author>\n";
