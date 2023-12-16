@@ -107,7 +107,7 @@ if (!($attachment = DB()->sql_fetchrow($result)))
 
 $attachment['physical_filename'] = basename($attachment['physical_filename']);
 
-// Re-define download mode for thumbnails
+// Re-define $attachment['physical_filename'] for thumbnails
 if ($thumbnail)
 {
 	$attachment['physical_filename'] = THUMB_DIR . '/t_' . $attachment['physical_filename'];
