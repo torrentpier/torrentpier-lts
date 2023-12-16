@@ -107,6 +107,12 @@ if (!($attachment = DB()->sql_fetchrow($result)))
 
 $attachment['physical_filename'] = basename($attachment['physical_filename']);
 
+// Re-define download mode for thumbnails
+if ($thumbnail)
+{
+	$attachment['physical_filename'] = THUMB_DIR . '/t_' . $attachment['physical_filename'];
+}
+
 DB()->sql_freeresult($result);
 
 // get forum_id for attachment authorization or private message authorization
@@ -201,14 +207,10 @@ if (!in_array($attachment['extension'], $allowed_extensions))
 	bb_die(sprintf($lang['EXTENSION_DISABLED_AFTER_POSTING'], $attachment['extension']) . "<br /><br />" . $lang['FILENAME'] . ":&nbsp;" . $attachment['physical_filename']);
 }
 
+// Getting download mode by extension
 if (!$download_mode = intval($download_mode[$attachment['extension']]))
 {
 	bb_die('Incorrect download mode');
-}
-
-if ($thumbnail)
-{
-	$attachment['physical_filename'] = THUMB_DIR . '/t_' . $attachment['physical_filename'];
 }
 
 // Update download count
