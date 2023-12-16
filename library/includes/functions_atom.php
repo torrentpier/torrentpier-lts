@@ -194,7 +194,6 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 		{
 			$atom .= "	<link href=\"" . TOPIC_URL . $topic_id . "\" />\n";
 		}
-
 		if ($bb_cfg['atom']['direct_view'])
 		{
 			$atom .= "	<description>" . $topic['post_html'] . "\n\nNews URL: " . FULL_URL . TOPIC_URL . $topic_id . "</description>\n";
