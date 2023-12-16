@@ -201,7 +201,10 @@ if (!in_array($attachment['extension'], $allowed_extensions))
 	bb_die(sprintf($lang['EXTENSION_DISABLED_AFTER_POSTING'], $attachment['extension']) . "<br /><br />" . $lang['FILENAME'] . ":&nbsp;" . $attachment['physical_filename']);
 }
 
-$download_mode = intval($download_mode[$attachment['extension']]);
+if (!$download_mode = intval($download_mode[$attachment['extension']]))
+{
+	bb_die('Incorrect download mode');
+}
 
 if ($thumbnail)
 {
@@ -254,5 +257,5 @@ elseif ($download_mode == INLINE_LINK)
 }
 else
 {
-	bb_die('Incorrect download mode');
+	bb_die('Incorrect download mode: ' . $download_mode);
 }
