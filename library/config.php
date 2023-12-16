@@ -573,8 +573,6 @@ $bb_cfg['atom'] = array(
 	// Примечание: Без слэша в конце
 	'path' => INT_DATA_DIR .'atom',
 	'url'  => './internal_data/atom',
-	'direct_down' => true, // Allow direct downloading of torrents from feeds
-	'direct_view' => true, // Allow direct viewing of post texts in feeds
 );
 
 // Nofollow
