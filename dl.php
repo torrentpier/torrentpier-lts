@@ -226,7 +226,7 @@ if ($download_mode == PHYSICAL_LINK)
 	header('Location: ' . $url);
 	exit;
 }
-else
+elseif ($download_mode == INLINE_LINK)
 {
 	if ((IS_GUEST && !$bb_cfg['captcha']['disabled']) && !bb_captcha('check'))
 	{
@@ -251,4 +251,8 @@ else
 
 	send_file_to_browser($attachment, $upload_dir);
 	exit;
+}
+else
+{
+	bb_die('Incorrect download mode');
 }
