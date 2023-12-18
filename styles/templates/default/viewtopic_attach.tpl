@@ -301,6 +301,8 @@ $('#tor-filelist-btn').click(function(){
 	if (ajax.tor_filelist_loaded) {
 		$('#tor-fl-wrap').toggle();
 		return false;
+	} else {
+		$("#tor-filelist-btn").attr("disabled", true);
 	}
 	$('#tor-fl-wrap').show();
 
@@ -322,6 +324,7 @@ $('#tor-filelist-btn').click(function(){
 			$(this).prepend('<s>'+ humn_size(size_bytes) +'</s> ');
 		});
 		ajax.tor_filelist_loaded = true;
+		$("#tor-filelist-btn").attr("disabled", false);
 	};
 	$('#tor-fl-treecontrol a').click(function(){ this.blur(); });
 	return false;
