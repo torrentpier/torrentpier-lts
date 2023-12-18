@@ -96,7 +96,7 @@ $url   = basename(__FILE__);
 $anon_id    = GUEST_UID;
 $user_id    = $userdata['user_id'];
 $lastvisit  = (IS_GUEST) ? TIMENOW : $userdata['user_lastvisit'];
-$search_id  = (isset($_GET['id']) && verify_id($_GET['id'], SEARCH_ID_LENGTH)) ? $_GET['id'] : '';
+$search_id  = (isset($_GET['id']) && verify_id($_GET['id'], SEARCH_ID_LENGTH)) ? DB()->escape($_GET['id']) : '';
 $session_id = $userdata['session_id'];
 
 $items_found = $items_display = $previous_settings = null;
