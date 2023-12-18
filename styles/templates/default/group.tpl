@@ -239,7 +239,7 @@
 	<td>{pending.PM}</td>
 	<td>{pending.EMAIL}</td>
 	<td>{pending.FROM}</td>
-	<td>{pending.JOINED}</td>
+	<td><u>{pending.JOINED_RAW}</u>{pending.JOINED}</td>
 	<td>{pending.POSTS}</td>
 	<td>{pending.WWW}</td>
 </tr>
