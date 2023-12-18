@@ -2,7 +2,6 @@
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
-// Don't count on forbidden extensions table, because it is not allowed to allow forbidden extensions at all
 $extensions = DB()->fetch_rowset("
 	SELECT e.extension, g.cat_id, g.download_mode, g.upload_icon, g.allow_group FROM
 		". BB_EXTENSIONS       ." e,

@@ -20,8 +20,8 @@ function init_complete_extensions_data()
 		$GLOBALS['datastore']->update('attach_extensions');
 		$extension_informations = get_extension_informations();
 	}
-	$allowed_extensions = array();
 
+	$allowed_extensions = array();
 	for ($i = 0, $size = sizeof($extension_informations); $i < $size; $i++)
 	{
 		$extension = strtolower(trim($extension_informations[$i]['extension']));
