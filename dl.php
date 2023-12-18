@@ -203,7 +203,6 @@ for ($i = 0; $i < $num_rows; $i++)
 	{
 		$allowed_extensions[] = $extension;
 	}
-	$allowed_extensions[] = $extension;
 	$download_mode[$extension] = $rows[$i]['download_mode'];
 }
 
