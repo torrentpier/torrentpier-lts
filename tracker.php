@@ -329,7 +329,7 @@ if ($search_id)
 		FROM ". BB_SEARCH ."
 		WHERE session_id = '$session_id'
 			AND search_type = ". SEARCH_TYPE_TRACKER ."
-			AND search_id = '$search_id'
+			AND search_id = '". DB()->escape($search_id) ."'
 		LIMIT 1
 	");
 

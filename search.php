@@ -339,7 +339,7 @@ if ($search_id)
 		FROM ". BB_SEARCH ."
 		WHERE session_id = '$session_id'
 			AND search_type = ". SEARCH_TYPE_POST ."
-			AND search_id = '$search_id'
+			AND search_id = '". DB()->escape($search_id) ."'
 		LIMIT 1
 	");
 
@@ -879,10 +879,9 @@ function fetch_search_ids ($sql, $search_type = SEARCH_TYPE_POST)
 	}
 
 	// Save results in DB
-	$search_id = make_rand_str(SEARCH_ID_LENGTH);
-
 	if ($items_count > $per_page)
 	{
+		$search_id = make_rand_str(SEARCH_ID_LENGTH);
 		$search_array = join(',', $items_found);
 
 		$save_in_db = array(
