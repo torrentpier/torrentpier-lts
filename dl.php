@@ -209,7 +209,7 @@ if (!in_array($attachment['extension'], $allowed_extensions))
 }
 
 // Getting download mode by extension
-if (!$download_mode = intval($download_mode[$attachment['extension']]))
+if (!$download_mode = intval(@$download_mode[$attachment['extension']]))
 {
 	bb_die('Incorrect download mode');
 }
