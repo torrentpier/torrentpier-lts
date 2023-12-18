@@ -329,7 +329,7 @@ if ($search_id)
 		FROM ". BB_SEARCH ."
 		WHERE session_id = '$session_id'
 			AND search_type = ". SEARCH_TYPE_TRACKER ."
-			AND search_id = '" . DB()->escape($search_id) . "'
+			AND search_id = '$search_id'
 		LIMIT 1
 	");
 
@@ -708,7 +708,6 @@ if ($allowed_forums)
 		if ($tor_count > $per_page && !$search_id)
 		{
 			$search_id = make_rand_str(SEARCH_ID_LENGTH);
-			$search_id = DB()->escape($search_id);
 			$search_type = SEARCH_TYPE_TRACKER;
 
 			$columns =  'session_id,   search_type,   search_id,   search_time,   search_settings,  search_array';

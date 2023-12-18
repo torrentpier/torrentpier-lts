@@ -339,7 +339,7 @@ if ($search_id)
 		FROM ". BB_SEARCH ."
 		WHERE session_id = '$session_id'
 			AND search_type = ". SEARCH_TYPE_POST ."
-			AND search_id = '" . DB()->escape($search_id) . "'
+			AND search_id = '$search_id'
 		LIMIT 1
 	");
 
@@ -902,7 +902,6 @@ function fetch_search_ids ($sql, $search_type = SEARCH_TYPE_POST)
 			$curr_set[$GLOBALS["{$name}_key"]] = $GLOBALS["{$name}_val"];
 		}
 		$search_settings = DB()->escape(serialize($curr_set));
-		$search_id = DB()->escape($search_id);
 
 		$columns =  'session_id,   search_type,   search_id,   search_time,    search_settings,    search_array';
 		$values = "'$session_id', $search_type, '$search_id', ". TIMENOW .", '$search_settings', '$search_array'";
