@@ -17,7 +17,7 @@ function init_complete_extensions_data()
 
 	if (!$extension_informations = get_extension_informations())
 	{
-		$extension_informations = $GLOBALS['datastore']->update('attach_extensions'); //get_extension_informations()
+		$GLOBALS['datastore']->update('attach_extensions'); //get_extension_informations()
 		$extension_informations = get_extension_informations();
 	}
 	$allowed_extensions = array();
@@ -25,7 +25,11 @@ function init_complete_extensions_data()
 	for ($i = 0, $size = sizeof($extension_informations); $i < $size; $i++)
 	{
 		$extension = strtolower(trim($extension_informations[$i]['extension']));
-		$allowed_extensions[] = $extension;
+		// Get allowed extensions
+		if ((int) $extension_informations[$i]['allow_group'] === 1)
+		{
+			$allowed_extensions[] = $extension;
+		}
 		$display_categories[$extension] = intval($extension_informations[$i]['cat_id']);
 		$download_modes[$extension] = intval($extension_informations[$i]['download_mode']);
 		$upload_icons[$extension] = trim($extension_informations[$i]['upload_icon']);
