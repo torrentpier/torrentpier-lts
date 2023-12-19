@@ -94,8 +94,8 @@ td.topic_id { cursor: pointer; }
 	<th class="{sorter: 'text'}" width="25%"><b class="tbs-text">{L_FORUM}</b></th>
 	<th class="{sorter: 'text'}" width="75%"><b class="tbs-text">{L_TOPIC}</b></th>
 	<th class="{sorter: 'text'}"><b class="tbs-text">{L_AUTHOR}</b></th>
-	<th width="80" class="{sorter: 'text'}"><b class="tbs-text">{L_REPLIES}</b></th>
-	<th width="120" class="{sorter: 'text'} nowrap"><b class="tbs-text">{L_LASTPOST}</b></th>
+	<th width="80" class="{sorter: 'digit'}"><b class="tbs-text">{L_REPLIES}</b></th>
+	<th width="120" class="{sorter: 'digit'} nowrap"><b class="tbs-text">{L_LASTPOST}</b></th>
 </tr>
 </thead>
 <!-- BEGIN watch -->
@@ -112,6 +112,7 @@ td.topic_id { cursor: pointer; }
 	<td>{watch.AUTHOR}</td>
 	<td class="gensmall">{watch.REPLIES}</td>
 	<td class="gensmall nowrap">
+		<u>{watch.LAST_POST_RAW}</u>
 		{watch.LAST_POST}<!-- IF watch.IS_UNREAD --><a href="{TOPIC_URL}{watch.TOPIC_ID}{NEWEST_URL}">{ICON_NEWEST_REPLY}</a><!-- ELSE -->
 		<a href="{POST_URL}{watch.LAST_POST_ID}#{watch.LAST_POST_ID}">{ICON_LATEST_REPLY}</a><!-- ENDIF -->
 	</td>
