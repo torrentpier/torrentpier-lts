@@ -2849,7 +2849,7 @@ function bb_captcha ($mode, $callback = '')
 	$public = $bb_cfg['captcha']['public_key'];
 	$theme  = isset($bb_cfg['captcha']['theme']) ? $bb_cfg['captcha']['theme'] : 'light';
 
-	if ($bb_cfg['captcha']['disabled'] || !$public || !$secret)
+	if (!$bb_cfg['captcha']['disabled'] && (!$public || !$secret))
 	{
 		bb_die($lang['CAPTCHA_SETTINGS']);
 	}
