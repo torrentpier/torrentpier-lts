@@ -644,6 +644,7 @@ if ($topic_has_poll)
 	{
 		$template->assign_vars(array(
 			'SHOW_VOTE_BTN' => poll_is_active($t_data),
+			'POLL_ALREADY_VOTED' => (bool) DB()->fetch_row("SELECT 1 FROM ". BB_POLL_USERS ." WHERE topic_id = $topic_id AND user_id = {$userdata['user_id']} LIMIT 1"),
 			'POLL_VOTES_JS' => $poll_votes_js,
 		));
 	}
