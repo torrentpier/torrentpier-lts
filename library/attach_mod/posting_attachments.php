@@ -841,40 +841,22 @@ class attach_parent
 		{
 			$r_file = trim(basename($this->filename));
 			$file = $_FILES['fileupload']['tmp_name'];
+			$file_error = $_FILES['fileupload']['error'];
 			$this->type = $_FILES['fileupload']['type'];
 
-			// Обработка ошибок при загрузке файла на сервер
-			if (isset($_FILES['fileupload']['error']))
+			// Handling errors while uploading
+			if (isset($file_error) && ($file_error != UPLOAD_ERR_OK))
 			{
-				// В зависимости от типа ошибки, выводим пользователю сообщение
-				switch ($_FILES['fileupload']['error'])
+				if (isset($lang['UPLOAD_ERRORS'][$file_error]))
 				{
-					case UPLOAD_ERR_NO_FILE:
-						bb_die('No file content sent');
-						break;
-					case UPLOAD_ERR_INI_SIZE:
-						bb_die('upload_max_filesize setting: ' . ini_get('upload_max_filesize'));
-						break;
-					case UPLOAD_ERR_FORM_SIZE:
-						bb_die('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form');
-						break;
-					case UPLOAD_ERR_CANT_WRITE:
-						bb_die('Failed to write file to disk, check permissions');
-						break;
-					case UPLOAD_ERR_PARTIAL:
-						bb_die('The uploaded file was only partially uploaded');
-						break;
-					case UPLOAD_ERR_EXTENSION:
-						bb_die('File upload stopped by extension');
-						break;
-					case UPLOAD_ERR_NO_TMP_DIR:
-						bb_die('Missing a temporary folder');
-						break;
-					default:
-						bb_die('Unknown upload error');
-						break;
+					bb_die($lang['UPLOAD_ERROR_COMMON'] . '<br><br>' . $lang['UPLOAD_ERRORS'][$file_error]);
+				}
+				else
+				{
+					bb_die($lang['UPLOAD_ERROR_COMMON']);
 				}
 			}
+			unset($file_error);
 
 			if (isset($_FILES['fileupload']['size']) && $_FILES['fileupload']['size'] == 0)
 			{

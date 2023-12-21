@@ -39,6 +39,7 @@ class upload_common
 
 		$this->cfg = array_merge($this->cfg, $cfg);
 		$this->file = $post_params;
+		$file_error = $this->file['error'];
 
 		// Check upload allowed
 		if (!$this->cfg['up_allowed'])
@@ -47,14 +48,20 @@ class upload_common
 			return false;
 		}
 
-		// upload errors from $_FILES
-		if ($this->file['error'])
+		// Handling errors while uploading
+		if (isset($file_error) && ($file_error != UPLOAD_ERR_OK))
 		{
-			$msg = $lang['UPLOAD_ERROR_COMMON'];
-			$msg .= ($err_desc =& $lang['UPLOAD_ERRORS'][$this->file['error']]) ? " ($err_desc)" : '';
-			$this->errors[] = $msg;
+			if (isset($lang['UPLOAD_ERRORS'][$file_error]))
+			{
+				$this->errors[] = $lang['UPLOAD_ERROR_COMMON'] . '<br><br>' . $lang['UPLOAD_ERRORS'][$file_error];
+			}
+			else
+			{
+				$this->errors[] = $lang['UPLOAD_ERROR_COMMON'];
+			}
 			return false;
 		}
+		unset($file_error);
 		// file_exists
 		if (!file_exists($this->file['tmp_name']))
 		{
