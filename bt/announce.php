@@ -103,6 +103,18 @@ if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 	msg_die('Invalid passkey: ' . $passkey);
 }
 
+// Check for client ban
+if ($bb_cfg['client_ban']['enabled'])
+{
+	foreach (array_keys($bb_cfg['client_ban']['clients']) as $client)
+	{
+		if (substr($peer_id, 0, strlen($client)) === $client)
+		{
+			msg_die($bb_cfg['client_ban']['clients'][$client]);
+		}
+	}
+}
+
 // IP
 $ip = $_SERVER['REMOTE_ADDR'];
 

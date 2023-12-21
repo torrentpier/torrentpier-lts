@@ -94,6 +94,16 @@ $bb_cfg['passkey_key']        = 'uk';              // Passkey key name in GET re
 $bb_cfg['ignore_reported_ip'] = false;             // Ignore IP reported by client
 $bb_cfg['verify_reported_ip'] = true;              // Verify IP reported by client against $_SERVER['HTTP_X_FORWARDED_FOR']
 $bb_cfg['allow_internal_ip']  = false;             // Allow internal IP (10.xx.. etc.)
+$bb_cfg['client_ban'] = array(
+	'enabled' => false,
+	// Clients to be blocked, for example, peer id '-UT' will block all uTorrent clients, '-UT2' will block builds starting with 2 (default: false)
+	// The second argument is being shown in the torrent client as a failure message
+	// Handy client list: https://github.com/transmission/transmission/blob/f85c3b6f8db95d5363f6ec38eee603f146c6adb6/libtransmission/clients.cc#L504
+	'clients' => array(
+		'-UT' => "uTorrent — NOT ad-free and open-source",
+		'-MG' => 'Mostly leeching client'
+	)
+);
 
 // Ocelot
 $bb_cfg['ocelot']['port'] = 34000;
