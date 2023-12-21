@@ -843,8 +843,10 @@ class attach_parent
 			$file = $_FILES['fileupload']['tmp_name'];
 			$this->type = $_FILES['fileupload']['type'];
 
+			// Обработка ошибок при загрузке файла на сервер
 			if (isset($_FILES['fileupload']['error']))
 			{
+				// В зависимости от типа ошибки, выводим пользователю сообщение
 				switch ($_FILES['fileupload']['error'])
 				{
 					case UPLOAD_ERR_NO_FILE:
