@@ -7,25 +7,37 @@ $imagick = '';
 /**
 * Calculate the needed size for Thumbnail
 */
-function get_img_size_format($width, $height)
+function get_img_size_format($width, $height, $target_width, $target_height = null)
 {
-	// Maximum Width the Image can take
-	$max_width = 400;
+	if ($target_height == null)
+	{
+		// get width to height ratio
+		$ratio = $width / $height;
 
-	if ($width > $height)
-	{
-		return array(
-			round($width * ($max_width / $width)),
-			round($height * ($max_width / $width))
-		);
+		// if is portrait
+		// use ratio to scale height to fit in square
+		if ($width > $height)
+		{
+			return array(
+				$target_width, // is target width
+				floor($target_width / $ratio) // is target height
+			);
+		}
+		// if is landscape
+		// use ratio to scale width to fit in square
+		else
+		{
+			return array(
+				floor($target_width * $ratio), // is target width
+				$target_width // is target height
+			);
+		}
 	}
-	else
-	{
-		return array(
-			round($width * ($max_width / $height)),
-			round($height * ($max_width / $height))
-		);
-	}
+
+	return array(
+		$target_width,
+		$target_height
+	);
 }
 
 /**
@@ -102,7 +114,11 @@ function create_thumbnail($source, $new_file, $mimetype)
 		return false;
 	}
 
-	list($new_width, $new_height) = get_img_size_format($width, $height);
+	// Thumbnail sizes
+	$target_width = 170;
+	$target_height = null;
+
+	list($new_width, $new_height) = get_img_size_format($width, $height, $target_width, $target_height);
 
 	$tmp_path = $old_file = '';
 
@@ -146,6 +162,21 @@ function create_thumbnail($source, $new_file, $mimetype)
 			else
 			{
 				$new_image = imagecreatetruecolor($new_width, $new_height);
+
+				// set transparency options for GIFs and PNGs
+				if ($type['format'] == IMG_GIF || $type['format'] == IMG_PNG)
+				{
+					// make image transparent
+					imagecolortransparent($new_image, imagecolorallocate($new_image, 0, 0, 0));
+
+					// additional settings for PNGs
+					if ($type['format'] == IMG_PNG)
+					{
+						imagealphablending($new_image, false);
+						imagesavealpha($new_image, true);
+					}
+				}
+
 				imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 			}
 
