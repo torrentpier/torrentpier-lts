@@ -123,6 +123,8 @@ function create_thumbnail($source, $new_file, $mimetype)
 
 		if ($type['gd'])
 		{
+			$image = '';
+
 			switch ($type['format'])
 			{
 				case IMG_GIF:
