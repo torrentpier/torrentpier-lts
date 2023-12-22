@@ -62,18 +62,10 @@ function get_supported_image_types($type)
 				$new_type = ($format & IMG_GIF) ? IMG_GIF : 0;
 				break;
 			case IMAGETYPE_JPEG:
-			case IMAGETYPE_JPC:
-			case IMAGETYPE_JP2:
-			case IMAGETYPE_JPX:
-			case IMAGETYPE_JB2:
 				$new_type = ($format & IMG_JPG) ? IMG_JPG : 0;
 				break;
 			case IMAGETYPE_PNG:
 				$new_type = ($format & IMG_PNG) ? IMG_PNG : 0;
-				break;
-			case IMAGETYPE_BMP:
-			case IMAGETYPE_WBMP:
-				$new_type = ($format & IMG_WBMP) ? IMG_WBMP : 0;
 				break;
 		}
 
@@ -142,9 +134,6 @@ function create_thumbnail($source, $new_file, $mimetype)
 				case IMG_PNG:
 					$image = imagecreatefrompng($source);
 					break;
-				case IMG_WBMP:
-					$image = imagecreatefromwbmp($source);
-					break;
 			}
 
 			if ($type['version'] == 1 || !$attach_config['use_gd2'])
@@ -168,9 +157,6 @@ function create_thumbnail($source, $new_file, $mimetype)
 					break;
 				case IMG_PNG:
 					imagepng($new_image, $new_file);
-					break;
-				case IMG_WBMP:
-					imagewbmp($new_image, $new_file);
 					break;
 			}
 
