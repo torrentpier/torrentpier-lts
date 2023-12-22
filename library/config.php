@@ -278,7 +278,7 @@ $page_cfg['show_sidebar2'] = array( // укажите на каких стран
 );
 
 // Cookie
-$bb_cfg['cookie_domain'] = in_array($domain_name, array($_SERVER['SERVER_ADDR'], 'localhost')) ? '' : ".$domain_name";
+$bb_cfg['cookie_domain'] = in_array($domain_name, array($_SERVER['SERVER_ADDR'], 'localhost')) ? '' : ".$domain_name"; // НЕ НУЖНО менять "localhost"
 $bb_cfg['cookie_secure'] = ($domain_ssl ? 1 : (((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')) ? 1 : 0));
 $bb_cfg['cookie_prefix'] = 'bb_'; // Префикс для cookie файлов ('bb_')
 
