@@ -667,7 +667,7 @@ INSERT INTO `bb_extension_groups` VALUES ('', 'Archives', '0', '1', '1', '', '26
 INSERT INTO `bb_extension_groups` VALUES ('', 'Plain text', '0', '1', '1', '', '262144', '');
 INSERT INTO `bb_extension_groups` VALUES ('', 'Documents', '0', '1', '1', '', '262144', '');
 INSERT INTO `bb_extension_groups` VALUES ('', 'Real media', '0', '0', '2', '', '262144', '');
-INSERT INTO `bb_extension_groups` VALUES ('', 'Torrent', '0', '1', '1', '', '122880', '');
+INSERT INTO `bb_extension_groups` VALUES ('', 'Torrent', '0', '1', '1', '', '131072', '');
 
 -- ----------------------------
 -- Table structure for `bb_forums`
