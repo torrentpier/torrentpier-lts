@@ -119,6 +119,7 @@ function create_thumbnail($source, $new_file, $mimetype)
 	$target_height = null;
 
 	list($new_width, $new_height) = get_img_size_format($width, $height, $target_width, $target_height);
+	unset($target_width, $target_height);
 
 	$tmp_path = $old_file = '';
 
