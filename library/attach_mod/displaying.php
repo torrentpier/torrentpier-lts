@@ -311,12 +311,6 @@ function display_attachments($post_id)
 
 			if ($thumbnail)
 			{
-				// Checks the thumbnail existence
-				if (!is_file($thumbnail_filename))
-				{
-					continue;
-				}
-
 				// Images, but display Thumbnail
 				if ($attach_config['upload_dir'][0] == '/' || ( $attach_config['upload_dir'][0] != '/' && $attach_config['upload_dir'][1] == ':'))
 				{
@@ -324,6 +318,12 @@ function display_attachments($post_id)
 				}
 				else
 				{
+					// Checks the thumbnail existence
+					if (!is_file($thumbnail_filename))
+					{
+						continue;
+					}
+
 					$thumb_source = $thumbnail_filename;
 				}
 
