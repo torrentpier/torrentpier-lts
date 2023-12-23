@@ -1023,7 +1023,7 @@ class attach_parent
 				$this->attach_filename = $new_physical_filename;
 
 				// Do we have to create a thumbnail ?
-				if ($cat_id == IMAGE_CAT && intval($attach_config['img_create_thumbnail']))
+				if ($cat_id == IMAGE_CAT && intval($attach_config['img_create_thumbnail']) && intval($attach_config['img_display_inlined']))
 				{
 					$this->thumbnail = 1;
 				}
