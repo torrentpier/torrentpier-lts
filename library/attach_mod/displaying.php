@@ -196,6 +196,12 @@ function display_attachments($post_id)
 		$filename = $upload_dir . '/' . basename($attachments['_' . $post_id][$i]['physical_filename']);
 		$thumbnail_filename = $upload_dir . '/' . THUMB_DIR . '/t_' . basename($attachments['_' . $post_id][$i]['physical_filename']);
 
+		// Check the file existence
+		if (!is_file($filename))
+		{
+			continue;
+		}
+
 		$upload_image = '';
 
 		if ($attach_config['upload_img'] && empty($upload_icons[$attachments['_' . $post_id][$i]['extension']]))
@@ -305,6 +311,12 @@ function display_attachments($post_id)
 
 			if ($thumbnail)
 			{
+				// Checks the thumbnail existence
+				if (!is_file($thumbnail_filename))
+				{
+					continue;
+				}
+
 				// Images, but display Thumbnail
 				if ($attach_config['upload_dir'][0] == '/' || ( $attach_config['upload_dir'][0] != '/' && $attach_config['upload_dir'][1] == ':'))
 				{
