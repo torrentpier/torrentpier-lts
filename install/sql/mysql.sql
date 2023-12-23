@@ -663,7 +663,7 @@ CREATE TABLE IF NOT EXISTS `bb_extension_groups` (
 -- Records of bb_extension_groups
 -- ----------------------------
 INSERT INTO `bb_extension_groups` VALUES ('', 'Images', '1', '1', '1', '', '262144', '');
-INSERT INTO `bb_extension_groups` VALUES ('', 'Archives', '0', '1', '1', '', '262144', '');
+INSERT INTO `bb_extension_groups` VALUES ('', 'Archives', '0', '1', '1', '', '524288', '');
 INSERT INTO `bb_extension_groups` VALUES ('', 'Plain text', '0', '1', '1', '', '262144', '');
 INSERT INTO `bb_extension_groups` VALUES ('', 'Documents', '0', '1', '1', '', '262144', '');
 INSERT INTO `bb_extension_groups` VALUES ('', 'Real media', '0', '0', '2', '', '262144', '');
