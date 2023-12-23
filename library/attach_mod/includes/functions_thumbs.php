@@ -180,6 +180,9 @@ function create_thumbnail($source, $new_file, $mimetype)
 				imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 			}
 
+			// Устанавливаем тип содержимого в заголовок
+			header('Content-Type: ' . $mimetype);
+
 			switch ($type['format'])
 			{
 				case IMG_GIF:
