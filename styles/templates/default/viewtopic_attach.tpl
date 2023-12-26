@@ -52,7 +52,7 @@
 <legend>{postrow.attach.attachrow.S_UPLOAD_IMAGE} {L_ATTACHMENT}</legend>
 	<p class="attach_link">
 		<a href="{postrow.attach.attachrow.U_DOWNLOAD_LINK}" {postrow.attach.attachrow.TARGET_BLANK}><b>{postrow.attach.attachrow.DOWNLOAD_NAME}</b></a>
-		<span class="attach_stats med">({postrow.attach.attachrow.FILESIZE}, {L_DOWNLOADED}: {postrow.attach.attachrow.DOWNLOAD_COUNT})</span>
+		<span class="attach_stats med">({postrow.attach.attachrow.FILESIZE}, <!-- IF postrow.attach.attachrow.IS_IMAGE -->{L_VIEWS}<!-- ELSE -->{L_DOWNLOADED}<!-- ENDIF -->: {postrow.attach.attachrow.DOWNLOAD_COUNT})</span>
 	</p>
 	<!-- IF postrow.attach.attachrow.COMMENT -->
 	<p class="attach_comment med">

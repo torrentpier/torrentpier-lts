@@ -355,6 +355,7 @@ function display_attachments($post_id)
 					'FILESIZE'        => $filesize,
 					'COMMENT'         => $comment,
 					'TARGET_BLANK'    => $target_blank,
+					'IS_IMAGE'        => !empty($target_blank), // Проверка на то, что загружаемый файл является картинкой
 					'DOWNLOAD_COUNT'  => declension((int)$attachments['_' . $post_id][$i]['download_count'], 'times'),
 				));
 			}
