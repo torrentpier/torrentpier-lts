@@ -19,7 +19,7 @@ if (isset($_POST['submit']))
 		$this_userdata = get_userdata($_POST['username'], true);
 		if (!$this_userdata)
 		{
-			bb_die($lang['NO_USER_ID_SPECIFIED']);
+			bb_die($lang['NO_USER_ID_SPECIFIED'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_BANADMIN'], '<a href="admin_user_ban.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 		}
 
 		$user_list[] = $this_userdata['user_id'];
