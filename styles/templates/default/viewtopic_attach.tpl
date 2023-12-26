@@ -14,11 +14,11 @@
 <!-- BEGIN cat_images -->
 <fieldset class="attach">
 <legend>{TOPIC_ATTACH_ICON} {L_ATTACHMENT} ({postrow.attach.cat_images.FILESIZE})</legend>
-	<p class="tCenter pad_6">
+	<p class="tCenter">
 		<img src="{postrow.attach.cat_images.IMG_SRC}" id="attachImg" class="postImg" alt="img" border="0" />
 	</p>
 	<!-- IF postrow.attach.cat_images.COMMENT -->
-	<p class="tCenter med lh_110">
+	<p class="attach_comment med">
 		{postrow.attach.cat_images.COMMENT}
 	</p>
 	<!-- ENDIF -->
