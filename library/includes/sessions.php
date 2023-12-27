@@ -246,6 +246,7 @@ class user_common
 
 			if (DB()->fetch_row($sql))
 			{
+				$this->session_end();
 				bb_simple_die($lang['YOU_BEEN_BANNED']);
 			}
 		}
