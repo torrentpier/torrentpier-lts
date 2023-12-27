@@ -230,6 +230,7 @@ class user_common
 		$login   = (int) ($this->data['user_id'] != GUEST_UID);
 		$is_user = ($this->data['user_level'] != ADMIN);
 		$user_id = (int) $this->data['user_id'];
+		$user_email = $this->data['user_email'];
 		$mod_admin_session = ($this->data['user_level'] == ADMIN || $this->data['user_level'] == MOD);
 
 		// Initial ban check against user_id or IP address
@@ -239,6 +240,7 @@ class user_common
 
 			$where_sql  = "ban_ip IN('". USER_IP ."', '$ip[1]$ip[2]$ip[3]ff', '$ip[1]$ip[2]ffff', '$ip[1]ffffff')";
 			$where_sql .= ($login) ? " OR ban_userid = $user_id" : '';
+			$where_sql .= ($login) ? " OR ban_email = $user_email" : ''; // Check by email
 
 			$sql = "SELECT ban_id FROM ". BB_BANLIST ." WHERE $where_sql LIMIT 1";
 
