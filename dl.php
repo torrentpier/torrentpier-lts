@@ -38,6 +38,10 @@ function send_file_to_browser($attachment, $upload_dir)
 	{
 		$attachment['mimetype'] = 'application/octet-stream';
 	}
+	else
+	{
+		header('Cache-Control: public, max-age=3600');
+	}
 
 	//bt
 	if (!(isset($_GET['original']) && !IS_USER))
@@ -168,7 +172,7 @@ $datastore->rm('cat_forums');
 //
 // Check tor status
 //
-if (!IS_AM)
+if (!IS_AM && (strpos($attachment['mimetype'], 'bittorrent') !== false))
 {
 	$sql = "SELECT tor_status, poster_id FROM " . BB_BT_TORRENTS . " WHERE attach_id = " . (int) $attachment['attach_id'];
 
