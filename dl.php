@@ -172,7 +172,7 @@ $datastore->rm('cat_forums');
 //
 // Check tor status
 //
-if (!IS_AM && (strpos($attachment['mimetype'], 'bittorrent') !== false))
+if (!IS_AM && !(strpos($attachment['mimetype'], 'bittorrent') === false))
 {
 	$sql = "SELECT tor_status, poster_id FROM " . BB_BT_TORRENTS . " WHERE attach_id = " . (int) $attachment['attach_id'];
 
