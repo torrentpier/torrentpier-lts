@@ -229,7 +229,7 @@ $bb_cfg['tor_frozen_author_download'] = array(
 	TOR_PREMOD        => true,
 );
 
-// Запрет на редактирование головного сообщения
+// Запрет на редактирование релизов с определенным статусом (false - выключить)
 $bb_cfg['tor_cannot_edit'] = array(
 	TOR_CHECKING      => true,
 	TOR_CLOSED        => true,
