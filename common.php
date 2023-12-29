@@ -537,6 +537,7 @@ else if (defined('IN_TRACKER'))
 			'interval'     => (int)    $interval,
 			'min interval' => (int)    $interval,
 			'peers'        => (string) DUMMY_PEER,
+			'external ip'  => inet_pton($_SERVER['REMOTE_ADDR']),
 		));
 
 		die($output);
