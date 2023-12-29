@@ -12,12 +12,20 @@ if (isset($_GET['?info_hash']) && !isset($_GET['info_hash']))
 	$_GET['info_hash'] = $_GET['?info_hash'];
 }
 
-if (!isset($_GET['info_hash']) || strlen($_GET['info_hash']) != 20)
+// Verify info_hash
+if (!isset($_GET['info_hash']))
 {
-	msg_die('Invalid info_hash: ' . bin2hex($_GET['info_hash']));
+	msg_die('Invalid info_hash');
 }
 
 $info_hash = $_GET['info_hash'];
+$info_hash_hex = bin2hex($info_hash);
+
+// Check info_hash length
+if (strlen($info_hash) != 20)
+{
+	msg_die('Invalid info_hash: ' . (mb_check_encoding($info_hash, 'UTF8') ? $info_hash : $info_hash_hex));
+}
 
 function msg_die ($msg)
 {
