@@ -102,10 +102,6 @@ if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 {
 	msg_die('Invalid passkey: ' . $passkey);
 }
-if (max($uploaded, $downloaded, $left) >= (2**64 - 1)) // BIGINT
-{
-	msg_die('Integer overflow');
-}
 
 // Check for client ban
 if ($bb_cfg['client_ban']['enabled'])
