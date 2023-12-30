@@ -278,7 +278,10 @@ if ($mode == 'editpost')
 	{
 		if ($tor_status = DB()->fetch_row("SELECT tor_status FROM " . BB_BT_TORRENTS . " WHERE topic_id = $topic_id AND forum_id = $forum_id AND tor_status IN(" . implode(',', array_keys($bb_cfg['tor_cannot_edit'])) . ") LIMIT 1"))
 		{
-			bb_die($lang['NOT_EDIT_TOR_STATUS'] . ':&nbsp;<span title="' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '">' . $bb_cfg['tor_icons'][$tor_status['tor_status']] . '&nbsp;' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '</span>.');
+			if ($bb_cfg['tor_cannot_edit'][$tor_status['tor_status']])
+			{
+				bb_die($lang['NOT_EDIT_TOR_STATUS'] . ':&nbsp;<span title="' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '">' . $bb_cfg['tor_icons'][$tor_status['tor_status']] . '&nbsp;' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '</span>.');
+			}
 		}
 	}
 }
