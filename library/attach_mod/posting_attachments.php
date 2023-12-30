@@ -11,6 +11,7 @@ define('FILENAME_CRYPTIC_LENGTH', 64);
 class attach_parent
 {
 	var $post_attach = false;
+	var $update_attachment = false;
 	var $attach_filename = '';
 	var $filename = '';
 	var $type = '';
@@ -239,7 +240,7 @@ class attach_parent
 			$add = (isset($_POST['add_attachment'])) ? TRUE : FALSE;
 			$delete = (isset($_POST['del_attachment'])) ? TRUE : FALSE;
 			$edit = ( isset($_POST['edit_comment']) ) ? TRUE : FALSE;
-			$update_attachment = ( isset($_POST['update_attachment']) ) ? TRUE : FALSE;
+			$update_attachment = $this->update_attachment = ( isset($_POST['update_attachment']) ) ? TRUE : FALSE;
 			$del_thumbnail = ( isset($_POST['del_thumbnail']) ) ? TRUE : FALSE;
 
 			$add_attachment_box = (!empty($_POST['add_attachment_box'])) ? TRUE : FALSE;
@@ -944,7 +945,7 @@ class attach_parent
 
 			//bt
 			// Block uploading more than one torrent file
-			if (!$error && $this->extension === TORRENT_EXT && in_array(TORRENT_EXT, $this->attachment_extension_list))
+			if (!$error && !$this->update_attachment && $this->extension === TORRENT_EXT && in_array(TORRENT_EXT, $this->attachment_extension_list))
 			{
 				$error = TRUE;
 				if (!empty($error_msg))
