@@ -271,6 +271,18 @@ if ($mode == 'new_rel')
 	exit;
 }
 
+// Запрет на редактирование релиза с определенным статусом ($bb_cfg['tor_cannot_edit'])
+if ($mode == 'edit')
+{
+	if (!empty($bb_cfg['tor_cannot_edit']) && $post_info['allow_reg_tracker'] && $post_data['first_post'] && !IS_AM)
+	{
+		if ($tor_status = DB()->fetch_row("SELECT tor_status FROM " . BB_BT_TORRENTS . " WHERE topic_id = $topic_id AND forum_id = $forum_id AND tor_status IN(" . implode(',', array_keys($bb_cfg['tor_cannot_edit'])) . ") LIMIT 1"))
+		{
+			bb_die($lang['NOT_EDIT_TOR_STATUS'] . ':&nbsp;<span title="' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '">' . $bb_cfg['tor_icons'][$tor_status['tor_status']] . '&nbsp;' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '</span>.');
+		}
+	}
+}
+
 // Notify
 if ($submit || $refresh)
 {
@@ -371,15 +383,6 @@ elseif ( ($submit || $confirm) && !$topic_has_new_posts )
 			$message = ( !empty($_POST['message']) ) ? prepare_message($_POST['message']) : '';
 			$attach_rg_sig = (isset($_POST['attach_rg_sig']) && isset($_POST['poster_rg']) && $_POST['poster_rg'] != -1) ? 1 : 0;
 			$poster_rg_id = (isset($_POST['poster_rg']) && $_POST['poster_rg'] != -1) ? (int) $_POST['poster_rg'] : 0;
-
-			// Запрет на редактирование релиза с определенным статусом ($bb_cfg['tor_cannot_edit'])
-			if (!empty($bb_cfg['tor_cannot_edit']) && $post_info['allow_reg_tracker'] && $post_data['first_post'] && !IS_AM)
-			{
-				if ($tor_status = DB()->fetch_row("SELECT tor_status FROM " . BB_BT_TORRENTS . " WHERE topic_id = $topic_id AND forum_id = $forum_id AND tor_status IN(" . implode(',', array_keys($bb_cfg['tor_cannot_edit'])) . ") LIMIT 1"))
-				{
-					bb_die($lang['NOT_EDIT_TOR_STATUS'] . ':&nbsp;<span title="' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '">' . $bb_cfg['tor_icons'][$tor_status['tor_status']] . '&nbsp;' . $lang['TOR_STATUS_NAME'][$tor_status['tor_status']] . '</span>.');
-				}
-			}
 
 			prepare_post($mode, $post_data, $error_msg, $username, $subject, $message);
 
