@@ -272,7 +272,7 @@ if ($mode == 'new_rel')
 }
 
 // Запрет на редактирование релиза с определенным статусом ($bb_cfg['tor_cannot_edit'])
-if ($mode == 'edit')
+if ($mode == 'editpost')
 {
 	if (!empty($bb_cfg['tor_cannot_edit']) && $post_info['allow_reg_tracker'] && $post_data['first_post'] && !IS_AM)
 	{
