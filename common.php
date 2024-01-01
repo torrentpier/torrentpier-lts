@@ -3,27 +3,23 @@
 if (isset($_REQUEST['GLOBALS'])) die();
 
 // Check system requirements
-$check_sys_req = true;
-
-if ($check_sys_req)
-{
-	// PHP
-	if (PHP_VERSION_ID < 50304) die('TorrentPier II requires PHP version 5.3.4+. Your PHP version ' . PHP_VERSION);
-	// Magic quotes
-	if (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
-	// MySQL
-	if (!extension_loaded('mysql')) die('MySQL extension not installed');
-	// JSON
-	if (!function_exists('json_encode')) die('json_encode() function not exists');
-	// getmypid
-	if (!function_exists('getmypid') || !getmypid()) die('getmypid() function is disabled');
-	// Mbstring
-	if (!extension_loaded('mbstring')) die('Mbstring extension not installed');
-	// BCMath
-	if (!extension_loaded('bcmath')) die('BCMath extension not installed');
-	// Intl
-	if (!extension_loaded('intl')) die('Intl extension not installed');
-}
+// PHP
+if (PHP_VERSION_ID < 50304) die('TorrentPier II requires PHP version 5.3.4+. Your PHP version ' . PHP_VERSION);
+if (PHP_VERSION_ID >= 70000) die('TorrentPier II requires PHP version lower than PHP 7. Your PHP version ' . PHP_VERSION);
+// Magic quotes
+if (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
+// MySQL
+if (!extension_loaded('mysql')) die('MySQL extension not installed');
+// JSON
+if (!function_exists('json_encode')) die('json_encode() function not exists');
+// getmypid
+if (!function_exists('getmypid') || !getmypid()) die('getmypid() function is disabled');
+// Mbstring
+if (!extension_loaded('mbstring')) die('Mbstring extension not installed');
+// BCMath
+if (!extension_loaded('bcmath')) die('BCMath extension not installed');
+// Intl
+if (!extension_loaded('intl')) die('Intl extension not installed');
 
 ignore_user_abort(true);
 define('TIMESTART', utime());
