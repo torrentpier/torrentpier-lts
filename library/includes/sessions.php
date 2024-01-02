@@ -512,7 +512,7 @@ class user_common
 				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION); // Making DBG_USER as true
 			}
 
-			// Unset sql debug cookies
+			// Unset sql debug cookies if SQL_DEBUG is disabled or DBG_USER cookie not present
 			if (!SQL_DEBUG || !DBG_USER)
 			{
 				foreach (array('explain', 'sql_log', 'sql_log_full') as $cookie)
