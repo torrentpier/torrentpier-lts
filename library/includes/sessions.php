@@ -501,10 +501,15 @@ class user_common
 		}
 		else
 		{
-			// Unset debug cookie if user not in dbg_users array
 			if (!isset($bb_cfg['dbg_users'][$this->data['user_id']]) && DBG_USER)
 			{
+				// Unset debug cookie if user not in dbg_users array
 				bb_setcookie(COOKIE_DBG, '', COOKIE_EXPIRED); // Making DBG_USER as false
+			}
+			elseif (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
+			{
+				// Set debug cookie if user in dbg_users array
+				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION); // Making DBG_USER as true
 			}
 
 			// Unset sql debug cookies
@@ -519,17 +524,13 @@ class user_common
 				}
 			}
 
-			// Set session & debug cookies
+			// Set bb_data (session) cookie
 			$c_sdata_resv = !empty($_COOKIE[COOKIE_DATA]) ? $_COOKIE[COOKIE_DATA] : null;
 			$c_sdata_curr = ($this->sessiondata) ? serialize($this->sessiondata) : '';
 
 			if ($c_sdata_curr !== $c_sdata_resv)
 			{
 				bb_setcookie(COOKIE_DATA, $c_sdata_curr, COOKIE_PERSIST, true);
-			}
-			if (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
-			{
-				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION);
 			}
 		}
 	}
