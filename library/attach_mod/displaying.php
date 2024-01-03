@@ -197,10 +197,10 @@ function display_attachments($post_id)
 		$thumbnail_filename = $upload_dir . '/' . THUMB_DIR . '/t_' . basename($attachments['_' . $post_id][$i]['physical_filename']);
 
 		// Check the file existence
-		if (!is_file($filename))
+		/*if (!is_file($filename))
 		{
 			continue;
-		}
+		}*/
 
 		$upload_image = '';
 
@@ -319,10 +319,10 @@ function display_attachments($post_id)
 				else
 				{
 					// Checks the thumbnail existence
-					if (!is_file($thumbnail_filename))
+					/*if (!is_file($thumbnail_filename))
 					{
 						continue;
-					}
+					}*/
 
 					$thumb_source = $thumbnail_filename;
 				}
