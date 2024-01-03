@@ -1,9 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.01 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2023-12-22)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10-HotFix...v2.1.5-2024.01)
+## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-03)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10-HotFix...v2.1.5-2024.02)
 
-- Release v2.1.5-2024.01 🎉
+- Release v2.1.5-2024.02 🎉
 - Some improvements in default template
 - Fixed void function result used
 - Feature to ban specific torrent clients
@@ -13,6 +13,9 @@
 - Fixed broken captcha check on login.php
 - Fixed broken sorting in group.php
 - Fixed extensions issue
+- Restored unused functionality "Block torrent editing with certain status"
+- Some fixes for Thumbnails functionality
+- Some fixes for Ban functionality
 - Some enhancements for dl.php
 - Some other changes / improvements
 - Some reported bugfixes
