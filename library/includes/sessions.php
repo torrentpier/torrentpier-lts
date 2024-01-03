@@ -240,7 +240,7 @@ class user_common
 
 			$where_sql  = "ban_ip IN('". USER_IP ."', '$ip[1]$ip[2]$ip[3]ff', '$ip[1]$ip[2]ffff', '$ip[1]ffffff')";
 			$where_sql .= ($login) ? " OR ban_userid = $user_id" : '';
-			$where_sql .= ($login) ? " OR ban_email = $user_email" : ''; // Check by email
+			$where_sql .= ($login) ? " OR ban_email = '$user_email'" : ''; // Check by email
 
 			$sql = "SELECT ban_id FROM ". BB_BANLIST ." WHERE $where_sql LIMIT 1";
 
