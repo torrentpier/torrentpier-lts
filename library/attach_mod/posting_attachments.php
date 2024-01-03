@@ -6,9 +6,9 @@ define('FILENAME_PREFIX',         true);
 define('FILENAME_PREFIX_LENGTH',  6);
 
 define('FILENAME_CRYPTIC',        false);
-define('FILENAME_CRYPTIC_LENGTH', 64);
+define('FILENAME_CRYPTIC_LENGTH', 32);
 
-define('FILENAME_MAX_LENGTH',     180);
+define('FILENAME_MAX_LENGTH',     128);
 
 class attach_parent
 {
