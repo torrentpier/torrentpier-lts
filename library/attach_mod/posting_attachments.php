@@ -4,9 +4,11 @@ if (!defined('IN_FORUM')) die("Hacking attempt");
 
 define('FILENAME_PREFIX',         true);
 define('FILENAME_PREFIX_LENGTH',  6);
-define('FILENAME_MAX_LENGTH',     180);
+
 define('FILENAME_CRYPTIC',        false);
 define('FILENAME_CRYPTIC_LENGTH', 64);
+
+define('FILENAME_MAX_LENGTH',     180);
 
 class attach_parent
 {
