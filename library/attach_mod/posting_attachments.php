@@ -987,7 +987,7 @@ class attach_parent
 				//bt
 				if (FILENAME_CRYPTIC)
 				{
-					$this->attach_filename = make_rand_str(FILENAME_CRYPTIC_LENGTH);
+					$this->attach_filename = make_rand_str(FILENAME_CRYPTIC_LENGTH) . '_' . TIMENOW;
 				}
 				else
 				{
