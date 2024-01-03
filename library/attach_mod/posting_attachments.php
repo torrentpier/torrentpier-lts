@@ -1008,7 +1008,6 @@ class attach_parent
 				}
 				$this->attach_filename = str_replace(array('&amp;','&',' '), '_', $this->attach_filename);
 				$this->attach_filename = str_replace('php', '_php_', $this->attach_filename);
-				$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
 
 				$new_physical_filename = '';
 				for ($i=0, $max_try=5; $i <= $max_try; $i++)
@@ -1030,6 +1029,10 @@ class attach_parent
 					}
 				}
 				$this->attach_filename = $new_physical_filename;
+				if (!empty($this->attach_filename))
+				{
+					$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
+				}
 
 				// Do we have to create a thumbnail ?
 				if ($cat_id == IMAGE_CAT && intval($attach_config['img_create_thumbnail']) && intval($attach_config['img_display_inlined']))
