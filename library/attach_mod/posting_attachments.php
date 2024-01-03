@@ -2,7 +2,7 @@
 
 if (!defined('IN_FORUM')) die("Hacking attempt");
 
-define('FILENAME_PREFIX',         false);
+define('FILENAME_PREFIX',         true);
 define('FILENAME_PREFIX_LENGTH',  6);
 define('FILENAME_MAX_LENGTH',     180);
 define('FILENAME_CRYPTIC',        false);
@@ -970,7 +970,6 @@ class attach_parent
 			//bt end
 
 			// Upload File
-
 			$this->thumbnail = 0;
 
 			if (!$error)
@@ -991,7 +990,8 @@ class attach_parent
 					$this->attach_filename = make_rand_str(FILENAME_CRYPTIC_LENGTH);
 				}
 				else
-				{ // original
+				{
+					// original
 					$this->attach_filename = html_entity_decode(trim(stripslashes($this->attach_filename)));
 					$this->attach_filename = delete_extension($this->attach_filename);
 					$this->attach_filename = str_replace(array(' ','-'), array('_','_'), $this->attach_filename);
@@ -1008,9 +1008,14 @@ class attach_parent
 				$this->attach_filename = str_replace('php', '_php_', $this->attach_filename);
 				$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
 
+				$new_physical_filename = '';
 				for ($i=0, $max_try=5; $i <= $max_try; $i++)
 				{
-					$fn_prefix = make_rand_str(FILENAME_PREFIX_LENGTH) .'_';
+					$fn_prefix = '';
+					if (FILENAME_PREFIX)
+					{
+						$fn_prefix = make_rand_str(FILENAME_PREFIX_LENGTH) .'_';
+					}
 					$new_physical_filename = clean_filename($fn_prefix . $this->attach_filename);
 
 					if (!physical_filename_already_stored($new_physical_filename))
