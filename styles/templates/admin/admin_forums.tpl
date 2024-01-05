@@ -152,11 +152,13 @@ function toggle_cat_list (val)
 	</td>
 </tr>
 </tbody>
+<!-- IF not NOWHERE_TO_MOVE -->
 <tr>
 	<td colspan="2" class="catBottom pad_4">
 		<input type="submit" name="submit" value="{S_SUBMIT_VALUE}" class="bold" />
 	</td>
 </tr>
+<!-- ENDIF -->
 </table>
 
 </form>
