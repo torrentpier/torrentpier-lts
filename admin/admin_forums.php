@@ -552,7 +552,7 @@ if ($mode)
 		case 'movedelcat':
 			// Move or delete a category in the DB
 			$from_id = (int) $_POST['from_id'];
-			$to_id   = (int) $_POST['to_id'];
+			$to_id   = (int) isset($_POST['to_id']) ? $_POST['to_id'] : -1;
 
 			if ($from_id == $to_id || !cat_exists($from_id) || !cat_exists($to_id))
 			{
