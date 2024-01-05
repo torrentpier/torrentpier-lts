@@ -4,7 +4,11 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $datastore, $lang;
 
-$ranks   = $datastore->get('ranks');
+if (!$ranks = $datastore->get('ranks'))
+{
+	$datastore->update('ranks');
+	$ranks = $datastore->get('ranks');
+}
 $rank_id = intval($this->request['rank_id']);
 
 if (!$user_id = intval($this->request['user_id']) OR !$profiledata = get_userdata($user_id))

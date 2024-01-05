@@ -2,13 +2,13 @@
 
 if (!defined('IN_FORUM')) die("Hacking attempt");
 
-define('FILENAME_PREFIX',         true);
-define('FILENAME_PREFIX_LENGTH',  6);
+define('FILENAME_PREFIX',         true);  // Добавлять ли в начале имени файла префикс (случайная строка)
+define('FILENAME_PREFIX_LENGTH',  6);     // Длина префикса
 
-define('FILENAME_CRYPTIC',        false);
-define('FILENAME_CRYPTIC_LENGTH', 32);
+define('FILENAME_CRYPTIC',        false); // Использовать в качестве названия файла случайную строку (псевдо-криптографическая)
+define('FILENAME_CRYPTIC_LENGTH', 32);    // Длина имени
 
-define('FILENAME_MAX_LENGTH',     128);
+define('FILENAME_MAX_LENGTH',     128);   // Максимальная длина имени файла
 
 class attach_parent
 {

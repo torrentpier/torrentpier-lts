@@ -4,7 +4,10 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $bb_cfg, $lang, $userdata, $datastore;
 
-$mode = (string) $this->request['mode'];
+if (!$mode = (string) $this->request['mode'])
+{
+	$this->ajax_die('invalid mode (empty)');
+}
 $html = '';
 
 switch($mode)
@@ -131,7 +134,8 @@ switch($mode)
 	break;
 
 	default:
-		$this->ajax_die('Invalid mode');
+		$this->ajax_die('Invalid mode: ' . $mode);
+	break;
 }
 
 $this->response['html'] = $html;
