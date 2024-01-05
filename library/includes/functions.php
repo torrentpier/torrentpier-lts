@@ -1337,11 +1337,11 @@ function get_db_stat ($mode)
 	switch ($mode)
 	{
 		case 'usercount':
-			$sql = "SELECT COUNT(user_id) AS total FROM " . BB_USERS;
+			$sql = "SELECT COUNT(user_id) AS total FROM " . BB_USERS . " WHERE user_id NOT IN (" . EXCLUDED_USERS_CSV . ")";
 			break;
 
 		case 'newestuser':
-			$sql = "SELECT user_id, username FROM " . BB_USERS . " WHERE user_id <> " . GUEST_UID . " ORDER BY user_id DESC LIMIT 1";
+			$sql = "SELECT user_id, username FROM " . BB_USERS . " WHERE user_id NOT IN (" . EXCLUDED_USERS_CSV . ") ORDER BY user_id DESC LIMIT 1";
 			break;
 
 		case 'postcount':
