@@ -1360,16 +1360,16 @@ function get_db_stat ($mode)
 	switch ($mode)
 	{
 		case 'usercount':
-			return $row['total'];
+			return isset($row['total']) ? $row['total'] : 0;
 			break;
 		case 'newestuser':
 			return $row;
 			break;
 		case 'postcount':
-			return $row['post_total'];
+			return isset($row['post_total']) ? $row['post_total'] : 0;
 			break;
 		case 'topiccount':
-			return $row['topic_total'];
+			return isset($row['topic_total']) ? $row['topic_total'] : 0;
 			break;
 	}
 
