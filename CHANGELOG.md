@@ -10,6 +10,7 @@
 - Get SERVER_NAME variable for cron tasks
 - Improved handling errors while uploading
 - Hide vote button in poll if user already voted
+- Fixed Undefined index: to_id when trying to delete empty forum category
 - Fixed broken captcha check on login.php
 - Fixed broken sorting in group.php
 - Fixed extensions issue
