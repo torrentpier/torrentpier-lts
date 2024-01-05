@@ -4,7 +4,10 @@ if (!defined('IN_AJAX')) die(basename(__FILE__));
 
 global $userdata, $lang;
 
-$req_uid = (int) $this->request['user_id'];
+if (!$req_uid = (int) $this->request['user_id'])
+{
+	$this->ajax_die($lang['NO_USER_ID_SPECIFIED']);
+}
 
 if ($req_uid == $userdata['user_id'] || IS_ADMIN)
 {
