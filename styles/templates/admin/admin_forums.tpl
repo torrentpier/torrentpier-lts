@@ -36,7 +36,7 @@ function toggle_cat_list (val)
 	</tr>
 	<tr>
 		<td>{L_FORUM_DESC}</td>
-		<td><textarea style="width: 96%; white-space: pre-wrap;" rows="2" name="forumdesc" class="post">{DESCRIPTION}</textarea></td>
+		<td><textarea style="width: 96%;" rows="2" wrap="soft" name="forumdesc" class="post">{DESCRIPTION}</textarea></td>
 	</tr>
 	<tr>
 		<td>{L_SF_PARENT_FORUM}</td>
