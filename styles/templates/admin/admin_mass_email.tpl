@@ -15,11 +15,11 @@
 </tr>
 <tr>
 	<td class="row1" align="right"><b>{L_SUBJECT}</b></td>
-	<td class="row2"><input class="post" type="text" name="subject" size="45" maxlength="100" style="width:98%" tabindex="2" class="post" value="{SUBJECT}" /></td>
+	<td class="row2"><input class="post" type="text" name="subject" size="45" maxlength="100" style="width:98%" tabindex="2" value="{SUBJECT}" /></td>
 </tr>
 <tr>
 	<td class="row1" align="right" valign="top"> <span class="gen"><b>{L_MESSAGE}</b></span></td>
-	<td class="row2"><textarea name="message" rows="15" cols="35" wrap="virtual" style="width:98%" tabindex="3" class="post">{MESSAGE}</textarea></td>
+	<td class="row2"><textarea name="message" rows="15" cols="35" wrap="hard" style="width:98%" tabindex="3" class="post">{MESSAGE}</textarea></td>
 </tr>
 <tr>
 	<td class="catBottom" colspan="2"><input class="mainoption" type="reset" value="{L_CLEAR}">&nbsp;&nbsp;<input type="submit" value="{L_SEND_EMAIL}" name="submit" class="mainoption" /></td>
