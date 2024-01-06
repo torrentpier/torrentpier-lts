@@ -1334,6 +1334,7 @@ function bb_update_config ($params, $table = BB_CONFIG)
 
 function get_db_stat ($mode)
 {
+	$sql = null;
 	switch ($mode)
 	{
 		case 'usercount':
