@@ -201,7 +201,7 @@ function hl (id, on)
 				<a class="gen" href="{c.U_CAT_DELETE}">{L_DELETE}</a>
 			</span>
 		</td>
-		<td>{L_PRUNE}</td>
+		<td class="tCenter">{L_PRUNE}</td>
 	</tr>
 	<!-- BEGIN f -->
 	<tr class="row1 hl-tr" onmouseover="hl('fname_{c.f.FORUM_ID}', 1);" onmouseout="hl('fname_{c.f.FORUM_ID}', 0);">
