@@ -568,7 +568,7 @@ $bb_cfg['group_avatars'] = array(
 	'up_allowed'  => true,                            // разрешить загрузку аватар
 );
 
-// Captcha
+// Captcha (reCAPTCHA v2)
 // Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
 $bb_cfg['captcha'] = array(
 	'disabled'   => true, // отключить капчу
