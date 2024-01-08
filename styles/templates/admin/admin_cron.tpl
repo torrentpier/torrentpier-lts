@@ -135,10 +135,12 @@ tr.hl-tr:hover td { background-color: #CFC !important; }
 <tr>
 	<th colspan="2">{L_CRON_EDIT_HEAD}</th>
 </tr>
+<!-- IF CRON_ID -->
 <tr>
 	<td><h4>{L_CRON_ID}</h4></td>
 	<td><input class="text" type="hidden" size="30" maxlength="255" name="cron_id" value="{CRON_ID}" /> <b>{CRON_ID}</b></td>
 </tr>
+<!-- ENDIF -->
 <tr>
 	<td>
 		<h4>{L_CRON_ACTIVE}</h4>
