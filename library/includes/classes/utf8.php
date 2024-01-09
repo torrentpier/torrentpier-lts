@@ -2618,8 +2618,8 @@ class UTF8
 	/**
 	 * Strips out device control codes in the ASCII range.
 	 *
-	 * @param   array|scalar|null  Data to clean
-	 * @return  array|scalar|null  Returns FALSE if error occurred
+	 * @param   array|scalar|null   $data  Data to clean
+	 * @return  array|scalar|null          Returns FALSE if error occurred
 	 */
 	public static function strict($data)
 	{
