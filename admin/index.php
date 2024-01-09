@@ -230,6 +230,7 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 						'LASTUPDATE' => bb_date($onlinerow_reg[$i]['user_session_time'], $bb_cfg['last_activity_date_format'], false),
 						'IP_ADDRESS' => $reg_ip,
 						'U_WHOIS_IP' => $bb_cfg['whois_info'] . $reg_ip,
+						'IS_HIDDEN'  => $hidden,
 					));
 				}
 			}
