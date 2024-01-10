@@ -234,6 +234,9 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 					));
 				}
 			}
+
+			// Count registered users and hidden users
+			$template->assign_vars(array('TOTAL_USERS_ONLINE' => $registered_users + $hidden_users));
 		}
 
 		// Guest users
@@ -258,6 +261,9 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 					'U_WHOIS_IP' => $bb_cfg['whois_info'] . $guest_ip,
 				));
 			}
+
+			// Count guests
+			$template->assign_vars(array('TOTAL_GUESTS_ONLINE' => $guest_users));
 		}
 	}
 	else
