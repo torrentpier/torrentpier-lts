@@ -553,9 +553,10 @@ if ($mode)
 		case 'movedelcat':
 			// Move or delete a category in the DB
 			$from_id = (int) $_POST['from_id'];
-			$to_id   = (int) isset($_POST['to_id']) ? $_POST['to_id'] : -1;
+			$to_id   = (int) @$_POST['to_id'];
 
-			if ($to_id == -1)
+			// Ошибка: Некуда переносить содержимое категории (Защита от удаления последней оставшейся категории в списке)
+			if ($to_id == 0)
 			{
 				bb_die($lang['NOWHERE_TO_MOVE']);
 			}
