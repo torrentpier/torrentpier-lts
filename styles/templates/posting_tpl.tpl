@@ -4400,7 +4400,7 @@ $(function(){
 			<fieldset>
 			<legend>Включить/Загрузить</legend>
 			<div style="padding: 2px 12px 6px;">
-			Шаблоны: &nbsp;
+			{L_RELEASE}: &nbsp;
 			<!-- IF TPL_SELECT -->{TPL_SELECT} &nbsp;
 			<input type="button" value="Включить в этом форуме" class="bold" onclick="ajax.topic_tpl('assign', {tpl_id: $('#forum_tpl_select').val()})" /> &nbsp;
 			<input type="button" value="Загрузить" onclick="ajax.topic_tpl('load')" /> &nbsp;
@@ -4411,7 +4411,7 @@ $(function(){
 			<!-- IF NO_TPL_ASSIGNED -->
 			В этом форуме шаблоны <b>не включены</b><br />
 			<!-- ELSE -->
-			Сейчас в этом форуме включен шаблон <b>{TPL_NAME}</b><br />
+			Сейчас в этом форуме включен шаблон: <b>{TPL_NAME}</b><br />
 			<!-- ENDIF -->
 			</span>
 			</div>
