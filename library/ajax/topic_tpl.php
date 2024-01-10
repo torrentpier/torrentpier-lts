@@ -130,7 +130,7 @@ switch ($mode)
 		{
 			$last_edit_by_username = get_username(intval($tpl_data['tpl_last_edit_by']));
 			$msg  = "Изменения не были сохранены!\n\n";
-			$msg .= 'Шаблон был отредактирован: '. html_entity_decode($last_edit_by_username) .', '. delta_time($tpl_data['tpl_last_edit_tm'], 'd-M-y H:i') ." назад\n\n";
+			$msg .= 'Шаблон был отредактирован: ' . html_entity_decode($last_edit_by_username) . ', ' . bb_date($tpl_data['tpl_last_edit_tm'], 'd-M-y H:i') . "\n\n";
 			$this->ajax_die($msg);
 		}
 		$sql = "UPDATE ". BB_TOPIC_TPL ." SET ". DB()->build_array('UPDATE', $sql_args) ." WHERE tpl_id = $tpl_id LIMIT 1";
