@@ -459,7 +459,7 @@ if ($mode)
 			{
 				// Delete everything from forum
 				topic_delete('prune', $from_id, 0, true);
-				$datastore->update('stats');
+				$datastore->update('stats'); // Обновляем статистику на главной
 			}
 			else
 			{
