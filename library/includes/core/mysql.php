@@ -789,6 +789,10 @@ class sql_db
 				$this->DBS['log_counter']--;
 			}
 		}
+		else
+		{
+			die("[MySQL] Invalid debug mode: $mode");
+		}
 	}
 
 	/**
