@@ -439,6 +439,10 @@ class sql_db
 				bb_log($msg . LOG_LF, 'sql_slow_tr');
 			}
 		}
+		else
+		{
+			error_exit("[MySQL] Invalid debug mode: $mode");
+		}
 	}
 
 	/**
