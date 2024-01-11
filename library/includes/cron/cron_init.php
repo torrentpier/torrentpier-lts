@@ -41,6 +41,10 @@ function cron_track_running ($mode)
 	{
 		@unlink(CRON_STARTMARK);
 	}
+	else
+	{
+		bb_simple_die("Invalid cron track mode: $mode");
+	}
 }
 
 //
