@@ -177,7 +177,7 @@ if ($result = DB()->fetch_rowset($sql))
 		}
 		else
 		{
-			$email = $lang['NOSELECT'];
+			$email = $lang['HIDDEN_USER'];
 		}
 
 		if ($row['user_website'])
