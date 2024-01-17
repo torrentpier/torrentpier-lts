@@ -515,19 +515,19 @@ $dl_status_css = array(
 // Exit if board is disabled via ON/OFF trigger or by admin
 if (($bb_cfg['board_disable'] || file_exists(BB_DISABLED)) && !defined('IN_ADMIN') && !defined('IN_AJAX') && !defined('IN_LOGIN'))
 {
-	header('HTTP/1.0 503 Service Unavailable');
+	if ($bb_cfg['cron_enabled']) header('HTTP/1.0 503 Service Unavailable');
 	if ($bb_cfg['board_disable'])
 	{
 		// admin lock
 		send_no_cache_headers();
-		bb_die('BOARD_DISABLE');
+		if ($bb_cfg['cron_enabled']) bb_die('BOARD_DISABLE');
 	}
 	else if (file_exists(BB_DISABLED))
 	{
 		// trigger lock
 		cron_release_deadlock();
 		send_no_cache_headers();
-		bb_die('BOARD_DISABLE_CRON');
+		if ($bb_cfg['cron_enabled']) bb_die('BOARD_DISABLE_CRON');
 	}
 }
 
