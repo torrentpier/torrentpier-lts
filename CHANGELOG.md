@@ -11,6 +11,7 @@
 - Improved handling errors while uploading
 - Hide vote button in poll if user already voted
 - Fixed Undefined index: to_id when trying to delete empty forum category
+- Fixed HTTP 500 while cron running in server-side
 - Fixed auth(): empty $f_access
 - Fixed broken captcha check on login.php
 - Fixed broken sorting in group.php
