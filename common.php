@@ -12,8 +12,6 @@ if (PHP_VERSION_ID < 50304) die('TorrentPier II requires PHP version 5.3.4+. You
 if (PHP_VERSION_ID >= 70000) die('TorrentPier II requires PHP version lower than PHP 7. Your PHP version ' . PHP_VERSION);
 // Magic quotes
 if (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
-// MySQL
-if (!function_exists('mysql_connect') || !extension_loaded('mysql')) die('MySQL extension not installed');
 // JSON
 if (!function_exists('json_encode')) die('json_encode() function not exists');
 // getmypid

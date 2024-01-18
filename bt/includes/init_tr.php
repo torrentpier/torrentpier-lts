@@ -91,6 +91,13 @@ class sql_db
 	{
 		global $DBS;
 
+		// Check MySQL installed
+		if (!function_exists('mysql_connect') || !extension_loaded('mysql'))
+		{
+			$this->log_error();
+			error_exit("Error: {$this->engine} extension not installed");
+		}
+
 		$this->cfg         = array_combine($this->cfg_keys, $cfg_values);
 		$this->slow_time   = SQL_SLOW_QUERY_TIME;
 

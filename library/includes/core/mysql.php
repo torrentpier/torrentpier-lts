@@ -44,6 +44,17 @@ class sql_db
 	{
 		global $DBS;
 
+		// Check MySQL installed
+		if (!function_exists('mysql_connect') || !extension_loaded('mysql'))
+		{
+			$init_error = "Error: {$this->engine} extension not installed";
+			if (DBG_LOG)
+			{
+				dbg_log($init_error, "{$this->engine}-DB-INIT-FAIL_" . TIMENOW);
+			}
+			die($init_error);
+		}
+
 		$this->cfg         = array_combine($this->cfg_keys, $cfg_values);
 		$this->dbg_enabled = (sql_dbg_enabled() || !empty($_COOKIE['explain']));
 		$this->do_explain  = ($this->dbg_enabled && !empty($_COOKIE['explain']));
