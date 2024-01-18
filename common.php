@@ -36,7 +36,7 @@ if (!defined('BB_SCRIPT')) define('BB_SCRIPT', null);
 if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 
 header('X-Frame-Options: SAMEORIGIN');
-header('X-Powered-By: TorrentPier LTS');
+header('X-Powered-By: TorrentPier LTS Forever!');
 
 // Cloudflare
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
