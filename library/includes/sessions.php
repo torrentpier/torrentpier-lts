@@ -797,9 +797,12 @@ class user_common
 		switch ($return_as)
 		{
 			case   'csv': return join(',', $excluded);
+			case 'flip_csv': return join(',', array_flip($excluded));
 			case 'array': return $excluded;
-			case  'flip': return array_flip(explode(',', $excluded));
+			case  'flip': return array_flip($excluded);
 		}
+
+		return array();
 	}
 
 	/**
