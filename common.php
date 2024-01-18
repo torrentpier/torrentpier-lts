@@ -2,6 +2,10 @@
 
 if (isset($_REQUEST['GLOBALS'])) die();
 
+ignore_user_abort(true);
+define('TIMESTART', utime());
+define('TIMENOW',   time());
+
 // Check system requirements
 // PHP
 if (PHP_VERSION_ID < 50304) die('TorrentPier II requires PHP version 5.3.4+. Your PHP version ' . PHP_VERSION);
@@ -9,7 +13,7 @@ if (PHP_VERSION_ID >= 70000) die('TorrentPier II requires PHP version lower than
 // Magic quotes
 if (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) die('Set: magic_quotes_gpc = Off');
 // MySQL
-if (!extension_loaded('mysql')) die('MySQL extension not installed');
+if (!function_exists('mysql_connect') || !extension_loaded('mysql')) die('MySQL extension not installed');
 // JSON
 if (!function_exists('json_encode')) die('json_encode() function not exists');
 // getmypid
@@ -20,10 +24,6 @@ if (!extension_loaded('mbstring')) die('Mbstring extension not installed');
 if (!extension_loaded('bcmath')) die('BCMath extension not installed');
 // Intl
 if (!extension_loaded('intl')) die('Intl extension not installed');
-
-ignore_user_abort(true);
-define('TIMESTART', utime());
-define('TIMENOW',   time());
 
 if (empty($_SERVER['REMOTE_ADDR']))     $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
 if (empty($_SERVER['HTTP_USER_AGENT'])) $_SERVER['HTTP_USER_AGENT'] = '';
