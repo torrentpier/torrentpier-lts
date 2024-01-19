@@ -35,6 +35,7 @@ if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
+date_default_timezone_set('UTC');
 
 // Set remote address
 $allowedCDNs = ['HTTP_X_FORWARDED_FOR', 'HTTP_FASTLY_CLIENT_IP', 'HTTP_CF_CONNECTING_IP'];
