@@ -37,13 +37,16 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 
 // Set remote address
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
 {
-	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP']; // Cloudflare
-}
-elseif (isset($_SERVER['HTTP_FASTLY_CLIENT_IP']))
-{
-	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_FASTLY_CLIENT_IP']; // Fastly
+	if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+	{
+		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP']; // Cloudflare
+	}
+	elseif (isset($_SERVER['HTTP_FASTLY_CLIENT_IP']))
+	{
+		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_FASTLY_CLIENT_IP']; // Fastly
+	}
 }
 
 // Get initial config
