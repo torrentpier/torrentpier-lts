@@ -36,10 +36,14 @@ if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 
-// Cloudflare
+// Set remote address
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 {
-	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP']; // Cloudflare
+}
+elseif (isset($_SERVER['HTTP_FASTLY_CLIENT_IP']))
+{
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_FASTLY_CLIENT_IP']; // Fastly
 }
 
 // Get initial config
