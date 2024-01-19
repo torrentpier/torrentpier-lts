@@ -157,7 +157,7 @@ class sqlite_common extends cache_common
 
 					if (DBG_LOG)
 					{
-						dbg_log($create_error, "{$this->engine}-CACHE-mkdir-FAIL_" . TIMENOW);
+						dbg_log($create_error, "{$this->engine}-CACHE-mkdir-FAIL");
 					}
 
 					die($create_error);
@@ -183,7 +183,7 @@ class sqlite_common extends cache_common
 
 			if (DBG_LOG)
 			{
-				dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL_" . TIMENOW);
+				dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL");
 			}
 
 			die($con_error);

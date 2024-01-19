@@ -44,7 +44,7 @@ class cache_redis extends cache_common
 
 			if (DBG_LOG)
 			{
-				dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL_" . TIMENOW);
+				dbg_log($con_error, "{$this->engine}-CACHE-connect-FAIL");
 			}
 
 			die($con_error);

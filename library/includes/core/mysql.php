@@ -50,7 +50,7 @@ class sql_db
 			$init_error = "Error: {$this->engine} extension not installed";
 			if (DBG_LOG)
 			{
-				dbg_log($init_error, "{$this->engine}-DB-INIT-FAIL_" . TIMENOW);
+				dbg_log($init_error, "{$this->engine}-DB-INIT-FAIL");
 			}
 			die($init_error);
 		}
@@ -87,7 +87,7 @@ class sql_db
 				$charset_error = "Could not set charset '{$this->cfg['charset']}'";
 				if (DBG_LOG)
 				{
-					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL_" . TIMENOW);
+					dbg_log($charset_error, "{$this->cfg['charset']}-DB-charset-FAIL");
 				}
 				die($charset_error);
 			}
@@ -116,7 +116,7 @@ class sql_db
 			$con_error = "Could not connect to {$this->engine} server $server";
 			if (DBG_LOG)
 			{
-				dbg_log($con_error, "{$this->cfg['dbhost']}-DB-connect-FAIL_" . TIMENOW);
+				dbg_log($con_error, "{$this->cfg['dbhost']}-DB-connect-FAIL");
 			}
 			die($con_error);
 		}
@@ -143,7 +143,7 @@ class sql_db
 			$select_error = "Could not select database $db_name";
 			if (DBG_LOG)
 			{
-				dbg_log($select_error, "{$this->cfg['dbname']}-DB-select-FAIL_" . TIMENOW);
+				dbg_log($select_error, "{$this->cfg['dbname']}-DB-select-FAIL");
 			}
 			die($select_error);
 		}
