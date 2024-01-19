@@ -505,9 +505,9 @@ class sql_db
 		$err = $this->sql_error();
 		$msg[] = str_compact(sprintf('#%06d %s', $err['code'], $err['message']));
 		$msg[] = '';
-		$msg[] = str_compact($this->cur_query);
+		if (!empty($this->cur_query)) $msg[] = str_compact($this->cur_query);
 		$msg[] = '';
-		$msg[] = 'Source  : '. $this->debug_find_source() ." :: $this->db_server.$this->selected_db";
+		if (!empty($this->selected_db)) $msg[] = 'Source  : '. $this->debug_find_source() ." :: $this->db_server.$this->selected_db";
 		$msg[] = 'IP      : '. @$_SERVER['REMOTE_ADDR'];
 		$msg[] = 'Date    : '. date('Y-m-d H:i:s');
 		$msg[] = 'Agent   : '. @$_SERVER['HTTP_USER_AGENT'];
