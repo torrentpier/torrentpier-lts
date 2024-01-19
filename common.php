@@ -37,17 +37,15 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 
 // Set remote address
-if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+$allowedCDNs = ['HTTP_X_FORWARDED_FOR', 'HTTP_FASTLY_CLIENT_IP', 'HTTP_CF_CONNECTING_IP'];
+foreach ($allowedCDNs as $allowedCDN)
 {
-	if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+	if (isset($_SERVER[$allowedCDN]) && filter_var($_SERVER[$allowedCDN], FILTER_VALIDATE_IP))
 	{
-		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP']; // Cloudflare
-	}
-	elseif (isset($_SERVER['HTTP_FASTLY_CLIENT_IP']))
-	{
-		$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_FASTLY_CLIENT_IP']; // Fastly
+		$_SERVER['REMOTE_ADDR'] = $_SERVER[$allowedCDN];
 	}
 }
+unset($allowedCDNs);
 
 // Get initial config
 if (file_exists(BB_ROOT . 'library/config.local.php'))
