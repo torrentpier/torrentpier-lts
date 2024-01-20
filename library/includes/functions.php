@@ -351,7 +351,7 @@ function auth ($type, $forum_id, $ug_data, $f_access = array(), $group_perm = UG
 	$auth = $auth_fields = $u_access = array();
 	$add_auth_type_desc = ($forum_id != AUTH_LIST_ALL);
 
-	// Если форум не существует, то возвращаем пустой массив
+	// Проверка на существование ID форума в базе (Игнорируем если AUTH_LIST_ALL)
 	if ($add_auth_type_desc && !forum_exists($forum_id))
 	{
 		return array();
@@ -389,15 +389,27 @@ function auth ($type, $forum_id, $ug_data, $f_access = array(), $group_perm = UG
 
 		if ($forum_id == AUTH_LIST_ALL)
 		{
+			if (empty($forums['f']))
+			{
+				return array ();
+			}
 			$f_access = $forums['f'];
 		}
 		else if (isset($forums['f'][$forum_id]))
 		{
+			if (empty($forums['f'][$forum_id]))
+			{
+				return array();
+			}
 			$f_access[$forum_id] = $forums['f'][$forum_id];
 		}
 	}
 	else if (isset($f_access['forum_id']))
 	{
+		if (empty($f_access['forum_id']))
+		{
+			return array();
+		}
 		// Change passed $f_access format for later using in foreach()
 		$f_access = array($f_access['forum_id'] => $f_access);
 	}
