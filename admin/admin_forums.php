@@ -522,7 +522,7 @@ if ($mode)
 
 				if ($row['forums_count'] > 0)
 				{
-					bb_die($lang['MUST_DELETE_FORUMS']);
+					bb_die($lang['MUST_DELETE_FORUMS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_FORUMADMIN'], '<a href="admin_forums.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 				}
 				else
 				{
@@ -558,7 +558,7 @@ if ($mode)
 			// Ошибка: Некуда переносить содержимое категории (Защита от удаления последней оставшейся категории в списке)
 			if ($to_id == 0)
 			{
-				bb_die($lang['NOWHERE_TO_MOVE']);
+				bb_die($lang['NOWHERE_TO_MOVE'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_FORUMADMIN'], '<a href="admin_forums.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
 			}
 
 			if ($from_id == $to_id || !cat_exists($from_id) || !cat_exists($to_id))
