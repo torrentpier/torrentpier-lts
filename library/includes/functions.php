@@ -2136,8 +2136,13 @@ function get_topic_title ($topic_id)
 	return $row['topic_title'];
 }
 
-function forum_exists ($forum_id)
+function forum_exists ($forum_id = null)
 {
+	if (!isset($forum_id))
+	{
+		return DB()->fetch_row("SELECT * FROM " . BB_FORUMS . " LIMIT 1");
+	}
+
 	return DB()->fetch_row("SELECT forum_id FROM ". BB_FORUMS ." WHERE forum_id = $forum_id LIMIT 1");
 }
 
