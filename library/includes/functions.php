@@ -352,6 +352,10 @@ function auth ($type, $forum_id, $ug_data, $f_access = array(), $group_perm = UG
 	$add_auth_type_desc = ($forum_id != AUTH_LIST_ALL);
 
 	// Если форум не существует, то возвращаем пустой массив
+	if (!forum_exists())
+	{
+		return array();
+	}
 	if ($add_auth_type_desc && !forum_exists($forum_id))
 	{
 		return array();
