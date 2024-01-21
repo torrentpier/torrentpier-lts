@@ -6,6 +6,7 @@ define('BB_SCRIPT', 'login');
 define('BB_ROOT', './');
 require(BB_ROOT .'common.php');
 
+send_no_cache_headers();
 array_deep($_POST, 'trim');
 
 $user->session_start();
