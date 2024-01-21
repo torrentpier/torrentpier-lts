@@ -509,7 +509,7 @@ class user_common
 			elseif (isset($bb_cfg['dbg_users'][$this->data['user_id']]) && !DBG_USER)
 			{
 				// Set debug cookie if user in dbg_users array
-				bb_setcookie(COOKIE_DBG, md5(md5(COOKIE_DBG)), COOKIE_SESSION); // Making DBG_USER as true
+				bb_setcookie(COOKIE_DBG, md5(FULL_URL), COOKIE_SESSION); // Making DBG_USER as true
 			}
 
 			// Unset sql debug cookies if SQL_DEBUG is disabled or DBG_USER cookie not present
