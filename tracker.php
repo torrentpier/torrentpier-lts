@@ -838,6 +838,7 @@ if ($allowed_forums)
 				'SEEDS_TITLE'  => ($seeds) ? $lang['SEEDERS'] : ($lang['SEED_NOT_SEEN']. ":\n ". (($s_last) ? bb_date($s_last, $date_format) : $lang['NEVER'])),
 				'LEECHS'       => ($leechs) ? $leechs : 0,
 				'COMPLETED'    => $show_completed_count ? (($compl) ? $compl : 0) : $tor['download_count'],
+				'SHOW_COMPL'   => (bool) $show_completed_count,
 				'REPLIES'      => $tor['topic_replies'],
 				'VIEWS'        => $tor['topic_views'],
 				'ADDED_RAW'    => $tor['reg_time'],

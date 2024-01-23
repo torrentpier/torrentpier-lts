@@ -422,7 +422,7 @@ $(function(){
 		<span class="small"> | </span>
 		<span title="{L_VIEWS}: {tor.VIEWS}">{tor.VIEWS}</span>
 	</p>
-	<p style="padding-top: 2px" class="med" title="{L_COMPLETED}: {tor.COMPLETED}">
+	<p style="padding-top: 2px;" class="med" title="<!-- IF SHOW_COMPL -->{L_COMPLETED}<!-- ELSE -->{L_DOWNLOADED}<!-- ENDIF -->: {tor.COMPLETED}">
 		<b>{tor.COMPLETED}</b>
 	</p>
 	</td>
