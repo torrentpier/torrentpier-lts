@@ -27,6 +27,7 @@ $user->session_start(array('req_login' => $bb_cfg['bt_tor_browse_only_reg']));
 
 set_die_append_msg();
 
+$show_completed_count = false;
 $tor_search_limit    = (IS_AM) ? 2000 : 500;
 $forum_select_size   = 25; // forum select box max rows
 $max_forum_name_len  = 60; // inside forum select box
@@ -836,7 +837,7 @@ if ($allowed_forums)
 				'SEEDS'        => ($seeds) ? $seeds : 0,
 				'SEEDS_TITLE'  => ($seeds) ? $lang['SEEDERS'] : ($lang['SEED_NOT_SEEN']. ":\n ". (($s_last) ? bb_date($s_last, $date_format) : $lang['NEVER'])),
 				'LEECHS'       => ($leechs) ? $leechs : 0,
-				'COMPLETED'    => ($compl) ? $compl : 0,
+				'COMPLETED'    => $show_completed_count ? (($compl) ? $compl : 0) : $tor['download_count'],
 				'REPLIES'      => $tor['topic_replies'],
 				'VIEWS'        => $tor['topic_views'],
 				'ADDED_RAW'    => $tor['reg_time'],
