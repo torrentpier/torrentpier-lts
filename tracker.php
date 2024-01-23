@@ -64,6 +64,7 @@ $users_tbl    = BB_USERS           .' u';
 $tracker_tbl  = BB_BT_TRACKER      .' tr';
 $tr_snap_tbl  = BB_BT_TRACKER_SNAP .' sn';
 $dl_stat_tbl  = BB_BT_DLSTATUS     .' dl';
+$attach_desc_tbl = BB_ATTACHMENTS_DESC .' ad';
 
 //
 // Search options
@@ -728,7 +729,8 @@ if ($allowed_forums)
 		$select = "
 			SELECT
 				tor.topic_id, tor.post_id, tor.attach_id, tor.size, tor.reg_time, tor.complete_count, tor.seeder_last_seen, tor.tor_status, tor.tor_type,
-				t.topic_title, t.topic_time, t.topic_replies, t.topic_views, sn.seeders, sn.leechers, tor.info_hash
+				t.topic_title, t.topic_time, t.topic_replies, t.topic_views, sn.seeders, sn.leechers, tor.info_hash,
+				ad.download_count
 		";
 		$select .= (!$hide_speed)  ? ", sn.speed_up, sn.speed_down" : '';
 		$select .= (!$hide_forum)  ? ", tor.forum_id" : '';
@@ -751,6 +753,7 @@ if ($allowed_forums)
 			LEFT JOIN $dl_stat_tbl ON(dl.topic_id = tor.topic_id AND dl.user_id = $user_id)
 		" : '';
 		$from .= "LEFT JOIN $tr_snap_tbl ON(sn.topic_id = tor.topic_id)";
+		$from .= "LEFT JOIN $attach_desc_tbl ON(ad.attach_id = tor.attach_id)";
 
 		// WHERE
 		$where = "
