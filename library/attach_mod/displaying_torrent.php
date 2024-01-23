@@ -4,6 +4,7 @@ if (!defined('IN_FORUM')) die(basename(__FILE__));
 
 global $bb_cfg, $t_data, $poster_id, $is_auth, $dl_link_css, $dl_status_css, $lang, $images;
 
+$show_completed_count  = false;
 $tor_status_by_for_all = true;
 $change_peers_bgr_over = true;
 $bgr_class_1    = 'row1';
@@ -236,7 +237,7 @@ if ($tor_reged && $tor_info)
 			'REGED_TIME'      => bb_date($tor_info['reg_time']),
 			'REGED_DELTA'     => delta_time($tor_info['reg_time']),
 			'TORRENT_SIZE'    => humn_size($tor_size),
-			'COMPLETED'       => declension((int)$tor_info['complete_count'], 'times'),
+			'COMPLETED'       => $show_completed_count ? declension((int)$tor_info['complete_count'], 'times') : false,
 		));
 
 		if ($comment)
@@ -253,7 +254,7 @@ if ($tor_reged && $tor_info)
 
 			'TOR_SIZE'      => humn_size($tor_size),
 			'TOR_LONGEVITY' => delta_time($tor_info['reg_time']),
-			'TOR_COMPLETED' => declension((int)$tor_info['complete_count'], 'times'),
+			'TOR_COMPLETED' => $show_completed_count ? declension((int)$tor_info['complete_count'], 'times') : false,
 			'TOR_DOWNLOAD_COUNT' => declension((int)$download_count, 'times'),
 		));
 	}

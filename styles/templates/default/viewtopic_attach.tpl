@@ -221,7 +221,7 @@
 	</tr>
 	<tr class="row1">
 		<td>{L_DOWNLOADED}:</td>
-		<td><span title="{L_DOWNLOADED}: {postrow.attach.tor_reged.DOWNLOAD_COUNT}">{postrow.attach.tor_reged.DOWNLOAD_COUNT}</span>&nbsp;<span title="{L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED}" class="signature">({L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED})</span></td>
+		<td><span title="{L_DOWNLOADED}: {postrow.attach.tor_reged.DOWNLOAD_COUNT}">{postrow.attach.tor_reged.DOWNLOAD_COUNT}</span><!-- IF postrow.attach.tor_reged.COMPLETED -->&nbsp;<span title="{L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED}" class="signature">({L_COMPLETED}: {postrow.attach.tor_reged.COMPLETED})</span><!-- ENDIF --></td>
 	</tr>
 	<tr class="row1">
 		<td>{L_SIZE}:</td>
