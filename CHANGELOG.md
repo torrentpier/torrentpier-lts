@@ -1,5 +1,12 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.0X [Final v3]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (NO ETA)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
+
+- Release v2.1.5-2024.0X 🎉
+- Fixed download counter for torrent files
+- Some other changes / improvements
+
 ## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-21)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10-HotFix...v2.1.5-2024.02)
 
