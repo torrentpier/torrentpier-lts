@@ -7,6 +7,7 @@ require(BB_ROOT . 'common.php');
 
 $page_cfg['include_bbcode_js'] = true;
 
+$show_completed_count = false;
 $show_last_topic     = true;
 $last_topic_max_len  = 40;
 $title_match_key     = 'nm';
@@ -313,7 +314,8 @@ if ($forum_data['allow_reg_tracker'])
 
 	$select_tor_sql = ',
 		bt.auth_key, tor.info_hash, tor.size AS tor_size, tor.reg_time, tor.complete_count, tor.seeder_last_seen, tor.attach_id, tor.tor_status, tor.tor_type,
-		sn.seeders, sn.leechers
+		sn.seeders, sn.leechers,
+		ad.download_count
 	';
 	$select_tor_sql .= ($join_dl) ? ', dl.user_status AS dl_status' : '';
 
@@ -321,6 +323,7 @@ if ($forum_data['allow_reg_tracker'])
 		LEFT JOIN ". BB_BT_TORRENTS     ." tor ON(t.topic_id = tor.topic_id)
 		LEFT JOIN ". BB_BT_USERS        ." bt  ON(bt.user_id = {$userdata['user_id']})
 		LEFT JOIN ". BB_BT_TRACKER_SNAP ." sn  ON(tor.topic_id = sn.topic_id)
+		LEFT JOIN ". BB_ATTACHMENTS_DESC ." ad  ON(tor.attach_id = ad.attach_id)
 	";
 	$join_tor_sql .= ($join_dl) ? " LEFT JOIN ". BB_BT_DLSTATUS ." dl ON(dl.user_id = {$userdata['user_id']} AND dl.topic_id = t.topic_id)" : '';
 }
@@ -519,7 +522,8 @@ foreach ($topic_rowset as $topic)
 			'SEEDERS'    => (int) $topic['seeders'],
 			'LEECHERS'   => (int) $topic['leechers'],
 			'TOR_SIZE'   => humn_size($topic['tor_size']),
-			'COMPL_CNT'  => (int) $topic['complete_count'],
+			'COMPL_CNT'  => $show_completed_count ? (int) $topic['complete_count'] : (int) $topic['download_count'],
+			'SHOW_COMPL' => (bool) $show_completed_count,
 			'ATTACH_ID'  => $topic['attach_id'],
 			'MAGNET'     => $tor_magnet,
 		));
