@@ -7,7 +7,7 @@ require(BB_ROOT . 'common.php');
 
 $page_cfg['include_bbcode_js'] = true;
 
-$show_completed_count = false;
+$show_completed_count = $bb_cfg['show_completed_count'];
 $show_last_topic     = true;
 $last_topic_max_len  = 40;
 $title_match_key     = 'nm';

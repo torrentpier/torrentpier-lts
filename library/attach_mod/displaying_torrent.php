@@ -4,7 +4,7 @@ if (!defined('IN_FORUM')) die(basename(__FILE__));
 
 global $bb_cfg, $t_data, $poster_id, $is_auth, $dl_link_css, $dl_status_css, $lang, $images;
 
-$show_completed_count  = false;
+$show_completed_count  = $bb_cfg['show_completed_count'];
 $tor_status_by_for_all = true;
 $change_peers_bgr_over = true;
 $bgr_class_1    = 'row1';

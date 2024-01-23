@@ -493,6 +493,7 @@ $bb_cfg['translate_dates'] = true; // in displaying time
 $bb_cfg['use_word_censor'] = true; // использовать цензор слов
 $bb_cfg['show_jumpbox']    = true; // показывать ли jumpbox (на viewtopic.php и viewforum.php)
 $bb_cfg['current_time_date_format'] = 'd-M H:i'; // формат блока "текущее время" на сайте
+$bb_cfg['show_completed_count'] = false;
 
 $bb_cfg['allow_change'] = array(
 	'language'   => true, // разрешить смену языка пользователем
