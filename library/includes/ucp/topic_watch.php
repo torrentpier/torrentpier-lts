@@ -18,6 +18,13 @@ $page_cfg['include_bbcode_js'] = true;
 $tracking_topics = get_tracks('topic');
 
 $user_id = $userdata['user_id'];
+if (isset($_GET['uid']))
+{
+	if ($userdata['user_id'] == $_GET['uid'] || IS_ADMIN)
+	{
+		$user_id = DB()->escape($_GET['uid']);
+	}
+}
 $start = isset($_GET['start']) ? abs(intval($_GET['start'])) : 0;
 $per_page = $bb_cfg['topics_per_page'];
 
