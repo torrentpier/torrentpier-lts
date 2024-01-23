@@ -490,7 +490,7 @@ td.topic_id { cursor: pointer; }
 		<span title="{L_VIEWS}: {t.VIEWS}">{t.VIEWS}</span>
 	</p>
 	<!-- BEGIN tor -->
-	<p style="padding-top: 2px" class="med" title="{L_COMPLETED}: {t.tor.COMPL_CNT}">
+	<p style="padding-top: 2px" class="med" title="<!-- IF SHOW_COMPL -->{L_COMPLETED}<!-- ELSE -->{L_DOWNLOADED}<!-- ENDIF -->: {t.tor.COMPL_CNT}">
 		<b>{t.tor.COMPL_CNT}</b>
 	</p>
 	<!-- END tor -->
