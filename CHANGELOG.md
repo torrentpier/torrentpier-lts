@@ -5,6 +5,8 @@
 
 - Release v2.1.5-2024.0X 🎉
 - Fixed download counter for torrent files
+- Added ability to view watching topics of other people's (For admins only)
+- Security measures
 - Some other changes / improvements
 
 ## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-21)
