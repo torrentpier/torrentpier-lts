@@ -5,7 +5,7 @@
 
 - Release v2.1.5-2024.0X 🎉
 - Fixed download counter for torrent files
-- Added ability to view watching topics of other people's (For admins only)
+- Added ability to view "Watching topics" of other people's (For admins only)
 - Security measures
 - Some other changes / improvements
 
