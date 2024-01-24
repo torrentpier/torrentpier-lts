@@ -240,12 +240,12 @@ function file_write ($str, $file, $max_size = LOG_MAX_SIZE, $lock = true, $repla
 	$bytes_written = false;
 	clearstatcache();
 
-	if (($max_size && file_exists($file) && is_file($file)) && filesize($file) >= $max_size)
+	if (is_file($file) && ($max_size && (filesize($file) >= $max_size)))
 	{
 		$file_parts = pathinfo($file);
 		$new_name = ($file_parts['dirname'] . '/' . $file_parts['filename'] . '_[old]_' . date('Y-m-d_H-i-s_') . getmypid() . '.' . $file_parts['extension']);
 		clearstatcache();
-		if (!file_exists($new_name) && !is_file($new_name))
+		if (!is_file($new_name))
 		{
 			rename($file, $new_name);
 		}
