@@ -49,8 +49,8 @@ if (isset($_POST['redirect_type']) && $_POST['redirect_type'] == 'search')
 }
 else
 {
-	$redirect_type = (!$topic_id) ? "viewforum.php" : "viewtopic.php";
-	$redirect = ($full_url) ? $full_url : ((!$topic_id) ? POST_FORUM_URL ."=$forum_id" : POST_TOPIC_URL ."=$topic_id");
+	$redirect_type = (!$topic_id) ? FORUM_URL : TOPIC_URL;
+	$redirect = ($full_url) ? $full_url : ((!$topic_id) ? $redirect_type ."$forum_id" : $redirect_type ."$topic_id");
 }
 
 // Start session management
