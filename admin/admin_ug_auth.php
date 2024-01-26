@@ -156,7 +156,12 @@ else if ($submit && $mode == 'group' && is_array(@$_POST['auth']))
 {
 	if (!$group_data = get_group_data($group_id))
 	{
-		bb_die($lang['GROUP_NOT_EXIST']);
+		$message = $lang['GROUP_NOT_EXIST'] .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+		bb_die($message);
+		unset($message);
 	}
 
 	$auth = array();
@@ -201,7 +206,12 @@ if ($mode == 'user' && (!empty($_POST['username']) || $user_id))
 	}
 	if (!$this_userdata)
 	{
-		bb_die($lang['NO_SUCH_USER']);
+		$message = $lang['NO_SUCH_USER'] .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+		bb_die($message);
+		unset($message);
 	}
 	$user_id = $this_userdata['user_id'];
 
