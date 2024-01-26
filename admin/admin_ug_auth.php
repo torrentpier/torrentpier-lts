@@ -190,11 +190,12 @@ if ($mode == 'user' && (!empty($_POST['username']) || $user_id))
 {
 	$page_cfg['quirks_mode'] = true;
 
+	$this_userdata = false;
 	if (!empty($_POST['username']))
 	{
 		$this_userdata = get_userdata($_POST['username'], true);
 	}
-	else
+	elseif (isset($user_id))
 	{
 		$this_userdata = get_userdata($user_id);
 	}
