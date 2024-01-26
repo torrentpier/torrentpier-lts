@@ -45,7 +45,12 @@ if ($submit && $mode == 'user')
 	// Obtain relevant data for this user
 	if (!$row = get_userdata($user_id))
 	{
-		bb_die($lang['NO_SUCH_USER']);
+		$message = $lang['NO_SUCH_USER'] .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+		bb_die($message);
+		unset($message);
 	}
 	$this_user_level = $row['user_level'];
 
@@ -349,7 +354,12 @@ else if ($mode == 'group' && $group_id)
 
 	if (!$group_data = get_group_data($group_id))
 	{
-		bb_die($lang['GROUP_NOT_EXIST']);
+		$message = $lang['GROUP_NOT_EXIST'] .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_USERAUTH'], '<a href="admin_ug_auth.php?mode='. $mode .'">', '</a>') .'<br /><br />';
+		$message .= sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>');
+
+		bb_die($message);
+		unset($message);
 	}
 
 	if (!$forums = $datastore->get('cat_forums'))
