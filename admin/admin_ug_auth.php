@@ -195,7 +195,7 @@ if ($mode == 'user' && (!empty($_POST['username']) || $user_id))
 	{
 		$this_userdata = get_userdata($_POST['username'], true);
 	}
-	elseif (isset($user_id))
+	elseif (!empty($user_id))
 	{
 		$this_userdata = get_userdata($user_id);
 	}
