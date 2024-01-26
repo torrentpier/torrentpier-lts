@@ -227,7 +227,7 @@ else
 }
 
 // Update download count
-if (!$thumbnail)
+if (!$thumbnail && attachment_exists($attachment['physical_filename']))
 {
 	$sql = 'UPDATE ' . BB_ATTACHMENTS_DESC . ' SET download_count = download_count + 1 WHERE attach_id = ' . (int) $attachment['attach_id'];
 
