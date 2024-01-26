@@ -193,7 +193,6 @@ if ($mode == 'user' && (!empty($_POST['username']) || $user_id))
 	if (!empty($_POST['username']))
 	{
 		$this_userdata = get_userdata($_POST['username'], true);
-		$user_id = $this_userdata['user_id'];
 	}
 	else
 	{
@@ -203,6 +202,7 @@ if ($mode == 'user' && (!empty($_POST['username']) || $user_id))
 	{
 		bb_die($lang['NO_SUCH_USER']);
 	}
+	$user_id = $this_userdata['user_id'];
 
 	if (!$forums = $datastore->get('cat_forums'))
 	{
