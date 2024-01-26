@@ -561,7 +561,7 @@ function cron_release_file_lock ()
 
 function cron_touch_lock_file ($lock_file)
 {
-	file_write(make_rand_str(20), $lock_file, 0, true, true);
+	file_write('', $lock_file, 0, true, true);
 }
 
 function cron_enable_board ()
