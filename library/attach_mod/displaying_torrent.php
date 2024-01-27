@@ -236,7 +236,7 @@ if ($tor_reged && $tor_info)
 			'DOWNLOAD_COUNT'  => declension((int)$download_count, 'times'),
 			'REGED_TIME'      => bb_date($tor_info['reg_time']),
 			'REGED_DELTA'     => delta_time($tor_info['reg_time']),
-			'TORRENT_SIZE'    => humn_size($tor_size),
+			'TORRENT_SIZE'    => humn_size($tor_size, 2),
 			'COMPLETED'       => $show_completed_count ? declension((int)$tor_info['complete_count'], 'times') : false,
 		));
 
@@ -252,7 +252,7 @@ if ($tor_reged && $tor_info)
 			'SHOW_DL_LIST'          => true,
 			'SHOW_DL_LIST_TOR_INFO' => true,
 
-			'TOR_SIZE'      => humn_size($tor_size),
+			'TOR_SIZE'      => humn_size($tor_size, 1),
 			'TOR_LONGEVITY' => delta_time($tor_info['reg_time']),
 			'TOR_COMPLETED' => $show_completed_count ? declension((int)$tor_info['complete_count'], 'times') : false,
 			'TOR_DOWNLOAD_COUNT' => declension((int)$download_count, 'times'),

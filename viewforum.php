@@ -521,7 +521,7 @@ foreach ($topic_rowset as $topic)
 		$template->assign_block_vars('t.tor', array(
 			'SEEDERS'    => (int) $topic['seeders'],
 			'LEECHERS'   => (int) $topic['leechers'],
-			'TOR_SIZE'   => humn_size($topic['tor_size']),
+			'TOR_SIZE'   => humn_size($topic['tor_size'], 1),
 			'COMPL_CNT'  => $show_completed_count ? (int) $topic['complete_count'] : (int) $topic['download_count'],
 			'SHOW_COMPL' => (bool) $show_completed_count,
 			'ATTACH_ID'  => $topic['attach_id'],
