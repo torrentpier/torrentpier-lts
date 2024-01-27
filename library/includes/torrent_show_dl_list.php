@@ -81,6 +81,7 @@ if ($show_dl_list)
 			}
 		}
 
+		$dl_count_mode_cnt = 0;
 		foreach ($dl_status_css as $i => $desc)
 		{
 			if ($dl_cat[$i] && !$count_mode)
@@ -102,12 +103,17 @@ if ($show_dl_list)
 				{
 					continue;
 				}
+				else
+				{
+					$dl_count_mode_cnt++;
+				}
 				$template->assign_block_vars('dl_counts.count_row', array(
 					'DL_OPTION_NAME'  => $lang[strtoupper($desc)],
 					'DL_OPTION_USERS' => $dl_count[$i],
 				));
 			}
 		}
+		$template->assign_vars(array('HIDE_DL_COUNT_EMPTY' => (bool)($count_mode && $dl_count_mode_cnt == 0)));
 	}
 	else
 	{

@@ -26,6 +26,7 @@ $(document).ready(function(){
 	<!-- END users_row -->
 <!-- END dl_users -->
 
+<!-- IF not HIDE_DL_COUNT_EMPTY -->
 <!-- BEGIN dl_counts -->
 <tr>
 	<td colspan="2">
@@ -40,6 +41,7 @@ $(document).ready(function(){
 	</td>
 </tr>
 <!-- END dl_counts -->
+<!-- ENDIF -->
 
 <!-- IF SHOW_DL_LIST_TOR_INFO -->
 <tr>
