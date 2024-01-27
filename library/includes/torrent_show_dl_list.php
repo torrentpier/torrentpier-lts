@@ -88,6 +88,10 @@ if ($show_dl_list)
 		$dl_count_mode_cnt = 0;
 		foreach ($dl_status_css as $i => $desc)
 		{
+			if ($i == DL_STATUS_RELEASER)
+			{
+				continue;
+			}
 			if ($dl_cat[$i] && !$count_mode)
 			{
 				$dl_users_div_style = ($dl_count[$i] > $max_dl_users_before_overflow) ? $dl_users_div_style_overflow : $dl_users_div_style_normal;
