@@ -97,7 +97,7 @@ class torrent
 					continue;
 				}
 				// Exclude padding files [Only for hybrid torrents]
-				if ((isset($f['attr']) ? $f['attr'] : null) === 'p')
+				if (isset($f['attr']) && $f['attr'] === 'p')
 				{
 					continue;
 				}
