@@ -6,6 +6,7 @@
 - Release v2.1.5-2024.0X 🎉
 - Fixed broken user dl status
 - Fixed download counter for torrent files
+- Hide feed button if feed file doesn't exist
 - Don't update download counter if attachment not exists
 - Added ability to view "Watching topics" of other people's (For admins only)
 - Security measures
