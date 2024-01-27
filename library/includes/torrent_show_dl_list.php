@@ -2,6 +2,7 @@
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
+$show_old_style_names_mode    = true;
 $show_canceled_in_count_mode  = false;
 $title_date_format            = 'Y-m-d';
 $dl_list_sql_limit            = 300;     // DL-List overall limit
@@ -76,9 +77,11 @@ if ($show_dl_list)
 			}
 			else
 			{
+				$show_names_mode = $show_old_style_names_mode ? $u['username'] : profile_url(array('username' => $u['username'], 'user_rank' => $u['user_rank']));
 				$u_prof_href = ($u['user_id'] == GUEST_UID) ? '#' : PROFILE_URL. $u['user_id'] ."#torrent";
-				$dl_cat[$u['user_status']] .= '<nobr><a class="'. $u_link_class .'" href="'. $u_prof_href .'" title="'. $u['last_modified_dlstatus'] .'">'. profile_url(array('username' => $u['username'], 'user_rank' => $u['user_rank'])) .'</a></nobr>, ';
+				$dl_cat[$u['user_status']] .= '<nobr><a class="'. $u_link_class .'" href="'. $u_prof_href .'" title="'. $u['last_modified_dlstatus'] .'">'. $show_names_mode .'</a></nobr>, ';
 				$dl_count[$u['user_status']]++;
+				unset($show_names_mode);
 			}
 		}
 
