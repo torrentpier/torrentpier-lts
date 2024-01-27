@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Fixed broken user dl status
 - Fixed download counter for torrent files
 - Don't update download counter if attachment not exists
 - Added ability to view "Watching topics" of other people's (For admins only)
