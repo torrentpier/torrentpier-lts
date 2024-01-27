@@ -92,7 +92,7 @@ if ($show_dl_list)
 				$template->assign_block_vars('dl_users.users_row', array(
 					'DL_OPTION_NAME'     => $lang[strtoupper($desc)],
 					'DL_OPTION_USERS'    => $dl_cat[$i],
-					'DL_COUNT'           => $dl_count[$i],
+					'DL_COUNT'           => declension((int)$dl_count[$i], 'times'),
 					'DL_USERS_DIV_STYLE' => $dl_users_div_style,
 				));
 			}
@@ -104,7 +104,7 @@ if ($show_dl_list)
 				}
 				$template->assign_block_vars('dl_counts.count_row', array(
 					'DL_OPTION_NAME'  => $lang[strtoupper($desc)],
-					'DL_OPTION_USERS' => $dl_count[$i],
+					'DL_OPTION_USERS' => declension((int)$dl_count[$i], 'times'),
 				));
 			}
 		}
