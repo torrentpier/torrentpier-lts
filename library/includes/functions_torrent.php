@@ -324,7 +324,7 @@ function tracker_register ($attach_id, $mode = '', $tor_status = TOR_NOT_APPROVE
 		foreach ($info['files'] as $fn => $f)
 		{
 			// Exclude padding files [Only for hybrid torrents]
-			if ((isset($f['attr']) ? $f['attr'] : null) !== 'p')
+			if (!isset($f['attr']) || $f['attr'] !== 'p')
 			{
 				if (isset($f['length']) && is_numeric($f['length']))
 				{
