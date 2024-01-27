@@ -26,8 +26,8 @@ $(document).ready(function(){
 	<!-- END users_row -->
 <!-- END dl_users -->
 
-<!-- IF not HIDE_DL_COUNT_EMPTY -->
 <!-- BEGIN dl_counts -->
+<!-- IF not HIDE_DL_COUNT_EMPTY -->
 <tr>
 	<td colspan="2">
 		<table class="borderless bCenter mrg_4">
@@ -40,8 +40,8 @@ $(document).ready(function(){
 		</table>
 	</td>
 </tr>
-<!-- END dl_counts -->
 <!-- ENDIF -->
+<!-- END dl_counts -->
 
 <!-- IF SHOW_DL_LIST_TOR_INFO -->
 <tr>
