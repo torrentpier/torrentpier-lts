@@ -185,7 +185,7 @@ if ($tor_reged && $tor_info)
 
 	$user_status = isset($bt_userdata['user_status']) ? $bt_userdata['user_status'] : null;
 
-	if (($min_ratio_dl || $min_ratio_warn) && $user_status != DL_STATUS_COMPLETE && ($bt_user_id != ($poster_id || GUEST_UID)) && $tor_type != TOR_TYPE_GOLD)
+	if (($min_ratio_dl || $min_ratio_warn) && (isset($user_status) && $user_status != DL_STATUS_COMPLETE) && ($bt_user_id != $poster_id && $bt_user_id != GUEST_UID) && $tor_type != TOR_TYPE_GOLD)
 	{
 		if (($user_ratio = get_bt_ratio($bt_userdata)) !== null)
 		{
@@ -603,5 +603,5 @@ $template->assign_vars(array(
 	'SEED_EXIST'        => ($seeders || defined('SEEDER_EXIST')),
 	'LEECH_EXIST'       => ($leechers || defined('LEECHER_EXIST')),
 	'TOR_HELP_LINKS'    => $bb_cfg['tor_help_links'],
-	'CALL_SEED'         => ($bb_cfg['callseed'] && $tor_reged && !isset($bb_cfg['tor_no_tor_act'][$tor_info['tor_status']]) && $seed_count < 3 && $tor_info['call_seed_time'] < (TIMENOW - 86400)),
+	'CALL_SEED'         => (!IS_GUEST && $bb_cfg['callseed'] && $tor_reged && !isset($bb_cfg['tor_no_tor_act'][$tor_info['tor_status']]) && $seed_count < 3 && $tor_info['call_seed_time'] < (TIMENOW - 86400)),
 ));

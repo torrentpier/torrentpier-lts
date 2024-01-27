@@ -228,6 +228,7 @@ $(document).ready(function(){
 	<!-- ENDIF / S_MODE_FULL -->
 <!-- ENDIF / SHOW_TOR_ACT -->
 
+<!-- IF LOGGED_IN -->
 <tr>
 	<td colspan="2" class="row3 pad_4">
 	&nbsp;
@@ -243,6 +244,7 @@ $(document).ready(function(){
 	&nbsp;
 	</td>
 </tr>
+<!-- ENDIF -->
 
 </table>
 <div class="spacer_6"></div>
