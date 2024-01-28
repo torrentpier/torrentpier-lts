@@ -95,6 +95,10 @@ if ($show_dl_list)
 			}
 			if ($dl_cat[$i] && !$count_mode)
 			{
+				if ($i == DL_STATUS_COMPLETE)
+				{
+					$dl_completed_count++;
+				}
 				$dl_users_div_style = ($dl_count[$i] > $max_dl_users_before_overflow) ? $dl_users_div_style_overflow : $dl_users_div_style_normal;
 				$dl_cat[$i][strlen($dl_cat[$i])-2] = ' ';
 				$dl_cat[$i] = "<span class=$desc>". $dl_cat[$i] .'</span>';
@@ -108,6 +112,10 @@ if ($show_dl_list)
 			}
 			else if ($dl_count[$i] && $count_mode)
 			{
+				if ($i == DL_STATUS_COMPLETE)
+				{
+					$dl_completed_count++;
+				}
 				if ($i == DL_STATUS_CANCEL && !$show_canceled_in_count_mode)
 				{
 					continue;
