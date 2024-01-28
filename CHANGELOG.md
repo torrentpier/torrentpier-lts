@@ -7,6 +7,7 @@
 - Fixed broken user dl status
 - Fixed download counter for torrent files
 - Hide feed button if feed file doesn't exist
+- Some enhancements for topic_tpl
 - Don't update download counter if attachment not exists
 - Added ability to view "Watching topics" of other people's (For admins only)
 - Security measures
