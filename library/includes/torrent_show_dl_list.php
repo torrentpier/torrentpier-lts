@@ -2,10 +2,10 @@
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
-$dl_list_none_completed       = true; // Отображать ли "Список скачавших: Нет" если нет ни одного статуса DL_STATUS_COMPLETE
+$dl_list_none_completed       = true;
 $show_old_style_names_mode    = true;
 $show_canceled_in_count_mode  = false;
-$title_date_format            = 'Y-m-d';
+$title_date_format            = '%Y-%m-%d';
 $dl_list_sql_limit            = 300;     // DL-List overall limit
 $max_dl_users_before_overflow = 100;     // for each dl-status
 $dl_users_overflow_div_height = '120px';
@@ -47,7 +47,7 @@ if ($show_dl_list)
 	}
 	else
 	{
-		$sql = "SELECT d.user_status, d.user_id, DATE_FORMAT(d.last_modified_dlstatus, '%Y-%m-%d') AS last_modified_dlstatus, u.username, u.user_rank
+		$sql = "SELECT d.user_status, d.user_id, DATE_FORMAT(d.last_modified_dlstatus, '$title_date_format') AS last_modified_dlstatus, u.username, u.user_rank
 			FROM ". BB_BT_DLSTATUS ." d, ". BB_USERS ." u
 			WHERE d.topic_id = $topic_id
 				AND d.user_id = u.user_id
