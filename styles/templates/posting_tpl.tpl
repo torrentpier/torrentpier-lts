@@ -4480,7 +4480,8 @@ $(function(){
 		<div><input type="text" id="preview-title" size="60" value="" class="bold" style="width: 100%" /></div>
 		<div><textarea id="preview-msg" rows="15" cols="10" wrap="off" class="editor" style="width: 100%"></textarea></div>
 		<div class="tCenter">
-			<input type="button" value="Создать HTML" onclick="ajax.posts( $('#preview-msg').val(), 'preview-html-body' );" class="bold" />
+			<input type="button" value="{L_AJAX_PREVIEW}" onclick="ajax.posts( $('#preview-msg').val(), 'preview-html-body' );" class="bold" />
+			<input type="button" value="Продолжить" onclick="tpl_submit(true);" class="bold" />
 		</div>
 	</div>
 	</td>
