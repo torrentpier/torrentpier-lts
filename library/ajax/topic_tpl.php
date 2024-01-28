@@ -141,7 +141,7 @@ switch ($mode)
 		$this->response['tpl_id']   = $tpl_id;
 		$this->response['tpl_name'] = $tpl_name;
 		$this->response['html']['tpl-last-edit-time'] = bb_date(TIMENOW, 'd-M-y H:i');
-		$this->response['html']['tpl-last-edit-by']   = $userdata['username'];
+		$this->response['html']['tpl-last-edit-by']   = profile_url(get_userdata($userdata['username'], true));
 		break;
 
 	// создание нового шаблона
