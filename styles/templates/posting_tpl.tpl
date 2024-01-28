@@ -4527,19 +4527,19 @@ $(function(){
 <col class="row2" width="80%">
 <thead>
 <tr>
-	<th colspan="2">Заполните форму для релиза<!-- IF EDIT_TPL --> &nbsp; [ <u class="clickable" onclick="tpl_fill_form();">Заполнить</u> ]<!-- ENDIF --></th>
+	<th colspan="2">Заполните форму для релиза<!-- IF EDIT_TPL --> &nbsp; [ <u title="Генерирует случайное заполнение" class="clickable" onclick="tpl_fill_form();">Заполнить</u> ]<!-- ENDIF --></th>
 </tr>
 </thead>
 <tbody id="rel-tpl">
 </tbody>
 <tfoot>
 <tr>
-	<td colspan="2" class="pad_8 tCenter bold">На следующей странице проверьте оформление и загрузите torrent файл</td>
+	<td colspan="2" class="pad_8 tCenter bold">На следующей странице проверьте оформление и загрузите файл</td>
 </tr>
 <tr>
 	<td class="catBottom" colspan="2">
 		<!-- IF EDIT_TPL -->
-		<input type="button" value="Заполнить" style="width: 120px;" onclick="tpl_fill_form();" />&nbsp;&nbsp;
+		<input type="button" title="Генерирует случайное заполнение" value="Заполнить" style="width: 120px;" onclick="tpl_fill_form();" />&nbsp;&nbsp;
 		<input type="button" value="Продолжить" class="bold" style="width: 150px;" onclick="tpl_build_msg(true);" />
 		<!-- ELSE -->
 		<input type="button" value="Продолжить" class="bold" style="width: 150px;" onclick="tpl_submit(true);" />
