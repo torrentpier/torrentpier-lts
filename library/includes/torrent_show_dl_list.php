@@ -2,6 +2,7 @@
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
+$dl_list_none_completed       = true; // Отображать ли "Список скачавших: Нет" если нет ни одного статуса DL_STATUS_COMPLETE
 $show_old_style_names_mode    = true;
 $show_canceled_in_count_mode  = false;
 $title_date_format            = 'Y-m-d';
@@ -122,7 +123,7 @@ if ($show_dl_list)
 			}
 		}
 		// Отображаем "Список скачавших: Нет" если нет ни одного статуса DL_STATUS_COMPLETE
-		if ($dl_completed_count == 0)
+		if ($dl_list_none_completed && $dl_completed_count == 0)
 		{
 			$template->assign_block_vars('dl_list_none', array());
 		}
