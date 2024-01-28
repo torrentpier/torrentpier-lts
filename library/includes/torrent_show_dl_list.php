@@ -5,7 +5,7 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 $dl_list_none_completed       = true;
 $show_old_style_names_mode    = true;
 $show_canceled_in_count_mode  = false;
-$title_date_format            = '%Y-%m-%d';
+$title_date_format            = '%Y-%m-%d %H:%i';
 $dl_list_sql_limit            = 300;     // DL-List overall limit
 $max_dl_users_before_overflow = 100;     // for each dl-status
 $dl_users_overflow_div_height = '120px';
