@@ -85,7 +85,7 @@ if ($show_dl_list)
 			}
 		}
 
-		$dl_count_mode_cnt = 0;
+		$dl_count_mode_cnt = $dl_completed_count = 0;
 		foreach ($dl_status_css as $i => $desc)
 		{
 			if ($i == DL_STATUS_RELEASER)
@@ -120,6 +120,11 @@ if ($show_dl_list)
 					'DL_OPTION_USERS' => $dl_count[$i],
 				));
 			}
+		}
+		// Отображаем "Список скачавших: Нет" если нет ни одного статуса DL_STATUS_COMPLETE
+		if ($dl_completed_count == 0)
+		{
+			$template->assign_block_vars('dl_list_none', array());
 		}
 		$template->assign_vars(array('HIDE_DL_COUNT_EMPTY' => (bool)($count_mode && $dl_count_mode_cnt == 0)));
 	}
