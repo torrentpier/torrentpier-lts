@@ -135,11 +135,6 @@ if ($show_dl_list)
 		{
 			$template->assign_block_vars('dl_list_none', array());
 		}
-		// Выводим число скачавших
-		elseif ($dl_list_none_completed && $dl_completed_count != 0)
-		{
-			$template->assign_vars(array('DL_COMPLETE_COUNT' => $dl_completed_count));
-		}
 		$template->assign_vars(array('HIDE_DL_COUNT_EMPTY' => (bool)($count_mode && $dl_count_mode_cnt == 0)));
 	}
 	elseif ($bb_cfg['bt_show_dl_list_buttons'] && $have_dl_buttons_enabled)
