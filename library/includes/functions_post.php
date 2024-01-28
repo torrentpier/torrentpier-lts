@@ -224,7 +224,6 @@ function submit_post($mode, &$post_data, &$message, &$meta, &$forum_id, &$topic_
 //
 function update_post_stats($mode, $post_data, $forum_id, $topic_id, $post_id, $user_id)
 {
-	$user_id = (int) $user_id; // Cast ID to int
 	$sign = ($mode == 'delete') ? '- 1' : '+ 1';
 	$forum_update_sql = "forum_posts = forum_posts $sign";
 	$topic_update_sql = '';
