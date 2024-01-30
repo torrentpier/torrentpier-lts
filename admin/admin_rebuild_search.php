@@ -364,7 +364,7 @@ if ($mode == 'submit' || $mode == 'refresh')
 		'TOTAL_PERCENT'             => sprintf($lang['PERCENT_COMPLETED'], round($total_percent, 2)),
 
 		'LAST_CYCLE_TIME'           => delta_time(TIMENOW),
-		'SESSION_TIME'              => delta_time($last_session_data['start_time']),
+		'SESSION_TIME'              => ($last_session_data['start_time'] == 0) ? 0 : delta_time($last_session_data['start_time']),
 		'SESSION_AVERAGE_CYCLE_TIME'=> delta_time((int)$session_average_cycle_time, 0),
 		'SESSION_ESTIMATED_TIME'    => delta_time((int)$session_estimated_time, 0),
 
