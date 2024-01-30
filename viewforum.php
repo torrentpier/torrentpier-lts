@@ -323,7 +323,7 @@ if ($forum_data['allow_reg_tracker'])
 		LEFT JOIN ". BB_BT_TORRENTS     ." tor ON(t.topic_id = tor.topic_id)
 		LEFT JOIN ". BB_BT_USERS        ." bt  ON(bt.user_id = {$userdata['user_id']})
 		LEFT JOIN ". BB_BT_TRACKER_SNAP ." sn  ON(tor.topic_id = sn.topic_id)
-		LEFT JOIN ". BB_ATTACHMENTS_DESC ." ad  ON(tor.attach_id = ad.attach_id)
+		LEFT JOIN ". BB_ATTACHMENTS_DESC ." ad ON(tor.attach_id = ad.attach_id)
 	";
 	$join_tor_sql .= ($join_dl) ? " LEFT JOIN ". BB_BT_DLSTATUS ." dl ON(dl.user_id = {$userdata['user_id']} AND dl.topic_id = t.topic_id)" : '';
 }
