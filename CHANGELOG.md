@@ -11,7 +11,7 @@
 - Some enhancements for topic_tpl
 - Don't update download counter if attachment not exists
 - Added ability to view "Watching topics" of other people's (For admins only)
-- Security measures
+- Included all security patch up to 24.01.24
 - Some other changes / improvements
 
 ## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-21)
