@@ -1202,7 +1202,7 @@ else if ( $submit || $refresh || $mode != '' )
 
 				$privmsg_message = '[quote="' . $to_username . '"]' . $privmsg_message . '[/quote]';
 
-				$mode = 'reply';
+				// $mode = 'reply';
 			}
 		}
 		else
@@ -1294,6 +1294,11 @@ else if ( $submit || $refresh || $mode != '' )
 		$post_a = $lang['SEND_A_NEW_MESSAGE'];
 	}
 	else if ( $mode == 'reply' )
+	{
+		$post_a = $lang['SEND_A_REPLY'];
+		$mode = 'post';
+	}
+	else if ( $mode == 'quote' )
 	{
 		$post_a = $lang['SEND_A_REPLY'];
 		$mode = 'post';
