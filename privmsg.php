@@ -1307,10 +1307,6 @@ else if ( $submit || $refresh || $mode != '' )
 	{
 		$post_a = $lang['EDIT_MESSAGE'];
 	}
-	else
-	{
-		pm_die($lang['NONE_SELECTED']);
-	}
 
 	$s_hidden_fields = '<input type="hidden" name="folder" value="' . $folder . '" />';
 	$s_hidden_fields .= '<input type="hidden" name="mode" value="' . $mode . '" />';
