@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Fixed negative integer seed bonus accrual
 - Fixed broken user dl status
 - Fixed download counter for torrent files
 - Fixed admin_terms.php textarea reset in preview mode
