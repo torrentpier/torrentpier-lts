@@ -73,6 +73,14 @@ $template->assign_vars(array(
 ));
 
 //
+// Set mode for quick reply
+//
+if (empty($mode) && $bb_cfg['show_quick_reply'] && ($folder == 'inbox') && $preview)
+{
+	$mode = 'reply';
+}
+
+//
 // Cancel
 //
 if ( $cancel )
