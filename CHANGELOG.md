@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Fixed PM quick reply issue
 - Fixed negative integer seed bonus accrual
 - Fixed broken user dl status
 - Fixed download counter for torrent files
@@ -13,7 +14,6 @@
 - Don't update download counter if attachment not exists
 - Added ability to view "Watching topics" of other people's (For admins only)
 - Included all security patch up to 24.01.24
-- Some reported bugfixes
 - Some other changes / improvements
 
 ## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-21)
