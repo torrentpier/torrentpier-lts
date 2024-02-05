@@ -1097,6 +1097,10 @@ else if ( $submit || $refresh || $mode != '' )
 		{
 			$page_title = $lang['POST_REPLY_PM'];
 		}
+		else if ( $mode == 'quote' )
+		{
+			$page_title = $lang['POST_QUOTE_PM'];
+		}
 		else if ( $mode == 'edit' )
 		{
 			$page_title = $lang['EDIT_PM'];
