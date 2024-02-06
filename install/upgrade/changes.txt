@@ -52,7 +52,6 @@ ALTER TABLE `bb_bt_tracker` ADD `client` VARCHAR(51) NOT NULL DEFAULT 'Unknown' 
 ALTER TABLE `bb_bt_tracker` ADD `complete` INT(11) NOT NULL DEFAULT '0' AFTER `complete_percent`;
 
 // 2.1.5
-SET GLOBAL sql_mode = '';
 SET SESSION sql_mode = '';
 DROP TABLE IF EXISTS `bb_captcha`;
 DELETE FROM `bb_cron` WHERE `cron_script` = 'captcha_gen_gc.php';
@@ -78,7 +77,6 @@ ALTER TABLE `bb_search_results` CHANGE `search_id` `search_id` VARCHAR(255) CHAR
 ALTER TABLE `bb_search_results` CHANGE `session_id` `session_id` CHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '';
 
 // 2.1.5 (LTS 2023.06)
-SET GLOBAL sql_mode = '';
 SET SESSION sql_mode = '';
 UPDATE `bb_posts` SET `poster_ip` = '0';
 ALTER TABLE `bb_posts` CHANGE `poster_ip` `poster_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0';
