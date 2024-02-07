@@ -15,6 +15,7 @@
 - Added ability to view "Watching topics" of other people's (For admins only)
 - Included all security patch up to 24.01.24
 - Some other changes / improvements
+- Updated translations
 
 ## [v2.1.5-2024.02 [Final v2]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.01) (2024-01-21)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10-HotFix...v2.1.5-2024.02)
