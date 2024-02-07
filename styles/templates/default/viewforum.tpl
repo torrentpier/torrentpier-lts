@@ -323,6 +323,9 @@ td.topic_id { cursor: pointer; }
 	<th>{L_POSTS_SHORT}</th>
 	<th>{L_LASTPOST}</th>
 </tr>
+<tr>
+	<td colspan="5" class="spaceRow"><div class="spacer_6"></div></td>
+</tr>
 <!-- BEGIN f -->
 <tr>
 	<td class="f_icon"><img class="forum_icon" src="{f.FORUM_FOLDER_IMG}" /></td>
