@@ -812,7 +812,7 @@ if (!$mode || $show_main_page)
 						'FORUM_PARENT'      => $forum_rows[$j]['forum_parent'],
 						'SF_PAD'            => ($forum_rows[$j]['forum_parent']) ? ' style="padding-left: 20px;" ' : '',
 						'FORUM_NAME_CLASS'  => ($forum_rows[$j]['forum_parent']) ? 'genmed' : 'gen',
-						'ADD_SUB_HREF'      => "admin_forums.php?mode=addforum&amp;forum_parent={$forum_rows[$j]['forum_id']}",
+						'ADD_SUB_HREF'      => (!$forum_rows[$j]['forum_parent']) ? "admin_forums.php?mode=addforum&amp;forum_parent={$forum_rows[$j]['forum_id']}" : '',
 						'U_VIEWFORUM'       => BB_ROOT . FORUM_URL . $forum_id,
 						'U_FORUM_EDIT'      => "admin_forums.php?mode=editforum&amp;f=$forum_id",
 						'U_FORUM_PERM'      => "admin_forumauth.php?f=$forum_id",
