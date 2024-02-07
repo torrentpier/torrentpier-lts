@@ -1817,6 +1817,7 @@ $lang['FORUM_ADMIN_MAIN'] = 'Управление форумами';
 $lang['FORUM_ADMIN_EXPLAIN'] = 'Здесь вы можете создавать, удалять и изменять порядок вывода категорий и форумов';
 $lang['EDIT_FORUM'] = 'Изменить форум';
 $lang['CREATE_FORUM'] = 'Создать новый форум';
+$lang['CREATE_SUB_FORUM'] = 'Создать подфорум';
 $lang['CREATE_CATEGORY'] = 'Создать новую категорию';
 $lang['REMOVE'] = 'Удалить';
 $lang['UPDATE_ORDER'] = 'Изменить порядок';
