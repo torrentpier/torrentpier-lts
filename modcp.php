@@ -593,7 +593,7 @@ switch ($mode)
 			// Delete posts
 			$result = post_delete(explode(',', $post_id_sql));
 
-			$msg = ($result) ? $lang['DELETE_POSTS_SUCCESFULLY'] : 'No posts were removed';
+			$msg = ($result) ? $lang['DELETE_POSTS_SUCCESFULLY'] : $lang['DELETE_POSTS_NOT_SUCCESFULLY'];
 			bb_die(return_msg_mcp($msg));
 		}
 		else

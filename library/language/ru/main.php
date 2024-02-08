@@ -1302,6 +1302,7 @@ $lang['NEVER'] = 'Никогда';
 //mpd
 $lang['DELETE_POSTS'] = 'Удалить сообщения';
 $lang['DELETE_POSTS_SUCCESFULLY'] = 'Выбранные сообщения были успешно удалены';
+$lang['DELETE_POSTS_NOT_SUCCESFULLY'] = 'Не было удалено ни одного сообщения';
 
 //ts
 $lang['TOPICS_ANNOUNCEMENT'] = 'Объявления';
