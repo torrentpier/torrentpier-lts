@@ -2709,7 +2709,7 @@ function profile_url ($data)
 
 	$user_rank = !empty($data['user_rank']) ? $data['user_rank'] : 0;
 
-	if (isset($ranks[$user_rank]))
+	if (isset($ranks[$user_rank]) && ($data['user_id'] != BOT_UID && $data['user_id'] != GUEST_UID))
 	{
 		$title = $ranks[$user_rank]['rank_title'];
 		$style = $ranks[$user_rank]['rank_style'];
