@@ -748,7 +748,7 @@ for($i = 0; $i < $total_posts; $i++)
 	if ($postrow[$i]['post_edit_count'])
 	{
 		$l_edit_time_total = ($postrow[$i]['post_edit_count'] == 1) ? $lang['EDITED_TIME_TOTAL'] : $lang['EDITED_TIMES_TOTAL'];
-		$l_edited_by = '<br /><br />' . sprintf($l_edit_time_total, $poster, bb_date($postrow[$i]['post_edit_time']), $postrow[$i]['post_edit_count']);
+		$l_edited_by = '<br /><br />' . sprintf($l_edit_time_total, profile_url(array('username' => $poster, 'user_id' => $poster_id, 'user_rank' => $user_rank)), bb_date($postrow[$i]['post_edit_time']), $postrow[$i]['post_edit_count']);
 	}
 	else
 	{
