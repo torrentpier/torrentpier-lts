@@ -370,6 +370,9 @@ function user_notification($mode, &$post_data, &$topic_title, &$forum_id, &$topi
 				require(CLASS_DIR .'emailer.php');
 				$emailer = new emailer($bb_cfg['smtp_delivery']);
 
+				//
+				// Define censored word matches
+				//
 				$orig_word = $replacement_word = array();
 				obtain_word_list($orig_word, $replacement_word);
 

@@ -537,6 +537,9 @@ else
 
 		if ( $mode == 'quote' )
 		{
+			//
+			// Define censored word matches
+			//
 			if (!defined('WORD_LIST_OBTAINED'))
 			{
 				$orig_word = array();

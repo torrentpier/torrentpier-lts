@@ -828,6 +828,10 @@ function bbcode2html ($text)
 	{
 		$bbcode = new bbcode();
 	}
+
+	//
+	// Define censored word matches
+	//
 	$orig_word = array();
 	$replacement_word = array();
 	obtain_word_list($orig_word, $replacement_word);

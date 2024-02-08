@@ -387,7 +387,9 @@ if ($topics_csv = join(',', $topic_ids))
 	");
 }
 
+//
 // Define censored word matches
+//
 $orig_word = $replacement_word = array();
 obtain_word_list($orig_word, $replacement_word);
 

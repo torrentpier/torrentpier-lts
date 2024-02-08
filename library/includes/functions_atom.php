@@ -157,6 +157,10 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 			$tor_status = " ({$lang['TOR_STATUS_NAME'][$topic['tor_status']]})";
 		}
 		$topic_title = $topic['topic_title'];
+
+		//
+		// Define censored word matches
+		//
 		$orig_word = array();
 		$replacement_word = array();
 		obtain_word_list($orig_word, $replacement_word);

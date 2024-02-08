@@ -39,6 +39,9 @@ elseif (isset($this->request['topic_id']))
 	$is_auth = auth(AUTH_ALL, $post['forum_id'], $userdata, $post);
 }
 
+//
+// Define censored word matches
+//
 if (!defined('WORD_LIST_OBTAINED'))
 {
 	$orig_word = array();

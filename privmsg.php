@@ -426,6 +426,9 @@ if ($mode == 'read')
 
 	$private_message = $privmsg['privmsgs_text'];
 
+	//
+	// Define censored word matches
+	//
 	$orig_word = array();
 	$replacement_word = array();
 	obtain_word_list($orig_word, $replacement_word);
@@ -1238,6 +1241,9 @@ else if ( $submit || $refresh || $mode != '' )
 
 	if ( $preview && !$error )
 	{
+		//
+		// Define censored word matches
+		//
 		$orig_word = array();
 		$replacement_word = array();
 		obtain_word_list($orig_word, $replacement_word);
@@ -1398,6 +1404,9 @@ else
 		'body' => 'privmsgs.tpl')
 	);
 
+	//
+	// Define censored word matches
+	//
 	$orig_word = $replacement_word = array();
 	obtain_word_list($orig_word, $replacement_word);
 
