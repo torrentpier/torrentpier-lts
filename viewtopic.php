@@ -677,7 +677,7 @@ for($i = 0; $i < $total_posts; $i++)
 	$rg_signature     = ($postrow[$i]['group_signature']) ? bbcode2html(htmlCHR($postrow[$i]['group_signature'])) : '';
 
 	$poster_avatar = '';
-	if ( !$user->opt_js['h_av'] && $poster_id != GUEST_UID )
+	if ( (!$user->opt_js['h_av'] || $poster_id == BOT_UID) && $poster_id != GUEST_UID )
 	{
 		$poster_avatar = get_avatar($poster_id, $postrow[$i]['avatar_ext_id'], !bf($postrow[$i]['user_opt'], 'user_opt', 'dis_avatar'));
 	}
