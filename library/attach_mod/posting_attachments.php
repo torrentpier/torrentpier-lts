@@ -987,7 +987,7 @@ class attach_parent
 				$this->attach_filename = $this->filename;
 
 				//bt
-				if (FILENAME_CRYPTIC)
+				if (FILENAME_CRYPTIC && is_numeric(FILENAME_CRYPTIC_LENGT))
 				{
 					$this->attach_filename = make_rand_str(FILENAME_CRYPTIC_LENGTH) . '_' . TIMENOW;
 				}
@@ -1014,7 +1014,7 @@ class attach_parent
 				for ($i=0, $max_try=5; $i <= $max_try; $i++)
 				{
 					$fn_prefix = '';
-					if (FILENAME_PREFIX)
+					if (FILENAME_PREFIX && is_numeric(FILENAME_PREFIX_LENGTH))
 					{
 						$fn_prefix = make_rand_str(FILENAME_PREFIX_LENGTH) .'_';
 					}
@@ -1030,7 +1030,7 @@ class attach_parent
 					}
 				}
 				$this->attach_filename = $new_physical_filename;
-				if (!empty($this->attach_filename))
+				if (!empty($this->attach_filename) && is_numeric(FILENAME_MAX_LENGTH))
 				{
 					$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
 				}
