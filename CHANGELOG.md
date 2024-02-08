@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Fixed issue with poll_users cleaning at every cron job startup
 - Fixed PM quick reply issue
 - Fixed negative integer seed bonus accrual
 - Fixed broken user dl status
