@@ -10,7 +10,8 @@ sync('user_posts', 'all');
 sync_all_forums();
 
 // Чистка bb_poll_users
-if ($poll_max_days = (int) $bb_cfg['poll_max_days'])
+$poll_max_days = (int) $bb_cfg['poll_max_days'];
+if ($poll_max_days != 0)
 {
 	$per_cycle = 20000;
 	$row = DB()->fetch_row("SELECT MIN(topic_id) AS start_id, MAX(topic_id) AS finish_id FROM ". BB_POLL_USERS);
@@ -25,7 +26,7 @@ if ($poll_max_days = (int) $bb_cfg['poll_max_days'])
 		DB()->query("
 			DELETE FROM ". BB_POLL_USERS ."
 			WHERE topic_id BETWEEN $start_id AND $end_id
-				AND vote_dt < DATE_SUB(NOW(), INTERVAL $poll_max_days DAY)
+				AND vote_dt < ". (TIMENOW - 86400*$poll_max_days) ."
 		");
 		if ($end_id > $finish_id)
 		{
