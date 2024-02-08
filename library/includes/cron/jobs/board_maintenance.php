@@ -10,8 +10,7 @@ sync('user_posts', 'all');
 sync_all_forums();
 
 // Чистка bb_poll_users
-$poll_max_days = (int) $bb_cfg['poll_max_days'];
-if ($poll_max_days != 0)
+if ($poll_max_days = (int) $bb_cfg['poll_max_days'])
 {
 	$per_cycle = 20000;
 	$row = DB()->fetch_row("SELECT MIN(topic_id) AS start_id, MAX(topic_id) AS finish_id FROM ". BB_POLL_USERS);
