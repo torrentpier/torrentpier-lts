@@ -1020,6 +1020,11 @@ class attach_parent
 					}
 					$new_physical_filename = clean_filename($fn_prefix . $this->attach_filename);
 
+					if (!empty($new_physical_filename) && is_numeric(FILENAME_MAX_LENGTH))
+					{
+						$new_physical_filename = substr(trim($new_physical_filename), 0, FILENAME_MAX_LENGTH);
+					}
+
 					if (!physical_filename_already_stored($new_physical_filename))
 					{
 						break;
@@ -1030,10 +1035,6 @@ class attach_parent
 					}
 				}
 				$this->attach_filename = $new_physical_filename;
-				if (!empty($this->attach_filename) && is_numeric(FILENAME_MAX_LENGTH))
-				{
-					$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
-				}
 
 				// Do we have to create a thumbnail ?
 				if ($cat_id == IMAGE_CAT && intval($attach_config['img_create_thumbnail']) && intval($attach_config['img_display_inlined']))
