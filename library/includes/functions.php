@@ -2701,41 +2701,30 @@ function profile_url ($data)
 {
 	global $bb_cfg, $lang, $datastore;
 
-	$user_id = !empty($data['user_id']) ? $data['user_id'] : GUEST_UID;
-	$username = !empty($data['username']) ? $data['username'] : $lang['GUEST'];
-	$user_rank = !empty($data['user_rank']) ? $data['user_rank'] : 0;
-
 	if (!$ranks = $datastore->get('ranks'))
 	{
 		$datastore->update('ranks');
 		$ranks = $datastore->get('ranks');
 	}
 
-	$title = $lang['USER'];
-	$style = 'colorUser';
+	$user_rank = !empty($data['user_rank']) ? $data['user_rank'] : 0;
+
 	if (isset($ranks[$user_rank]))
 	{
 		$title = $ranks[$user_rank]['rank_title'];
-		if (!empty($ranks[$user_rank]['rank_style']) && $bb_cfg['color_nick'])
-		{
-			$style = $ranks[$user_rank]['rank_style'];
-		}
+		$style = $ranks[$user_rank]['rank_style'];
 	}
+	if (empty($title)) $title = $lang['USER'];
+	if (empty($style)) $style = 'colorUser';
 
-	if (empty($title))
-	{
-		if ($user_id == GUEST_UID)
-		{
-			$title = $lang['GUEST'];
-		}
-		elseif ($user_id == BOT_UID)
-		{
-			$title = $username;
-		}
-	}
+	if (!$bb_cfg['color_nick']) $style = '';
+
+	$username = !empty($data['username']) ? $data['username'] : $lang['GUEST'];
+	$user_id = (!empty($data['user_id']) && $username != $lang['GUEST']) ? $data['user_id'] : GUEST_UID;
 
 	$profile = '<span title="'. $title .'" class="'. $style .'">'. $username .'</span>';
-	if (!in_array($user_id, array('', GUEST_UID, BOT_UID)))
+
+	if (!in_array($user_id, array('', GUEST_UID, BOT_UID)) && $username)
 	{
 		$profile = '<a href="'. make_url(PROFILE_URL . $user_id) .'">'. $profile .'</a>';
 	}
