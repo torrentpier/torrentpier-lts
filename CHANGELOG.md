@@ -13,6 +13,7 @@
 - Hide feed button if feed file doesn't exist
 - Some enhancements for topic_tpl
 - Don't update download counter if attachment not exists
+- Added support for rutracker font BBCode tag
 - Added ability to view "Watching topics" of other people's (For admins only)
 - Included all security patch up to 24.01.24
 - Some other changes / improvements
