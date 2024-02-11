@@ -7,4 +7,6 @@ if (!empty($setmodules))
 }
 require('./pagestart.php');
 
+if (!IS_SUPER_ADMIN) bb_die($lang['ONLY_FOR_SUPER_ADMIN']);
+
 phpinfo();
