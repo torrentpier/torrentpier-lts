@@ -23,7 +23,6 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2023.10-HotFix...v2.1.5-2024.02)
 
 - Release v2.1.5-2024.02 🎉
-- Added Fastly CDN support
 - Some improvements in default template
 - Fixed void function result used
 - Feature to ban specific torrent clients
