@@ -1030,7 +1030,7 @@ class attach_parent
 					}
 				}
 				$this->attach_filename = $new_physical_filename;
-				if (!empty($this->attach_filename) && is_numeric(FILENAME_MAX_LENGTH))
+				if (!empty($this->attach_filename) && (FILENAME_PREFIX && is_numeric(FILENAME_MAX_LENGTH)))
 				{
 					$this->attach_filename = substr(trim($this->attach_filename), 0, FILENAME_MAX_LENGTH);
 				}
