@@ -48,7 +48,7 @@ function get_sql_log_html ($db_obj, $log_name)
 		$id   = "sql_{$i}_". mt_rand();
 		$sql  = short_query($dbg['sql'], true);
 		$time = SQL_CALC_QUERY_TIME ? (sprintf('%.4f', $dbg['time']) . 's') : '';
-		$perc = SQL_CALC_QUERY_TIME ? @sprintf('[%d%%]', round($dbg['time']*100/$db_obj->sql_timetotal)) : '';
+		$perc = SQL_CALC_QUERY_TIME ? '[' . round($dbg['time'] * 100 / $db_obj->sql_timetotal) . '%]' : '';
 		$info = !empty($dbg['info']) ? $dbg['info'] .' ['. $dbg['src'] .']' : $dbg['src'];
 
 		$log .= ''
