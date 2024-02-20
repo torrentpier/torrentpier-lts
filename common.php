@@ -37,19 +37,6 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 date_default_timezone_set('UTC');
 
-/**
- * isSecure
- * @return bool
- */
-function isSecure()
-{
-	if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) || (isset($_SERVER['HTTP_X_FORWARDED_PORT']) && $_SERVER['HTTP_X_FORWARDED_PORT'] == 443) || (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] == 'https')) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
 // Cloudflare
 if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 {
@@ -228,6 +215,21 @@ function short_query ($sql, $esc_html = false)
 }
 
 // Functions
+function is_secure()
+{
+	if (
+		(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+		|| (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+		|| (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on')
+		|| (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+		|| (isset($_SERVER['HTTP_X_FORWARDED_PORT']) && $_SERVER['HTTP_X_FORWARDED_PORT'] == 443)
+		|| (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] == 'https')
+	) {
+		return true;
+	}
+	return false;
+}
+
 function utime ()
 {
 	return array_sum(explode(' ', microtime()));
