@@ -118,7 +118,7 @@ ALTER TABLE `bb_bt_tracker` CHANGE `speed_down` `speed_down` int(11) unsigned NO
 ALTER TABLE `bb_bt_tracker_snap` CHANGE `speed_up` `speed_up` int(11) unsigned NOT NULL DEFAULT '0';
 ALTER TABLE `bb_bt_tracker_snap` CHANGE `speed_down` `speed_down` int(11) unsigned NOT NULL DEFAULT '0';
 
-// 2.1.5 (LTS 2024.01)
+// 2.1.5 (LTS 2024.02)
 DELETE FROM `bb_extensions` WHERE `extension` = 'tga';
 DELETE FROM `bb_extensions` WHERE `extension` = 'tif';
 DELETE FROM `bb_extensions` WHERE `extension` = 'tiff';
