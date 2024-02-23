@@ -142,6 +142,10 @@ switch ($field)
 			}
 		}
 		$value = sprintf('%.0f', $value);
+		if (strlen($value) > 19)
+		{
+			$this->ajax_die($lang['WRONG_INPUT']);
+		}
 		$this->response['new_value'] = humn_size($value, null, null, ' ');
 
 		if (!$btu = get_bt_userdata($user_id))
