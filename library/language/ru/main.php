@@ -263,8 +263,8 @@ $lang['SPOILER_HEAD'] = 'Скрытый текст';
 $lang['SPOILER_CLOSE'] = 'Свернуть';
 $lang['PLAY_ON_CURPAGE'] = 'Начать проигрывание на текущей странице';
 
-$lang['EDITED_TIME_TOTAL'] = 'Последний раз редактировалось: %s (%s), всего редактировалось %d раз'; // Last edited by me on 12 Oct 2001, edited 1 time in total
-$lang['EDITED_TIMES_TOTAL'] = 'Последний раз редактировалось: %s (%s), всего редактировалось %d раз(а)'; // Last edited by me on 12 Oct 2001, edited 2 times in total
+$lang['EDITED_TIME_TOTAL'] = 'Последний раз редактировалось: <b>%s</b> (%s), всего редактировалось %d раз'; // Last edited by me on 12 Oct 2001, edited 1 time in total
+$lang['EDITED_TIMES_TOTAL'] = 'Последний раз редактировалось: <b>%s</b> (%s), всего редактировалось %d раз(а)'; // Last edited by me on 12 Oct 2001, edited 2 times in total
 
 $lang['LOCK_TOPIC'] = 'Закрыть тему';
 $lang['UNLOCK_TOPIC'] = 'Вновь открыть тему';
