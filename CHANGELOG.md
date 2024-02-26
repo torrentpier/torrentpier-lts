@@ -1,9 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.0X [Final v3]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.0X) (NO ETA)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.0X)
+## [v2.1.5-2024.03 [Final v3]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.03) (2024-02-26)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.03)
 
-- Release v2.1.5-2024.0X 🎉
+- Release v2.1.5-2024.03 🎉
 - Used new SSL check method
 - Fixed issue with poll_users cleaning at every cron job startup
 - Fixed PM quick reply issue
