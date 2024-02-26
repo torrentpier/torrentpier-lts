@@ -27,7 +27,7 @@ $user->session_start(array('req_login' => $bb_cfg['bt_tor_browse_only_reg']));
 
 set_die_append_msg();
 
-$show_completed_count = $bb_cfg['show_completed_count'];
+$show_completed_count = ($bb_cfg['show_completed_count'] || $bb_cfg['ocelot']['enabled']);
 $tor_search_limit    = (IS_AM) ? 2000 : 500;
 $forum_select_size   = 25; // forum select box max rows
 $max_forum_name_len  = 60; // inside forum select box
