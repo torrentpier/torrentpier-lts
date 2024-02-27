@@ -68,7 +68,7 @@ $select_sort_order .= '</select>';
 $template->assign_vars(array(
 	'S_MODE_SELECT'  => $select_sort_mode,
 	'S_ORDER_SELECT' => $select_sort_order,
-	'S_MODE_ACTION'  => "memberlist.php",
+	'S_MODE_ACTION'  => $_SERVER['REQUEST_URI'],
 	'S_USERNAME'     => $paginationusername,
 ));
 
@@ -147,7 +147,7 @@ $select_letter .= ($by_letter == 'all') ? '<b>'. $lang['ALL'] .'</b>' : '<a clas
 
 $template->assign_vars(array(
 	'S_LETTER_SELECT' => $select_letter,
-	'S_LETTER_HIDDEN' => '<input type="hidden" name="letter" value="'. $by_letter .'">',
+	'S_LETTER_HIDDEN' => '',
 ));
 
 // per-letter selection end
