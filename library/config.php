@@ -16,7 +16,7 @@ $domain_ssl = false; // используется ли SSL сертификат (
 
 // Version info
 $bb_cfg['tp_version'] = '2.1.5-2024.03 [Final v3]';
-$bb_cfg['tp_release_date'] = '02-26-2024';
+$bb_cfg['tp_release_date'] = '26-02-2024';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13';
 
