@@ -1,5 +1,12 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.0X [Final v4]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.0X) (NO ETA)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.0X)
+
+- Release v2.1.5-2024.0X 🎉
+- Added showing poll status in topic_watch.php
+- Some other changes / improvements
+
 ## [v2.1.5-2024.03 [Final v3]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.03) (2024-02-26)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.02...v2.1.5-2024.03)
 
