@@ -106,6 +106,7 @@ td.topic_id { cursor: pointer; }
 	</td>
 	<td><a href="{watch.U_FORUM}" class="genmed">{watch.FORUM_TITLE}</a></td>
 	<td class="tLeft nowrap">
+		<!-- IF watch.POLL --><span class="topicPoll">{L_TOPIC_POLL}</span><!-- ENDIF -->
 		<a class="topictitle" title="{watch.FULL_TOPIC_TITLE}" href="{watch.U_TOPIC}">{watch.TOPIC_TITLE}</a>
 		<!-- IF watch.PAGINATION --><br /><span class="topicPG">&nbsp;[{ICON_GOTOPOST}{L_GOTO_SHORT} {watch.PAGINATION} ]</span><!-- ENDIF -->
 	</td>
