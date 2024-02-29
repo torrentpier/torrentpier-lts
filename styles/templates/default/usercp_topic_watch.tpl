@@ -79,8 +79,11 @@ td.topic_id { cursor: pointer; }
 		<div id="forums_top_links" class="nav">
 			<a href="{U_INDEX}">{T_INDEX}</a>&nbsp;<em>&middot;</em>
 			<span id="show-edit-btn"><a href="#">{L_EDIT_MY_MESSAGE_LIST}</a></span>
-			<span id="edit-sel-topics" style="display: none;"><a href="#" class="bold adm" onclick="$('input.topic-chbox').trigger('click'); return false;">{L_SELECT_INVERT}</a></span><em>&middot;</em>
-			<!-- IF LOGGED_IN --><a href="#" class="med normal" onclick="setCookie('{COOKIE_MARK}', 'all_forums'); window.location.reload();">{L_MARK_ALL_FORUMS_READ}</a><!-- ENDIF -->
+			<span id="edit-sel-topics" style="display: none;"><a href="#" class="bold adm" onclick="$('input.topic-chbox').trigger('click'); return false;">{L_SELECT_INVERT}</a></span>
+			<!-- IF LOGGED_IN -->
+			<em>&middot;</em>
+			<a href="#" class="med normal" onclick="setCookie('{COOKIE_MARK}', 'all_forums'); window.location.reload();">{L_MARK_ALL_FORUMS_READ}</a>
+			<!-- ENDIF -->
 		</div>
 	</td>
 	<td class="vBottom tLeft nowrap med"><b>{PAGINATION}</b></td>
