@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Hide quote button if topic locked
 - Added showing poll status in topic_watch.php
 - Some other changes / improvements
 
