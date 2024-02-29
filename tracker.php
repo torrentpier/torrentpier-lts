@@ -730,7 +730,7 @@ if ($allowed_forums)
 		$select = "
 			SELECT
 				tor.topic_id, tor.post_id, tor.attach_id, tor.size, tor.reg_time, tor.complete_count, tor.seeder_last_seen, tor.tor_status, tor.tor_type,
-				t.topic_title, t.topic_time, t.topic_replies, t.topic_views, sn.seeders, sn.leechers, tor.info_hash,
+				t.topic_title, t.topic_time, t.topic_replies, t.topic_views, t.topic_vote, sn.seeders, sn.leechers, tor.info_hash,
 				ad.download_count
 		";
 		$select .= (!$hide_speed)  ? ", sn.speed_up, sn.speed_down" : '';
@@ -820,6 +820,7 @@ if ($allowed_forums)
 				'ROW_NUM'      => $row_num,
 				'DL_CLASS'     => $dl_class,
 				'IS_NEW'       => (!IS_GUEST && $tor['reg_time'] > $lastvisit),
+				'POLL'         => !IS_GUEST && $tor['topic_vote'],
 				'USER_AUTHOR'  => (!IS_GUEST && $poster_id == $user_id),
 
 				'ATTACH_ID'    => $att_id,
