@@ -617,7 +617,7 @@ if ($post_mode)
 		{
 			if ($post['poster_id'] != BOT_UID)
 			{
-				$quote_btn = true;
+				$quote_btn = !IS_GUEST;
 				$edit_btn = $ip_btn = (IS_AM);
 			}
 
