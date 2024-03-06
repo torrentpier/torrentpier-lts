@@ -1514,7 +1514,7 @@ $lang['URL'] = 'Url';
 $lang['URL_TITLE'] = 'Insert URL: [url]http://url[/url] or [url=http://url]URL text[/url] (Ctrl+W)';
 $lang['CODE_TITLE'] = 'Code display: [code]code[/code] (Ctrl+K)';
 $lang['LIST'] = 'List';
-$lang['LIST_TITLE'] = 'List: [list]text[/list] (Ctrl+l)';
+$lang['LIST_TITLE'] = 'List: [list]text[/list] (Ctrl+L)';
 $lang['LIST_ITEM'] = 'Ordered list: [list=]text[/list] (Ctrl+O)';
 $lang['QUOTE_SEL'] = 'Quote selected';
 $lang['JAVASCRIPT_ON'] = 'Heads necessary to send messages to enable JavaScript';
