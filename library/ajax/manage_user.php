@@ -21,7 +21,7 @@ switch ($mode)
 		if ($userdata['user_id'] == $user_id) $this->ajax_die($lang['USER_DELETE_ME']);
 		if (empty($this->request['confirmed'])) $this->prompt_for_confirm($lang['USER_DELETE_CONFIRM']);
 
-		if (!in_array($user_id, explode(',', EXCLUDED_USERS_CSV)))
+		if ($user_id != BOT_UID && $user_id != GUEST_UID)
 		{
 			delete_user_sessions($user_id);
 			user_delete($user_id);
@@ -69,7 +69,7 @@ switch ($mode)
 
 		if (empty($this->request['confirmed'])) $this->prompt_for_confirm($lang['DEACTIVATE_CONFIRM']);
 
-		DB()->query("UPDATE ". BB_USERS ." SET user_active = '1' WHERE user_id = ". $user_id);
+		DB()->query("UPDATE ". BB_USERS ." SET user_active = 1 WHERE user_id = ". $user_id);
 
 		$this->response['info'] = $lang['USER_ACTIVATE_ON'];
 
@@ -80,7 +80,7 @@ switch ($mode)
 		if ($userdata['user_id'] == $user_id) $this->ajax_die($lang['USER_DEACTIVATE_ME']);
 		if (empty($this->request['confirmed'])) $this->prompt_for_confirm($lang['ACTIVATE_CONFIRM']);
 
-		DB()->query("UPDATE ". BB_USERS ." SET user_active = '0' WHERE user_id = ". $user_id);
+		DB()->query("UPDATE ". BB_USERS ." SET user_active = 0 WHERE user_id = ". $user_id);
 		delete_user_sessions($user_id);
 
 		$this->response['info'] = $lang['USER_ACTIVATE_OFF'];
