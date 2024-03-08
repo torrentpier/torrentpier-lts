@@ -332,7 +332,6 @@ define('SPHINX_LOG_NAME',      'sphinx_errors');  // имя файла с лог
 
 define('DBG_LOG',              true);             // включить логирование событий движка (отключите на боевом сервере)
 define('DBG_LOG_TRACKER',      false);            // включить логирование событий анонсера (отключите на боевом сервере)
-define('COOKIE_DBG',           'bb_dbg');         // debug cookie name
 
 define('SQL_DEBUG',            true);             // включить SQL отладку (в дебаг панели) для SQL запросов и Cache & Datastore
 define('SQL_LOG_ERRORS',       true);             // логировать ошибки MySQL

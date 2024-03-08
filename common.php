@@ -74,10 +74,12 @@ $server_protocol = ($bb_cfg['cookie_secure']) ? 'https://' : 'http://';
 $server_port = (in_array((int)$bb_cfg['server_port'], array(80, 443))) ? '' : ':' . $bb_cfg['server_port'];
 define('FORUM_PATH', $bb_cfg['script_path']);
 define('FULL_URL', $server_protocol . $bb_cfg['server_name'] . $server_port . $bb_cfg['script_path']);
+define('FULL_URL_MD5', md5(FULL_URL));
 unset($server_protocol, $server_port);
 
 // Debug options
-define('DBG_USER', $_COOKIE[COOKIE_DBG] === md5(FULL_URL));
+define('COOKIE_DBG', 'bb_dbg_' . FULL_URL_MD5);
+define('DBG_USER', (isset($_COOKIE[COOKIE_DBG])));
 
 // Board/Tracker shared constants and functions
 define('BB_BT_TORRENTS',     'bb_bt_torrents');
