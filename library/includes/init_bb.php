@@ -45,7 +45,7 @@ if (!defined('IN_AJAX'))
 
 // Cookie params
 $c = $bb_cfg['cookie_prefix'];
-define('COOKIE_DATA',  $c .'data');
+define('COOKIE_DATA',  $c .'data_'. FULL_URL_MD5);
 define('COOKIE_FORUM', $c .'f');
 define('COOKIE_MARK',  $c .'mark_read');
 define('COOKIE_TOPIC', $c .'t');
