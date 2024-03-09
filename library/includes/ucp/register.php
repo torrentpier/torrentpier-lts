@@ -72,7 +72,7 @@ switch ($mode)
 				}
 				if (!in_array($current_reg_time, range($reg_start_time, $reg_end_time)))
 				{
-					bb_die(sprintf($lang['REGISTERED_IN_TIME'], $bb_cfg['new_user_reg_restricted']['time_start'], $bb_cfg['new_user_reg_restricted']['time_end'], bb_date(TIMENOW, 'H:i', false)));
+					bb_die(sprintf($lang['REGISTERED_IN_TIME'], $bb_cfg['new_user_reg_restricted']['time_start'], $bb_cfg['new_user_reg_restricted']['time_end'], bb_date(TIMENOW, 'H:i', false), preg_replace('/\(.*?\)/', '', $lang['TZ'][str_replace(',', '.', floatval($bb_cfg['board_timezone']))])));
 				}
 				unset($current_reg_time, $reg_start_time, $reg_end_time);
 			}
