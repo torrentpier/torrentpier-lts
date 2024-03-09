@@ -778,7 +778,7 @@ class sql_db
 			$this->sql_timetotal += $this->cur_query_time;
 			$this->DBS['sql_timetotal'] += $this->cur_query_time;
 
-			if (SQL_LOG_SLOW_QUERIES && $this->cur_query_time > $this->slow_time)
+			if (SQL_LOG_SLOW_QUERIES && ($this->cur_query_time > $this->slow_time))
 			{
 				$this->log_slow_query();
 			}
