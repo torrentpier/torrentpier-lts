@@ -59,7 +59,7 @@ switch ($mode)
 			// Ограничение по времени
 			else if ($bb_cfg['new_user_reg_restricted']['enabled'])
 			{
-				if (preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_start']) && preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_end']))
+				if (!preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_start']) || !preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_end']))
 				{
 					bb_die($lang['WRONG_INPUT']);
 				}
