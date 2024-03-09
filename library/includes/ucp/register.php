@@ -57,8 +57,12 @@ switch ($mode)
 				bb_die($lang['NEW_USER_REG_DISABLED']);
 			}
 			// Ограничение по времени
-			else if ($bb_cfg['new_user_reg_restricted']['enabled'] && (preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_start']) && preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_end'])))
+			else if ($bb_cfg['new_user_reg_restricted']['enabled'])
 			{
+				if (preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_start']) && preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $bb_cfg['new_user_reg_restricted']['time_end']))
+				{
+					bb_die($lang['WRONG_INPUT']);
+				}
 				$current_reg_time = (int)bb_date(TIMENOW, 'Hi', false);
 				$reg_start_time = (int)str_replace(':', '', $bb_cfg['new_user_reg_restricted']['time_start']);
 				$reg_end_time = (int)str_replace(':', '', $bb_cfg['new_user_reg_restricted']['time_end']);
