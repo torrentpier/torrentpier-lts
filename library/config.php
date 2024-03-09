@@ -408,9 +408,9 @@ $bb_cfg['user_signature_start']   = '<div class="signature"><br />______________
 $bb_cfg['user_signature_end']     = '</div>';
 
 // Posts
-$bb_cfg['use_posts_cache']        = true;          // if you switch from ON to OFF, you need to TRUNCATE `bb_posts_html` table
-$bb_cfg['posts_cache_days_keep']  = 14;
-$bb_cfg['use_ajax_posts']         = true;
+$bb_cfg['use_posts_cache']        = true;          // использовать кэширование постов (Перед использованием рекомендуется очистить таблицу `bb_posts_html`)
+$bb_cfg['posts_cache_days_keep']  = 14;            // через сколько дней очищать кэш постов
+$bb_cfg['use_ajax_posts']         = true;          // использовать AJAX при редактировании постов (Рекомендуется)
 
 // Search
 $bb_cfg['search_engine_type']         = 'mysql';   // драйвер для поиска (варианты: none, mysql, sphinx)
@@ -469,7 +469,7 @@ $bb_cfg['tidy_post'] = (!in_array('tidy', get_loaded_extensions())) ? false : tr
 // Ads
 $bb_cfg['show_ads'] = false;
 $bb_cfg['show_ads_users'] = array(
-#	user_id => 'name',
+	// Формат: 'id пользователя' => 'ник'
 	2      => 'admin',
 );
 
