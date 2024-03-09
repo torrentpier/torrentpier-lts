@@ -62,7 +62,7 @@ switch ($mode)
 				$current_reg_time = (int)bb_date(TIMENOW, 'Hi', false);
 				$reg_start_time = (int)str_replace(':', '', $bb_cfg['new_user_reg_restricted']['time_start']);
 				$reg_end_time = (int)str_replace(':', '', $bb_cfg['new_user_reg_restricted']['time_end']);
-				if (in_array($current_reg_time, range($reg_start_time, $reg_end_time)))
+				if (!in_array($current_reg_time, range($reg_start_time, $reg_end_time)))
 				{
 					bb_die(sprintf($lang['REGISTERED_IN_TIME'], $bb_cfg['new_user_reg_restricted']['time_start'], $bb_cfg['new_user_reg_restricted']['time_end'], bb_date(TIMENOW, 'H:i', false)));
 				}
