@@ -537,7 +537,9 @@ function topic_review ($topic_id)
 			'ROW_CLASS'      => !($i % 2) ? 'row1' : 'row2',
 			'POSTER'         => profile_url($post),
 			'POSTER_NAME_JS' => addslashes($post['username']),
+			'POST_ID'        => $post['post_id'],
 			'POST_DATE'      => '<a class="small" href="' . POST_URL . $post['post_id'] . '#' . $post['post_id'] . '" title="' . $lang['POST_LINK'] . '">' . bb_date($post['post_time'], $bb_cfg['post_date_format']) . '</a>',
+			'IS_UNREAD'      => is_unread($post['post_time'], $topic_id, $post['forum_id']),
 			'MESSAGE'        => get_parsed_post($post),
 		));
 	}
