@@ -8,7 +8,7 @@ if ($tr_cfg['off']) msg_die($tr_cfg['off_reason']);
 //
 // Functions
 //
-function tracker_exit ()
+function tracker_exit ($output = '')
 {
 	global $DBS;
 
@@ -38,25 +38,27 @@ function tracker_exit ()
 			dbg_log($str, '!!gentime');
 		}
 	}
-	exit;
+	exit($output); // Return $output to torrent client
 }
 
-function silent_exit ()
+function silent_exit ($output = '')
 {
 	while (@ob_end_clean());
 
-	tracker_exit();
+	tracker_exit($output);
 }
 
 function error_exit ($msg = '')
 {
 	if (DBG_LOG_TRACKER) dbg_log(' ', '!err-'. clean_filename($msg));
 
-	silent_exit();
+	$output = bencode(array(
+		'min interval'    => (int) 1800,
+		'failure reason'  => str_compact($msg),
+		'warning message' => str_compact($msg),
+	));
 
-	echo bencode(array('failure reason' => str_compact($msg)));
-
-	tracker_exit();
+	silent_exit($output);
 }
 
 // Database
