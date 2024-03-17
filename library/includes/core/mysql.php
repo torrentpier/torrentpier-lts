@@ -916,7 +916,7 @@ class sql_db
 		$msg[] = 'Date    : '. date('Y-m-d H:i:s');
 		$msg[] = 'Agent   : '. @$_SERVER['HTTP_USER_AGENT'];
 		$msg[] = 'Req_URI : '. @$_SERVER['REQUEST_URI'];
-		$msg[] = 'Referer : '. @$_SERVER['HTTP_REFERER'];
+		if (!empty($_SERVER['HTTP_REFERER'])) $msg[] = 'Referer : '. @$_SERVER['HTTP_REFERER'];
 		$msg[] = 'Method  : '. @$_SERVER['REQUEST_METHOD'];
 		$msg[] = 'PID     : '. sprintf('%05d', getmypid());
 		$msg[] = 'Request : '. trim(print_r($_REQUEST, true)) . str_repeat('_', 78) . LOG_LF;
