@@ -54,7 +54,7 @@ function error_exit ($msg = '')
 
 	silent_exit();
 
-	echo bencode(array('failure reason' => str_compact($msg)));
+	// echo bencode(array('failure reason' => str_compact($msg)));
 
 	tracker_exit();
 }
