@@ -56,7 +56,7 @@ function error_exit ($msg = '')
 
 	// echo bencode(array('failure reason' => str_compact($msg)));
 
-	tracker_exit();
+	// tracker_exit();
 }
 
 // Database
