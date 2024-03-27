@@ -7,7 +7,7 @@ global $lang, $userdata;
 $post_id    = (int) $this->request['post_id'];
 $mc_type    = (int) $this->request['mc_type'];
 $mc_text    = (string) $this->request['mc_text'];
-if (!$mc_text = prepare_message($mc_text)) $this->ajax_die($lang['EMPTY_MESSAGE']);
+if ($mc_type != 0 && !$mc_text = prepare_message($mc_text)) $this->ajax_die($lang['EMPTY_MESSAGE']);
 
 $post = DB()->fetch_row("
 	SELECT
