@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2024.0X 🎉
 - Make post date clickable in posting.php
+- Don't require fill textarea for mod comment deleting
 - Improved restrict registration functionality
 - log_error(): Hide Referer string if empty
 - Hide quote button if topic locked
