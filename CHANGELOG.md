@@ -8,7 +8,6 @@
 - Don't require fill textarea for mod comment deleting
 - Improved restrict registration functionality
 - log_error(): Hide Referer string if empty
-- Hide quote button if topic locked
 - Added showing poll status in topic_watch.php
 - Added showing poll status in tracker.php
 - Some other changes / improvements
