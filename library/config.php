@@ -404,6 +404,7 @@ $bb_cfg['text_buttons']           = false;         // использоватьс
 $bb_cfg['parse_ed2k_links']       = true;          // TODO: make ed2k links clickable
 $bb_cfg['post_date_format']       = 'd-M-Y H:i';   // формат даты публикации в топиках
 $bb_cfg['ext_link_new_win']       = true;          // открывать внешние (сторонние) ссылки в отдельном окне
+$bb_cfg['fix_quote_button']       = false;         // использовать фикс 'Hide quote button'
 
 $bb_cfg['topic_moved_days_keep']  = 7;             // remove topic moved links after xx days (or FALSE to disable)
 
