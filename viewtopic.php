@@ -707,7 +707,14 @@ for($i = 0; $i < $total_posts; $i++)
 
 	if ($poster_id != BOT_UID)
 	{
-		$quote_btn = ($is_auth['auth_reply'] && !($t_data['forum_status'] == FORUM_LOCKED || $t_data['topic_status'] == TOPIC_LOCKED));
+		if ($bb_cfg['fix_quote_button'])
+		{
+			$quote_btn = ($is_auth['auth_reply'] && !($t_data['forum_status'] == FORUM_LOCKED || $t_data['topic_status'] == TOPIC_LOCKED));
+		}
+		else
+		{
+			$quote_btn = true;
+		}
 		$edit_btn = (($userdata['user_id'] == $poster_id && $is_auth['auth_edit']) || $is_auth['auth_mod']);
 		$ip_btn = ($is_auth['auth_mod'] || IS_MOD);
 	}
