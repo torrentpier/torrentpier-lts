@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Merged some enhancements for atom feed from the newest versions
 - Make post date clickable in posting.php
 - Don't require fill textarea for mod comment deleting
 - Improved restrict registration functionality
