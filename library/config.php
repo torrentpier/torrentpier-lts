@@ -588,8 +588,6 @@ $bb_cfg['atom'] = array(
 	// Примечание: Без слэша в конце
 	'path' => INT_DATA_DIR .'atom',
 	'url'  => './internal_data/atom',
-	'direct_down' => true, // Разрешить прямую загрузку торрентов из atom ленты
-	'direct_view' => true, // Разрешить прямой просмотр текстов сообщений из atom ленты
 );
 
 // Nofollow
