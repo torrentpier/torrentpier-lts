@@ -13,7 +13,7 @@ function update_forum_feed ($forum_id, $forum_data)
 	if ($forum_id == 0) $forum_data['forum_name'] = (isset($lang['ATOM_GLOBAL_FEED']) ? $lang['ATOM_GLOBAL_FEED'] : $bb_cfg['server_name']);
 	if ($forum_id > 0 && $forum_data['allow_reg_tracker'])
 	{
-		$select_tor_sql = ', tor.size AS tor_size, tor.tor_status';
+		$select_tor_sql = ', tor.size AS tor_size, tor.tor_status, tor.attach_id';
 		$join_tor_sql = "LEFT JOIN ". BB_BT_TORRENTS ." tor ON(t.topic_id = tor.topic_id)";
 	}
 	if ($forum_id == 0)
@@ -24,7 +24,7 @@ function update_forum_feed ($forum_id, $forum_data)
 				u1.username AS first_username,
 				p1.post_time AS topic_first_post_time, p1.post_edit_time AS topic_first_post_edit_time,
 				p2.post_time AS topic_last_post_time, p2.post_edit_time AS topic_last_post_edit_time,
-				tor.size AS tor_size, tor.tor_status
+				tor.size AS tor_size, tor.tor_status, tor.attach_id
 			FROM      ". BB_BT_TORRENTS ." tor
 			LEFT JOIN ". BB_TOPICS      ." t   ON(tor.topic_id = t.topic_id)
 			LEFT JOIN ". BB_USERS       ." u1  ON(t.topic_poster = u1.user_id)
@@ -86,7 +86,7 @@ function update_user_feed ($user_id, $username)
 			u1.username AS first_username,
 			p1.post_time AS topic_first_post_time, p1.post_edit_time AS topic_first_post_edit_time,
 			p2.post_time AS topic_last_post_time, p2.post_edit_time AS topic_last_post_edit_time,
-			tor.size AS tor_size, tor.tor_status
+			tor.size AS tor_size, tor.tor_status, tor.attach_id
 		FROM      ". BB_TOPICS      ." t
 		LEFT JOIN ". BB_USERS       ." u1  ON(t.topic_poster = u1.user_id)
 		LEFT JOIN ". BB_POSTS       ." p1  ON(t.topic_first_post_id = p1.post_id)
@@ -121,7 +121,7 @@ function update_user_feed ($user_id, $username)
 
 function create_atom ($file_path, $mode, $id, $title, $topics)
 {
-	global $lang;
+	global $bb_cfg, $lang;
 	$date = null;
 	$time = null;
 	$dir = dirname($file_path);
@@ -184,7 +184,14 @@ function create_atom ($file_path, $mode, $id, $title, $topics)
 		$atom .= "	</author>\n";
 		$atom .= "	<updated>". $date ."T$time+00:00</updated>\n";
 		$atom .= "	<id>tag:rto.feed,". $date .":/t/$topic_id</id>\n";
-		$atom .= "	<link href=\"".TOPIC_URL.$topic_id."\" />\n";
+		if ($bb_cfg['atom']['direct_down'] && isset($topic['attach_id']))
+		{
+			$atom .= "	<link href=\"".DOWNLOAD_URL.$topic['attach_id']."\" />\n";
+		}
+		else
+		{
+			$atom .= "	<link href=\"".TOPIC_URL.$topic_id."\" />\n";
+		}
 		$atom .= "</entry>\n";
 	}
 	$atom .= "</feed>";
