@@ -220,7 +220,7 @@ else
 
 $paginationurl = "memberlist.php?mode=$mode&amp;order=$sort_order&amp;letter=$by_letter";
 if ($paginationusername) $paginationurl .= "&amp;username=$paginationusername";
-if ( $mode != 'topten' || $bb_cfg['topics_per_page'] < 10 )
+if ( $mode != 'topten' )
 {
 	$sql = "SELECT COUNT(*) AS total FROM ". BB_USERS;
 	$sql .=	($letter_sql) ? " WHERE $letter_sql" : " WHERE user_id NOT IN(". EXCLUDED_USERS_CSV .")";
