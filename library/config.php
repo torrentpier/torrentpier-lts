@@ -18,7 +18,7 @@ $domain_ssl = false; // используется ли SSL сертификат (
 $bb_cfg['tp_version'] = '2.1.5-2024.0X [Final v4]';
 $bb_cfg['tp_release_date'] = 'NO ETA';
 $bb_cfg['tp_release_state'] = 'LTS';
-$bb_cfg['tp_zf_version'] = '2.4.13';
+$bb_cfg['tp_zf_version'] = '2.4.13 (Latest)';
 
 // Database
 $charset  = 'utf8'; // кодировка базы данных
