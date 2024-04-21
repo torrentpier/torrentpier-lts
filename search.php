@@ -535,6 +535,10 @@ if ($post_mode)
 		$SQL['ORDER BY'][] = ($new_posts && $join_p) ? "p.topic_id ASC, p.post_time ASC" : "$order $sort";
 		$SQL['LIMIT'][]    = "$search_limit";
 
+		if (is_numeric($topic_val))
+		{
+			set_die_append_msg(null, $topic_val);
+		}
 		$items_display = fetch_search_ids($SQL);
 	}
 	else if (!$items_display = array_slice($items_found, $start, $per_page))
