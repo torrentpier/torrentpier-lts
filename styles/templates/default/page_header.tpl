@@ -247,7 +247,7 @@ function go_to_page ()
 <!--page_header-->
 <div id="page_header">
 
-<div id="old-browser-warn" style="background: #FFF227; padding: 8px 0 10px; text-align: center; font-size: 14px; display: none; ">
+<div id="old-browser-warn" style="background: #FFF227; padding: 8px 0 10px; text-align: center; font-size: 14px; display: none;">
 	<b>{L_OLD_BROWSER}</b>
 </div>
 <script>
