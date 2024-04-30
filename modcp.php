@@ -698,6 +698,7 @@ switch ($mode)
 			'IP'           => $ip_this_post,
 			'U_LOOKUP_IP'  => (!$no_lookup) ? "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=$ip_this_post&amp;sid=" . $userdata['session_id'] : '',
 		));
+		unset($no_lookup);
 
 		//
 		// Get other IP's this user has posted under
