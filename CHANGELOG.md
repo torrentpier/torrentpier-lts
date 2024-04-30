@@ -6,6 +6,7 @@
 - Release v2.1.5-2024.0X 🎉
 - Merged some enhancements for atom feed from the newest versions
 - Make post date clickable in posting.php
+- Fixed quote selection for smiles
 - Don't require fill textarea for mod comment deleting
 - Improved restrict registration functionality
 - log_error(): Hide Referer string if empty
