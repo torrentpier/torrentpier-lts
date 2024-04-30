@@ -724,9 +724,11 @@ switch ($mode)
 					continue;
 				}
 
+				$no_lookup = false;
 				if (!$ip = decode_ip($row['poster_ip']))
 				{
 					$ip = $lang['NOT_AVAILABLE'];
+					$no_lookup = true;
 				}
 				$ip = ( $rdns_ip_num == $ip || $rdns_ip_num == 'all') ? gethostbyaddr($ip) : $ip;
 
@@ -734,8 +736,9 @@ switch ($mode)
 					'ROW_CLASS'   => !($i % 2) ? 'row4' : 'row5',
 					'IP'          => $ip,
 					'POSTS'       => $row['postings'],
-					'U_LOOKUP_IP' => "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=" . $ip . "&amp;sid=" . $userdata['session_id'],
+					'U_LOOKUP_IP' => (!$no_lookup) ? "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=" . $ip . "&amp;sid=" . $userdata['session_id'] : '',
 				));
+				unset($no_lookup);
 
 				$i++;
 			}
