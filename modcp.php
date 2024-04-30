@@ -734,7 +734,7 @@ switch ($mode)
 
 				$template->assign_block_vars('iprow', array(
 					'ROW_CLASS'   => !($i % 2) ? 'row4' : 'row5',
-					'IP'          => $ip,
+					'IP'          => (verify_ip($ip)) ? '<a href="' . $bb_cfg['whois_info'] . $ip . '" class="gen" target="_blank">' . $ip . '</a>' : $ip,
 					'POSTS'       => $row['postings'],
 					'U_LOOKUP_IP' => (!$no_lookup) ? "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=" . $ip . "&amp;sid=" . $userdata['session_id'] : '',
 				));
