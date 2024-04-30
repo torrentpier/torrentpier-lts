@@ -695,7 +695,7 @@ switch ($mode)
 
 		$template->assign_vars(array(
 			'TPL_MODCP_IP' => true,
-			'IP'           => $ip_this_post,
+			'IP'           => (verify_ip($ip_this_post)) ? '<a href="' . $bb_cfg['whois_info'] . $ip_this_post . '" class="gen" target="_blank">' . $ip_this_post . '</a>' : $ip_this_post,
 			'U_LOOKUP_IP'  => (!$no_lookup) ? "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=$ip_this_post&amp;sid=" . $userdata['session_id'] : '',
 		));
 		unset($no_lookup);
