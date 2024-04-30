@@ -683,9 +683,11 @@ switch ($mode)
 			bb_die($lang['NO_SUCH_POST']);
 		}
 
+		$no_lookup = false;
 		if (!$ip_this_post = decode_ip($post_row['poster_ip']))
 		{
 			$ip_this_post = $lang['NOT_AVAILABLE'];
+			$no_lookup = true;
 		}
 		$ip_this_post = ($rdns_ip_num == $ip_this_post) ? gethostbyaddr($ip_this_post) : $ip_this_post;
 
@@ -694,7 +696,7 @@ switch ($mode)
 		$template->assign_vars(array(
 			'TPL_MODCP_IP' => true,
 			'IP'           => $ip_this_post,
-			'U_LOOKUP_IP'  => "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=$ip_this_post&amp;sid=" . $userdata['session_id'],
+			'U_LOOKUP_IP'  => (!$no_lookup) ? "modcp.php?mode=ip&amp;" . POST_POST_URL . "=$post_id&amp;" . POST_TOPIC_URL . "=$topic_id&amp;rdns=$ip_this_post&amp;sid=" . $userdata['session_id'] : '',
 		));
 
 		//
