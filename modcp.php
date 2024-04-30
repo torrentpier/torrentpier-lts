@@ -689,7 +689,7 @@ switch ($mode)
 			$ip_this_post = $lang['NOT_AVAILABLE'];
 			$no_lookup = true;
 		}
-		$ip_this_post = ($rdns_ip_num == $ip_this_post) ? gethostbyaddr($ip_this_post) : $ip_this_post;
+		$ip_this_post = ($rdns_ip_num == $ip_this_post) ? htmlCHR(gethostbyaddr($ip_this_post)) : $ip_this_post;
 
 		$poster_id = $post_row['poster_id'];
 
@@ -730,7 +730,7 @@ switch ($mode)
 					$ip = $lang['NOT_AVAILABLE'];
 					$no_lookup = true;
 				}
-				$ip = ( $rdns_ip_num == $ip || $rdns_ip_num == 'all') ? gethostbyaddr($ip) : $ip;
+				$ip = ( $rdns_ip_num == $ip || $rdns_ip_num == 'all') ? htmlCHR(gethostbyaddr($ip)) : $ip;
 
 				$template->assign_block_vars('iprow', array(
 					'ROW_CLASS'   => !($i % 2) ? 'row4' : 'row5',
