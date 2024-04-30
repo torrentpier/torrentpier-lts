@@ -15,7 +15,7 @@
 <tr>
 	<td class="row1 pad_6">
 		<p class="floatL"><b>{IP}</b></p>
-		<p class="floatR">[ <a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a> ]&nbsp;</p>
+		<!-- IF U_LOOKUP_IP --><p class="floatR">[ <a href="{U_LOOKUP_IP}">{L_LOOKUP_IP}</a> ]&nbsp;</p><!-- ENDIF -->
 	</td>
 </tr>
 <tr>
