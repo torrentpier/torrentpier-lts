@@ -1,9 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.0X [Final v4]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.0X) (NO ETA)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.0X)
+## [v2.1.5-2024.06 [Final v4]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.06) (2024-05-01)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.06)
 
-- Release v2.1.5-2024.0X 🎉
+- Release v2.1.5-2024.06 🎉
 - Merged some enhancements for atom feed from the newest versions
 - Make post date clickable in posting.php
 - Fixed quote selection for smiles
