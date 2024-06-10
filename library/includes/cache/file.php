@@ -23,7 +23,7 @@ class cache_file extends cache_common
 		$this->cur_query = "cache->get('$name')";
 		$this->debug('start');
 
-		if (file_exists($filename))
+		if (file_exists($filename) && is_readable($filename))
 		{
 			require($filename);
 		}

@@ -76,7 +76,7 @@ class datastore_file extends datastore_common
 			$this->cur_query = null;
 			$this->num_queries++;
 
-			if(file_exists($filename))
+			if(file_exists($filename) && is_readable($filename))
 			{
 				require($filename);
 

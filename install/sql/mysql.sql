@@ -600,6 +600,7 @@ INSERT INTO `bb_disallow` VALUES ('1', 'torrentpier*');
 INSERT INTO `bb_disallow` VALUES ('2', 'tracker*');
 INSERT INTO `bb_disallow` VALUES ('3', 'forum*');
 INSERT INTO `bb_disallow` VALUES ('4', 'torrent*');
+INSERT INTO `bb_disallow` VALUES ('5', 'admin*');
 
 -- ----------------------------
 -- Table structure for `bb_extensions`
