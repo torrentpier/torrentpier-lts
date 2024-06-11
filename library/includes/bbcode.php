@@ -633,7 +633,7 @@ class bbcode
 		{
 			return $text;
 		}
-		if (is_null($spam_words))
+		if (is_null($spam_words) && file_exists($bb_cfg['spam_filter_file_path']))
 		{
 			$spam_words = file_get_contents($bb_cfg['spam_filter_file_path']);
 			$spam_words = strtolower($spam_words);
