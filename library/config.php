@@ -16,7 +16,7 @@ $domain_ssl = false; // используется ли SSL сертификат (
 
 // Version info
 $bb_cfg['tp_version'] = '2.1.5-2024.06 [Final v4]';
-$bb_cfg['tp_release_date'] = '05-01-2024';
+$bb_cfg['tp_release_date'] = '01-05-2024';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13 (Latest)';
 
@@ -100,8 +100,8 @@ $bb_cfg['client_ban'] = array(
 	// The second argument is being shown in the torrent client as a failure message
 	// Handy client list: https://github.com/transmission/transmission/blob/f85c3b6f8db95d5363f6ec38eee603f146c6adb6/libtransmission/clients.cc#L504
 	'clients' => array(
-		'-UT' => "uTorrent — NOT ad-free and open-source",
-		'-MG' => 'Mostly leeching client'
+		'-UT' => 'uTorrent — NOT ad-free and open-source',
+		'-MG' => 'Mostly leeching client',
 	)
 );
 
@@ -436,7 +436,7 @@ $bb_cfg['limit_max_search_results']   = false;     // ограничить чи�
 $bb_cfg['spam_filter_file_path']      = false;     // спам фильтр (нужно указать путь к файлу со спам-словами, например: INT_DATA_DIR . 'spam_filter_words.txt';) (false - выключено)
 $bb_cfg['spam_filter_replacement']    = '*СПАМ*';  // слово на которое будет заменен спам
 
-$bb_cfg['autocorrect_wkl']            = true;      // автоматическое исправление языка для слов в тексте из-за неправильной раскладки клавиатуры
+$bb_cfg['autocorrect_wkl']            = true;      // (ЭКСПЕРИМЕНТАЛЬНАЯ ФУНКЦИЯ) автоматическое исправление языка для слов в тексте из-за неправильной раскладки клавиатуры
 
 // Posting
 $bb_cfg['prevent_multiposting']       = true;      // TODO: заменить кнопку "ответить" на "отредактировать последнее сообщение" если автор последнего сообщения не является модератором или админом
