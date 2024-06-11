@@ -636,7 +636,7 @@ class bbcode
 		if (is_null($spam_words) && file_exists($bb_cfg['spam_filter_file_path']))
 		{
 			$spam_words = file_get_contents($bb_cfg['spam_filter_file_path']);
-			$spam_words = strtolower($spam_words);
+			$spam_words = mb_strtolower($spam_words);
 			$spam_words = explode("\n", $spam_words);
 		}
 
@@ -649,7 +649,7 @@ class bbcode
 		$msg_decoded = urldecode($msg_decoded);
 		$msg_decoded = str_replace('&', ' &', $msg_decoded);
 
-		$msg_search = strtolower($msg_decoded);
+		$msg_search = mb_strtolower($msg_decoded);
 
 		foreach ($spam_words as $spam_str)
 		{
@@ -671,7 +671,7 @@ class bbcode
 			}
 			$spam_exp = join('|', $spam_exp);
 
-			$text = preg_replace("/($spam_exp)(\S*)/i", $bb_cfg['spam_filter_replacement'], $msg_decoded);
+			$text = preg_replace('#(?<![\p{Nd}\p{L}_])(' . str_replace('\*', '[\p{Nd}\p{L}_]*?', preg_quote($spam_exp, '#')) . ')(?![\p{Nd}\p{L}_])#iu', $bb_cfg['spam_filter_replacement'], $msg_decoded);
 			$text = htmlCHR($text, false, ENT_NOQUOTES);
 #			bb_log(date("H:i:s") ." | ". sprintf('%.4f', (utime() - $tm_start)) ." | ". sprintf('%-6s', strlen($text)) ." | ". join(' ** ', $found_spam) ."\n", 'spam_filter');
 		}
