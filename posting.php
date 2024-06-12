@@ -555,7 +555,7 @@ else
 			// hide user passkey
 			$message = preg_replace('#(?<=\?' . $bb_cfg['passkey_key'] . '=)[a-zA-Z0-9]{' . BT_AUTH_KEY_LENGTH . '}(?=&)#', 'passkey', $message);
 			// hide sid
-			$message = preg_replace('#(?<=[\?&;]sid=)[a-zA-Z0-9]{12}#', 'sid', $message);
+			$message = preg_replace('#(?<=[\?&;]sid=)[a-zA-Z0-9]{' . SID_LENGTH . '}#', 'sid', $message);
 
 			if (!empty($orig_word))
 			{
