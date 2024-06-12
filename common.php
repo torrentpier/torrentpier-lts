@@ -87,7 +87,7 @@ define('BB_BT_TRACKER',      'bb_bt_tracker');
 define('BB_BT_TRACKER_SNAP', 'bb_bt_tracker_snap');
 define('BB_BT_USERS',        'bb_bt_users');
 
-define('BT_AUTH_KEY_LENGTH', 10); // длина passkey
+define('BT_AUTH_KEY_LENGTH', 10); // (НЕ РЕКОМЕНДУЕТСЯ МЕНЯТЬ ЗНАЧЕНИЕ) длина passkey
 
 define('PEER_HASH_PREFIX',   'peer_');
 define('PEERS_LIST_PREFIX',  'peers_list_');

@@ -87,7 +87,7 @@ switch($this->request['type'])
 		$message = "[quote=\"". $quote_username ."\"][qpost=". $post['post_id'] ."]". $post['post_text'] ."[/quote]\r";
 
 		// hide user passkey
-		$message = preg_replace('#(?<=\?uk=)[a-zA-Z0-9]{10}(?=&)#', 'passkey', $message);
+		$message = preg_replace('#(?<=\?' . $bb_cfg['passkey_key'] . '=)[a-zA-Z0-9]{' . BT_AUTH_KEY_LENGTH . '}(?=&)#', 'passkey', $message);
 		// hide sid
 		$message = preg_replace('#(?<=[\?&;]sid=)[a-zA-Z0-9]{12}#', 'sid', $message);
 
