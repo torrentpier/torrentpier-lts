@@ -596,7 +596,7 @@ switch ($mode)
 		}
 		else
 		{
-			$sql = "SELECT u.username, p.*, pt.post_text, p.post_username
+			$sql = "SELECT u.username, u.user_rank, p.*, pt.post_text, p.post_username
 				FROM " . BB_POSTS . " p, " . BB_USERS . " u, " . BB_POSTS_TEXT . " pt
 				WHERE p.topic_id = $topic_id
 					AND p.poster_id = u.user_id
@@ -627,6 +627,7 @@ switch ($mode)
 					$post_id = $postrow[$i]['post_id'];
 					$poster_id = $postrow[$i]['poster_id'];
 					$poster = $postrow[$i]['username'];
+					$poster_rank = $postrow[$i]['user_rank'];
 
 					$post_date = bb_date($postrow[$i]['post_time'], $bb_cfg['post_date_format']);
 
@@ -642,7 +643,7 @@ switch ($mode)
 
 					$template->assign_block_vars('postrow', array(
 						'ROW_CLASS'   => $row_class,
-						'POSTER_NAME' => wbr($poster),
+						'POSTER_NAME' => profile_url(array('username' => $poster, 'user_id' => $poster_id, 'user_rank' => $poster_rank)),
 						'POST_DATE'   => $post_date,
 						'MESSAGE'     => $message,
 						'CHECKBOX'    => (defined('BEGIN_CHECKBOX')) ? TRUE : FALSE,
