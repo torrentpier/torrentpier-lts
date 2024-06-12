@@ -1,5 +1,13 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.07 [Final v5]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.06) (2024-07-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.06...v2.1.5-2024.07)
+
+- Release v2.1.5-2024.07 🎉
+- Fixes for spam filter functionality
+- Some security enhancements
+- Some other changes / improvements
+
 ## [v2.1.5-2024.06 [Final v4]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.06) (2024-05-01)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.06)
 
