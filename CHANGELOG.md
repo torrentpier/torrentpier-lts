@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.06...v2.1.5-2024.07)
 
 - Release v2.1.5-2024.07 🎉
+- Added info_hash fast copy in viewtopic.php
 - Fixes for spam filter functionality
 - Some security enhancements
 - Some other changes / improvements
