@@ -312,11 +312,11 @@ define('SID_LENGTH',       20);
 define('ACTKEY_LENGHT',    12);
 define('LOGIN_KEY_LENGTH', 12);
 define('USERNAME_MIN_LENGTH',   3);
-define('USERNAME_MAX_LENGTH',  25);
-define('USEREMAIL_MAX_LENGTH', 40);
+define('USERNAME_MAX_LENGTH',  30);
+define('USEREMAIL_MAX_LENGTH', 50);
 define('NEWPASSWD_LENGTH',      8);
 define('PASSWORD_MIN_LENGTH',   8);
-define('PASSWORD_MAX_LENGTH',  24);
+define('PASSWORD_MAX_LENGTH',  50);
 
 define('PAGE_HEADER', INC_DIR .'page_header.php');
 define('PAGE_FOOTER', INC_DIR .'page_footer.php');
