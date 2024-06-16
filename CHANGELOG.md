@@ -6,6 +6,7 @@
 - Release v2.1.5-2024.07 🎉
 - Added info_hash fast copy in viewtopic.php
 - Fixes for spam filter functionality
+- Fixed seed bonus accrual
 - Included all security patch up to 12.06.24
 - Some other changes / improvements
 
