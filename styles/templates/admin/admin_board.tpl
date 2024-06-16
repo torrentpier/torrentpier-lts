@@ -314,7 +314,7 @@
 	</td>
 </tr>
 <!-- END seed_bonus -->
-<tr id="seed_bonus">
+<tr class="row3 med" id="seed_bonus">
 	<td>{L_SEED_BONUS_ADD}<span class="small warnColor1">{L_SEED_BONUS_WARNING}</span></td>
 	<td>
 		<input class="post" type="text" size="5" name="seed_bonus_release[]" value="" />&nbsp;{L_SEED_BONUS_RELEASE} <br />
@@ -346,7 +346,7 @@
 	</td>
 </tr>
 <!-- END bonus -->
-<tr id="bonus_upload">
+<tr class="row3 med" id="bonus_upload">
 	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
 	<td>
 		<input class="post" type="text" size="5" name="bonus_upload[]" value="" />&nbsp;{L_GB} <br />
