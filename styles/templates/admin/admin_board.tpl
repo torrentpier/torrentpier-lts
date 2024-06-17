@@ -304,7 +304,6 @@
 		<label><input type="radio" name="seed_bonus_enabled" value="0" <!-- IF not SEED_BONUS_ENABLED -->checked="checked"<!-- ENDIF --> />{L_DISABLED}</label>
 	</td>
 </tr>
-<tbody class="seed_bonus"></tbody>
 <!-- BEGIN seed_bonus -->
 <tr id="seed_bonus_{seed_bonus.RELEASE}">
 	<td>{L_SEED_BONUS_ADD}</td>
@@ -315,7 +314,6 @@
 	</td>
 </tr>
 <!-- END seed_bonus -->
-<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="seed_bonus">
 	<td>{L_SEED_BONUS_ADD}<span class="small warnColor1">{L_SEED_BONUS_WARNING}</span></td>
 	<td>
@@ -325,7 +323,7 @@
 		<input onclick="$('#seed_bonus').remove();" class="post" type="button" size="2" value="-" />
 	</td>
 </tr>
-<tr class="row3 med"><td colspan="2"></td></tr>
+<tbody class="seed_bonus"></tbody>
 <tr>
 	<td>{L_SEED_BONUS_TOR_SIZE}</td>
 	<td><input class="post" type="text" size="25" maxlength="100" name="seed_bonus_tor_size" value="{SEED_BONUS_TOR_SIZE}" />&nbsp;{L_GB}</td>
@@ -338,7 +336,6 @@
 <tr>
 	<th colspan="2">{L_SEED_BONUS_EXCHANGE}</th>
 </tr>
-<tbody class="bonus_upload"></tbody>
 <!-- BEGIN bonus_upload -->
 <tr id="bonus_upload_{bonus_upload.UP}">
 	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
@@ -349,7 +346,6 @@
 	</td>
 </tr>
 <!-- END bonus -->
-<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="bonus_upload">
 	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
 	<td>
@@ -359,6 +355,7 @@
 		<input onclick="$('#bonus_upload').remove();" class="post" type="button" size="2" value="-" />
 	</td>
 </tr>
+<tbody class="bonus_upload"></tbody>
 <!-- ENDIF / CONFIG_MODS -->
 <tr>
 	<td class="catBottom" colspan="2">
