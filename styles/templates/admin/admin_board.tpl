@@ -314,6 +314,7 @@
 	</td>
 </tr>
 <!-- END seed_bonus -->
+<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="seed_bonus">
 	<td>{L_SEED_BONUS_ADD}<span class="small warnColor1">{L_SEED_BONUS_WARNING}</span></td>
 	<td>
@@ -346,6 +347,7 @@
 	</td>
 </tr>
 <!-- END bonus -->
+<tr class="row3 med"><td colspan="2"></td></tr>
 <tr id="bonus_upload">
 	<td><h4>{L_SEED_BONUS_ROPORTION}</h4><h6></h6></td>
 	<td>
@@ -356,6 +358,7 @@
 	</td>
 </tr>
 <tbody class="bonus_upload"></tbody>
+<tr class="row3 med"><td colspan="2"></td></tr>
 <!-- ENDIF / CONFIG_MODS -->
 <tr>
 	<td class="catBottom" colspan="2">
