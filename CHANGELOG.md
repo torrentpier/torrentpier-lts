@@ -6,6 +6,7 @@
 - Release v2.1.5-2024.07 🎉
 - Added TLS support for SMTP
 - Added info_hash fast copy in viewtopic.php
+- Fixed clean_pm.php cron job
 - Fixes for spam filter functionality
 - Fixed seed bonus accrual
 - Included all security patch up to 12.06.24
