@@ -1063,7 +1063,7 @@ $lang['PASSKEY_ERR_EMPTY'] = 'Невозможно добавить passkey<br /
 $lang['BT_PASSKEY'] = 'Passkey';
 $lang['BT_GEN_PASSKEY'] = 'Создать новый';
 $lang['BT_PASSKEY_VIEW'] = 'Показать';
-$lang['BT_GEN_PASSKEY_NEW'] = "Внимание! После изменения нового passkey, вам необходимо будет заново скачать все активные торренты! \n Вы уверены, что хотите создать новый passkey?";
+$lang['BT_GEN_PASSKEY_NEW'] = "Внимание!\n\nПосле создания нового passkey, вам необходимо будет заново скачать все активные торренты!\n\nВы уверены, что хотите создать новый passkey?";
 $lang['BT_NO_SEARCHABLE_FORUMS'] = 'Доступных для поиска форумов не найдено';
 
 $lang['SEEDS'] = 'Сидам';
