@@ -102,10 +102,17 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 	{
 		$ssl = '';
 	}
-	if( !$socket = @fsockopen($ssl . $bb_cfg['smtp_host'], $bb_cfg['smtp_port'], $errno, $errstr, 20) )
+	$context = stream_context_create(array(
+		'ssl' => array(
+			'verify_peer' => $bb_cfg['smtp_cert_verify'],
+			'verify_peer_name' => $bb_cfg['smtp_cert_verify']
+		)
+	));
+	if( !$socket = @stream_socket_client($ssl . $bb_cfg['smtp_host'] . ':' . $bb_cfg['smtp_port'], $errno, $errstr, ini_get("default_socket_timeout"), STREAM_CLIENT_CONNECT, $context) )
 	{
 		bb_die('Could not connect to smtp host : '. $errno .' : '. $errstr);
 	}
+	unset($context);
 
 	// Wait for reply
 	server_parse($socket, "220", __LINE__);
