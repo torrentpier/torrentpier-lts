@@ -1061,8 +1061,8 @@ $lang['INVALID_ANN_URL'] = 'Invalid Announce URL [%s]<br /><br />must be <b>%s</
 $lang['PASSKEY_ERR_TOR_NOT_REG'] = 'Could not add passkey<br /><br />Torrent not registered on tracker';
 $lang['PASSKEY_ERR_EMPTY'] = 'Could not add passkey (passkey is empty)<br /><br />Go to <a href="%s" target="_blank"><b>your forum profile</b></a> and generate it';
 $lang['BT_PASSKEY'] = 'Passkey';
-$lang['BT_GEN_PASSKEY'] = 'create a new';
-$lang['BT_PASSKEY_VIEW'] = 'show';
+$lang['BT_GEN_PASSKEY'] = 'Create a new';
+$lang['BT_PASSKEY_VIEW'] = 'Show';
 $lang['BT_GEN_PASSKEY_NEW'] = "Attention!\n\nAfter creating the new passkey, you will need to re-download all the active torrents!\n\nAre you sure you want to create a new passkey?";
 $lang['BT_NO_SEARCHABLE_FORUMS'] = 'No searchable forums found';
 
