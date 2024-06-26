@@ -24,7 +24,7 @@ ajax.callback.user_register = function(data){
 		<div class="close" onclick="$('div#autocomplete_popup').hide();"></div>
 		<div class="title">{L_YOUR_NEW_PASSWORD}</div>
 		<div>
-			<input value="" autocomplete="off" type="text"/>
+			<input title="Copy to clipboard" style="cursor: pointer;" onclick="$(this).CopyToClipboard();" value="" autocomplete="off" type="text"/>
 			<span class="regenerate" title="{L_REGENERATE}" onclick="autocomplete(true);"></span>
 		</div>
 	</div>
