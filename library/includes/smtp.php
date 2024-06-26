@@ -95,7 +95,6 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 	{
 		bb_die('Could not connect to smtp host : '. $errno .' : '. $errstr);
 	}
-	stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
 
 	// Wait for reply
 	server_parse($socket, "220", __LINE__);
@@ -111,8 +110,8 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 		if ($bb_cfg['smtp_type'] == 'tls')
 		{
 			fputs($socket, "STARTTLS\r\n");
-			server_parse($socket, "250", __LINE__);
-
+			server_parse($socket, "220", __LINE__);
+			stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
 			fputs($socket, "EHLO " . $bb_cfg['smtp_host'] . "\r\n");
 			server_parse($socket, "250", __LINE__);
 		}
