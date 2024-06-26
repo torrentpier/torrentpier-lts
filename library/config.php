@@ -310,10 +310,9 @@ $bb_cfg['reg_date_format']         = 'Y-m-d H:i';  // формат даты ре
 $bb_cfg['emailer_disabled']        = false; // отключить ли отправку почты с сайта
 
 $bb_cfg['smtp_delivery']           = false; // использовать ли SMTP (если false, то будет использоваться нативная функция mail())
-$bb_cfg['smtp_ssl']                = false; // использовать ли SSL при подключении к SMTP
-$bb_cfg['smtp_type']               = 'ssl'; // Тип подключения (Доступные значения: ssl, tls)
+$bb_cfg['smtp_type']               = '';    // Тип подключения (Доступные значения: ssl, tls, пустое значение)
 $bb_cfg['smtp_host']               = '';    // SMTP название хоста
-$bb_cfg['smtp_port']               = 25;    // SMTP порт сервера (Для SSL - 465, Для TLS - 587)
+$bb_cfg['smtp_port']               = 25;    // SMTP порт сервера (Для SSL - 465, Для TLS - 587, по умолчанию - 25)
 $bb_cfg['smtp_username']           = '';    // указать имя пользователя SMTP (если требуется)
 $bb_cfg['smtp_password']           = '';    // указать пароль для SMTP (если требуется)
 

@@ -90,7 +90,18 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 	}
 
 	// Ok we have error checked as much as we can to this point let's get on it already
-	$ssl = ($bb_cfg['smtp_ssl'] && $bb_cfg['smtp_type'] == 'ssl') ? 'ssl://' : '';
+	if ($bb_cfg['smtp_type'] == 'ssl')
+	{
+		$ssl = 'ssl://';
+	}
+	elseif ($bb_cfg['smtp_type'] == 'tls')
+	{
+		$ssl = 'tcp://';
+	}
+	else
+	{
+		$ssl = '';
+	}
 	if( !$socket = @fsockopen($ssl . $bb_cfg['smtp_host'], $bb_cfg['smtp_port'], $errno, $errstr, 20) )
 	{
 		bb_die('Could not connect to smtp host : '. $errno .' : '. $errstr);
