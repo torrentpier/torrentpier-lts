@@ -12,7 +12,7 @@ class sitemap
 	var $cat_priority   = '0.7';
 
 	function sitemap () {
-		$this->home = make_url();
+		$this->home = FULL_URL;
 	}
 
 	function build_map () {
