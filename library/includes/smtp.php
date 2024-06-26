@@ -122,7 +122,7 @@ function smtpmail($mail_to, $subject, $message, $headers = '')
 		{
 			fputs($socket, "STARTTLS\r\n");
 			server_parse($socket, "220", __LINE__);
-			stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+			stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_ANY_CLIENT);
 			fputs($socket, "EHLO " . $bb_cfg['smtp_host'] . "\r\n");
 			server_parse($socket, "250", __LINE__);
 		}
