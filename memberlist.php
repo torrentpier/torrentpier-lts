@@ -5,8 +5,8 @@ define('BB_SCRIPT', 'memberlist');
 define('BB_ROOT', './');
 require(BB_ROOT .'common.php');
 
-$show_avatars_memberlist = false;     // Включить отображение аватаров
-$disable_ru_letters = false;          // Отключает поиск по русскому алфавиту
+$show_avatars_memberlist     = false; // Включить отображение аватаров
+$disable_ru_letters          = false; // Отключает поиск по русскому алфавиту
 $page_cfg['use_tablesorter'] = false; // Отключен поскольку на странице уже есть сортировка
 
 $user->session_start(array('req_login' => true));
