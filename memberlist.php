@@ -6,6 +6,7 @@ define('BB_ROOT', './');
 require(BB_ROOT .'common.php');
 
 $show_avatars_memberlist = false;     // Включить отображение аватаров
+$disable_ru_letters = false;          // Отключает поиск по русскому алфавиту
 $page_cfg['use_tablesorter'] = false; // Отключен поскольку на странице уже есть сортировка
 
 $user->session_start(array('req_login' => true));
@@ -102,9 +103,12 @@ switch( $mode )
 // per-letter selection
 $by_letter = 'all';
 $letters_range = 'a-z';
-$letters_range .= iconv('windows-1251', 'UTF-8', chr(224));
-$letters_range .= '-';
-$letters_range .= iconv('windows-1251', 'UTF-8', chr(255));
+if (!$disable_ru_letters)
+{
+	$letters_range .= iconv('windows-1251', 'UTF-8', chr(224));
+	$letters_range .= '-';
+	$letters_range .= iconv('windows-1251', 'UTF-8', chr(255));
+}
 $select_letter = $letter_sql = '';
 
 $by_letter_req = isset($_REQUEST['letter']) ? strtolower(trim($_REQUEST['letter'])) : false;
@@ -133,11 +137,14 @@ for ($i=ord('A'), $cnt=ord('Z'); $i <= $cnt; $i++)
 {
 	$select_letter .= (strtoupper($by_letter) == chr($i)) ? '<b>'. chr($i) .'</b>&nbsp;' : '<a class="genmed" href="'. ("memberlist.php?letter=". chr($i) ."&amp;mode=$mode&amp;order=$sort_order") .'">'. chr($i) .'</a>&nbsp;';
 }
-// RUS
-$select_letter .= ': ';
-for ($i=224, $cnt=255; $i <= $cnt; $i++)
+if (!$disable_ru_letters)
 {
-	$select_letter .= ($by_letter == iconv('windows-1251', 'UTF-8', chr($i))) ? '<b>'. iconv('windows-1251', 'UTF-8', chr($i-32)) .'</b>&nbsp;' : '<a class="genmed" href="'. ("memberlist.php?letter=%". strtoupper(base_convert($i, 10, 16)) ."&amp;mode=$mode&amp;order=$sort_order") .'">'. iconv('windows-1251', 'UTF-8', chr($i-32)) .'</a>&nbsp;';
+	// RUS
+	$select_letter .= ': ';
+	for ($i=224, $cnt=255; $i <= $cnt; $i++)
+	{
+		$select_letter .= ($by_letter == iconv('windows-1251', 'UTF-8', chr($i))) ? '<b>'. iconv('windows-1251', 'UTF-8', chr($i-32)) .'</b>&nbsp;' : '<a class="genmed" href="'. ("memberlist.php?letter=%". strtoupper(base_convert($i, 10, 16)) ."&amp;mode=$mode&amp;order=$sort_order") .'">'. iconv('windows-1251', 'UTF-8', chr($i-32)) .'</a>&nbsp;';
+	}
 }
 
 $select_letter .= ':&nbsp;';
