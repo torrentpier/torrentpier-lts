@@ -982,7 +982,7 @@ function bt_show_ip ($ip, $port = '')
 
 	if (IS_AM)
 	{
-		$ip = decode_ip($ip);
+		$ip = (!$port) ? '<a href="' . $bb_cfg['whois_info'] . decode_ip($ip) . '" class="gen" target="_blank">' . decode_ip($ip) . '</a>' : decode_ip($ip);
 		$ip .= ($port) ? ":$port" : '';
 		return $ip;
 	}
