@@ -125,10 +125,18 @@ if ($by_letter_req)
 		$by_letter = 'others';
 		$letter_sql = "username REGEXP '^[!-@\\[-`].*$'";
 	}
-	else if ($letter_req = preg_replace("#[^$letters_range]#ui", '', iconv('windows-1251', 'UTF-8', $by_letter_req[0])))
+	else
 	{
-		$by_letter = DB()->escape($letter_req);
-		$letter_sql = "LOWER(username) LIKE '$by_letter%'";
+		// Fix for russian letters
+		if (!$disable_ru_letters && !preg_match("/[a-я]/", $by_letter_req))
+		{
+			$by_letter_req = iconv('windows-1251', 'UTF-8', $by_letter_req[0]);
+		}
+		if ($letter_req = preg_replace("#[^$letters_range]#ui", '', $by_letter_req))
+		{
+			$by_letter = DB()->escape($letter_req);
+			$letter_sql = "LOWER(username) LIKE '$by_letter%'";
+		}
 	}
 }
 
