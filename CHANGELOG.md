@@ -12,6 +12,7 @@
 - Fixed seed bonus accrual
 - Included all security patch up to 12.06.24
 - Some other changes / improvements
+- Updated translations
 
 ## [v2.1.5-2024.06 [Final v4]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.06) (2024-05-01)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.03...v2.1.5-2024.06)
