@@ -74,8 +74,8 @@ $(document).ready(function(){
 
 <var class="ajax-params">{action: "edit_user_profile", id: "username"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_email"}</var>
-<var class="ajax-params">{action: "edit_user_profile", id: "user_regdate"}</var>
-<var class="ajax-params">{action: "edit_user_profile", id: "user_lastvisit"}</var>
+<!--<var class="ajax-params">{action: "edit_user_profile", id: "user_regdate"}</var>-->
+<!--<var class="ajax-params">{action: "edit_user_profile", id: "user_lastvisit"}</var>-->
 <var class="ajax-params">{action: "edit_user_profile", id: "user_from"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_website"}</var>
 <var class="ajax-params">{action: "edit_user_profile", id: "user_occ"}</var>
