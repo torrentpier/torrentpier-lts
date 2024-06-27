@@ -24,7 +24,7 @@
 <!-- BEGIN userrow -->
 <tr>
 	<td class="{userrow.ROW_CLASS} pad_4 nowrap">
-		<p class="floatL" style="width: 160px;"><a href="{userrow.U_PROFILE}"><b>{userrow.USERNAME}</b></a></p>
+		<p class="floatL" style="width: 160px;"><!-- IF userrow.U_PROFILE --><a href="{userrow.U_PROFILE}"><!-- ENDIF --><b>{userrow.USERNAME}</b><!-- IF userrow.U_PROFILE --></a><!-- ENDIF --></p>
 		<p class="floatL">[ {L_POSTS}: {userrow.POSTS} ]</p>
 		<p class="floatR">[ <a href="{userrow.U_SEARCHPOSTS}">{L_SEARCH_USER_POSTS_SHORT}</a> ]&nbsp;</p>
 	</td>
