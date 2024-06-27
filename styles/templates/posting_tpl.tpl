@@ -120,7 +120,7 @@ var TPL = {
 
 		year        : 2011,
 		poster      : 'https://torrentpier.duckdns.org/styles/images/logo/logo.png',
-		screenshots : 'https://torrentpier.duckdns.org/styles/images/logo/logo.png\n[img]https://torrentpier.duckdns.org/styles/images/logo/logo.png[/img]',
+		screenshots : '[img]https://torrentpier.duckdns.org/styles/images/logo/logo.png[/img]',
 
 		// dummy
 		dummy : ''
