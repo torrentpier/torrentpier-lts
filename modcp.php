@@ -777,7 +777,7 @@ switch ($mode)
 					'ROW_CLASS'      => !($i % 2) ? 'row4' : 'row5',
 					'USERNAME'       => $username,
 					'POSTS'          => $row['postings'],
-					'U_PROFILE'      => ($id == GUEST_UID) ? "modcp.php?mode=ip&amp;p=$post_id&amp;t=$topic_id" : '',
+					'U_PROFILE'      => ($id == GUEST_UID) ? POST_URL . "$post_id#$post_id" : '',
 					'U_SEARCHPOSTS'  => "search.php?search_author=1&amp;uid=$id",
 				));
 
