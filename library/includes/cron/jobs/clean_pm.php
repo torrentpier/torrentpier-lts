@@ -17,9 +17,11 @@ if ($pm_days_keep != 0)
 		$end_id = $start_id + $per_cycle - 1;
 
 		DB()->query("
-			DELETE FROM " . BB_PRIVMSGS . "
-			WHERE privmsgs_id BETWEEN $start_id AND $end_id
-				AND privmsgs_date < " . (TIMENOW - 86400 * $pm_days_keep) . "
+			DELETE pm, pmt
+			FROM " . BB_PRIVMSGS . " pm
+			LEFT JOIN " . BB_PRIVMSGS_TEXT . " pmt ON(pmt.privmsgs_text_id = pm.privmsgs_id)
+			WHERE pm.privmsgs_id BETWEEN $start_id AND $end_id
+				AND pm.privmsgs_date < " . (TIMENOW - 86400 * $pm_days_keep) . "
 		");
 		if ($end_id > $finish_id)
 		{
