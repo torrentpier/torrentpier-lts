@@ -523,20 +523,14 @@ if (($bb_cfg['board_disable'] || file_exists(BB_DISABLED)) && !defined('IN_ADMIN
 	{
 		// admin lock
 		send_no_cache_headers();
-		if ($bb_cfg['cron_enabled'])
-		{
-			bb_die('BOARD_DISABLE');
-		}
+		bb_die('BOARD_DISABLE');
 	}
 	else if (file_exists(BB_DISABLED))
 	{
 		// trigger lock
 		cron_release_deadlock();
 		send_no_cache_headers();
-		if ($bb_cfg['cron_enabled'])
-		{
-			bb_die('BOARD_DISABLE_CRON');
-		}
+		bb_die('BOARD_DISABLE_CRON');
 	}
 }
 
