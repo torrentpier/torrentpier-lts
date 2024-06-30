@@ -61,6 +61,7 @@ switch ($ajax->action)
 
 // Position in $ajax->valid_actions['xxx']
 define('AJAX_AUTH', 0); // 'guest', 'user', 'mod', 'admin', 'super_admin'
+define('AJAX_ALWAYS_ACTIVE', 1); // определяет скрипты, которые будут работать при отключенном форуме
 
 $ajax->exec();
 
@@ -73,13 +74,13 @@ class ajax_common
 	var $response = array();
 
 	var $valid_actions = array(
-		// ACTION NAME         AJAX_AUTH
+		// ACTION NAME         AJAX_AUTH         AJAX_ALWAYS_ACTIVE
 		'edit_user_profile' => array('admin'),
 		'change_user_rank'  => array('admin'),
 		'change_user_opt'   => array('admin'),
 		'manage_user'       => array('admin'),
-		'manage_admin'      => array('admin'),
-		'sitemap'           => array('admin'),
+		'manage_admin'      => array('admin', true),
+		'sitemap'           => array('admin', true),
 
 		'mod_action'        => array('mod'),
 		'topic_tpl'         => array('mod'),
@@ -115,7 +116,7 @@ class ajax_common
 	 */
 	function exec()
 	{
-		global $lang;
+		global $lang, $bb_cfg;
 
 		// Exit if we already have errors
 		if (!empty($this->response['error_code']))
@@ -136,6 +137,22 @@ class ajax_common
 		elseif (!$action_params =& $this->valid_actions[$action])
 		{
 			$this->ajax_die('invalid action: ' . $action);
+		}
+
+		// Exit if board is disabled via ON/OFF trigger or by admin
+		if ($bb_cfg['board_disable'] || file_exists(BB_DISABLED))
+		{
+			if (!isset($action_params[AJAX_ALWAYS_ACTIVE]) || $action_params[AJAX_ALWAYS_ACTIVE] === false)
+			{
+				if ($bb_cfg['board_disable'])
+				{
+					$this->ajax_die($lang['BOARD_DISABLE']);
+				}
+				elseif (file_exists(BB_DISABLED))
+				{
+					$this->ajax_die($lang['BOARD_DISABLE_CRON']);
+				}
+			}
 		}
 
 		// Auth check
