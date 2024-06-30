@@ -142,17 +142,28 @@ class ajax_common
 		// Exit if board is disabled via ON/OFF trigger or by admin
 		if ($bb_cfg['board_disable'] || file_exists(BB_DISABLED))
 		{
-			if (!isset($action_params[AJAX_ALWAYS_ACTIVE]) || $action_params[AJAX_ALWAYS_ACTIVE] === false)
+			if ($bb_cfg['board_disable'])
 			{
-				if ($bb_cfg['board_disable'])
-				{
-					$this->ajax_die($lang['BOARD_DISABLE']);
-				}
+				if (!DBG_USER) $this->ajax_die($lang['BOARD_DISABLE']);
 			}
-			if (file_exists(BB_DISABLED))
+			elseif (file_exists(BB_DISABLED))
 			{
 				$this->ajax_die($lang['BOARD_DISABLE_CRON']);
 			}
+
+			// Старый вариант
+			//
+			//	if (!isset($action_params[AJAX_ALWAYS_ACTIVE]) || $action_params[AJAX_ALWAYS_ACTIVE] === false)
+			//	{
+			//		if ($bb_cfg['board_disable'])
+			//		{
+			//			$this->ajax_die($lang['BOARD_DISABLE']);
+			//		}
+			//	}
+			//	if (file_exists(BB_DISABLED))
+			//	{
+			//		$this->ajax_die($lang['BOARD_DISABLE_CRON']);
+			//	}
 		}
 
 		// Auth check

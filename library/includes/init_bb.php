@@ -523,7 +523,7 @@ if (($bb_cfg['board_disable'] || file_exists(BB_DISABLED)) && !defined('IN_ADMIN
 	{
 		// admin lock
 		send_no_cache_headers();
-		bb_die('BOARD_DISABLE');
+		if (!DBG_USER) bb_die('BOARD_DISABLE');
 	}
 	else if (file_exists(BB_DISABLED))
 	{
