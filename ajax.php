@@ -146,7 +146,7 @@ class ajax_common
 			{
 				if (!DBG_USER) $this->ajax_die($lang['BOARD_DISABLE']);
 			}
-			elseif (file_exists(BB_DISABLED))
+			else if (file_exists(BB_DISABLED))
 			{
 				$this->ajax_die($lang['BOARD_DISABLE_CRON']);
 			}
