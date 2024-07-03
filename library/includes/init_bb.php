@@ -519,18 +519,18 @@ if (($bb_cfg['board_disable'] || file_exists(BB_DISABLED)) && !defined('IN_ADMIN
 	{
 		header('HTTP/1.0 503 Service Unavailable');
 	}
-	if ($bb_cfg['board_disable'])
-	{
-		// admin lock
-		send_no_cache_headers();
-		if (!DBG_USER) bb_die('BOARD_DISABLE');
-	}
-	else if (file_exists(BB_DISABLED))
+	if (file_exists(BB_DISABLED))
 	{
 		// trigger lock
 		cron_release_deadlock();
 		send_no_cache_headers();
 		bb_die('BOARD_DISABLE_CRON');
+	}
+	else if ($bb_cfg['board_disable'] && !DBG_USER)
+	{
+		// admin lock
+		send_no_cache_headers();
+		bb_die('BOARD_DISABLE');
 	}
 }
 
