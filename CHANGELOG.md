@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- Admin panel -> Ranks: Added support for images in URLs
 - Fixed broken "Disable Board" function
 
 ## [v2.1.5-2024.07 [Final v5]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.06) (2024-06-27)
