@@ -151,18 +151,15 @@ class ajax_common
 				$this->ajax_die($lang['BOARD_DISABLE']);
 			}
 
-			// Старый вариант
+			// Старый вариант (С выбором определенных скриптов, которые будут доступны всем при выключенном форуме)
 			//
-			//	if (!isset($action_params[AJAX_ALWAYS_ACTIVE]) || $action_params[AJAX_ALWAYS_ACTIVE] === false)
-			//	{
-			//		if ($bb_cfg['board_disable'])
-			//		{
-			//			$this->ajax_die($lang['BOARD_DISABLE']);
-			//		}
-			//	}
 			//	if (file_exists(BB_DISABLED))
 			//	{
 			//		$this->ajax_die($lang['BOARD_DISABLE_CRON']);
+			//	}
+			//	else if ($bb_cfg['board_disable'] && (!isset($action_params[AJAX_ALWAYS_ACTIVE]) || $action_params[AJAX_ALWAYS_ACTIVE] === false))
+			//	{
+			//		$this->ajax_die($lang['BOARD_DISABLE']);
 			//	}
 		}
 
