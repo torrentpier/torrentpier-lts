@@ -10,6 +10,8 @@ require('./pagestart.php');
 $_POST['special_rank'] = 1;
 $_POST['min_posts'] = -1;
 
+define('EXAMPLE_IMAGE', 'styles/images/ranks/rank_image.png');
+
 if (isset($_GET['mode']) || isset($_POST['mode']))
 {
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : $_POST['mode'];
@@ -70,6 +72,12 @@ if ($mode != '')
 		$rank_is_special = !empty($rank_info['rank_special']) ? HTML_CHECKED : '';
 		$rank_is_not_special = empty($rank_info['rank_special']) ? HTML_CHECKED : '';
 
+		// поддержка изображений в ссылках
+		$is_rank_image_link = false;
+		if (!empty($rank_info['rank_image']) && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp)([a-z0-9/?&%;][^\[\]]*)?#', $rank_info['rank_image'])) {
+			$is_rank_image_link = true;
+		}
+
 		$template->assign_vars(array(
 			'TPL_RANKS_EDIT' => true,
 
@@ -77,13 +85,14 @@ if ($mode != '')
 			'SPECIAL_RANK' => $rank_is_special,
 			'NOT_SPECIAL_RANK' => $rank_is_not_special,
 			'MINIMUM' => ($rank_is_special) ? '' : @$rank_info['rank_min'],
-			'IMAGE' => !empty($rank_info['rank_image']) ? $rank_info['rank_image'] : 'styles/images/ranks/rank_image.png',
+			'IMAGE' => !empty($rank_info['rank_image']) ? $rank_info['rank_image'] : EXAMPLE_IMAGE,
 			'STYLE' => !empty($rank_info['rank_style']) ? $rank_info['rank_style'] : '',
-			'IMAGE_DISPLAY' => !empty($rank_info['rank_image']) ? '<img src="../'. $rank_info['rank_image'] .'" />' : '',
+			'IMAGE_DISPLAY' => (!empty($rank_info['rank_image']) && ($rank_info['rank_image'] != EXAMPLE_IMAGE)) ? '<img src="'. ((!$is_rank_image_link) ? '../' : '') . $rank_info['rank_image'] .'" />' : '',
 
 			'S_RANK_ACTION' => "admin_ranks.php",
 			'S_HIDDEN_FIELDS' => $s_hidden_fields,
 		));
+		unset($is_rank_image_link);
 	}
 	elseif ($mode == 'save')
 	{
@@ -227,6 +236,11 @@ else
 		$special_rank = $rank_rows[$i]['rank_special'];
 		$rank_id = $rank_rows[$i]['rank_id'];
 		$rank_min = $rank_rows[$i]['rank_min'];
+		// поддержка изображений в ссылках
+		$is_rank_image_link = false;
+		if ($rank_rows[$i]['rank_image'] && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp)([a-z0-9/?&%;][^\[\]]*)?#', $rank_rows[$i]['rank_image'])) {
+			$is_rank_image_link = true;
+		}
 
 		if ($special_rank == 1)
 		{
@@ -241,13 +255,14 @@ else
 			'ROW_CLASS' 	=> $row_class,
 			'RANK' 			=> $rank,
 			'STYLE' 		=> $rank_rows[$i]['rank_style'],
-			'IMAGE_DISPLAY' => ($rank_rows[$i]['rank_image']) ? '<img src="../'. $rank_rows[$i]['rank_image'] .'" />' : '',
+			'IMAGE_DISPLAY' => ($rank_rows[$i]['rank_image'] && ($rank_rows[$i]['rank_image'] != EXAMPLE_IMAGE)) ? '<img src="'. ((!$is_rank_image_link) ? '../' : '') . $rank_rows[$i]['rank_image'] .'" />' : '',
 			'SPECIAL_RANK'  => $rank_is_special,
 			'RANK_MIN'		=> $rank_min,
 
 			'U_RANK_EDIT' 	=> "admin_ranks.php?mode=edit&amp;id=$rank_id",
 			'U_RANK_DELETE' => "admin_ranks.php?mode=delete&amp;id=$rank_id",
 		));
+		unset($is_rank_image_link);
 	}
 }
 
