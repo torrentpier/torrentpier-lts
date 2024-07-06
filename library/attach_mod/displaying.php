@@ -238,12 +238,15 @@ function display_attachments($post_id)
 			$thumbnail = FALSE;
 			$link = FALSE;
 
+			// Shows the images in topic
 			if (@intval($display_categories[$attachments['_' . $post_id][$i]['extension']]) == IMAGE_CAT && intval($attach_config['img_display_inlined']))
 			{
 				if (intval($attach_config['img_link_width']) != 0 || intval($attach_config['img_link_height']) != 0)
 				{
+					// Get image sizes
 					list($width, $height) = image_getdimension($filename);
 
+					// Check if image sizes is allowed
 					if ($width == 0 && $height == 0)
 					{
 						$image = TRUE;
@@ -262,12 +265,14 @@ function display_attachments($post_id)
 				}
 			}
 
+			// Checks if image is thumbnail
 			if (@intval($display_categories[$attachments['_' . $post_id][$i]['extension']]) == IMAGE_CAT && $attachments['_' . $post_id][$i]['thumbnail'] == 1)
 			{
 				$thumbnail = TRUE;
 				$image = FALSE;
 			}
 
+			// Checks whether the image should be displayed as a link
 			if (!$image && !$thumbnail)
 			{
 				$link = TRUE;
