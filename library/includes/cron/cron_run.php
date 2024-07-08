@@ -16,7 +16,6 @@ DB()->query("
 	, tmp_table_size          = 80*1024*1024
 	, group_concat_max_len    =  1*1024*1024
 	, wait_timeout            =  6*100
-	, max_allowed_packet      = 16*1024*1024
 ");
 
 // Restore vars at shutdown
@@ -31,7 +30,6 @@ DB()->add_shutdown_query("
 	, tmp_table_size          = DEFAULT
 	, group_concat_max_len    = DEFAULT
 	, wait_timeout            = DEFAULT
-	, max_allowed_packet      = DEFAULT
 ");
 
 // $cron_jobs obtained in cron_check.php
