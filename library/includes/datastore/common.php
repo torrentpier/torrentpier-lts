@@ -68,6 +68,11 @@ class datastore_common
 		return $this->data[$title];
 	}
 
+	function has ($title)
+	{
+		return isset($this->data[$title]);
+	}
+
 	function store ($item_name, $item_data) {}
 
 	function rm ($items)
