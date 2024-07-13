@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07...v2.1.5-2024.0X)
 
 - Release v2.1.5-2024.0X 🎉
+- CWE-502 Fixed: Deserialization of untrusted data
 - Admin panel -> Ranks: Added support for images in URLs
 - Fixed broken "Disable Board" function
 - Some other changes / improvements

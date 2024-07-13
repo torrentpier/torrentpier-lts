@@ -453,7 +453,7 @@ class user_common
 	*/
 	function get_sessiondata ()
 	{
-		$sd_resv = !empty($_COOKIE[COOKIE_DATA]) ? @unserialize($_COOKIE[COOKIE_DATA]) : array();
+		$sd_resv = !empty($_COOKIE[COOKIE_DATA]) ? json_decode($_COOKIE[COOKIE_DATA], true) : array();
 
 		// autologin_id
 		if (!empty($sd_resv['uk']) && verify_id($sd_resv['uk'], LOGIN_KEY_LENGTH))
@@ -526,7 +526,7 @@ class user_common
 
 			// Set bb_data (session) cookie
 			$c_sdata_resv = !empty($_COOKIE[COOKIE_DATA]) ? $_COOKIE[COOKIE_DATA] : null;
-			$c_sdata_curr = ($this->sessiondata) ? serialize($this->sessiondata) : '';
+			$c_sdata_curr = ($this->sessiondata) ? json_encode($this->sessiondata) : '';
 
 			if ($c_sdata_curr !== $c_sdata_resv)
 			{
