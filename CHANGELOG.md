@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2024.0X 🎉
 - CWE-502 Fixed: Deserialization of untrusted data
+- Hide in topic: Added country hiding
 - Admin panel -> Ranks: Added support for images in URLs
 - Fixed broken "Disable Board" function
 - Some other changes / improvements
