@@ -133,6 +133,6 @@ TorrentPier II - движок торрент-трекера, написанны�
 ## 📌 Полезные ссылки
 
 + Наш форум: https://torrentpier.com/
-+ Центр загрузки: https://get.torrentpier.com/
++ Центр загрузки: https://get-torrentpier.duckdns.org/
 + Часто задаваемые вопросы: https://faq.torrentpier.com/
 + Где задать вопрос: https://torrentpier.com/forums/10/
