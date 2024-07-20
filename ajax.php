@@ -314,9 +314,10 @@ class ajax_common
 	/**
 	 *  Prompt for confirmation
 	 */
-	function prompt_for_confirm($confirm_msg)
+	function prompt_for_confirm($confirm_msg = '')
 	{
-		if (empty($confirm_msg)) $this->ajax_die('false');
+		global $lang;
+		if (empty($confirm_msg)) $confirm_msg = $lang['QUESTION'];
 
 		$this->response['prompt_confirm'] = 1;
 		$this->response['confirm_msg'] = strip_tags(br2nl($confirm_msg));
