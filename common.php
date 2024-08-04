@@ -237,7 +237,7 @@ function utime ()
 	return array_sum(explode(' ', microtime()));
 }
 
-function bb_log ($msg, $file_name)
+function bb_log ($msg, $file_name = 'logs')
 {
 	if (is_array($msg))
 	{
