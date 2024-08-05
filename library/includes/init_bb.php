@@ -313,7 +313,7 @@ define('ACTKEY_LENGHT',    12);
 define('LOGIN_KEY_LENGTH', 12);
 define('USERNAME_MIN_LENGTH',   3);
 define('USERNAME_MAX_LENGTH',  30);
-define('USEREMAIL_MAX_LENGTH', 50);
+define('USEREMAIL_MAX_LENGTH', 180);
 define('NEWPASSWD_LENGTH',      8);
 define('PASSWORD_MIN_LENGTH',   8);
 define('PASSWORD_MAX_LENGTH',  50);
