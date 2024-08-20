@@ -1,5 +1,16 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.09 [Final v7]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.09) (2024-09-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07-HotFix...v2.1.5-2024.09)
+
+- Fixed undefined $lang in functions_delete.php
+- Fixed incorrect SQL-query in topic_watch.php
+- Some fixes for is_unread() working
+- Increased USEREMAIL_MAX_LENGTH
+- Some other changes / improvements
+- Updated Download Center link
+- Updated translations
+
 ## [v2.1.5-2024.07-HotFix [Final v6]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.07-HotFix) (2024-07-13)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07...v2.1.5-2024.07-HotFix)
 
