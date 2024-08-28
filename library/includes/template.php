@@ -1180,7 +1180,7 @@ class Template
 	 */
 	function write_cache($filename, $code)
 	{
-		file_write($code, $filename, false, true, true);
+		return file_write($code, $filename, false, true, true);
 	}
 
 	function xs_startup()
