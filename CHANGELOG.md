@@ -3,6 +3,7 @@
 ## [v2.1.5-2024.09 [Final v7]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.09) (2024-09-07)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07-HotFix...v2.1.5-2024.09)
 
+- Release v2.1.5-2024.09 🎉
 - Fixed Template.php caching issue
 - Fixed undefined $lang in functions_delete.php
 - Fixed incorrect SQL-query in topic_watch.php
