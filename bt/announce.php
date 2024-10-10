@@ -110,7 +110,14 @@ if ($bb_cfg['client_ban']['enabled'])
 	{
 		if (substr($peer_id, 0, strlen($client)) === $client)
 		{
-			msg_die($bb_cfg['client_ban']['clients'][$client]);
+			if (empty($bb_cfg['client_ban']['clients'][$client]))
+			{
+				msg_die($lang['BT_TOR_CLIENT_BLOCKED']);
+			}
+			else
+			{
+				msg_die($bb_cfg['client_ban']['clients'][$client]);
+			}
 		}
 	}
 }
