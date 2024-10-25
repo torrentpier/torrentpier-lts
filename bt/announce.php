@@ -106,18 +106,32 @@ if (!verify_id($passkey, BT_AUTH_KEY_LENGTH))
 // Check for client ban
 if ($bb_cfg['client_ban']['enabled'])
 {
-	foreach (array_keys($bb_cfg['client_ban']['clients']) as $client)
+	$targetClient = array();
+
+	foreach ($bb_cfg['client_ban']['clients'] as $clientId => $banReason)
 	{
-		if (substr($peer_id, 0, strlen($client)) === $client)
+		if (substr($peer_id, 0, strlen($clientId)) === $clientId)
 		{
-			if (empty($bb_cfg['client_ban']['clients'][$client]))
-			{
-				msg_die($lang['BT_TOR_CLIENT_BLOCKED']);
-			}
-			else
-			{
-				msg_die($bb_cfg['client_ban']['clients'][$client]);
-			}
+			$targetClient = array(
+				'peer_id' => $clientId,
+				'ban_reason' => $banReason
+			);
+			break;
+		}
+	}
+
+	if ($bb_cfg['client_ban']['only_allow_mode'])
+	{
+		if (empty($targetClient['peer_id']))
+		{
+			msg_die('Your BitTorrent client has been banned!');
+		}
+	}
+	else
+	{
+		if (!empty($targetClient['peer_id']))
+		{
+			msg_die(empty($targetClient['ban_reason']) ? 'Your BitTorrent client has been banned!' : $targetClient['ban_reason']);
 		}
 	}
 }
