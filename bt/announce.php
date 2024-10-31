@@ -139,27 +139,22 @@ if ($bb_cfg['client_ban']['enabled'])
 // IP
 $ip = $_SERVER['REMOTE_ADDR'];
 
+// 'ip' query handling
 if (!$bb_cfg['ignore_reported_ip'] && isset($_GET['ip']) && $ip !== $_GET['ip'])
 {
-	if (!$bb_cfg['verify_reported_ip'])
-	{
-		$ip = $_GET['ip'];
-	}
-	elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches))
-	{
-		foreach ($matches[0] as $x_ip)
-		{
-			if ($x_ip === $_GET['ip'])
-			{
-				if (!$bb_cfg['allow_internal_ip'] && preg_match("#(127\.([0-9]{1,3}\.){2}[0-9]{1,3}|10\.([0-9]{1,3}\.){2}[0-9]{1,3}|172\.[123][0-9]\.[0-9]{1,3}\.[0-9]{1,3}|192\.168\.[0-9]{1,3}\.[0-9]{1,3})#", $x_ip))
-				{
-					break;
-				}
-				$ip = $x_ip;
-				break;
-			}
-		}
-	}
+    if (!$bb_cfg['verify_reported_ip'] && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+    {
+        $x_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+        if ($x_ip === $_GET['ip'])
+        {
+            $filteredIp = filter_var($x_ip, FILTER_VALIDATE_IP);
+            if ($filteredIp !== false && ($bb_cfg['allow_internal_ip'] || !filter_var($filteredIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)))
+            {
+                $ip = $filteredIp;
+            }
+        }
+    }
 }
 // Check that IP format is valid
 if (!verify_ip($ip))
