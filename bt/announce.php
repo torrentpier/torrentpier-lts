@@ -142,19 +142,19 @@ $ip = $_SERVER['REMOTE_ADDR'];
 // 'ip' query handling
 if (!$bb_cfg['ignore_reported_ip'] && isset($_GET['ip']) && $ip !== $_GET['ip'])
 {
-    if (!$bb_cfg['verify_reported_ip'] && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-    {
-        $x_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	if (!$bb_cfg['verify_reported_ip'] && isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+	{
+		$x_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
-        if ($x_ip === $_GET['ip'])
-        {
-            $filteredIp = filter_var($x_ip, FILTER_VALIDATE_IP);
-            if ($filteredIp !== false && ($bb_cfg['allow_internal_ip'] || !filter_var($filteredIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)))
-            {
-                $ip = $filteredIp;
-            }
-        }
-    }
+		if ($x_ip === $_GET['ip'])
+		{
+			$filteredIp = filter_var($x_ip, FILTER_VALIDATE_IP);
+			if ($filteredIp !== false && ($bb_cfg['allow_internal_ip'] || !filter_var($filteredIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)))
+			{
+				$ip = $filteredIp;
+			}
+		}
+	}
 }
 // Check that IP format is valid
 if (!verify_ip($ip))
