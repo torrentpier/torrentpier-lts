@@ -37,18 +37,10 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 date_default_timezone_set('UTC');
 
-// Set remote address
-$allowedCDNs = array(
-    'HTTP_X_FORWARDED_FOR',
-    'HTTP_FASTLY_CLIENT_IP',
-    'HTTP_CF_CONNECTING_IP'
-);
-foreach ($allowedCDNs as $allowedCDN)
+// Cloudflare
+if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
 {
-    if (isset($_SERVER[$allowedCDN]) && filter_var($_SERVER[$allowedCDN], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE))
-    {
-        $_SERVER['REMOTE_ADDR'] = $_SERVER[$allowedCDN];
-    }
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
 }
 
 // Get initial config
