@@ -1,5 +1,13 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.10 [Final v8]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10) (2024-10-04)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.09...v2.1.5-2024.10)
+
+- Release v2.1.5-2024.10 🎉
+- Fixed incorrect page width on mobile devices
+- Improved BitTorrent clients ban functionality
+- Some other changes / improvements
+
 ## [v2.1.5-2024.09 [Final v7]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.09) (2024-09-07)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.07-HotFix...v2.1.5-2024.09)
 
