@@ -1,6 +1,6 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.10-HotFix [Final v9]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10-HotFix) (2024-11-11)
+## [v2.1.5-2024.10-HotFix [Final v9]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10-HotFix) (2024-11-09)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10...v2.1.5-2024.10-HotFix)
 
 - Release v2.1.5-2024.10-HotFix 🎉
