@@ -71,7 +71,7 @@ html {
 	min-height: 100.1%;   /* always show vertical scrollbar in Mozilla */
 }
 body {
-	min-width: 760px; min-width: fit-content; color: #000000; background: #E3E3E3;
+	min-width: 760px; color: #000000; background: #E3E3E3;
 }
 body, th, td, font {
 	font: 12px Verdana,Arial,sans-serif;
