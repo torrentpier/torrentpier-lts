@@ -1,5 +1,12 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.10-HotFix [Final v9]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10-HotFix) (2024-11-11)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10...v2.1.5-2024.10-HotFix)
+
+- Release v2.1.5-2024.10-HotFix 🎉
+- Revert "Fixed incorrect page width on mobile devices" due to some bugs
+- Fixed broken torrent stats displaying
+
 ## [v2.1.5-2024.10 [Final v8]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10) (2024-11-05)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.09...v2.1.5-2024.10)
 

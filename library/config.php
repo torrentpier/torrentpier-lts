@@ -15,8 +15,8 @@ $domain_name = (!empty($_SERVER['SERVER_NAME'])) ? idn_to_utf8($_SERVER['SERVER_
 $domain_ssl = false; // используется ли SSL сертификат (HTTPS) на сайте
 
 // Version info
-$bb_cfg['tp_version'] = '2.1.5-2024.10 [Final v8]';
-$bb_cfg['tp_release_date'] = '05-11-2024';
+$bb_cfg['tp_version'] = '2.1.5-2024.10-HotFix [Final v9]';
+$bb_cfg['tp_release_date'] = '11-11-2024';
 $bb_cfg['tp_release_state'] = 'LTS';
 $bb_cfg['tp_zf_version'] = '2.4.13 (Latest)';
 
