@@ -1,5 +1,12 @@
 # 📖 Change Log
 
+## [v2.1.5-2024.XX [Final v10]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.XX) (2024-XX-XX)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10-HotFix...v2.1.5-2024.XX)
+
+- Release v2.1.5-2024.XX 🎉
+- Added support avif images in BBCode
+- Some other changes / improvements
+
 ## [v2.1.5-2024.10-HotFix [Final v9]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.10-HotFix) (2024-11-09)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10...v2.1.5-2024.10-HotFix)
 
