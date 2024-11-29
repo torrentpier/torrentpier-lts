@@ -74,7 +74,7 @@ if ($mode != '')
 
 		// поддержка изображений в ссылках
 		$is_rank_image_link = false;
-		if (!empty($rank_info['rank_image']) && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp)([a-z0-9/?&%;][^\[\]]*)?#', $rank_info['rank_image'])) {
+		if (!empty($rank_info['rank_image']) && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp|avif)([a-z0-9/?&%;][^\[\]]*)?#', $rank_info['rank_image'])) {
 			$is_rank_image_link = true;
 		}
 
@@ -123,7 +123,7 @@ if ($mode != '')
 		//
 		if ($rank_image != '')
 		{
-			if (!preg_match('/(\.gif|\.png|\.jpg|\.jpeg|\.bmp|\.webp|\.ico)$/is', $rank_image))
+			if (!preg_match('/(\.gif|\.png|\.jpg|\.jpeg|\.bmp|\.webp|\.avif|\.ico)$/is', $rank_image))
 			{
 				$rank_image = '';
 			}
@@ -238,7 +238,7 @@ else
 		$rank_min = $rank_rows[$i]['rank_min'];
 		// поддержка изображений в ссылках
 		$is_rank_image_link = false;
-		if ($rank_rows[$i]['rank_image'] && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp)([a-z0-9/?&%;][^\[\]]*)?#', $rank_rows[$i]['rank_image'])) {
+		if ($rank_rows[$i]['rank_image'] && preg_match('#(https?:)?//[^\s\?&;=\#\"<>]+?\.(jpg|jpeg|gif|png|webp|bmp|avif)([a-z0-9/?&%;][^\[\]]*)?#', $rank_rows[$i]['rank_image'])) {
 			$is_rank_image_link = true;
 		}
 
