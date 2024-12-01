@@ -2165,6 +2165,7 @@ class log_action
 		'mod_topic_set_downloaded' => 12,
 		'mod_topic_unset_downloaded' => 13,
 		'mod_topic_renamed'  => 14,
+		'mod_topic_change_tor_status' => 15,
 	);
 	var $log_type_select = array();
 	var $log_disabled = false;
