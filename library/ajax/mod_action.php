@@ -69,6 +69,7 @@ switch ($mode)
 		$log_action->mod('mod_topic_renamed', array(
 			'forum_id'        => $t_data['forum_id'],
 			'topic_id'        => $topic_id,
+			'topic_id_new'    => $topic_id,
 			'topic_title'     => $old_title,
 			'topic_title_new' => $new_title,
 		));
