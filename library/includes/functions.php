@@ -2167,6 +2167,7 @@ class log_action
 		'mod_topic_renamed'  => 14,
 		'mod_topic_change_tor_status' => 15,
 		'mod_topic_change_tor_type' => 16,
+		'mod_topic_tor_unregister' => 17,
 	);
 	var $log_type_select = array();
 	var $log_disabled = false;
