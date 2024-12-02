@@ -120,8 +120,8 @@ function tracker_unregister ($attach_id, $mode = '')
 
 	// Log action
 	$log_action->mod('mod_topic_tor_unregister', array(
-		'forum_id' => $forum_id,
-		'topic_id' => $topic_id,
+		'forum_id'    => $forum_id,
+		'topic_id'    => $topic_id,
 		'topic_title' => $topic_title,
 	));
 
