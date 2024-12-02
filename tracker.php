@@ -672,7 +672,7 @@ if ($allowed_forums)
 		}
 		if ($tor_type)
 		{
-			$SQL['WHERE'][] = "tor.tor_type IN(1,2)";
+			$SQL['WHERE'][] = "tor.tor_type IN(" . TOR_TYPE_GOLD . "," . TOR_TYPE_SILVER . ")";
 		}
 
 		// ORDER
