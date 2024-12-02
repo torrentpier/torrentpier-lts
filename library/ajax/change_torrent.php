@@ -2,7 +2,7 @@
 
 if (!defined('IN_AJAX')) die(basename(__FILE__));
 
-global $userdata, $bb_cfg, $lang;
+global $userdata, $bb_cfg, $lang, $log_action;
 
 if (!isset($this->request['attach_id']))
 {
@@ -18,7 +18,7 @@ $type       = (string) $this->request['type'];
 $torrent = DB()->fetch_row("
 		SELECT
 			a.post_id, d.physical_filename, d.extension, d.tracker_status,
-			t.topic_first_post_id,
+			t.topic_first_post_id, t.topic_title,
 			p.poster_id, p.topic_id, p.forum_id,
 			f.allow_reg_tracker
 		FROM
@@ -62,16 +62,26 @@ switch ($type)
 		if ($type == 'set_silver')
 		{
 			$tor_type = TOR_TYPE_SILVER;
+			$tor_type_lang = $lang['SILVER'];
 		}
 		elseif ($type == 'set_gold')
 		{
 			$tor_type = TOR_TYPE_GOLD;
+			$tor_type_lang = $lang['GOLD'];
 		}
 		else
 		{
 			$tor_type = 0;
+			$tor_type_lang = "{$lang['UNSET_GOLD_TORRENT']} / {$lang['UNSET_SILVER_TORRENT']}";
 		}
 		change_tor_type($attach_id, $tor_type);
+		// Log action
+		$log_action->mod('mod_topic_change_tor_type', array(
+			'forum_id' => $torrent['forum_id'],
+			'topic_id' => $torrent['topic_id'],
+			'topic_title' => $torrent['topic_title'],
+			'log_msg' => sprintf($lang['TOR_TYPE_LOG_ACTION'], $tor_type_lang),
+		));
 		$title = $lang['CHANGE_TOR_TYPE'];
 		$url = make_url(TOPIC_URL . $torrent['topic_id']);
 	break;
