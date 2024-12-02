@@ -11,7 +11,7 @@ function get_torrent_info ($attach_id)
 	$sql = "
 		SELECT
 			a.post_id, d.physical_filename, d.extension, d.tracker_status,
-			t.topic_first_post_id,
+			t.topic_first_post_id, t.topic_title,
 			p.poster_id, p.topic_id, p.forum_id,
 			f.allow_reg_tracker
 		FROM
@@ -58,10 +58,10 @@ function torrent_auth_check ($forum_id, $poster_id)
 
 function tracker_unregister ($attach_id, $mode = '')
 {
-	global $lang, $bb_cfg;
+	global $lang, $bb_cfg, $log_action;
 
 	$attach_id = (int) $attach_id;
-	$post_id = $topic_id = $forum_id = $info_hash = null;
+	$post_id = $topic_id = $topic_title = $forum_id = $info_hash = null;
 
 	// Get torrent info
 	if ($torrent = get_torrent_info($attach_id))
@@ -69,6 +69,7 @@ function tracker_unregister ($attach_id, $mode = '')
 		$post_id  = $torrent['post_id'];
 		$topic_id = $torrent['topic_id'];
 		$forum_id = $torrent['forum_id'];
+		$topic_title = $torrent['topic_title'];
 	}
 
 	if ($mode == 'request')
@@ -116,6 +117,13 @@ function tracker_unregister ($attach_id, $mode = '')
 	{
 		bb_die('Could not delete peers');
 	}
+
+	// Log action
+	$log_action->mod('mod_topic_tor_unregister', array(
+		'forum_id' => $forum_id,
+		'topic_id' => $topic_id,
+		'topic_title' => $topic_title,
+	));
 
 	// Ocelot
 	if ($bb_cfg['ocelot']['enabled'])
