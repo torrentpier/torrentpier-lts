@@ -6,6 +6,7 @@
 - Release v2.1.5-2024.XX 🎉
 - Added support avif images in BBCode
 - Show torrent status changes in actions log
+- Show torrent type (gold / silver) changes in actions log
 - Fixed empty topic_id in log actions after topic rename
 - Some other changes / improvements
 
