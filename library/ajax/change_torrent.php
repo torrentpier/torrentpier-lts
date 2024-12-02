@@ -77,10 +77,10 @@ switch ($type)
 		change_tor_type($attach_id, $tor_type);
 		// Log action
 		$log_action->mod('mod_topic_change_tor_type', array(
-			'forum_id' => $torrent['forum_id'],
-			'topic_id' => $torrent['topic_id'],
+			'forum_id'    => $torrent['forum_id'],
+			'topic_id'    => $torrent['topic_id'],
 			'topic_title' => $torrent['topic_title'],
-			'log_msg' => sprintf($lang['TOR_TYPE_LOG_ACTION'], $tor_type_lang),
+			'log_msg'     => sprintf($lang['TOR_TYPE_LOG_ACTION'], $tor_type_lang),
 		));
 		$title = $lang['CHANGE_TOR_TYPE'];
 		$url = make_url(TOPIC_URL . $torrent['topic_id']);
