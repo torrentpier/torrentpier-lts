@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2024.XX 🎉
 - Added support avif images in BBCode
+- Set cursor: pointer; for buttons, inputs (buttons)
 - Show torrent status changes in actions log
 - Show torrent type (gold / silver) changes in actions log
 - Show torrent unregister action in log actions
