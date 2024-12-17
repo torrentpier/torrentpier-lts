@@ -27,6 +27,10 @@ elseif ($t_data['call_seed_time'] > (TIMENOW - 86400))
 	$time_left = delta_time($t_data['call_seed_time'] + 86400, TIMENOW, 'days');
 	bb_die(sprintf($lang['CALLSEED_MSG_SPAM'], $time_left));
 }
+elseif (isset($bb_cfg['tor_no_tor_act'][$t_data['tor_status']]))
+{
+	bb_die($lang['NOT_AVAILABLE']);
+}
 
 $ban_user_id = array();
 
@@ -81,7 +85,7 @@ function topic_info ($topic_id)
 
 	$sql = "
 		SELECT
-			tor.poster_id, tor.forum_id, tor.attach_id, tor.call_seed_time,
+			tor.poster_id, tor.forum_id, tor.attach_id, tor.call_seed_time, tor.tor_status,
 			t.topic_title, sn.seeders
 		FROM      ". BB_BT_TORRENTS     ." tor
 		LEFT JOIN ". BB_TOPICS          ." t  USING(topic_id)
