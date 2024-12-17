@@ -9,6 +9,7 @@
 - Show torrent status changes in actions log
 - Show torrent type (gold / silver) changes in actions log
 - Show torrent unregister action in log actions
+- Fixed callseed spam bug
 - Fixed empty topic_id in log actions after topic rename
 - Some other changes / improvements
 

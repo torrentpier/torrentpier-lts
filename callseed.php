@@ -14,7 +14,11 @@ $forum_id = $t_data['forum_id'];
 
 set_die_append_msg($forum_id, $topic_id);
 
-if ($t_data['seeders'] > 2)
+if (!$bb_cfg['callseed'])
+{
+	bb_die($lang['MODULE_OFF']);
+}
+elseif ($t_data['seeders'] > 2)
 {
 	bb_die(sprintf($lang['CALLSEED_HAVE_SEED'], $t_data['seeders']));
 }
