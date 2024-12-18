@@ -95,6 +95,11 @@ switch($mode)
 	break;
 
 	case 'get_traf_stats':
+		if (IS_GUEST)
+		{
+			$this->ajax_die($lang['NEED_TO_LOGIN_FIRST']);
+		}
+
 		$user_id = (int) $this->request['user_id'];
 		$btu = get_bt_userdata($user_id);
 		$profiledata = get_userdata($user_id);
