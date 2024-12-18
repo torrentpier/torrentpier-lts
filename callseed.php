@@ -18,11 +18,11 @@ if (!$bb_cfg['callseed'])
 {
 	bb_die($lang['MODULE_OFF']);
 }
-elseif ($t_data['seeders'] >= 3)
+elseif ($t_data['seeders'] > 2)
 {
 	bb_die(sprintf($lang['CALLSEED_HAVE_SEED'], $t_data['seeders']));
 }
-elseif ($t_data['call_seed_time'] >= (TIMENOW - 86400))
+elseif ($t_data['call_seed_time'] > (TIMENOW - 86400))
 {
 	$time_left = delta_time($t_data['call_seed_time'] + 86400, TIMENOW, 'days');
 	bb_die(sprintf($lang['CALLSEED_MSG_SPAM'], $time_left));
