@@ -678,8 +678,7 @@ if ($allowed_forums)
 		}
 
 		// Поиск по статусу раздачи
-		if (!empty($status))
-		{
+		if (!empty($status)) {
 			$SQL['WHERE'][] = "tor.tor_status IN(" . implode(', ', $status) . ")";
 		}
 
