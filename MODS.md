@@ -16,3 +16,4 @@
 - Дата запуска форума в статистике на главной v1.0.0 ([ссылка](https://torrentpier.com/resources/data-zapuska-foruma-v-statistike-na-glavnoj.276/))
 - Улучшение стандартной пагинации v1.0.0 ([ссылка](https://torrentpier.com/resources/uluchshenie-standartnoj-paginacii.300/))
 - BBCode: Поддержка относительных ссылок v1.0.0 ([ссылка](https://torrentpier.com/resources/bbcode-podderzhka-otnositelnyx-ssylok.306/))
+- Улучшение индексации страниц v1.0.0 ([ссылка](https://torrentpier.com/resources/uluchshenie-indeksacii-stranic.304/))
