@@ -12,6 +12,11 @@
 <meta property="og:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
 <meta property="twitter:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
 {META}
+<!-- IF ALLOW_ROBOTS -->
+<meta name="robots" content="all">
+<!-- ELSE -->
+<meta name="robots" content="none">
+<!-- ENDIF -->
 <!-- IF META_PREV_PAGE -->
 <link rel="prev" href="{META_PREV_PAGE}">
 <!-- ENDIF / META_PREV_PAGE -->

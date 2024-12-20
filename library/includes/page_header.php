@@ -124,6 +124,8 @@ $template->assign_vars(array(
 	'USER_OPTIONS_JS'    => (IS_GUEST) ? '{}' : Zend\Json\Json::encode($user->opt_js),
 
 	'USE_TABLESORTER'    => !empty($page_cfg['use_tablesorter']),
+	// Улучшение индексации страниц
+	'ALLOW_ROBOTS'       => !$bb_cfg['board_disable'] && (!isset($page_cfg['allow_robots']) || $page_cfg['allow_robots'] === true),
 
 	'SITENAME'           => $bb_cfg['sitename'],
 	'U_INDEX'            => BB_ROOT ."index.php",
