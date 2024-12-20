@@ -2825,3 +2825,6 @@ $lang['UPLOAD_ERRORS'] = array(
 $lang['CAPTCHA'] = 'Перевірка, що ви не робот';
 $lang['CAPTCHA_WRONG'] = 'Ви не змогли підтвердити, що ви не робот';
 $lang['CAPTCHA_SETTINGS'] = '<h2>ReCaptcha налаштована не повністю</h2><p>Якщо ви ще не згенерували ключі, ви можете це зробити на сторінці <a href="https://www.google.com/recaptcha/admin">https://www.google.com/recaptcha/admin</a>.<br />Після того, як ви сгенеріруете ключі, потрібно прописати їх у файл library/config.php.</p>';
+
+// Поиск по статусу раздачи
+$lang['TORRENT_STATUS'] = 'Пошук за статусом роздачі';
