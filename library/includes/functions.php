@@ -1754,11 +1754,15 @@ function generate_pagination ($base_url, $num_items, $per_page, $start_item, $ad
 		if ($on_page > 1)
 		{
 			$page_string = ' <a href="' . $base_url . "&amp;start=" . ( ( $on_page - 2 ) * $per_page ) . '">' . $lang['PREVIOUS_PAGE'] . '</a>&nbsp;&nbsp;' . $page_string;
+			// Улучшение стандартной пагинации
+			$meta_prev_link = FULL_URL . $base_url . "&amp;start=" . (($on_page - 2) * $per_page);
 		}
 
 		if ($on_page < $total_pages)
 		{
 			$page_string .= '&nbsp;&nbsp;<a href="' . $base_url . "&amp;start=" . ( $on_page * $per_page ) . '">' . $lang['NEXT_PAGE'] . '</a>';
+			// Улучшение стандартной пагинации
+			$meta_next_link = FULL_URL . $base_url . "&amp;start=" . ($on_page * $per_page);
 		}
 
 	}
@@ -1771,6 +1775,9 @@ function generate_pagination ($base_url, $num_items, $per_page, $start_item, $ad
 		'PAGE_NUMBER'  => sprintf($lang['PAGE_OF'], ( floor($start_item/$per_page) + 1 ), ceil( $num_items / $per_page )),
 		'PG_BASE_URL'  => $base_url,
 		'PG_PER_PAGE'  => $per_page,
+		// Улучшение стандартной пагинации
+		'META_PREV_PAGE' => isset($meta_prev_link) ? $meta_prev_link : '',
+		'META_NEXT_PAGE' => isset($meta_next_link) ? $meta_next_link : '',
 	));
 
 	return $pagination;

@@ -12,6 +12,12 @@
 <meta property="og:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
 <meta property="twitter:title" content="<!-- IF PAGE_TITLE -->{PAGE_TITLE} :: {SITENAME}<!-- ELSE -->{SITENAME}<!-- ENDIF -->">
 {META}
+<!-- IF META_PREV_PAGE -->
+<link rel="prev" href="{META_PREV_PAGE}">
+<!-- ENDIF / META_PREV_PAGE -->
+<!-- IF META_NEXT_PAGE -->
+<link rel="next" href="{META_NEXT_PAGE}">
+<!-- ENDIF / META_NEXT_PAGE -->
 <link rel="stylesheet" href="{STYLESHEET}?v={$bb_cfg['css_ver']}" type="text/css">
 <link rel="shortcut icon" href="{SITE_URL}favicon.ico" type="image/x-icon">
 <link rel="search" type="application/opensearchdescription+xml" href="{SITE_URL}opensearch_desc.xml" title="{SITENAME} (Forum)" />
