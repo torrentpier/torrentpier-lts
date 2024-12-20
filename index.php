@@ -290,8 +290,9 @@ $template->assign_vars(array(
 	'PAGE_TITLE'            => ($viewcat) ? $cat_title_html[$viewcat] : $lang['HOME'],
 	'NO_FORUMS_MSG'         => ($only_new) ? $lang['NO_NEW_POSTS'] : $lang['NO_FORUMS'],
 
-	// Дата запуска форума в статистике на главной
+	// [Start] Дата запуска форума в статистике на главной
 	'BOARD_START_DATE'      => $bb_cfg['show_board_start_date'] ? bb_date($bb_cfg['board_startdate']) : '',
+	// [End] Дата запуска форума в статистике на главной
 	'TOTAL_TOPICS'          => sprintf($lang['POSTED_TOPICS_TOTAL'], $stats['topiccount']),
 	'TOTAL_POSTS'           => sprintf($lang['POSTED_ARTICLES_TOTAL'], $stats['postcount']),
 	'TOTAL_USERS'           => sprintf($lang['REGISTERED_USERS_TOTAL'], $stats['usercount']),
