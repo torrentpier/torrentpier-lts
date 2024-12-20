@@ -431,7 +431,9 @@ $template->assign_vars(array(
 	'PAGE_TITLE'          => htmlCHR($forum_data['forum_name']),
 	'FORUM_ID'            => $forum_id,
 	'FORUM_NAME'          => htmlCHR($forum_data['forum_name']),
+	// [Start] Вывод описания форума на странице форума
 	'FORUM_DESC'          => htmlCHR($forum_data['forum_desc']),
+	// [End] Вывод описания форума на странице форума
 	'TORRENTS'            => $forum_data['allow_reg_tracker'],
 	'POST_IMG'            => ($forum_data['forum_status'] == FORUM_LOCKED) ? $images['post_locked'] : $post_img,
 
