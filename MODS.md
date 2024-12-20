@@ -11,6 +11,8 @@
 
 # 🔩 [Сборка] Интегрированные моды
 
+## v1.0.0
+
 - Вывод порядкового номера поста в топике v1.0.0 ([ссылка](https://torrentpier.com/threads/vyvod-porjadkovogo-nomera-posta-v-topike.42192/))
 - Вывод описания форума на странице форума v1.1.0 ([ссылка](https://torrentpier.com/threads/vyvod-opisanija-foruma-na-stranice-foruma.42142/))
 - Дата запуска форума в статистике на главной v1.0.0 ([ссылка](https://torrentpier.com/resources/data-zapuska-foruma-v-statistike-na-glavnoj.276/))
