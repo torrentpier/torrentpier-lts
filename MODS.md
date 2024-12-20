@@ -17,3 +17,4 @@
 - Улучшение стандартной пагинации v1.0.0 ([ссылка](https://torrentpier.com/resources/uluchshenie-standartnoj-paginacii.300/))
 - BBCode: Поддержка относительных ссылок v1.0.0 ([ссылка](https://torrentpier.com/resources/bbcode-podderzhka-otnositelnyx-ssylok.306/))
 - Улучшение индексации страниц v1.0.0 ([ссылка](https://torrentpier.com/resources/uluchshenie-indeksacii-stranic.304/))
+- Поиск по статусу раздачи v2.1.0 ([ссылка](https://torrentpier.com/resources/poisk-po-statusu-razdachi.161/))
