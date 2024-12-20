@@ -701,13 +701,15 @@ class bbcode
 
 		$url = trim($m[1]);
 		$url_name = (isset($m[2])) ? trim($m[2]) : $url;
-		$url_parse = parse_url($url);
 
+		// [Start] BBCode: Поддержка относительных ссылок
+		$url_parse = parse_url($url);
 		if (!isset($url_parse['scheme']) && isset($url_parse['path'])) {
 			if (!preg_match('/^([a-zA-Z0-9_\-\.]+\.php)(\?[^#]*)?$/', $url_parse['path'])) {
 				$url = 'http://' . $url;
 			}
 		}
+		// [End] BBCode: Поддержка относительных ссылок
 
 		if (in_array(parse_url($url, PHP_URL_HOST), $bb_cfg['nofollow']['allowed_url']) || $bb_cfg['nofollow']['disabled'])
 		{
