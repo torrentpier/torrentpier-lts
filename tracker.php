@@ -50,6 +50,8 @@ $user_id     = $userdata['user_id'];
 $lastvisit   = (!IS_GUEST) ? $userdata['user_lastvisit'] : '';
 $search_id   = (isset($_GET['search_id']) && verify_id($_GET['search_id'], SEARCH_ID_LENGTH)) ? $_GET['search_id'] : '';
 $session_id  = $userdata['session_id'];
+// Поиск по статусу раздачи
+$status      = (isset($_POST['status']) && is_array($_POST['status'])) ? $_POST['status'] : array();
 
 $cat_forum = $tor_to_show = $search_in_forums_ary = array();
 $title_match_sql = $title_match_q = $search_in_forums_csv = '';
@@ -675,6 +677,12 @@ if ($allowed_forums)
 			$SQL['WHERE'][] = "tor.tor_type IN(" . TOR_TYPE_GOLD . "," . TOR_TYPE_SILVER . ")";
 		}
 
+		// Поиск по статусу раздачи
+		if (!empty($status))
+		{
+			$SQL['WHERE'][] = "tor.tor_status IN(" . implode(', ', $status) . ")";
+		}
+
 		// ORDER
 		$SQL['ORDER BY'][] = "{$order_opt[$order_val]['sql']} {$sort_opt[$sort_val]['sql']}";
 
@@ -903,6 +911,21 @@ foreach ($cat_forum['c'] as $cat_id => $forums_ary)
 $search_all_opt = '<option value="'. $search_all .'" value="fs-'. $search_all .'"'. (($forum_val == $search_all) ? HTML_SELECTED : '') .'>&nbsp;'. htmlCHR($lang['ALL_AVAILABLE']) ."</option>\n";
 $cat_forum_select = "\n".'<select id="fs-main" style="width: 100%;" name="'. $forum_key .'[]" multiple="multiple" size="'. $forum_select_size ."\">\n". $search_all_opt . $opt ."</select>\n";
 
+// Поиск по статусу раздачи
+$statuses = '';
+if ($bb_cfg['search_by_tor_status']) {
+	$statuses = '<table border="0" cellpadding="0" cellspacing="0">';
+	foreach (array_chunk($bb_cfg['tor_icons'], 2, true) as $statuses_part) {
+		$statuses .= '<tr>';
+		foreach ($statuses_part as $status_id => $status_styles) {
+			$checked_status = in_array($status_id, $status) ? 'checked' : '';
+			$statuses .= '<td><p class="chbox"><label><input type="checkbox" name="status[]" value="' . $status_id . '"' . $checked_status . '>' . $status_styles . '&nbsp;' . $lang['TOR_STATUS_NAME'][$status_id] . '</label></p></td>';
+		}
+		$statuses .= '</tr>';
+	}
+	$statuses .= '</table>';
+}
+
 // Sort dir
 $template->assign_vars(array(
 	'SORT_NAME'         => $sort_key,
@@ -982,6 +1005,9 @@ $template->assign_vars(array(
 	'S_RG_SELECT'       => build_select($s_rg_key, $s_release_group_select, $s_rg_val),
 	'TOR_SEARCH_ACTION' => $tracker_url,
 	'TOR_COLSPAN'       => $tor_colspan,
+	// [Start] Поиск по статусу раздачи
+	'TOR_STATUS'        => $statuses,
+	// [End] Поиск по статусу раздачи
 	'TITLE_MATCH_MAX'   => $title_match_max_len,
 	'POSTER_NAME_MAX'   => $poster_name_max_len,
 	'POSTER_ERROR'      => $poster_error,
