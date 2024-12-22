@@ -53,6 +53,7 @@ $lang['ERROR'] = 'Помилка';
 $lang['SELECT_ACTION'] = 'Виберіть дію';
 $lang['CLEAR'] = 'Очистити';
 $lang['MOVE_TO_TOP'] = 'На початок';
+$lang['PRINT_PAGE'] = 'Друкувати сторінку';
 
 $lang['NEXT_PAGE'] = 'Наступ.';
 $lang['PREVIOUS_PAGE'] = 'Попер.';
