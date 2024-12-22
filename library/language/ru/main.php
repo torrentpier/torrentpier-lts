@@ -53,6 +53,7 @@ $lang['ERROR'] = 'Ошибка';
 $lang['SELECT_ACTION'] = 'Выберите действие';
 $lang['CLEAR'] = 'Очистить';
 $lang['MOVE_TO_TOP'] = 'В начало';
+$lang['PRINT_PAGE'] = 'Распечатать страницу';
 
 $lang['NEXT_PAGE'] = 'След.';
 $lang['PREVIOUS_PAGE'] = 'Пред.';
