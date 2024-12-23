@@ -1,9 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2024.XX [Final v10]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.XX) (2024-XX-XX)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10-HotFix...v2.1.5-2024.XX)
+## [v2.1.5-2024.12 [Final v10]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2024.12) (2024-12-23)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.10-HotFix...v2.1.5-2024.12)
 
-- Release v2.1.5-2024.XX 🎉
+- Release v2.1.5-2024.12 🎉
 - Added support avif images in BBCode
 - Set cursor: pointer; for buttons, inputs (buttons)
 - Show torrent status changes in actions log
