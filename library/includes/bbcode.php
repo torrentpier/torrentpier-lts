@@ -873,7 +873,7 @@ class words_rate
 		$this->del_text_hl   = $text;
 
 		// длинное сообщение
-		if (strlen($text) > 600)
+		if (mb_strlen($text, 'UTF-8') > 600)
 		{
 			return $this->words_rate;
 		}
