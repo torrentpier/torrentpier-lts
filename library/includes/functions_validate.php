@@ -78,7 +78,7 @@ function validate_email ($email, $check_ban_and_taken = true)
 	{
 		return $lang['EMAIL_INVALID'];
 	}
-	if (strlen($email) > USEREMAIL_MAX_LENGTH)
+	if (mb_strlen($email, 'UTF-8') > USEREMAIL_MAX_LENGTH)
 	{
 		return $lang['EMAIL_TOO_LONG'];
 	}
