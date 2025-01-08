@@ -1865,7 +1865,7 @@ function bb_die ($msg_text)
 
 	$template->assign_vars(array(
 		'TPL_BB_DIE'   => true,
-		'MESSAGE_TEXT' => $msg_text,
+		'MESSAGE_TEXT' => htmlCHR($msg_text),
 	));
 
 	$template->set_filenames(array('bb_die' => 'common.tpl'));
