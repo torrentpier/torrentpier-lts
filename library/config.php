@@ -600,6 +600,7 @@ $bb_cfg['captcha'] = array(
 		'secret_key' => ''
 	),
 	'yandex_captcha' => array(
+		// https://yandex.cloud/ru/docs/smartcaptcha/quickstart
 		'server_key' => '', // token
 		'client_key' => '',
 	),
