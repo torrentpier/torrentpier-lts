@@ -2903,7 +2903,7 @@ function bb_captcha($mode)
 		case 'check':
 		case 'get':
 			$captchaMethod = $captchaMethod . '_' . $mode;
-			return $captchaMethod(); // function
+			return $captchaMethod($settings); // function
 		default:
 			bb_die("Invalid mode: $mode");
 	}

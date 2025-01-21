@@ -1,19 +1,13 @@
 <?php
 
-$secret = $settings['secret_key'];
-$public = $settings['public_key'];
-$theme = isset($settings['theme']) ? $settings['theme'] : 'light';
-
-function recaptcha_v2_get()
+function recaptcha_v2_get($settings)
 {
-	global $public, $theme;
-
 	return "
 		<script type=\"text/javascript\">
 			var onloadCallback = function() {
 				grecaptcha.render('tp-captcha', {
-					'sitekey'  : '" . $public . "',
-					'theme'    : '" . $theme . "'
+					'sitekey'  : '" . $settings['public_key'] . "',
+					'theme'    : '" . (isset($settings['theme']) ? $settings['theme'] : 'light') . "'
 				});
 			};
 		</script>
@@ -21,14 +15,12 @@ function recaptcha_v2_get()
 		<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit\" async defer></script>";
 }
 
-function recaptcha_v2_check()
+function recaptcha_v2_check($settings)
 {
-	global $secret;
-
 	$resp = null;
 
 	require_once(CLASS_DIR . 'recaptcha.php');
-	$reCaptcha = new ReCaptcha($secret);
+	$reCaptcha = new ReCaptcha($settings['secret_key']);
 
 	$g_resp = request_var('g-recaptcha-response', '');
 	if ($g_resp) {
