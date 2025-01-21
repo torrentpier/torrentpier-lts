@@ -2872,16 +2872,16 @@ function bb_captcha($mode)
 	global $bb_cfg;
 
 	// Разрешенные методы капчи
-	define('CAPTCHA_ALLOWED_METHODS', array(
+	$allowedCaptchaMethods = array(
 		'recaptcha_v2',
 		'recaptcha_v3',
 		'hcaptcha',
 		'yandex_captcha'
-	));
+	);
 
 	// Проверка выбранного метода капчи
 	$captchaMethod = $bb_cfg['captcha']['captcha_method'];
-	if (!in_array($captchaMethod, CAPTCHA_ALLOWED_METHODS)) {
+	if (!in_array($captchaMethod, $allowedCaptchaMethods)) {
 		bb_die("Капча ($captchaMethod) не поддерживается!");
 	}
 
@@ -2902,7 +2902,8 @@ function bb_captcha($mode)
 	switch ($mode) {
 		case 'check':
 		case 'get':
-			return $captchaMethod . '_' . $mode . '()'; // function
+			$captchaMethod = $captchaMethod . '_' . $mode;
+			return $captchaMethod(); // function
 		default:
 			bb_die("Invalid mode: $mode");
 	}
