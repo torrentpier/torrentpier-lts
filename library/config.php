@@ -27,7 +27,7 @@ $pconnect = false;  // постоянное соединение с сервер
 // Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост:порт, название базы, пользователь, пароль, кодировка, постоянное соединение);
 $bb_cfg['db'] = array(
-	'db1' => array('localhost:3306', 'tp_215_lts', 'user', 'pass', $charset, $pconnect),
+	'db1' => array('mariadb-11.2:3306', 'tp_215_lts', 'root', '', $charset, $pconnect),
 	//'db2' => array('localhost2:3306', 'dbase2', 'user2', 'pass2', $charset, $pconnect),
 	//'db3' => array('localhost3:3306', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
@@ -581,16 +581,19 @@ $bb_cfg['group_avatars'] = array(
 
 // Captcha
 $bb_cfg['captcha'] = array(
-	'disabled' => true, // отключить капчу
-	'captcha_method' => 'recaptcha_v2', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
+	'disabled' => false, // отключить капчу
+	'captcha_method' => 'hcaptcha', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
 	'recaptcha_v2' => array(
 		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
-		'public_key' => '', // ключ сайта
-		'secret_key' => '', // секретный ключ
+		'public_key' => '6LcNg74qAAAAANFYEyMyG2qDpCnIFWoWqBatqVIw', // ключ сайта
+		'secret_key' => '6LcNg74qAAAAAFHF0Lz4muFt4Jqnnp4w2qVV7XMT', // секретный ключ
 		'theme' => 'light', // выбор темы (доступны: light, dark)
 	),
 	'recaptcha_v3' => array(),
-	'hcaptcha' => array(),
+	'hcaptcha' => array(
+		'site_key' => '',
+		'secret_key' => ''
+	),
 	'yandex_captcha' => array(
 		'server_key' => '', // token
 		'client_key' => '',
