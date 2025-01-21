@@ -11,7 +11,7 @@ function yandex_captcha_check($settings)
 {
 	$ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
 	$args = [
-		'secret' => $serverKey,
+		'secret' => $settings['server_key'],
 		'token' => htmlCHR($_POST['smart-token']),
 		'ip' => $_SERVER["REMOTE_ADDR"],
 	];
