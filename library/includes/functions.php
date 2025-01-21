@@ -2861,55 +2861,51 @@ function hash_search ($hash)
 	}
 }
 
-function bb_captcha ($mode, $callback = '')
+/**
+ * Улучшенная капча
+ *
+ * @param $mode
+ * @return bool|string
+ */
+function bb_captcha($mode)
 {
-	global $bb_cfg, $lang;
+	global $bb_cfg;
 
-	$secret = $bb_cfg['captcha']['secret_key'];
-	$public = $bb_cfg['captcha']['public_key'];
-	$theme  = isset($bb_cfg['captcha']['theme']) ? $bb_cfg['captcha']['theme'] : 'light';
+	// Разрешенные методы капчи
+	define('CAPTCHA_ALLOWED_METHODS', array(
+		'recaptcha_v2',
+		'recaptcha_v3',
+		'hcaptcha',
+		'yandex_captcha'
+	));
 
-	if (!$bb_cfg['captcha']['disabled'] && (!$public || !$secret))
-	{
-		bb_die($lang['CAPTCHA_SETTINGS']);
+	// Проверка выбранного метода капчи
+	$captchaMethod = $bb_cfg['captcha']['captcha_method'];
+	if (!in_array($captchaMethod, CAPTCHA_ALLOWED_METHODS)) {
+		bb_die("Капча ($captchaMethod) не поддерживается!");
 	}
 
-	require_once(CLASS_DIR .'recaptcha.php');
-	$reCaptcha = new ReCaptcha($secret);
+	// Проверка настроек выбранной капчи
+	$settings = isset($bb_cfg['captcha'][$captchaMethod]) ? $bb_cfg['captcha'][$captchaMethod] : [];
+	if (empty($settings)) {
+		bb_die("Не найдены настройки для этой капчи ($captchaMethod)");
+	}
 
-	switch ($mode)
-	{
-		case 'get':
-			return "
-				<script type=\"text/javascript\">
-					var onloadCallback = function() {
-						grecaptcha.render('tp-captcha', {
-							'sitekey'  : '" . $public . "',
-							'theme'    : '" . $theme . "',
-							'callback' : '" . $callback . "'
-						});
-					};
-				</script>
-				<div id=\"tp-captcha\"></div>
-				<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit\" async defer></script>";
-			break;
+	// Подключение файла капчи
+	if (is_file(INC_DIR . 'captcha/' . $captchaMethod . '.php')) {
+		require_once(INC_DIR . 'captcha/' . $captchaMethod . '.php');
+	} else {
+		bb_die(sprintf("Не найден файл для работы с капчей (%s)", (INC_DIR . 'captcha/' . $captchaMethod . '.php')));
+	}
 
+	// Проверка
+	switch ($mode) {
 		case 'check':
-			$resp = null;
-			$error = null;
-			$g_resp = request_var('g-recaptcha-response', '');
-			if ($g_resp) {
-				$resp = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $g_resp);
-			}
-			if ($resp != null && $resp->success) {
-				return true;
-			} else {
-				return false;
-			}
-			break;
-
+		case 'get':
+			return $captchaMethod . '_' . $mode . '()'; // function
 		default:
-			bb_simple_die(__FUNCTION__ .": invalid mode '$mode'");
+			bb_die("Invalid mode: $mode");
 	}
+
 	return false;
 }
