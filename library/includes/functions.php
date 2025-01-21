@@ -2876,7 +2876,8 @@ function bb_captcha($mode)
 		'recaptcha_v2',
 		'recaptcha_v3',
 		'hcaptcha',
-		'yandex_captcha'
+		'yandex_captcha',
+		'cloudflare_turnstile',
 	);
 
 	// Проверка выбранного метода капчи
