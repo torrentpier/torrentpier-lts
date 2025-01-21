@@ -1,7 +1,5 @@
 <?php
 
-global $settings;
-
 $secret = $settings['secret_key'];
 $public = $settings['public_key'];
 $theme = isset($settings['theme']) ? $settings['theme'] : 'light';
