@@ -582,14 +582,18 @@ $bb_cfg['group_avatars'] = array(
 // Captcha
 $bb_cfg['captcha'] = array(
 	'disabled' => false, // отключить капчу
-	'captcha_method' => 'hcaptcha', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
+	'captcha_method' => 'recaptcha_v3', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
 	'recaptcha_v2' => array(
 		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
 		'public_key' => '', // ключ сайта
 		'secret_key' => '', // секретный ключ
 		'theme' => 'light', // выбор темы (доступны: light, dark)
 	),
-	'recaptcha_v3' => array(),
+	'recaptcha_v3' => array(
+		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
+		'site_key' => '',
+		'secret_key' => '',
+	),
 	'hcaptcha' => array(
 		// Получить ключи можно в админ-панели: https://dashboard.hcaptcha.com/overview
 		'site_key' => '',
