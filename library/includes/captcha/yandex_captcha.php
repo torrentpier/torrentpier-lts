@@ -9,11 +9,11 @@ function yandex_captcha_get($settings)
 
 function yandex_captcha_check($settings)
 {
-	$ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+	$ch = curl_init('https://smartcaptcha.yandexcloud.net/validate');
 	$args = [
 		'secret' => $settings['server_key'],
 		'token' => $_POST['smart-token'],
-		'ip' => $_SERVER["REMOTE_ADDR"],
+		'ip' => $_SERVER['REMOTE_ADDR'],
 	];
 
 	curl_setopt($ch, CURLOPT_TIMEOUT, 1);
