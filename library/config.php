@@ -579,13 +579,19 @@ $bb_cfg['group_avatars'] = array(
 	'up_allowed'  => true,                            // разрешить загрузку аватар
 );
 
-// Captcha (reCAPTCHA v2)
-// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
+// Captcha
 $bb_cfg['captcha'] = array(
-	'disabled'   => true, // отключить капчу
-	'public_key' => '',   // ключ сайта
-	'secret_key' => '',   // секретный ключ
-	'theme'      => 'light', // выбор темы (доступны: light, dark)
+	'disabled' => true, // отключить капчу
+	'captcha_method' => 'recaptcha_v2', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
+	'recaptcha_v2' => array(
+		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
+		'public_key' => '', // ключ сайта
+		'secret_key' => '', // секретный ключ
+		'theme' => 'light', // выбор темы (доступны: light, dark)
+	),
+	'recaptcha_v3' => array(),
+	'hcaptcha' => array(),
+	'yandex_captcha' => array(),
 );
 
 // Atom feed
