@@ -2,7 +2,7 @@
 
 function recaptcha_v3_get($settings)
 {
-	return "
+	return "Продолжайте регистрацию, проверка происходит в фоновом режиме
 	<script src='https://www.google.com/recaptcha/api.js?render={$settings['site_key']}'></script>
 	<script>
 		grecaptcha.ready(function() {
