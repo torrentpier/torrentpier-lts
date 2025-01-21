@@ -585,12 +585,13 @@ $bb_cfg['captcha'] = array(
 	'captcha_method' => 'hcaptcha', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha
 	'recaptcha_v2' => array(
 		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
-		'public_key' => '6LcNg74qAAAAANFYEyMyG2qDpCnIFWoWqBatqVIw', // ключ сайта
-		'secret_key' => '6LcNg74qAAAAAFHF0Lz4muFt4Jqnnp4w2qVV7XMT', // секретный ключ
+		'public_key' => '', // ключ сайта
+		'secret_key' => '', // секретный ключ
 		'theme' => 'light', // выбор темы (доступны: light, dark)
 	),
 	'recaptcha_v3' => array(),
 	'hcaptcha' => array(
+		// Получить ключи можно в админ-панели: https://dashboard.hcaptcha.com/overview
 		'site_key' => '',
 		'secret_key' => ''
 	),
