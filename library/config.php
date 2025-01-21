@@ -591,22 +591,23 @@ $bb_cfg['captcha'] = array(
 	),
 	'recaptcha_v3' => array(
 		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
-		'site_key' => '',
-		'secret_key' => '',
+		'site_key' => '', // ключ сайта
+		'secret_key' => '', // секретный ключ
 	),
 	'hcaptcha' => array(
 		// Получить ключи можно в админ-панели: https://dashboard.hcaptcha.com/overview
-		'site_key' => '',
-		'secret_key' => '',
+		'site_key' => '', // ключ сайта
+		'secret_key' => '', // секретный ключ
 	),
 	'yandex_captcha' => array(
 		// https://yandex.cloud/ru/docs/smartcaptcha/quickstart
-		'server_key' => '', // token
-		'client_key' => '',
+		'server_key' => '', // token (приватный ключ)
+		'client_key' => '', // клиентский ключ (публичный)
 	),
 	'cloudflare_turnstile' => array(
-		'site_key' => '',
-		'secret_key' => '',
+		// https://www.cloudflare.com/application-services/products/turnstile
+		'site_key' => '', // ключ сайта
+		'secret_key' => '', // секретный ключ
 	),
 );
 
