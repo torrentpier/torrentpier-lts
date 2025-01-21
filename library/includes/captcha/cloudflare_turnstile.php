@@ -21,7 +21,7 @@ function cloudflare_turnstile_check($settings)
 	curl_close($ch);
 
 	$response_data = json_decode($response);
-	if ($response_data->success == 1) {
+	if ($response_data->success) {
 		return true;
 	} else {
 		return false;
