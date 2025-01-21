@@ -2891,6 +2891,11 @@ function bb_captcha($mode)
 	if (empty($settings)) {
 		bb_die("Не найдены настройки для этой капчи ($captchaMethod)");
 	}
+	foreach ($settings as $key => $setting) {
+		if (empty($setting)) {
+			bb_die("Капча ($captchaMethod) не настроена ($key)");
+		}
+	}
 
 	// Подключение файла капчи
 	if (is_file(INC_DIR . 'captcha/' . $captchaMethod . '.php')) {
