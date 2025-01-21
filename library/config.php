@@ -591,7 +591,10 @@ $bb_cfg['captcha'] = array(
 	),
 	'recaptcha_v3' => array(),
 	'hcaptcha' => array(),
-	'yandex_captcha' => array(),
+	'yandex_captcha' => array(
+		'server_key' => '', // token
+		'client_key' => '',
+	),
 );
 
 // Atom feed
