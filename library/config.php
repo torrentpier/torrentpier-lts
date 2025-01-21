@@ -582,7 +582,7 @@ $bb_cfg['group_avatars'] = array(
 // Captcha
 $bb_cfg['captcha'] = array(
 	'disabled' => false, // отключить капчу
-	'captcha_method' => 'recaptcha_v3', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha, cloudflare_turnstile
+	'captcha_method' => 'cloudflare_turnstile', // доступные: recaptcha_v2, recaptcha_v3, hcaptcha, yandex_captcha, cloudflare_turnstile
 	'recaptcha_v2' => array(
 		// Получить ключи можно в админ-панели reCAPTCHA: https://www.google.com/recaptcha/admin
 		'public_key' => '', // ключ сайта
@@ -597,14 +597,17 @@ $bb_cfg['captcha'] = array(
 	'hcaptcha' => array(
 		// Получить ключи можно в админ-панели: https://dashboard.hcaptcha.com/overview
 		'site_key' => '',
-		'secret_key' => ''
+		'secret_key' => '',
 	),
 	'yandex_captcha' => array(
 		// https://yandex.cloud/ru/docs/smartcaptcha/quickstart
 		'server_key' => '', // token
 		'client_key' => '',
 	),
-	'cloudflare_turnstile' => array(),
+	'cloudflare_turnstile' => array(
+		'site_key' => '',
+		'secret_key' => '',
+	),
 );
 
 // Atom feed
