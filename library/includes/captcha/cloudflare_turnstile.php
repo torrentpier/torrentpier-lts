@@ -10,7 +10,7 @@ function cloudflare_turnstile_get($settings)
 function cloudflare_turnstile_check($settings)
 {
 	$turnstile_response = $_POST['cf-turnstile-response'];
-	$url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+	$url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 	$post_fields = "secret={$settings['secret_key']}&response=$turnstile_response";
 
 	$ch = curl_init($url);
