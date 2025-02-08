@@ -883,7 +883,7 @@ DROP TABLE IF EXISTS `bb_privmsgs`;
 CREATE TABLE IF NOT EXISTS `bb_privmsgs` (
   `privmsgs_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `privmsgs_type` tinyint(4) NOT NULL DEFAULT '0',
-  `privmsgs_subject` varchar(255) NOT NULL DEFAULT '0',
+  `privmsgs_subject` varchar(255) NOT NULL DEFAULT '',
   `privmsgs_from_userid` mediumint(8) NOT NULL DEFAULT '0',
   `privmsgs_to_userid` mediumint(8) NOT NULL DEFAULT '0',
   `privmsgs_date` int(11) NOT NULL DEFAULT '0',
