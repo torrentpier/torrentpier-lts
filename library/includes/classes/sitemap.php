@@ -108,12 +108,12 @@ class sitemap
 		$not_forums_id = $forums['not_auth_forums']['guest_view'];
 		$ignore_forum_sql = ($not_forums_id) ? "WHERE forum_id NOT IN($not_forums_id)" : '';
 
-		$sql = DB()->sql_query("SELECT topic_id, topic_title, topic_time FROM " . BB_TOPICS . " " . $ignore_forum_sql . " ORDER BY topic_time ASC" . $this->limit);
+		$sql = DB()->sql_query("SELECT topic_id, topic_title, topic_last_post_time FROM " . BB_TOPICS . " " . $ignore_forum_sql . " ORDER BY topic_last_post_time ASC" . $this->limit);
 
 		while ($row = DB()->sql_fetchrow($sql)) {
 			if (function_exists('seo_url')) $loc = $this->home . seo_url(TOPIC_URL . $row['topic_id'], $row['topic_title']);
 			else $loc = $this->home . TOPIC_URL . $row['topic_id'];
-			$xml .= $this->get_xml($loc, date('c', $row['topic_time']));
+			$xml .= $this->get_xml($loc, date('c', $row['topic_last_post_time']));
 		}
 
 		return $xml;
