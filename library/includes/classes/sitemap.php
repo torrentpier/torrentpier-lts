@@ -60,7 +60,6 @@ class sitemap
 
 		$this->priority = $this->cat_priority;
 		$xml = '';
-		$lm = date('c');
 
 		if (!$forums = $datastore->get('cat_forums')) {
 			$datastore->update('cat_forums');
@@ -68,14 +67,24 @@ class sitemap
 		}
 
 		$not_forums_id = $forums['not_auth_forums']['guest_view'];
-		$ignore_forum_sql = ($not_forums_id) ? "WHERE forum_id NOT IN($not_forums_id)" : '';
+		$ignore_forum_sql = ($not_forums_id) ? "WHERE f.forum_id NOT IN($not_forums_id)" : '';
 
-		$sql = DB()->sql_query("SELECT forum_id, forum_topics, forum_parent, forum_name FROM " . BB_FORUMS . " " . $ignore_forum_sql . " ORDER BY forum_id ASC");
+		$sql = DB()->sql_query("
+			SELECT
+				f.forum_id,
+				f.forum_name,
+				MAX(t.topic_time) AS last_topic_time
+			FROM " . BB_FORUMS . " f
+			LEFT JOIN " . BB_TOPICS . " t ON f.forum_id = t.forum_id
+			" . $ignore_forum_sql . "
+			GROUP BY f.forum_id, f.forum_name
+			ORDER BY f.forum_id ASC
+		");
 
 		while ($row = DB()->sql_fetchrow($sql)) {
 			if (function_exists('seo_url')) $loc = $this->home . seo_url(FORUM_URL . $row['forum_id'], $row['forum_name']);
 			else $loc = $this->home . FORUM_URL . $row['forum_id'];
-			$xml .= $this->get_xml($loc, $lm);
+			$xml .= $this->get_xml($loc, date('c', $row['last_topic_time']));
 		}
 
 		return $xml;
