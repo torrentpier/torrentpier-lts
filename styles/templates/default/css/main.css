@@ -95,7 +95,7 @@ body, th, td, font {
 				width: 240px;
 			}
 			#sidebar1-wrap { margin-top: -8px; width: 210px; }
-			#sidebar2-wrap {}
+			#sidebar2-wrap { margin-top: -8px; }
 			#main_content {
 				vertical-align: top;
 			}
@@ -596,7 +596,7 @@ table.smilies td { padding: 3px; text-align: center; }
 	margin-top: -8px; width: 210px; padding: 0 6px 0 3px; vertical-align: top;
 }
 #sidebar2 h3 {
-	padding: 0 0 4px 0; margin: 0 0 2px 0;
+	padding: 0 0 4px 0; margin: 8px 0 2px 0;
 	color: #333333; text-indent: 0.5em;
 	background: transparent url(../images/hr200_ltr_gradient.jpg) no-repeat left bottom;
 }
