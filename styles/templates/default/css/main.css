@@ -609,7 +609,7 @@ table.smilies td { padding: 3px; text-align: center; }
      User ratio
  * ---------------------------------- */
 #user_ratio {
-	padding: 1px 6px 0 0; font-size: 11px;
+	font-size: 11px;
 }
 #user_ratio td {
 	padding: 1px 6px 1px 6px ; font-size: 11px;
