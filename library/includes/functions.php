@@ -1691,6 +1691,11 @@ function generate_pagination ($base_url, $num_items, $per_page, $start_item, $ad
 
 	$on_page = floor($start_item / $per_page) + 1;
 
+	if (strpos($base_url, '?') === false)
+	{
+		$base_url = $base_url . '?';
+	}
+
 	$page_string = '';
 	if ($total_pages > ((2*($begin_end + $from_middle)) + 2))
 	{
