@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2025.04 🎉
 - Improved sitemap generation
+- Fixed pagination issue (in admin_log.php)
 - Fixed YouTube player
 - Fixed broken table sorting in groups page (For pending users)
 - Some other changes / improvements
