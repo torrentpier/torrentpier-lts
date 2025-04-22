@@ -73,6 +73,7 @@ $forum_name_html = $forums['forum_name_html'];
 
 $anon = GUEST_UID;
 $excluded_forums_csv = $user->get_excluded_forums(AUTH_VIEW);
+$excluded_forums_array = $excluded_forums_csv ? explode(',', $excluded_forums_csv) : array();
 $only_new = $user->opt_js['only_new'];
 
 // Validate requested category id
@@ -339,6 +340,10 @@ if ($bb_cfg['show_latest_news'])
 
 	foreach ($latest_news as $news)
 	{
+		if (in_array($news['forum_id'], $excluded_forums_array))
+		{
+			continue;
+		}
 		$template->assign_block_vars('news', array(
 			'NEWS_TOPIC_ID' => $news['topic_id'],
 			'NEWS_TITLE'    => str_short(preg_replace($orig_word, $replacement_word, $news['topic_title']), $bb_cfg['max_news_title']),
@@ -363,6 +368,10 @@ if ($bb_cfg['show_network_news'])
 
 	foreach ($network_news as $net)
 	{
+		if (in_array($net['forum_id'], $excluded_forums_array))
+		{
+			continue;
+		}
 		$template->assign_block_vars('net', array(
 			'NEWS_TOPIC_ID' => $net['topic_id'],
 			'NEWS_TITLE'    => str_short(preg_replace($orig_word, $replacement_word, $net['topic_title']), $bb_cfg['max_net_title']),

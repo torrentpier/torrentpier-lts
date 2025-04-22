@@ -798,6 +798,15 @@ class bbcode
 			$text = $parsed_text;
 		}
 
+		if (defined('IN_ADMIN'))
+		{
+			foreach ($this->smilies['repl'] as &$smile)
+			{
+				$smile = preg_replace('/src="([^"]+)"/', 'src="./../$1"', $smile);
+			}
+			unset($smile);
+		}
+
 		return $text;
 	}
 
