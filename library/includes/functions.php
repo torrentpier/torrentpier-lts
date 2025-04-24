@@ -2622,7 +2622,7 @@ function pad_with_space ($str)
 	return ($str) ? " $str " : $str;
 }
 
-function create_magnet ($infohash, $auth_key, $name)
+function create_magnet ($infohash, $auth_key, $name, $length = 0)
 {
 	global $bb_cfg, $images, $lang, $userdata;
 
