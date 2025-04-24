@@ -2649,8 +2649,15 @@ function create_magnet ($infohash, $auth_key, $name, $length = 0)
 		$passkey = $auth_key;
 	}
 
+	$length = isset($length) ? (int)$length : 0;
+	if ($length > 0) {
+		$length = '&xl=' . $length;
+	} else {
+		$length = '';
+	}
+
 	$passkey_url = $passkey ? "?{$bb_cfg['passkey_key']}=$auth_key" : '';
-	return '<a title="'.$lang['MAGNET'].'" href="magnet:?xt=urn:btih:'. bin2hex($infohash) .'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'&dn='. urlencode($name) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
+	return '<a title="'.$lang['MAGNET'].'" href="magnet:?xt=urn:btih:'. bin2hex($infohash) .$length.'&tr='. urlencode($bb_cfg['bt_announce_url'] . $passkey_url) .'&dn='. urlencode($name) .'"><img src="'. $images['icon_magnet'] .'" width="12" height="12" border="0" /></a>';
 }
 
 function set_die_append_msg ($forum_id = null, $topic_id = null, $group_id = null)
