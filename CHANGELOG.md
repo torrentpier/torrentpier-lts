@@ -4,8 +4,10 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.XX)
 
 - Release v2.1.5-2025.XX 🎉
+- Fixed TorrentPier build-in emojis showing in ACP
 - Fixed displaying `Network news` and `Latest news` for guests when forums are private
 - Added `xl` (eXact Length) parameter for magnet links
+- Changed placeholder IP address from `7f000001` to `0`
 
 ## [v2.1.5-2025.04 [Final v11]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.04) (2025-04-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.12...v2.1.5-2025.04)
