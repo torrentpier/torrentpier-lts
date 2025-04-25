@@ -1,5 +1,12 @@
 # 📖 Change Log
 
+## [v2.1.5-2025.XX [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.XX) (2025-XX-XX)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.XX)
+
+- Release v2.1.5-2025.XX 🎉
+- Fixed displaying `Network news` and `Latest news` for guests when forums are private
+- Added `xl` (eXact Length) parameter for magnet links
+
 ## [v2.1.5-2025.04 [Final v11]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.04) (2025-04-04)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2024.12...v2.1.5-2025.04)
 
