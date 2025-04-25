@@ -153,7 +153,7 @@ DROP TABLE IF EXISTS `bb_banlist`;
 CREATE TABLE IF NOT EXISTS `bb_banlist` (
   `ban_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `ban_userid` mediumint(8) NOT NULL DEFAULT '0',
-  `ban_ip` varchar(32) NOT NULL DEFAULT '0',
+  `ban_ip` varchar(32) NOT NULL DEFAULT '',
   `ban_email` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ban_id`),
   KEY `ban_ip_user_id` (`ban_ip`,`ban_userid`)
@@ -749,7 +749,7 @@ CREATE TABLE IF NOT EXISTS `bb_log` (
   `log_type_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `log_user_id` mediumint(9) NOT NULL DEFAULT '0',
   `log_username` varchar(25) NOT NULL DEFAULT '',
-  `log_user_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `log_user_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `log_forum_id` smallint(5) unsigned NOT NULL DEFAULT '0',
   `log_forum_id_new` smallint(5) unsigned NOT NULL DEFAULT '0',
   `log_topic_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -773,7 +773,7 @@ DROP TABLE IF EXISTS `bb_poll_users`;
 CREATE TABLE IF NOT EXISTS `bb_poll_users` (
   `topic_id` int(10) unsigned NOT NULL,
   `user_id` int(11) NOT NULL,
-  `vote_ip` varchar(32) NOT NULL DEFAULT '0',
+  `vote_ip` varchar(32) NOT NULL DEFAULT '',
   `vote_dt` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`topic_id`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
