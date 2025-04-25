@@ -808,7 +808,7 @@ CREATE TABLE IF NOT EXISTS `bb_posts` (
   `forum_id` smallint(5) unsigned NOT NULL DEFAULT '0',
   `poster_id` mediumint(8) NOT NULL DEFAULT '0',
   `post_time` int(11) NOT NULL DEFAULT '0',
-  `poster_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `poster_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `poster_rg_id` mediumint(8) NOT NULL DEFAULT '0',
   `attach_rg_sig` tinyint(4) NOT NULL DEFAULT '0',
   `post_username` varchar(25) NOT NULL DEFAULT '',
@@ -887,7 +887,7 @@ CREATE TABLE IF NOT EXISTS `bb_privmsgs` (
   `privmsgs_from_userid` mediumint(8) NOT NULL DEFAULT '0',
   `privmsgs_to_userid` mediumint(8) NOT NULL DEFAULT '0',
   `privmsgs_date` int(11) NOT NULL DEFAULT '0',
-  `privmsgs_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `privmsgs_ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`privmsgs_id`),
   KEY `privmsgs_from_userid` (`privmsgs_from_userid`),
   KEY `privmsgs_to_userid` (`privmsgs_to_userid`)
@@ -998,7 +998,7 @@ CREATE TABLE IF NOT EXISTS `bb_sessions` (
   `session_user_id` mediumint(8) NOT NULL DEFAULT '0',
   `session_start` int(11) NOT NULL DEFAULT '0',
   `session_time` int(11) NOT NULL DEFAULT '0',
-  `session_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `session_ip` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `session_logged_in` tinyint(1) NOT NULL DEFAULT '0',
   `session_admin` tinyint(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`session_id`)
