@@ -44,7 +44,7 @@ class datastore_common
 	function datastore_common () {}
 
 	/**
-	 * @param  array $items array(item1_title, item2_title...) or single item's title
+	 * @param  array|string $items array(item1_title, item2_title...) or single item's title
 	 */
 	function enqueue ($items)
 	{
