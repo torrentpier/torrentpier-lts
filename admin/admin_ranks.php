@@ -189,7 +189,8 @@ if ($mode != '')
 			$rank_id = 0;
 		}
 
-		if ($confirmed) {
+		if ($confirmed)
+		{
 			if ($rank_id)
 			{
 				$sql = "DELETE FROM " . BB_RANKS . " WHERE rank_id = $rank_id";
