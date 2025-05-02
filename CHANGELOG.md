@@ -7,6 +7,7 @@
 - Fixed TorrentPier build-in emojis showing in ACP
 - Fixed displaying `Network news` and `Latest news` for guests when forums are private
 - Added `xl` (eXact Length) parameter for magnet links
+- Added confirmation on rank deleting
 - Some other changes / improvements
 
 ## [v2.1.5-2025.04 [Final v11]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.04) (2025-04-04)
