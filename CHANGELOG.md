@@ -6,6 +6,7 @@
 - Release v2.1.5-2025.XX 🎉
 - Fixed TorrentPier build-in emojis showing in ACP
 - Fixed displaying `Network news` and `Latest news` for guests when forums are private
+- Fixed displaying topics from private forums in Atom feed
 - Added `xl` (eXact Length) parameter for magnet links
 - Added confirmation on rank deleting
 - Some other changes / improvements
