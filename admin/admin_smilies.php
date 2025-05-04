@@ -216,6 +216,7 @@ else if ( $mode != '' )
 	switch( $mode )
 	{
 		case 'delete':
+			$confirmed = isset($_POST['confirm']);
 			$smiley_id = ( !empty($_POST['id']) ) ? $_POST['id'] : $_GET['id'];
 			$smiley_id = intval($smiley_id);
 
