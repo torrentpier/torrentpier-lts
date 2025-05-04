@@ -8,6 +8,7 @@
 - Fixed displaying `Network news` and `Latest news` for guests when forums are private
 - Fixed displaying topics from private forums in Atom feed
 - Fixed `Undefined array key "smile"` when are no smilies
+- Fixed incorrect rounding in execution time counter
 - Added `xl` (eXact Length) parameter for magnet links
 - Added confirmation on smilie deleting
 - Added confirmation on rank deleting
