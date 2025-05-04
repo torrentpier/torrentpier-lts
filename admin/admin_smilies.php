@@ -18,6 +18,11 @@ else
 	$mode = '';
 }
 
+if ($mode == 'delete' && isset($_POST['cancel']))
+{
+	$mode = '';
+}
+
 $delimeter  = '=+:';
 $s_hidden_fields = '';
 $smiley_paks = array();
