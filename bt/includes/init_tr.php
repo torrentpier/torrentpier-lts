@@ -21,9 +21,9 @@ function tracker_exit ()
 
 			$str = array();
 			$str[] = substr(TIMENOW, -4, 4);
-			$str[] = sprintf('%.4f', $gen_time);
-			$str[] = sprintf('%.4f'. LOG_SEPR .'%02d%%', $DBS->sql_inittime, $sql_init_perc);
-			$str[] = sprintf('%.4f'. LOG_SEPR .'%02d%%', $DBS->sql_timetotal, $sql_total_perc);
+			$str[] = sprintf('%.3f', $gen_time);
+			$str[] = sprintf('%.3f'. LOG_SEPR .'%02d%%', $DBS->sql_inittime, $sql_init_perc);
+			$str[] = sprintf('%.3f'. LOG_SEPR .'%02d%%', $DBS->sql_timetotal, $sql_total_perc);
 			$str[] = $DBS->num_queries;
 			if ($l = sys('la'))
 			{
@@ -425,7 +425,7 @@ class sql_db
 
 			if (SQL_LOG_SLOW_QUERIES && $this->sql_last_time > $this->slow_time)
 			{
-				$q_time = ($this->sql_last_time >= 10) ? round($this->sql_last_time, 0) : sprintf('%.4f', $this->sql_last_time);
+				$q_time = ($this->sql_last_time >= 10) ? round($this->sql_last_time, 0) : sprintf('%.3f', $this->sql_last_time);
 				$msg  = round($this->sql_starttime) . LOG_SEPR;
 				$msg .= date('m-d H:i:s', $this->sql_starttime) . LOG_SEPR;
 				$msg .= sprintf('%-6s', $q_time);

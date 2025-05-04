@@ -862,7 +862,7 @@ class sql_db
 	*/
 	function log_query ($log_file = 'sql_queries')
 	{
-		$q_time = ($this->cur_query_time >= 10) ? round($this->cur_query_time, 0) : sprintf('%.4f', $this->cur_query_time);
+		$q_time = ($this->cur_query_time >= 10) ? round($this->cur_query_time, 0) : sprintf('%.3f', $this->cur_query_time);
 		$msg = array();
 		$msg[] = round($this->sql_starttime);
 		$msg[] = date('m-d H:i:s', $this->sql_starttime);
@@ -972,7 +972,7 @@ class sql_db
 				$htid = 'expl-'. intval($this->link) .'-'. $id;
 				$dbg  = $this->dbg[$id];
 
-				$query_time = SQL_CALC_QUERY_TIME ? ('&nbsp;[' . sprintf('%.4f', $dbg['time']) . 's]&nbsp;') : '&nbsp;';
+				$query_time = SQL_CALC_QUERY_TIME ? ('&nbsp;[' . sprintf('%.3f', $dbg['time']) . 's]&nbsp;') : '&nbsp;';
 				$this->explain_out .= '
 					<table width="98%" cellpadding="0" cellspacing="0" class="bodyline row2 bCenter" style="border-bottom: 0px;">
 						<tr>
