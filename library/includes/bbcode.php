@@ -109,7 +109,7 @@ function generate_smilies($mode)
 
 	$data = $datastore->get('smile_replacements');
 
-	if ($sql = $data['smile'])
+	if (isset($data['smile']) && $sql = $data['smile'])
 	{
 		$num_smilies = 0;
 		$rowset = array();
