@@ -220,15 +220,24 @@ else if ( $mode != '' )
 			$smiley_id = ( !empty($_POST['id']) ) ? $_POST['id'] : $_GET['id'];
 			$smiley_id = intval($smiley_id);
 
-			$sql = "DELETE FROM " . BB_SMILIES . " WHERE smilies_id = " . $smiley_id;
-			$result = DB()->sql_query($sql);
-			if (!$result)
+			if ($confirmed)
 			{
-				bb_die('Could not delete smiley');
-			}
-			$datastore->update('smile_replacements');
+				$sql = "DELETE FROM " . BB_SMILIES . " WHERE smilies_id = " . $smiley_id;
+				$result = DB()->sql_query($sql);
+				if (!$result)
+				{
+					bb_die('Could not delete smiley');
+				}
+				$datastore->update('smile_replacements');
 
-			bb_die($lang['SMILEY_DEL_SUCCESS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_SMILEADMIN'], '<a href="admin_smilies.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
+				bb_die($lang['SMILEY_DEL_SUCCESS'] . '<br /><br />' . sprintf($lang['CLICK_RETURN_SMILEADMIN'], '<a href="admin_smilies.php">', '</a>') . '<br /><br />' . sprintf($lang['CLICK_RETURN_ADMIN_INDEX'], '<a href="index.php?pane=right">', '</a>'));
+			}
+			else
+			{
+				$hidden_fields = '<input type="hidden" name="mode" value="' . $mode . '" />';
+				$hidden_fields .= '<input type="hidden" name="id" value="' . $smiley_id . '" />';
+				
+			}
 			break;
 
 		case 'edit':
