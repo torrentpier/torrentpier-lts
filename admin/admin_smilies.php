@@ -236,7 +236,11 @@ else if ( $mode != '' )
 			{
 				$hidden_fields = '<input type="hidden" name="mode" value="' . $mode . '" />';
 				$hidden_fields .= '<input type="hidden" name="id" value="' . $smiley_id . '" />';
-				
+
+				print_confirmation(array(
+					'FORM_ACTION'   => "admin_smilies.php",
+					'HIDDEN_FIELDS' => $hidden_fields,
+				));
 			}
 			break;
 
