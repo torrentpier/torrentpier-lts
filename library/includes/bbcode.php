@@ -792,12 +792,6 @@ class bbcode
 		{
 			$this->smilies = $datastore->get('smile_replacements');
 		}
-		if ($this->smilies)
-		{
-			$parsed_text = preg_replace($this->smilies['orig'], $this->smilies['repl'], $text);
-			$text = $parsed_text;
-		}
-
 		if (defined('IN_ADMIN'))
 		{
 			foreach ($this->smilies['repl'] as &$smile)
@@ -805,6 +799,11 @@ class bbcode
 				$smile = preg_replace('/src="([^"]+)"/', 'src="./../$1"', $smile);
 			}
 			unset($smile);
+		}
+		if ($this->smilies)
+		{
+			$parsed_text = preg_replace($this->smilies['orig'], $this->smilies['repl'], $text);
+			$text = $parsed_text;
 		}
 
 		return $text;
