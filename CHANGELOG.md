@@ -9,6 +9,7 @@
 - Fixed displaying topics from private forums in Atom feed
 - Fixed `Undefined array key "smile"` when are no smilies
 - Added `xl` (eXact Length) parameter for magnet links
+- Added confirmation on smilie deleting
 - Added confirmation on rank deleting
 - Some other changes / improvements
 
