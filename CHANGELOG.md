@@ -4,6 +4,9 @@
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.XX)
 
 - Release v2.1.5-2025.XX 🎉
+- Modified SQL queries in `online_userlist.php` to use MAX() for session data and adjusted GROUP BY clause for better accuracy
+- Replace non-aggregated `'seeder'` column with MAX(seeder) in GROUP BY query
+- Fixed duplicate column SQL query issues in `viewtopic.php`
 - Fixed TorrentPier build-in emojis showing in ACP
 - Fixed displaying `Network news` and `Latest news` for guests when forums are private
 - Fixed displaying topics from private forums in Atom feed
