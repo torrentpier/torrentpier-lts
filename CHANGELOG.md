@@ -1,9 +1,9 @@
 # 📖 Change Log
 
-## [v2.1.5-2025.XX [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.XX) (2025-XX-XX)
-[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.XX)
+## [v2.1.5-2025.06 [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.06) (2025-06-25)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.06)
 
-- Release v2.1.5-2025.XX 🎉
+- Release v2.1.5-2025.06 🎉
 - Modified SQL queries in `online_userlist.php` to use MAX() for session data and adjusted GROUP BY clause for better accuracy
 - Replace non-aggregated `'seeder'` column with MAX(seeder) in GROUP BY query
 - Fixed duplicate column SQL query issues in `viewtopic.php`
