@@ -60,7 +60,7 @@ class torrent
 		{
 			if (!empty($this->files_ary['/']))
 			{
-				$this->files_ary = array_merge($this->files_ary, $this->files_ary['/']);
+				$this->files_ary = $this->files_ary + $this->files_ary['/'];
 				unset($this->files_ary['/']);
 			}
 			$filelist = $this->build_filelist_html();
