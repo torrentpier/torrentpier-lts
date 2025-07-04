@@ -119,6 +119,7 @@ $template->assign_vars(array(
 	'USER_HIDE_CAT'      => (BB_SCRIPT == 'index'),
 
 	'USER_LANG'          => $userdata['user_lang'],
+	'USER_LANG_DIRECTION' => (isset($bb_cfg['lang'][$userdata['user_lang']]['rtl']) && $bb_cfg['lang'][$userdata['user_lang']]['rtl'] === true) ? 'rtl' : 'ltr',
 
 	'INCLUDE_BBCODE_JS'  => !empty($page_cfg['include_bbcode_js']),
 	'USER_OPTIONS_JS'    => (IS_GUEST) ? '{}' : Zend\Json\Json::encode($user->opt_js),
