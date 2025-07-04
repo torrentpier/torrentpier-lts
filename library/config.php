@@ -244,16 +244,19 @@ $bb_cfg['lang'] = array(
 		'name'     => 'Русский',
 		'locale'   => 'ru_RU.UTF-8',
 		'encoding' => 'UTF-8',
+		'rtl'      => false,
 	),
 	'uk' => array(
 		'name'     => 'Український',
 		'locale'   => 'uk_UA.UTF-8',
 		'encoding' => 'UTF-8',
+		'rtl'      => false,
 	),
 	'en' => array(
 		'name'     => 'English',
 		'locale'   => 'en_US.UTF-8',
 		'encoding' => 'UTF-8',
+		'rtl'      => false,
 	),
 );
 
