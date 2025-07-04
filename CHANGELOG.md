@@ -1,5 +1,11 @@
 # 📖 Change Log
 
+## [v2.1.5-2025.XX [Final v13]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.XX) (2025-XX-XX)
+[Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.06...v2.1.5-2025.XX)
+
+- Release v2.1.5-2025.XX 🎉
+- Add no-cache headers to prevent browser caching of redirects
+
 ## [v2.1.5-2025.06 [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.06) (2025-06-25)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.06)
 
