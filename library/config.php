@@ -158,7 +158,8 @@ $bb_cfg['show_dl_status_in_forum']  = true; // показывать DL-стат�
 $bb_cfg['show_tor_info_in_dl_list'] = true;
 $bb_cfg['allow_dl_list_names_mode'] = true;
 
-$bb_cfg['torrent_name_style'] = true; // использовать имя файла в названии торрент-файла (Пример: [yoursite.com].txxx.torrent)
+$bb_cfg['use_real_filename_torrents'] = false; // use original torrent filename for downloads. If disabled, filename will be generated automatically
+$bb_cfg['torrent_name_style'] = true; // использовать имя файла в названии торрент-файла (Пример: [yoursite.com].txxx.torrent). Работает если выключено use_real_filename_torrents
 $bb_cfg['tor_help_links']     = '<div class="mrg_2"><a target="_blank" class="genmed" href="https://torrentpier.com/forums/osnovnye-voprosy-po-torrentpier.10/">Полезная информация</a></div>'; // дополнительная информация (полезные ссылки например) в топике снизу раздачи
 
 // Сколько дней сохранять торрент зарегистрированным / Days to keep torrent registered, if:
