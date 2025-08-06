@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2025.XX 🎉
 - Added `RTL` languages support
+- Added checking auth to download in `view_torrent.php`
 - Add option to use original torrent filenames for downloads
 - Add clear button for file upload input in `posting_attach.tpl`
 - Fix: Add no-cache headers to prevent browser caching of redirects
