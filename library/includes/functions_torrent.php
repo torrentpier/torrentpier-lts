@@ -588,7 +588,16 @@ function send_torrent_with_passkey ($filename)
 
 	// Send torrent
 	$output   = bencode($tor);
-	$dl_fname = ($bb_cfg['torrent_name_style'] ? '['.$bb_cfg['server_name'].'].t' . $topic_id . '.' . TORRENT_EXT : clean_filename(basename($attachment['real_filename'])));
+
+	if ($bb_cfg['use_real_filename_torrents'])
+	{
+		$real_filename = clean_filename(basename($attachment['real_filename']));
+		$dl_fname = $real_filename;
+	}
+	else
+	{
+		$dl_fname = '['.$bb_cfg['server_name'].'].t' . $topic_id . '.' . TORRENT_EXT;
+	}
 
 	if (!empty($_COOKIE['explain']))
 	{
