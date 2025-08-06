@@ -7,6 +7,7 @@
 - Added `RTL` languages support
 - Fix: Add no-cache headers to prevent browser caching of redirects
 - Fix: Avoid `array_merge` reindexing for numeric folder names
+- Remove redundant `dir` and `lang` attributes from html tag
 
 ## [v2.1.5-2025.06 [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.06) (2025-06-25)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.06)

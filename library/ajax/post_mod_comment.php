@@ -15,7 +15,7 @@ $post = DB()->fetch_row("
 	FROM      ". BB_POSTS      ." p
 	WHERE p.post_id = $post_id
 ");
-if (!$post) $this->ajax_die('not post');
+if (!$post) $this->ajax_die($lang['TOPIC_POST_NOT_EXIST']);
 
 $data = array(
 	'mc_comment' => ($mc_type) ? $mc_text : '',
