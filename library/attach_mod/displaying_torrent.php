@@ -65,6 +65,7 @@ $tracker_status = $attachments['_'. $post_id][$i]['tracker_status'];
 $download_count = $attachments['_'. $post_id][$i]['download_count'];
 $tor_file_size  = humn_size($attachments['_'. $post_id][$i]['filesize']);
 $tor_file_time  = bb_date($attachments['_'. $post_id][$i]['filetime']);
+$real_filename  = clean_filename(basename($attachments['_' . $post_id][$i]['real_filename']));
 
 $tor_reged = (bool) $tracker_status;
 $show_peers = (bool) $bb_cfg['bt_show_peers'];
@@ -88,9 +89,16 @@ if ($tor_auth_reg || $tor_auth_del)
 	$tracker_link = ($tor_reged) ? $unreg_tor_url : $reg_tor_url;
 }
 
-if ($bb_cfg['torrent_name_style'])
+if ($bb_cfg['use_real_filename_torrents'])
 {
-	$display_name = '['.$bb_cfg['server_name'].'].t' . $bt_topic_id . '.' . TORRENT_EXT;
+	$display_name = $real_filename;
+}
+else
+{
+	if ($bb_cfg['torrent_name_style'])
+	{
+		$display_name = '['.$bb_cfg['server_name'].'].t' . $bt_topic_id . '.' . TORRENT_EXT;
+	}
 }
 
 if (!$tor_reged)
