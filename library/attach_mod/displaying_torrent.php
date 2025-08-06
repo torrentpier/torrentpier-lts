@@ -99,6 +99,10 @@ else
 	{
 		$display_name = '['.$bb_cfg['server_name'].'].t' . $bt_topic_id . '.' . TORRENT_EXT;
 	}
+	else
+	{
+		$display_name = $real_filename;
+	}
 }
 
 if (!$tor_reged)
