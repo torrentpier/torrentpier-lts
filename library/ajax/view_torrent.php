@@ -2,7 +2,7 @@
 
 if (!defined('IN_AJAX')) die(basename(__FILE__));
 
-global $lang;
+global $lang, $userdata;
 
 if (!isset($this->request['attach_id']))
 {
@@ -13,9 +13,19 @@ $attach_id = (int) $this->request['attach_id'];
 global $bnc_error;
 $bnc_error = 0;
 
-$torrent = DB()->fetch_row("SELECT at.attach_id, at.physical_filename FROM ". BB_ATTACHMENTS_DESC ." at WHERE at.attach_id = $attach_id LIMIT 1");
+$torrent = DB()->fetch_row("
+	SELECT at.attach_id, at.physical_filename, tor.forum_id
+	FROM ". BB_ATTACHMENTS_DESC ." at
+	INNER JOIN " . BB_BT_TORRENTS . " tor ON (at.attach_id = tor.attach_id)
+	WHERE at.attach_id = $attach_id LIMIT 1");
 if (!$torrent) $this->ajax_die($lang['EMPTY_ATTACH_ID']);
 $filename = get_attachments_dir() .'/'. $torrent['physical_filename'];
+
+// Check rights
+$is_auth = auth(AUTH_ALL, $torrent['forum_id'], $userdata);
+if (!$is_auth['auth_view']) {
+	$this->ajax_die($lang['SORRY_AUTH_VIEW_ATTACH']);
+}
 
 if (($file_contents = @file_get_contents($filename)) === false)
 {
