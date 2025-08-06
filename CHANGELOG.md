@@ -5,6 +5,7 @@
 
 - Release v2.1.5-2025.XX 🎉
 - Added `RTL` languages support
+- Add clear button for file upload input in `posting_attach.tpl`
 - Fix: Add no-cache headers to prevent browser caching of redirects
 - Fix: Avoid `array_merge` reindexing for numeric folder names
 - Remove redundant `dir` and `lang` attributes from html tag
