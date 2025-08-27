@@ -100,7 +100,7 @@ switch ($mode)
 		{
 			bb_die($lang['POST_HAS_NO_POLL']);
 		}
-		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = 1 WHERE topic_id = $topic_id LIMIT 1");
+		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = " . POLL_STARTED . " WHERE topic_id = $topic_id LIMIT 1");
 		bb_die($lang['NEW_POLL_START']);
 		break;
 
@@ -220,12 +220,12 @@ class bb_poll
 
 		DB()->query("REPLACE INTO ". BB_POLL_VOTES . $sql_args);
 
-		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = 1 WHERE topic_id = $topic_id LIMIT 1");
+		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = " . POLL_STARTED . " WHERE topic_id = $topic_id LIMIT 1");
 	}
 
 	function delete_poll ($topic_id)
 	{
-		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = 0 WHERE topic_id = $topic_id LIMIT 1");
+		DB()->query("UPDATE ". BB_TOPICS ." SET topic_vote = " . POLL_DELETED . " WHERE topic_id = $topic_id LIMIT 1");
 		$this->delete_votes_data($topic_id);
 	}
 

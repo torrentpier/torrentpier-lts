@@ -2357,7 +2357,7 @@ function get_poll_data_items_js ($topic_id)
 function poll_is_active ($t_data)
 {
 	global $bb_cfg;
-	return ($t_data['topic_vote'] == 1 && $t_data['topic_time'] > TIMENOW - $bb_cfg['poll_max_days'] * 86400);
+	return ($t_data['topic_vote'] == POLL_STARTED && $t_data['topic_time'] > TIMENOW - $bb_cfg['poll_max_days'] * 86400);
 }
 
 function print_confirmation ($tpl_vars)
