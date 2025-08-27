@@ -2880,11 +2880,12 @@ function hash_search ($hash)
 
 function bb_captcha ($mode, $callback = '')
 {
-	global $bb_cfg, $lang;
+	global $bb_cfg, $lang, $userdata;
 
 	$secret = $bb_cfg['captcha']['secret_key'];
 	$public = $bb_cfg['captcha']['public_key'];
 	$theme  = isset($bb_cfg['captcha']['theme']) ? $bb_cfg['captcha']['theme'] : 'light';
+	$lang_c = $userdata['user_lang'];
 
 	if (!$bb_cfg['captcha']['disabled'] && (!$public || !$secret))
 	{
@@ -2908,7 +2909,7 @@ function bb_captcha ($mode, $callback = '')
 					};
 				</script>
 				<div id=\"tp-captcha\"></div>
-				<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit\" async defer></script>";
+				<script src=\"https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=$lang_c\" async defer></script>";
 			break;
 
 		case 'check':
