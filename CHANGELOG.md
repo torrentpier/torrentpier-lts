@@ -11,6 +11,7 @@
 - Fix localization issue with missing nested language keys
 - Fix: Add no-cache headers to prevent browser caching of redirects
 - Fix: Avoid `array_merge` reindexing for numeric folder names
+- Enhance client IP detection with trusted proxy validation
 - Remove redundant `dir` and `lang` attributes from html tag
 
 ## [v2.1.5-2025.06 [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.06) (2025-06-25)
