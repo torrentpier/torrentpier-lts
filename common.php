@@ -37,11 +37,44 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Powered-By: TorrentPier LTS Forever!');
 date_default_timezone_set('UTC');
 
-// Cloudflare
-if (isset($_SERVER['HTTP_CF_CONNECTING_IP']))
-{
-	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+// Set remote address
+$trustedProxies = [
+	// Optional trusted proxy validation (empty array = disabled)
+	// '127.0.0.1'
+];
+
+$allowedCDNs = [
+	'HTTP_CF_CONNECTING_IP',
+	'HTTP_FASTLY_CLIENT_IP',
+	'HTTP_X_REAL_IP',
+	'HTTP_X_FORWARDED_FOR',
+	// Add your custom headers here if needed
+	// Example: 'HTTP_TRUE_CLIENT_IP',        // Akamai
+	// Example: 'HTTP_X_CLIENT_IP',           // Custom proxy
+	// Example: 'HTTP_INCAP_CLIENT_IP',       // Incapsula
+];
+
+if (empty($trustedProxies) || in_array($_SERVER['REMOTE_ADDR'], $trustedProxies)) {
+	foreach ($allowedCDNs as $header) {
+		if (!isset($_SERVER[$header])) {
+			continue;
+		}
+
+		if ($header === 'HTTP_X_FORWARDED_FOR') {
+			// Handle X-Forwarded-For which may contain multiple IPs
+			$ips = explode(',', $_SERVER[$header]);
+			$clientIP = trim($ips[0]);
+		} else {
+			$clientIP = $_SERVER[$header];
+		}
+
+		if (filter_var($clientIP, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+			$_SERVER['REMOTE_ADDR'] = $clientIP;
+			break;
+		}
+	}
 }
+unset($trustedProxies, $clientIP, $allowedCDNs);
 
 // Get initial config
 if (file_exists(BB_ROOT . 'library/config.local.php'))
