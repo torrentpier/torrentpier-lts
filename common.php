@@ -460,6 +460,18 @@ function array_deep (&$var, $fn, $one_dimensional = false, $array_only = false)
 	}
 }
 
+function array_deep_merge($base, $overlay)
+{
+	foreach ($overlay as $key => $value) {
+		if (is_array($value) && isset($base[$key]) && is_array($base[$key])) {
+			$base[$key] = array_deep_merge($base[$key], $value);
+		} else {
+			$base[$key] = $value;
+		}
+	}
+	return $base;
+}
+
 function hide_bb_path ($path)
 {
 	return ltrim(str_replace(BB_PATH, '', $path), '/\\');

@@ -8,6 +8,7 @@
 - Added checking auth to download in `view_torrent.php`
 - Add option to use original torrent filenames for downloads
 - Add clear button for file upload input in `posting_attach.tpl`
+- Fix localization issue with missing nested language keys
 - Fix: Add no-cache headers to prevent browser caching of redirects
 - Fix: Avoid `array_merge` reindexing for numeric folder names
 - Remove redundant `dir` and `lang` attributes from html tag

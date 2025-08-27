@@ -2139,16 +2139,18 @@ function get_topic_title ($topic_id)
 
 function forum_exists ($forum_id = null)
 {
-	if (!isset($forum_id))
+	if ($forum_id === null)
 	{
-		return DB()->fetch_row("SELECT * FROM " . BB_FORUMS . " LIMIT 1");
+		return DB()->fetch_row("SELECT 1 FROM " . BB_FORUMS . " LIMIT 1");
 	}
 
+	$forum_id = (int)$forum_id;
 	return DB()->fetch_row("SELECT forum_id FROM ". BB_FORUMS ." WHERE forum_id = $forum_id LIMIT 1");
 }
 
 function cat_exists ($cat_id)
 {
+	$cat_id = (int)$cat_id;
 	return DB()->fetch_row("SELECT cat_id FROM ". BB_CATEGORIES ." WHERE cat_id = $cat_id LIMIT 1");
 }
 
