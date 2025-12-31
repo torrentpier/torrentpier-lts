@@ -13,6 +13,7 @@
 - Fix: Avoid `array_merge` reindexing for numeric folder names
 - Enhance client IP detection with trusted proxy validation
 - Remove redundant `dir` and `lang` attributes from html tag
+- Included all security patch up to 10.25
 
 ## [v2.1.5-2025.06 [Final v12]](https://github.com/torrentpier/torrentpier-lts/tree/v2.1.5-2025.06) (2025-06-25)
 [Full Changelog](https://github.com/torrentpier/torrentpier-lts/compare/v2.1.5-2025.04...v2.1.5-2025.06)
